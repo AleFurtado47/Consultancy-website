@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ale Furtado — print card (Vistaprint)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --paper:#F7F6F2; --ink:#17181B; --grey:#54534D; --grey-soft:#8C8B84; --line:#E4E3DC; --blue:#2747E0;
+    --serif:'Playfair Display',Georgia,serif; --sans:'Inter',Arial,sans-serif; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#c9c9c4;font-family:var(--sans);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  .note{max-width:540px;margin:24px auto;background:#fff;border:1px solid #ddd;border-radius:10px;padding:18px 22px;font-size:14px;color:#333;line-height:1.65}
+  .note h2{font-size:16px;margin-bottom:8px}
+  .note b{color:#111}
+  .note code{background:#f2f2f2;padding:1px 5px;border-radius:4px}
+  .note ol{margin:8px 0 0 18px}
+
+  .sheet{display:flex;flex-direction:column;align-items:center;gap:18px;padding:20px}
+  .face{width:91mm;height:61mm;background:var(--paper);position:relative;overflow:hidden;color:var(--ink);border-radius:4mm}
+  .safe{position:absolute;inset:9mm}
+
+  /* FRONT */
+  .front .safe{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .front .name{font-family:var(--serif);font-size:25pt;line-height:1;letter-spacing:-.01em;margin-top:4mm}
+  .front .role{font-size:6.2pt;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-top:3mm;line-height:1.55}
+
+  /* BACK */
+  .back .safe{display:flex;align-items:center;gap:7mm}
+  .back .col{flex:1;min-width:0}
+  .back .mark{margin-bottom:3mm}
+  .back .bn{font-family:var(--serif);font-size:13pt;line-height:1}
+  .back .brole{font-size:5.2pt;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-top:1.6mm;line-height:1.5;max-width:42mm}
+  .back .details{margin-top:4mm}
+  .back .row{display:flex;align-items:baseline;gap:2.5mm;margin-top:1.7mm}
+  .back .k{font-size:5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-soft);width:11mm;flex:none}
+  .back .v{font-size:7.6pt;line-height:1.2}
+  .back .qr{width:25mm;flex:none;text-align:center}
+  .back .qr img{width:25mm;height:25mm;display:block}
+  .back .qr span{display:block;font-size:5pt;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-soft);margin-top:1.6mm}
+
+  @media print{
+    body{background:#fff}
+    .note{display:none}
+    .sheet{gap:0;padding:0}
+    .face{page-break-after:always;border-radius:0}   /* full-bleed rectangle; Vistaprint rounds the cut */
+    @page{ size:91mm 61mm; margin:0 }
+  }
+</style>
+</head>
+<body>
+  <div class="note">
+    <h2>Print card → PDF for Vistaprint</h2>
+    <b>1. Make the PDF:</b>
+    <ol>
+      <li>Open this file in <b>Chrome</b>, press <code>Ctrl+P</code></li>
+      <li>Destination: <b>Save as PDF</b> · Paper size: <b>Custom 91 × 61 mm</b> · Margins: <b>None</b> · <b>Background graphics: ON</b></li>
+      <li>Save → you get a 2-page PDF (page 1 = front, page 2 = back)</li>
+    </ol>
+    <b>2. On Vistaprint:</b> Standard Business Cards → size <b>85 × 55 mm</b> → <b>Rounded corners</b> → “Upload a full design” → upload the front and back.<br>
+    <b>Specs:</b> finished <b>85 × 55 mm</b>, <b>3 mm bleed</b> included (artboard 91 × 61 mm), all text kept safely clear of the corners for rounding. Colours are RGB — Vistaprint converts to CMYK. Fonts are embedded.<br>
+    <i>The QR opens your digital card (photo + all links + save contact).</i>
+  </div>
+
+  <div class="sheet">
+    <!-- FRONT -->
+    <div class="face front">
+      <div class="safe">
+        <svg width="66" height="43" viewBox="0 0 62 40" fill="none">
+          <line x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
+          <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F7F6F2" stroke-width="5" paint-order="stroke fill">A</text>
+          <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F7F6F2" stroke-width="5" paint-order="stroke fill">F</text>
+          <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
+        </svg>
+        <div class="name">Ale Furtado</div>
+        <div class="role">Strategic co-creation<br>for international organizations</div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="face back">
+      <div class="safe">
+        <div class="col">
+          <svg class="mark" width="38" height="25" viewBox="0 0 62 40" fill="none"><line x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/><text x="6" y="31" font-family="'Playfair Display',serif" font-size="26" fill="#17181B" stroke="#F7F6F2" stroke-width="5" paint-order="stroke fill">A</text><text x="35" y="31" font-family="'Playfair Display',serif" font-size="26" fill="#17181B" stroke="#F7F6F2" stroke-width="5" paint-order="stroke fill">F</text><circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/></svg>
+          <div class="bn">Ale Furtado</div>
+          <div class="brole">Strategic co-creation for international organizations</div>
+          <div class="details">
+            <div class="row"><span class="k">Email</span><span class="v">letstalk@alefurtado.org</span></div>
+            <div class="row"><span class="k">Phone</span><span class="v">+33 7 81 73 33 39</span></div>
+            <div class="row"><span class="k">Web</span><span class="v">alefurtado.org</span></div>
+            <div class="row"><span class="k">LinkedIn</span><span class="v">in/alessandra-gfurtado</span></div>
+          </div>
+        </div>
+        <div class="qr">
+          <img src="assets/qr-card.png" alt="QR — open card">
+          <span>Scan to connect</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

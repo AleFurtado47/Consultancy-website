@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="37"
+   viewBox="0 0 80 29.6"
+   version="1.1"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="Pepsico_logo.svg">
+  <title
+     id="title844">Inter-American Development Bank logo</title>
+  <metadata
+     id="metadata59">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Inter-American Development Bank logo</dc:title>
+        <cc:license
+           rdf:resource="http://scripts.sil.org/OFL" />
+        <dc:date>26 mayo 2020</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>EEIM</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>N/A</dc:title>
+          </cc:Agent>
+        </dc:rights>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://scripts.sil.org/OFL">
+        <cc:permits
+           rdf:resource="http://scripts.sil.org/pub/OFL/Reproduction" />
+        <cc:permits
+           rdf:resource="http://scripts.sil.org/pub/OFL/Distribution" />
+        <cc:permits
+           rdf:resource="http://scripts.sil.org/pub/OFL/Embedding" />
+        <cc:permits
+           rdf:resource="http://scripts.sil.org/pub/OFL/DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/Notice" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/Attribution" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/ShareAlike" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/DerivativeRenaming" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/BundlingWhenSelling" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs57">
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-height="705"
+     inkscape:window-width="1366"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="1"
+     gridtolerance="1"
+     objecttolerance="1"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="1"
+     inkscape:cx="27.311316"
+     inkscape:cy="-0.55848021"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:current-layer="svg2"
+     showgrid="false"
+     showguides="true"
+     inkscape:showpageshadow="false"
+     units="px"
+     inkscape:window-maximized="1"
+     inkscape:snap-path-clip="false"
+     inkscape:snap-path-mask="false"
+     inkscape:snap-perpendicular="false"
+     inkscape:snap-tangential="false" />
+  <g
+     id="#ffffffff"
+     transform="translate(0,-1111.4)" />
+  <g
+     id="#2acbffff-4"
+     transform="matrix(0.74035173,0,0,0.75447038,-840.95699,-797.55387)"
+     style="fill:#00ff00" />
+  <g
+     id="#000000ff-6"
+     transform="matrix(0.14544439,0,0,0.14544439,32.622855,-18.339333)" />
+  <g
+     transform="matrix(0.33519636,0,0,-0.32505346,0.32174295,29.475113)"
+     id="g10-8-5"
+     style="fill:#000000">
+    <g
+       transform="scale(0.1)"
+       id="g12-0-9"
+       style="fill:#000000">
+      <path
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.2710087"
+         d="m 229.27148,5.984375 c -46.24398,20.16682 -122.59699,46.052671 -102.11132,82.169922 25.1402,43.642643 170.7072,24.380763 121.66796,82.166013 -32.90069,38.82846 -48.10539,57.79347 -55.24804,71.03516 C 255.65602,223.59668 296.62329,162.19664 286.69336,96.28125 281.10533,58.057272 259.3783,25.853093 229.27148,5.984375 Z M 49.257812,41.503906 C 31.256661,67.686932 22.876087,100.49569 27.84375,134.50781 c 10.550235,71.62923 76.97186,121.29111 148.35742,110.75781 0.92992,-0.2971 1.86003,-0.5996 2.79297,-0.5996 30.7252,-62.60657 -35.38301,-63.2035 -14.89844,-96.61329 C 183.33745,117.05125 46.152103,117.05088 49.257812,41.503906 Z M 326.9668,42.552734 V 203.57422 h 39.10742 V 62.115234 c 0,-10.837604 -8.69317,-19.5625 -19.55274,-19.5625 z m 213.97461,0.283204 V 203.56055 h 76.6582 c 38.48734,0 60.83594,-16.55436 60.83594,-45.14649 v -0.30859 c -0.31374,-18.3582 -8.38241,-30.39474 -26.69727,-38.82031 11.79802,-8.12907 17.69531,-18.96277 17.69531,-33.109379 v -0.603515 c 0,-11.43701 -3.72831,-20.465033 -11.48632,-28.289063 -9.6184,-9.632655 -24.20352,-14.447265 -42.51563,-14.447265 z M 381.30078,42.947266 V 203.66797 h 63.00195 c 23.90151,0 45.93826,-8.12828 61.45704,-23.17774 15.21055,-14.74281 23.89257,-34.91103 23.89257,-57.18164 v -0.60156 C 529.97158,76.353716 493.9641,42.947266 444.61719,42.947266 Z M 159.88867,73.707031 c 17.9573,-0.468865 35.73982,17.665601 16.6211,17.15625 -22.34523,-0.901777 -31.34503,-12.039695 -26.38282,-14.746093 3.10409,-1.599385 6.4363,-2.32333 9.76172,-2.410157 z m 419.22852,4.341797 h 31.3457 c 9.00469,0 20.17188,2.410199 20.17188,13.542969 v 0.302734 c 0,9.329219 -7.44614,14.146489 -22.34571,14.146489 H 579.11719 Z M 420.7168,78.761719 h 23.90039 C 471.30927,78.761719 489,96.520825 489,123.30859 v 0.29883 c 0,26.48433 -17.99896,44.2461 -44.38281,44.2461 H 420.7168 Z m -226.87891,8.423828 c 1.38569,0.04112 3.32895,0.423198 5.94727,1.269531 12.10679,3.912682 10.24725,9.632706 2.17578,9.029297 -6.80915,-0.760874 -15.60579,-10.520903 -8.12305,-10.298828 z m 22.65039,14.500003 c 0.31167,-0.008 0.64105,-0.003 0.99024,0.0156 5.58692,0 13.65716,7.22168 1.86328,4.81445 -7.85623,-1.69458 -7.52848,-4.70952 -2.85352,-4.83007 z m 362.62891,37.76367 h 37.24609 c 15.2023,0 22.96289,4.81461 22.96289,14.44726 v 0.30274 c -0.31098,9.92755 -7.44657,14.74805 -22.03515,14.74805 h -38.17383 z"
+         transform="matrix(3.6336621,0,0,-3.7470459,-96.042864,924.30073)"
+         id="path14-5-7-2"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path20-5-4"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         d="M 501.355,370.691 C 425.793,245.488 667.145,243.23 555.484,8.65234 552.105,7.52734 548.727,7.52734 545.336,6.39453 284.82,-33.0664 43.4688,153.02 5.13281,421.438 -12.918,548.867 18.668,671.797 82.9414,769.91 71.6563,486.836 571.277,486.836 501.355,370.691 M 607.359,19.9336 C 633.313,69.5508 688.563,141.738 808.113,286.105 987.434,502.629 457.367,430.449 366.016,593.98 291.578,729.313 570.145,826.309 738.191,901.875 847.59,827.426 926.531,706.758 946.832,562.402 982.926,317.676 832.922,86.4766 607.359,19.9336 M 450.602,640.219 c -18.047,-10.145 13.539,-53.008 95.867,-55.27 81.203,-2.254 -23.692,94.742 -95.867,55.27 M 631.051,593.98 c -60.906,20.301 -21.434,-30.449 7.894,-33.839 29.325,-2.246 34.957,19.175 -7.894,33.839 m 63.152,-49.621 c -20.301,1.129 -23.68,-11.285 6.77,-18.05 42.855,-9.02 13.531,18.05 -6.77,18.05"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

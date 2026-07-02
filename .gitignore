@@ -1,0 +1,8 @@
+# Private documents — never publish
+*.docx
+*.pdf
+*.odt
+
+# Local workspace
+.claude/
+.netlify/
