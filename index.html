@@ -471,10 +471,7 @@
 
     var k=R(q('.hero h1')), l=R(q('.hero p.lede'));
     var hc=conn([[Lx,k.t+6],[Lx,l.b+44],[clX+330,l.b+44]], q('#hero'));
-    if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
-      var hd=Math.max(0, 4400 - performance.now());
-      if(hd>0){ hc.p.style.transitionDelay=hd+'ms'; hc.d[0].style.transitionDelay=hd+'ms'; hc.d[1].style.transitionDelay=hd+'ms'; }
-    }
+    hc.waitHero=true;
 
     var sp=document.querySelectorAll('#statement p');
     var sp0=R(sp[0]), spL=R(sp[sp.length-1]);
@@ -508,16 +505,26 @@
     reveal();
   }
 
+  var heroDone=!matchMedia('(prefers-reduced-motion: no-preference)').matches;
+
   function reveal(){
     if(!enabled) return;
     var vh=window.innerHeight;
     conns.forEach(function(c){
       if(c.drawn||!c.sec) return;
+      if(c.waitHero&&!heroDone) return;
       var r=c.sec.getBoundingClientRect();
       if(r.top < vh*0.9 && r.bottom > 0){ c.drawn=true; c.p.style.strokeDashoffset=0; c.d[0].style.opacity='1'; c.d[1].style.opacity='1'; }
     });
   }
   window.addEventListener('scroll', reveal, {passive:true});
+
+  if(!heroDone){
+    var ctas=document.querySelector('.hero-ctas');
+    var releaseHero=function(){ if(!heroDone){ heroDone=true; reveal(); } };
+    if(ctas){ ctas.addEventListener('animationend', releaseHero, {once:true}); }
+    setTimeout(releaseHero, 8000);
+  }
 
   function onResize(){ clearTimeout(rt); rt=setTimeout(build, 170); }
   window.addEventListener('resize', onResize);
