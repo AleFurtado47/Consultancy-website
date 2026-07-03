@@ -35,7 +35,7 @@
   .nav-links a{transition:color .2s;position:relative;white-space:nowrap} .nav-links a:hover{color:var(--blue)}
   .afmark{display:block}
   .afmark .afline{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .55s cubic-bezier(.6,.02,.2,1)}
-  .brand:hover .afline{stroke-dashoffset:0}
+  .brand.af-drawn .afline{stroke-dashoffset:0}
   .nav-cta{font-size:13px;border:0.5px solid var(--ink);border-radius:30px;padding:8px 16px;transition:all .2s;white-space:nowrap}
   .nav-cta:hover{background:var(--ink);color:var(--paper)}
 
@@ -83,15 +83,15 @@
     .hero-ctas{margin-top:clamp(18px,4.5vh,46px)}
   }
   @media (prefers-reduced-motion:no-preference){
-    .qs::before{animation:qsLine 1.5s cubic-bezier(.6,.02,.2,1) .2s both}
+    .qs::before{animation:qsLine 2.4s cubic-bezier(.6,.02,.2,1) .2s both}
     .qs .q{opacity:0;animation:qIn .7s cubic-bezier(.2,.6,.2,1) both}
-    .qs .q:nth-child(1){animation-delay:.3s}
-    .qs .q:nth-child(2){animation-delay:.8s}
-    .qs .q:nth-child(3){animation-delay:1.3s}
+    .qs .q:nth-child(1){animation-delay:.35s}
+    .qs .q:nth-child(2){animation-delay:1.35s}
+    .qs .q:nth-child(3){animation-delay:2.35s}
     .hero h1,.hero .lede,.hero-ctas{opacity:0;animation:qIn .8s ease-out both}
-    .hero h1{animation-delay:1.75s}
-    .hero .lede{animation-delay:1.95s}
-    .hero-ctas{animation-delay:2.15s}
+    .hero h1{animation-delay:3.5s}
+    .hero .lede{animation-delay:3.75s}
+    .hero-ctas{animation-delay:3.95s}
   }
   @keyframes qsLine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
   @keyframes qIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -520,6 +520,20 @@
   if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(build); }
   window.addEventListener('load', build);
   setTimeout(build, 350);
+
+  var brand = document.querySelector('.brand');
+  if (brand) {
+    setTimeout(function(){ brand.classList.add('af-drawn'); }, 450);
+    brand.addEventListener('mouseenter', function(){
+      var l = brand.querySelector('.afline');
+      if (!l) return;
+      l.style.transition = 'none';
+      brand.classList.remove('af-drawn');
+      l.getBoundingClientRect();
+      l.style.transition = '';
+      brand.classList.add('af-drawn');
+    });
+  }
 })();
 </script>
 </body>
