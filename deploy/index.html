@@ -74,6 +74,14 @@
     .qs .q:nth-child(odd)::after{right:auto;left:-35px}
     .qs .q:nth-child(even)::after{left:-35px}
   }
+  @media(min-width:701px){
+    .hero{padding:clamp(30px,4vh,56px) 0 clamp(46px,8vh,88px)}
+    .qs{margin-bottom:clamp(38px,6vh,66px)}
+    .qs .q{margin-bottom:clamp(26px,4.5vh,46px)}
+    .qs .q:last-child{margin-bottom:0}
+    .hero h1{margin-bottom:clamp(16px,2.5vh,26px)}
+    .hero-ctas{margin-top:clamp(24px,4.5vh,46px)}
+  }
   @media (prefers-reduced-motion:no-preference){
     .qs::before{animation:qsLine 1.5s cubic-bezier(.6,.02,.2,1) .2s both}
     .qs .q{opacity:0;animation:qIn .7s cubic-bezier(.2,.6,.2,1) both}
