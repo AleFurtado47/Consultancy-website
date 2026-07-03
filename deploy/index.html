@@ -53,6 +53,16 @@
   .btn.ghost:hover{background:var(--ink);color:var(--paper)}
   .hero .btn{margin-top:34px}
 
+  /* v2: question-led hero (problem-first opening) */
+  .hero{padding:96px 0 84px;text-align:center}
+  .qs{display:flex;flex-direction:column;gap:26px;margin:0 auto 54px;max-width:780px}
+  .qs .q{font-family:var(--serif);font-style:italic;font-size:clamp(16px,2.1vw,21px);line-height:1.5;color:var(--grey);margin:0}
+  .hero h1{font-size:clamp(30px,4.8vw,52px);margin:0 auto 26px;max-width:920px}
+  .hero p.lede{margin:0 auto}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+  .hero-ctas .btn{margin-top:0}
+  .statement .answer{font-family:var(--serif);font-size:clamp(34px,5vw,58px);line-height:1.12;margin:0 0 30px;color:var(--ink)}
+
   .partners{border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line);padding:26px 0}
   .partners .lab{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft);margin-bottom:16px}
   .partners .row{display:flex;flex-wrap:wrap;gap:20px 36px;align-items:center}
@@ -178,9 +188,9 @@
     </a>
     <div class="nav-right">
       <div class="nav-links">
+        <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#work">How I work</a>
-        <a href="#about">About</a>
       </div>
       <a class="nav-cta" href="#contact">Let's talk</a>
     </div>
@@ -197,19 +207,48 @@
     </defs>
   </svg>
 
-  <!-- HERO -->
+  <!-- HERO — the questions leaders are already asking -->
   <section class="hero" id="hero">
     <div class="container">
-      <h1>Strategy,<br>made <em>real</em>.</h1>
-      <p class="lede">I help international organizations navigate ambiguity and <span class="ctd">connect the dots</span> — turning scattered priorities into the operational clarity teams need to move forward, from approved strategy to what changes on Monday morning.</p>
+      <div class="qs">
+        <p class="q">“We approved the strategy months ago. Why does everything still run the old way?”</p>
+        <p class="q">“Our proposal win rate keeps slipping — what are we getting wrong?”</p>
+        <p class="q">“Everyone nods in the strategy meeting. Why does nothing change afterwards?”</p>
+        <p class="q">“How do we make AI genuinely useful to our teams — beyond the pilot?”</p>
+        <p class="q">“Our results framework satisfies donors. Why doesn’t it help us decide anything?”</p>
+      </div>
+      <h1>How do you turn strategy on paper into what people actually <em>do</em>?</h1>
+      <p class="lede">If these questions sound familiar, we should <span class="ctd">connect the dots</span> together. I’m Ale Furtado — I work with international organizations in the gap between approved strategy and Monday morning.</p>
+      <div class="hero-ctas"><a class="btn" href="#about">Meet Ale</a><a class="btn ghost" href="#contact">Let’s talk</a></div>
     </div>
   </section>
 
-  <!-- STATEMENT -->
+  <!-- STATEMENT — the answer -->
   <section class="statement" id="statement">
     <div class="container">
+      <p class="answer">Strategy, <em>made real</em>.</p>
       <p>Strategy becomes real not when it is approved — but when teams understand what changes at their <em>operational level</em>.</p>
       <p class="small">Most strategies don't fail at the design stage. They stall in the gap between approval and adoption. I work in that gap.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="portrait">
+          <img src="assets/alessandra.png" alt="Ale Furtado" onerror="this.style.display='none'">
+          <div class="ph"><i class="ti ti-user"></i><span class="t">Your portrait here</span></div>
+        </div>
+        <div class="bio">
+          <p class="kicker eyebrow">About</p>
+          <h2 class="about-h">Hi, I'm Ale.</h2>
+          <p>For over twenty years I've helped international organizations turn big strategies into things teams can actually do on Monday morning. But here's the part I love most: I don't just implement strategy — I love <em>designing</em> strategies that are implementable, too. Give me a tangled problem and a room full of smart people, and I'm right where I want to be.</p>
+          <p>I'm endlessly curious and a forever-student — always learning something new, always asking what we're really trying to solve. I simplify, I connect the dots, and I make change feel like something people are part of, not something happening to them.</p>
+          <p>Off the clock, I'm a mum, a cat person 🐱 (don't worry, I love dogs too), and happiest under water. I'm a certified Divemaster 🤿🐠, and the ocean is where I connect my own dots.</p>
+          <p class="cred">Brazilian–Portuguese, based in Europe · Portuguese (native), English &amp; Spanish (fluent), French (intermediate) · MA International Development (Distinction), University of Westminster · PRINCE2</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -306,33 +345,13 @@
     <div class="container">
       <div class="sec-head">
         <p class="kicker eyebrow">How I work</p>
-        <h2>Compliance is not adoption</h2>
+        <h2>Approval is not adoption</h2>
       </div>
       <div class="work-grid">
         <div class="work-cell"><div class="n">01</div><h3>Trust, before and when conditions shift</h3><p>Trust comes from the clarity of every interaction — especially when conditions change.</p></div>
         <div class="work-cell"><div class="n">02</div><h3>The Monday-morning test</h3><p>Strategy is real when each team knows what changes for them on Monday. I design for adoption, not approval.</p></div>
         <div class="work-cell"><div class="n">03</div><h3>Connecting the dots</h3><p>I map what change means for the people living it — the gains, the losses, the fears — and find win-win answers.</p></div>
         <div class="work-cell"><div class="n">04</div><h3>Co-creation, not handover</h3><p>Solutions are built with your teams — which is why they keep working long after I've gone.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="sec" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="portrait">
-          <img src="assets/alessandra.png" alt="Ale Furtado" onerror="this.style.display='none'">
-          <div class="ph"><i class="ti ti-user"></i><span class="t">Your portrait here</span></div>
-        </div>
-        <div class="bio">
-          <p class="kicker eyebrow">About</p>
-          <h2 class="about-h">Hi, I'm Ale.</h2>
-          <p>For over twenty years I've helped international organizations turn big strategies into things teams can actually do on Monday morning. But here's the part I love most: I don't just implement strategy — I love <em>designing</em> strategies that are implementable, too. Give me a tangled problem and a room full of smart people, and I'm right where I want to be.</p>
-          <p>I'm endlessly curious and a forever-student — always learning something new, always asking what we're really trying to solve. I simplify, I connect the dots, and I make change feel like something people are part of, not something happening to them.</p>
-          <p>Off the clock, I'm a mum, a cat person 🐱 (don't worry, I love dogs too), and happiest under water. I'm a certified Divemaster 🤿🐠, and the ocean is where I connect my own dots.</p>
-          <p class="cred">Brazilian–Portuguese, based in Europe · Portuguese (native), English &amp; Spanish (fluent), French (intermediate) · MA International Development (Distinction), University of Westminster · PRINCE2</p>
-        </div>
       </div>
     </div>
   </section>
