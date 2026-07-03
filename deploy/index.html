@@ -457,6 +457,8 @@
   function build(){
     enabled = window.innerWidth > 820;
     svg.style.display = enabled ? 'block':'none';
+    var wasDrawn=[];
+    conns.forEach(function(c){ if(c.drawn&&c.sec) wasDrawn.push(c.sec); });
     [].slice.call(svg.querySelectorAll('path,circle')).forEach(function(e){e.remove();});
     conns=[]; if(io) io.disconnect();
     if(!enabled) return;
@@ -501,6 +503,16 @@
     var lead=R(q('.contact .lead')), talk=R(q('.contact .big-talk'));
     var ce=conn([[Lx,lead.cy],[Lx,talk.cy],[talk.l-14,talk.cy]], q('#contact'));
     ce.d[1].setAttribute('r','7');
+
+    conns.forEach(function(c){
+      if(c.sec && wasDrawn.indexOf(c.sec)>-1){
+        c.drawn=true;
+        c.p.style.transition='none';
+        c.p.style.strokeDashoffset=0;
+        c.d[0].style.transition='none'; c.d[1].style.transition='none';
+        c.d[0].style.opacity='1'; c.d[1].style.opacity='1';
+      }
+    });
 
     reveal();
   }
