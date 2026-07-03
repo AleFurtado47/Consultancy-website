@@ -53,15 +53,39 @@
   .btn.ghost:hover{background:var(--ink);color:var(--paper)}
   .hero .btn{margin-top:34px}
 
-  /* v2: question-led hero (problem-first opening) */
+  /* v2: question-led hero — three dots on a drawing thread */
   .hero{padding:96px 0 84px;text-align:center}
-  .qs{display:flex;flex-direction:column;gap:30px;margin:0 auto 60px;max-width:860px}
-  .qs .q{position:relative;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.8vw,28px);line-height:1.42;color:var(--ink);margin:0;text-align:left;max-width:640px;border:0.5px solid var(--line);border-radius:20px;padding:26px 34px;background:rgba(255,255,255,.45)}
-  .qs .q::before{content:"";position:absolute;left:-5.5px;top:34px;width:10px;height:10px;border-radius:50%;background:var(--blue)}
-  .qs .q:nth-child(1){align-self:flex-start}
-  .qs .q:nth-child(2){align-self:center;transform:translateX(28px)}
-  .qs .q:nth-child(3){align-self:flex-end}
-  @media(max-width:700px){.qs .q{max-width:none;align-self:stretch!important;transform:none!important;padding:20px 24px}.qs .q::before{top:26px}}
+  .qs{position:relative;margin:0 auto 66px;max-width:920px;padding:10px 0 6px}
+  .qs::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:var(--blue);transform-origin:top}
+  .qs .q{position:relative;width:calc(50% - 56px);font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.5vw,29px);line-height:1.4;color:var(--ink);margin:0 0 48px}
+  .qs .q:last-child{margin-bottom:0}
+  .qs .q:nth-child(odd){text-align:right}
+  .qs .q:nth-child(even){margin-left:auto;text-align:left}
+  .qs .q::after{content:"";position:absolute;top:15px;width:11px;height:11px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px var(--paper)}
+  .qs .q:nth-child(odd)::after{right:-62px}
+  .qs .q:nth-child(even)::after{left:-62px}
+  @media(max-width:700px){
+    .qs::before{left:10px;margin:0}
+    .qs .q{width:auto;margin:0 0 38px 42px;text-align:left}
+    .qs .q:nth-child(odd){text-align:left}
+    .qs .q:nth-child(even){margin-left:42px}
+    .qs .q::after{top:11px}
+    .qs .q:nth-child(odd)::after{right:auto;left:-37px}
+    .qs .q:nth-child(even)::after{left:-37px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .qs::before{animation:qsLine 1.5s cubic-bezier(.6,.02,.2,1) .2s both}
+    .qs .q{opacity:0;animation:qIn .7s cubic-bezier(.2,.6,.2,1) both}
+    .qs .q:nth-child(1){animation-delay:.3s}
+    .qs .q:nth-child(2){animation-delay:.8s}
+    .qs .q:nth-child(3){animation-delay:1.3s}
+    .hero h1,.hero .lede,.hero-ctas{opacity:0;animation:qIn .8s ease-out both}
+    .hero h1{animation-delay:1.75s}
+    .hero .lede{animation-delay:1.95s}
+    .hero-ctas{animation-delay:2.15s}
+  }
+  @keyframes qsLine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  @keyframes qIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   .hero h1{font-size:clamp(30px,4.8vw,52px);margin:0 auto 26px;max-width:920px}
   .hero p.lede{margin:0 auto}
   .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
@@ -220,8 +244,8 @@
         <p class="q">“How do we make AI genuinely useful to our teams — beyond the pilot?”</p>
         <p class="q">“Our results framework satisfies donors. Why doesn’t it help us decide anything?”</p>
       </div>
-      <h1>How do you turn strategy on paper into what people actually <em>do</em>?</h1>
-      <p class="lede">If these questions sound familiar, we should <span class="ctd">connect the dots</span> together. I’m Ale Furtado — I work with international organizations in the gap between approved strategy and Monday morning.</p>
+      <h1>How do you <em>design</em> a strategy that survives Monday morning?</h1>
+      <p class="lede">If these questions sound familiar, we should <span class="ctd">connect the dots</span> together. I’m Ale Furtado — I design strategies built to be delivered, and I rescue the ones that weren’t.</p>
       <div class="hero-ctas"><a class="btn" href="#about">Meet Ale</a><a class="btn ghost" href="#contact">Let’s talk</a></div>
     </div>
   </section>
@@ -231,7 +255,7 @@
     <div class="container">
       <p class="answer">Strategy, <em>made real</em>.</p>
       <p>Strategy becomes real not when it is approved — but when teams understand what changes at their <em>operational level</em>.</p>
-      <p class="small">Most strategies don't fail at the design stage. They stall in the gap between approval and adoption. I work in that gap.</p>
+      <p class="small">Most strategies stall in the gap between approval and adoption. I design strategies that close that gap from day one — and I rescue the ones already stuck in it.</p>
     </div>
   </section>
 
