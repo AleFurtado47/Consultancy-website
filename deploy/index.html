@@ -53,25 +53,26 @@
   .btn.ghost:hover{background:var(--ink);color:var(--paper)}
   .hero .btn{margin-top:34px}
 
-  /* v2: question-led hero — three dots on a drawing thread */
-  .hero{padding:96px 0 84px;text-align:center}
-  .qs{position:relative;margin:0 auto 66px;max-width:920px;padding:10px 0 6px}
+  /* v2: question-led hero — three dots on a drawing thread, one viewport */
+  .hero{padding:30px 0 46px;text-align:center;display:flex;align-items:center;min-height:calc(100vh - 96px);min-height:calc(100svh - 96px)}
+  .hero .container{width:100%}
+  .qs{position:relative;margin:0 auto 38px;max-width:880px;padding:6px 0 2px}
   .qs::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:var(--blue);transform-origin:top}
-  .qs .q{position:relative;width:calc(50% - 56px);font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.5vw,29px);line-height:1.4;color:var(--ink);margin:0 0 48px}
+  .qs .q{position:relative;width:calc(50% - 48px);font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.75vw,22px);line-height:1.4;color:var(--ink);margin:0 0 26px}
   .qs .q:last-child{margin-bottom:0}
   .qs .q:nth-child(odd){text-align:right}
   .qs .q:nth-child(even){margin-left:auto;text-align:left}
-  .qs .q::after{content:"";position:absolute;top:15px;width:11px;height:11px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px var(--paper)}
-  .qs .q:nth-child(odd)::after{right:-62px}
-  .qs .q:nth-child(even)::after{left:-62px}
+  .qs .q::after{content:"";position:absolute;top:9px;width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px var(--paper)}
+  .qs .q:nth-child(odd)::after{right:-53px}
+  .qs .q:nth-child(even)::after{left:-53px}
   @media(max-width:700px){
     .qs::before{left:10px;margin:0}
-    .qs .q{width:auto;margin:0 0 38px 42px;text-align:left}
+    .qs .q{width:auto;margin:0 0 26px 40px;text-align:left}
     .qs .q:nth-child(odd){text-align:left}
-    .qs .q:nth-child(even){margin-left:42px}
-    .qs .q::after{top:11px}
-    .qs .q:nth-child(odd)::after{right:auto;left:-37px}
-    .qs .q:nth-child(even)::after{left:-37px}
+    .qs .q:nth-child(even){margin-left:40px}
+    .qs .q::after{top:8px}
+    .qs .q:nth-child(odd)::after{right:auto;left:-35px}
+    .qs .q:nth-child(even)::after{left:-35px}
   }
   @media (prefers-reduced-motion:no-preference){
     .qs::before{animation:qsLine 1.5s cubic-bezier(.6,.02,.2,1) .2s both}
@@ -86,9 +87,9 @@
   }
   @keyframes qsLine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
   @keyframes qIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-  .hero h1{font-size:clamp(30px,4.8vw,52px);margin:0 auto 26px;max-width:920px}
-  .hero p.lede{margin:0 auto}
-  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+  .hero h1{font-size:clamp(26px,3.4vw,42px);margin:0 auto 16px;max-width:860px}
+  .hero p.lede{margin:0 auto;font-size:clamp(14.5px,1.6vw,17px);max-width:580px}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px}
   .hero-ctas .btn{margin-top:0}
   .statement .answer{font-family:var(--serif);font-size:clamp(34px,5vw,58px);line-height:1.12;margin:0 0 30px;color:var(--ink)}
 
@@ -250,15 +251,6 @@
     </div>
   </section>
 
-  <!-- STATEMENT — the answer -->
-  <section class="statement" id="statement">
-    <div class="container">
-      <p class="answer">Strategy, <em>made real</em>.</p>
-      <p>Strategy becomes real not when it is approved — but when teams understand what changes at their <em>operational level</em>.</p>
-      <p class="small">Most strategies stall in the gap between approval and adoption. I design strategies that close that gap from day one — and I rescue the ones already stuck in it.</p>
-    </div>
-  </section>
-
   <!-- ABOUT -->
   <section class="sec" id="about">
     <div class="container">
@@ -276,6 +268,15 @@
           <p class="cred">Brazilian–Portuguese, based in Europe · Portuguese (native), English &amp; Spanish (fluent), French (intermediate) · MA International Development (Distinction), University of Westminster · PRINCE2</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT — philosophy bridge into services -->
+  <section class="statement" id="statement">
+    <div class="container">
+      <p class="answer">Strategy, <em>made real</em>.</p>
+      <p>Strategy becomes real not when it is approved — but when teams understand what changes at their <em>operational level</em>.</p>
+      <p class="small">Most strategies stall in the gap between approval and adoption. I design strategies that close that gap from day one — and I rescue the ones already stuck in it.</p>
     </div>
   </section>
 
