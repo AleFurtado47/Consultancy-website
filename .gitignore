@@ -6,3 +6,7 @@
 # Local workspace
 .claude/
 .netlify/
+
+# Personal working files — not for the public repo
+linkedin/
+video/
