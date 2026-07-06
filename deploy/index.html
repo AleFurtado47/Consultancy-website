@@ -472,8 +472,7 @@
     var Lx=clX-16, Rx=crX+16;
 
     var k=R(q('.hero h1')), l=R(q('.hero p.lede'));
-    var hc=conn([[Lx,k.t+6],[Lx,l.b+44],[clX+330,l.b+44]], q('#hero'));
-    hc.waitHero=true;
+    conn([[Lx,k.t+6],[Lx,l.b+44],[clX+330,l.b+44]], q('#hero'));
 
     var sp=document.querySelectorAll('#statement p');
     var sp0=R(sp[0]), spL=R(sp[sp.length-1]);
@@ -514,35 +513,38 @@
       }
     });
 
-    reveal();
+    requestAnimationFrame(function(){ requestAnimationFrame(reveal); });
   }
-
-  var heroDone=!matchMedia('(prefers-reduced-motion: no-preference)').matches;
 
   function reveal(){
     if(!enabled) return;
     var vh=window.innerHeight;
     conns.forEach(function(c){
       if(c.drawn||!c.sec) return;
-      if(c.waitHero&&!heroDone) return;
       var r=c.sec.getBoundingClientRect();
       if(r.top < vh*0.9 && r.bottom > 0){ c.drawn=true; c.p.style.strokeDashoffset=0; c.d[0].style.opacity='1'; c.d[1].style.opacity='1'; }
     });
   }
   window.addEventListener('scroll', reveal, {passive:true});
 
-  if(!heroDone){
-    var ctas=document.querySelector('.hero-ctas');
-    var releaseHero=function(){ if(!heroDone){ heroDone=true; reveal(); } };
-    if(ctas){ ctas.addEventListener('animationend', releaseHero, {once:true}); }
-    setTimeout(releaseHero, 8000);
-  }
-
+  // The line system starts exactly once: after the page has fully loaded,
+  // fonts are in, AND the hero text sequence has finished animating.
+  // Until then no paths exist, so nothing can appear early or get wiped.
+  var started=false;
+  function start(){ if(started) return; started=true; window.addEventListener('resize', onResize); build(); }
   function onResize(){ clearTimeout(rt); rt=setTimeout(build, 170); }
-  window.addEventListener('resize', onResize);
-  if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(build); }
-  window.addEventListener('load', build);
-  setTimeout(build, 350);
+
+  var loadP=new Promise(function(res){ if(document.readyState==='complete'){res();} else {window.addEventListener('load', res, {once:true});} });
+  var fontP=(document.fonts&&document.fonts.ready)?document.fonts.ready:Promise.resolve();
+  var heroP=new Promise(function(res){
+    if(!matchMedia('(prefers-reduced-motion: no-preference)').matches) return res();
+    var ctas=document.querySelector('.hero-ctas');
+    if(!ctas) return res();
+    ctas.addEventListener('animationend', function(){res();}, {once:true});
+    setTimeout(res, 8000);
+  });
+  Promise.all([loadP, fontP, heroP]).then(start);
+  setTimeout(start, 12000);
 
   var brand = document.querySelector('.brand');
   if (brand) {
