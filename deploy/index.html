@@ -67,7 +67,8 @@
   .hero{padding:30px 0 46px;text-align:center;display:flex;align-items:center;min-height:calc(100vh - 96px);min-height:calc(100svh - 96px)}
   .hero .container{width:100%}
   .qs{position:relative;margin:0 auto 38px;max-width:880px;padding:6px 0 2px}
-  .qs::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:var(--blue);transform-origin:top}
+  .qs .qline{position:absolute;left:50%;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:var(--blue);transform-origin:top}
+  .qs .qpen{position:absolute;left:50%;top:-4px;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px rgba(39,71,224,.45);opacity:0;pointer-events:none;z-index:1}
   .qs .q{position:relative;width:calc(50% - 48px);font-family:var(--serif);font-style:italic;font-size:clamp(15px,min(1.75vw,2.7vh),22px);line-height:1.4;color:var(--ink);margin:0 0 26px}
   .qs .q:last-child{margin-bottom:0}
   .qs .q:nth-child(odd){text-align:right}
@@ -76,7 +77,8 @@
   .qs .q:nth-child(odd)::after{right:-53px}
   .qs .q:nth-child(even)::after{left:-53px}
   @media(max-width:700px){
-    .qs::before{left:10px;margin:0}
+    .qs .qline{left:10px;margin:0}
+    .qs .qpen{left:10.75px}
     .qs .q{width:auto;margin:0 0 26px 40px;text-align:left}
     .qs .q:nth-child(odd){text-align:left}
     .qs .q:nth-child(even){margin-left:40px}
@@ -93,7 +95,7 @@
     .hero-ctas{margin-top:clamp(18px,4.5vh,46px)}
   }
   @media (prefers-reduced-motion:no-preference){
-    .qs::before{animation:qsLine 2.4s cubic-bezier(.6,.02,.2,1) .2s both}
+    .qs .qline{animation:qsLine 2.4s cubic-bezier(.6,.02,.2,1) .2s both}
     .qs .q{opacity:0;animation:qIn .7s cubic-bezier(.2,.6,.2,1) both}
     .qs .q:nth-child(1){animation-delay:.35s}
     .qs .q:nth-child(2){animation-delay:1.35s}
@@ -105,6 +107,25 @@
   }
   @keyframes qsLine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
   @keyframes qIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  /* qsjs = JS-synced hero thread: pen rides the drawing line, dots pop as it passes.
+     Gated in <head>; CSS animations above remain the no-JS / reduced-motion fallback. */
+  .qsjs .qs .qline{animation:none;transform:scaleY(0)}
+  .qsjs .qs .q{animation:none;opacity:0;transform:translateY(14px);transition:opacity .65s cubic-bezier(.2,.6,.2,1),transform .65s cubic-bezier(.2,.6,.2,1)}
+  .qsjs .qs .q::after{transform:scale(0)}
+  .qsjs .qs .q.lit{opacity:1;transform:none}
+  .qsjs .qs .q.lit::after{animation:dotPop .55s cubic-bezier(.3,1.5,.5,1) both}
+  @keyframes dotPop{0%{transform:scale(0)}70%{transform:scale(1.3)}100%{transform:scale(1)}}
+  /* hero film (muted autoplay, desktop only — html.herofilm gates it) */
+  .qfilm{display:none}
+  .herofilm .qs .qfilm{display:block;position:relative}
+  .herofilm .qs .qfilm video{width:100%;height:auto;display:block}
+  .herofilm .qs .qline,.herofilm .qs .qpen{display:none}
+  .herofilm .qs .q{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;opacity:1;animation:none;transform:none}
+  /* failsafe: if the JS never runs, force everything visible */
+  .qs-show .qs .qline{animation:none!important;transform:none!important}
+  .qs-show .qs .q{opacity:1!important;transform:none!important}
+  .qs-show .qs .q::after{transform:scale(1)!important;animation:none!important}
+  .qs-show .qs .qpen{display:none!important}
   .hero h1{font-size:clamp(24px,min(3.4vw,5.6vh),42px);margin:0 auto 16px;max-width:860px}
   .hero p.lede{margin:0 auto;font-size:clamp(14px,min(1.6vw,2.2vh),17px);max-width:580px}
   .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px}
@@ -142,7 +163,7 @@
   .svc-card.right{align-self:flex-end}
   .svc-card:nth-child(1){width:46%;margin-left:3%}
   .svc-card:nth-child(2){width:62%;margin-right:2%;margin-top:10px}
-  .svc-card:nth-child(3){width:42%;margin-left:26%;margin-top:-18px}
+  .svc-card:nth-child(3){width:58%;margin-left:14%;margin-top:-18px}
   .svc-card:nth-child(4){width:55%;margin-right:11%}
   .svc-card:nth-child(5){width:50%;margin-left:8%;margin-top:12px}
   .svc-num{font-family:var(--serif);font-size:20px;color:var(--blue);margin-bottom:10px}
@@ -168,6 +189,9 @@
   .about-film .vcap{text-align:center;color:var(--grey-soft);font-size:13.5px;letter-spacing:.02em;margin-top:14px}
   .about-film .vcap em{font-family:var(--serif);font-style:italic;color:var(--grey)}
   .about-film .vcredit{text-align:center;color:var(--grey-soft);font-size:10.5px;letter-spacing:.06em;margin-top:5px;opacity:.75}
+  .svc-film{margin-top:16px}
+  .svc-film video{width:100%;aspect-ratio:16/9;display:block;border-radius:12px;border:0.5px solid var(--line);background:#0E0F12;box-shadow:0 14px 40px -26px rgba(23,24,27,.35)}
+  .svc-film .vcredit{color:var(--grey-soft);font-size:10.5px;letter-spacing:.06em;margin-top:6px;opacity:.75}
   .about-grid .bio p{color:var(--grey);margin-bottom:16px}
   .about-grid .bio p strong{color:var(--ink);font-weight:500}
   .about-grid .bio>.kicker{margin-bottom:0}
@@ -226,6 +250,8 @@
   }
   @media (max-width:520px){ .stats{grid-template-columns:1fr} }
 </style>
+<script>try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion: no-preference)').matches&&'animate' in Element.prototype){document.documentElement.className+=' qsjs';setTimeout(function(){document.documentElement.className+=' qs-show'},6500)}
+}catch(e){}</script>
 </head>
 <body>
 
@@ -265,6 +291,12 @@
   <section class="hero" id="hero">
     <div class="container">
       <div class="qs">
+        <span class="qline" aria-hidden="true"></span><span class="qpen" aria-hidden="true"></span>
+        <div class="qfilm">
+          <video id="qfilmVid" muted playsinline preload="auto" poster="assets/hero-film-poster.jpg" aria-label="Three questions: We approved the strategy months ago — why does everything still run the old way? How do we make AI genuinely useful to our teams, beyond the pilot? Our results framework satisfies donors — why doesn't it help us decide anything?">
+            <source src="assets/hero-film.mp4" type="video/mp4">
+          </video>
+        </div>
         <p class="q">“We approved the strategy months ago. Why does everything still run the old way?”</p>
         <p class="q">“How do we make AI genuinely useful to our teams — beyond the pilot?”</p>
         <p class="q">“Our results framework satisfies donors. Why doesn’t it help us decide anything?”</p>
@@ -335,6 +367,12 @@
           <div class="svc-num">03</div>
           <h3>Digital &amp; AI transformation</h3>
           <p>Responsible digital and AI that earns its place — governance first, starting with data, so the tools make work easier.</p>
+          <div class="svc-film">
+            <video controls preload="none" poster="assets/service-digital-ai-poster.jpg" aria-label="Sixty-second film: Digital and AI transformation, made real">
+              <source src="assets/service-digital-ai.mp4" type="video/mp4">
+            </video>
+            <p class="vcredit">Music: &ldquo;Deliberate Thought&rdquo; &mdash; Kevin MacLeod (incompetech.com) &middot; CC BY 4.0</p>
+          </div>
         </div>
         <div class="svc-card right">
           <div class="svc-num">04</div>
@@ -441,6 +479,54 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
 <script>
+/* Hero thread (qsjs mode): line + pen driven by WAAPI with one shared easing;
+   each question lights when the pen actually passes its dot (geometry-measured). */
+(function(){
+  if(!document.documentElement.classList.contains('qsjs')) return;
+  var qs=document.querySelector('.qs'); if(!qs) return;
+  // hero film mode: desktop plays the film (muted autoplay) instead of the live animation
+  var vid=document.getElementById('qfilmVid');
+  if(vid && matchMedia('(min-width:701px)').matches){
+    document.documentElement.className+=' herofilm';
+    vid.addEventListener('error', function(){
+      document.documentElement.classList.remove('herofilm');
+      document.documentElement.className+=' qs-show';
+    });
+    var pv=vid.play(); if(pv&&pv.catch) pv.catch(function(){/* autoplay denied: poster shows */});
+    return; // skip the pen-thread animation entirely
+  }
+  var line=qs.querySelector('.qline'), pen=qs.querySelector('.qpen'),
+      items=[].slice.call(qs.querySelectorAll('.q'));
+  if(!line||!pen||!items.length){document.documentElement.className+=' qs-show';return}
+  var DUR=2400, DELAY=200, EASE='cubic-bezier(.6,.02,.2,1)';
+  // progress y of the easing curve at time-fraction x
+  function bezY(x){
+    var p1x=.6,p1y=.02,p2x=.2,p2y=1,lo=0,hi=1,t,cx;
+    for(var i=0;i<40;i++){t=(lo+hi)/2;cx=3*t*(1-t)*(1-t)*p1x+3*t*t*(1-t)*p2x+t*t*t;(cx<x)?lo=t:hi=t}
+    t=(lo+hi)/2;return 3*t*(1-t)*(1-t)*p1y+3*t*t*(1-t)*p2y+t*t*t;
+  }
+  // time-fraction at which progress reaches f (easing is monotonic)
+  function timeFor(f){
+    var lo=0,hi=1,x;
+    for(var i=0;i<40;i++){x=(lo+hi)/2;(bezY(x)<f)?lo=x:hi=x}
+    return (lo+hi)/2*DUR;
+  }
+  var H=qs.offsetHeight||1;
+  line.animate([{transform:'scaleY(0)'},{transform:'scaleY(1)'}],
+    {duration:DUR,delay:DELAY,easing:EASE,fill:'both'});
+  pen.animate([
+    {transform:'translateY(0)',opacity:0,offset:0},
+    {transform:'translateY('+(H*.05)+'px)',opacity:1,offset:.05},
+    {transform:'translateY('+H+'px)',opacity:1,offset:1}
+  ],{duration:DUR,delay:DELAY,easing:EASE,fill:'both'});
+  pen.animate([{opacity:1},{opacity:0}],{duration:300,delay:DELAY+DUR,fill:'forwards'});
+  items.forEach(function(qEl){
+    var f=Math.min(1,Math.max(0,(qEl.offsetTop+13)/H));
+    setTimeout(function(){qEl.classList.add('lit')},DELAY+timeFor(f));
+  });
+})();
+</script>
+<script>
 (function(){
   var NS='http://www.w3.org/2000/svg';
   var page=document.getElementById('top');
@@ -497,7 +583,8 @@
     var Lx=clX-16, Rx=crX+16;
 
     var k=R(q('.hero h1')), l=R(q('.hero p.lede'));
-    conn([[Lx,k.t+6],[Lx,l.b+44],[clX+330,l.b+44]], q('#hero'));
+    var he=conn([[Lx,k.t+6],[Lx,l.b+44],[clX+330,l.b+44]], q('#hero'));
+    he.d[1].setAttribute('r','7');
 
     var sp=document.querySelectorAll('#statement p');
     var sp0=R(sp[0]), spL=R(sp[sp.length-1]);
@@ -547,7 +634,12 @@
     conns.forEach(function(c){
       if(c.drawn||!c.sec) return;
       var r=c.sec.getBoundingClientRect();
-      if(r.top < vh*0.9 && r.bottom > 0){ c.drawn=true; c.p.style.strokeDashoffset=0; c.d[0].style.opacity='1'; c.d[1].style.opacity='1'; }
+      if(r.top < vh*0.9 && r.bottom > 0){
+        c.drawn=true; c.p.style.strokeDashoffset=0;
+        c.d[0].style.opacity='1';
+        // far dot lands only when the stroke arrives (draw is 1.3s, slow-start bezier)
+        c.d[1].style.transitionDelay='1.05s'; c.d[1].style.opacity='1';
+      }
     });
   }
   window.addEventListener('scroll', reveal, {passive:true});
