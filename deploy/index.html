@@ -115,10 +115,11 @@
   .qsjs .qs .q.lit{opacity:1;transform:none}
   .qsjs .qs .q.lit::after{animation:dotPop .55s cubic-bezier(.3,1.5,.5,1) both}
   @keyframes dotPop{0%{transform:scale(0)}70%{transform:scale(1.3)}100%{transform:scale(1)}}
-  /* hero film (muted autoplay, desktop only — html.herofilm gates it) */
+  /* hero film (muted autoplay — html.herofilm gates it; phones get the portrait cut) */
   .qfilm{display:none}
   .herofilm .qs .qfilm{display:block;position:relative}
-  .herofilm .qs .qfilm video{width:100%;height:auto;display:block}
+  .herofilm .qs .qfilm video{width:100%;height:auto;display:block;aspect-ratio:1760/520}
+  .herofilmM .qs .qfilm video{aspect-ratio:750/860}
   .herofilm .qs .qline,.herofilm .qs .qpen{display:none}
   .herofilm .qs .q{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;opacity:1;animation:none;transform:none}
   /* failsafe: if the JS never runs, force everything visible */
@@ -485,9 +486,15 @@
 (function(){
   if(!document.documentElement.classList.contains('qsjs')) return;
   var qs=document.querySelector('.qs'); if(!qs) return;
-  // hero film mode: desktop plays the film (muted autoplay) instead of the live animation
+  // hero film mode: the film plays at every width (muted autoplay); phones get the portrait cut
   var vid=document.getElementById('qfilmVid');
-  if(vid && matchMedia('(min-width:701px)').matches){
+  if(vid){
+    if(!matchMedia('(min-width:701px)').matches){
+      vid.poster='assets/hero-film-mobile-poster.jpg';
+      vid.src='assets/hero-film-mobile.mp4';
+      vid.load();
+      document.documentElement.className+=' herofilmM';
+    }
     document.documentElement.className+=' herofilm';
     vid.addEventListener('error', function(){
       document.documentElement.classList.remove('herofilm');
