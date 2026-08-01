@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ale Furtado — Strategy, made real</title>
-<meta name="description" content="Ale Furtado — independent strategy advisory for international organizations. Helping leaders make strategy real: from approved strategy to what changes on Monday morning." />
+<title>Ale Furtado · Strategy, made real</title>
+<meta name="description" content="I make approved strategy operational inside international organizations: governance, prioritisation, and the delivery decisions that make it real." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Ale Furtado" />
-<meta property="og:title" content="Ale Furtado — Strategy, made real." />
-<meta property="og:description" content="Strategic co-creation for international organizations. Sixty seconds on strategy, sailing, and why you never dive alone." />
+<meta property="og:title" content="Ale Furtado · Strategy, made real." />
+<meta property="og:description" content="I make approved strategy operational inside international organizations: governance, prioritisation, and the delivery decisions that make it real." />
 <meta property="og:url" content="https://alefurtado.org/" />
 <meta property="og:image" content="https://alefurtado.org/assets/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -85,6 +85,7 @@
     .qs .q::after{top:8px}
     .qs .q:nth-child(odd)::after{right:auto;left:-35px}
     .qs .q:nth-child(even)::after{left:-35px}
+    .qs{margin-bottom:24px}
   }
   @media(min-width:701px){
     .hero{padding:clamp(24px,4vh,56px) 0 clamp(36px,8vh,88px)}
@@ -100,10 +101,11 @@
     .qs .q:nth-child(1){animation-delay:.35s}
     .qs .q:nth-child(2){animation-delay:1.35s}
     .qs .q:nth-child(3){animation-delay:2.35s}
-    .hero h1,.hero .lede,.hero-ctas{opacity:0;animation:qIn .8s ease-out both}
+    .hero h1,.hero .lede,.hero .proof,.hero-ctas{opacity:0;animation:qIn .8s ease-out both}
     .hero h1{animation-delay:3.5s}
     .hero .lede{animation-delay:3.75s}
-    .hero-ctas{animation-delay:3.95s}
+    .hero .proof{animation-delay:3.95s}
+    .hero-ctas{animation-delay:4.15s}
   }
   @keyframes qsLine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
   @keyframes qIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -129,9 +131,10 @@
   .qs-show .qs .qpen{display:none!important}
   .hero h1{font-size:clamp(24px,min(3.4vw,5.6vh),42px);margin:0 auto 16px;max-width:860px}
   .hero p.lede{margin:0 auto;font-size:clamp(14px,min(1.6vw,2.2vh),17px);max-width:580px}
+  .hero .proof{margin:14px auto 0;font-size:clamp(11.5px,min(1.15vw,1.6vh),13px);letter-spacing:.055em;text-transform:uppercase;color:var(--grey-soft);max-width:560px;line-height:1.7}
+  .hero .proof b{color:var(--ink);font-weight:500}
   .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px}
   .hero-ctas .btn{margin-top:0}
-  .statement .answer{font-family:var(--serif);font-size:clamp(34px,5vw,58px);line-height:1.12;margin:0 0 30px;color:var(--ink)}
 
   .partners{border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line);padding:26px 0}
   .partners .lab{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft);margin-bottom:16px}
@@ -155,22 +158,41 @@
   .sec-head h2{font-size:clamp(30px,4.4vw,46px)}
   .eyebrow{margin-bottom:18px}
 
-  .statement{padding:44px 0 78px}
-  .statement p{font-family:var(--serif);font-size:clamp(24px,3.6vw,38px);line-height:1.28;max-width:840px}
-  .statement .small{font-family:var(--sans);font-size:17.5px;line-height:1.6;color:var(--grey);max-width:600px;margin-top:22px}
+  /* WHERE STRATEGY STOPS — the five mechanisms. Plain list, no JS, no interaction. */
+  .stops{padding:76px 0 84px;border-top:0.5px solid var(--line)}
+  .stops .sec-head{max-width:660px}
+  .stops-list{margin-top:40px;max-width:820px;padding-left:38px;border-left:1.5px solid rgba(39,71,224,.24)}
+  .stop{position:relative;padding:22px 0;border-bottom:0.5px solid var(--line)}
+  .stop:first-child{padding-top:2px}
+  .stop:last-child{border-bottom:0;padding-bottom:0}
+  .stop::before{content:"";position:absolute;left:-44.25px;top:29px;width:11px;height:11px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px var(--paper)}
+  .stop:first-child::before{top:9px}
+  .stop b{display:block;font-weight:500;font-size:clamp(16.5px,2.1vw,20px);line-height:1.34;letter-spacing:-.005em;color:var(--ink)}
+  .stop span{display:block;color:var(--grey);font-size:15px;line-height:1.55;margin-top:7px;max-width:640px}
+  .stops-close{margin-top:38px;padding-left:38px;max-width:820px;font-family:var(--serif);font-size:clamp(21px,2.9vw,28px);line-height:1.28;text-wrap:balance}
+  .stops-close em{font-style:italic}
+  @media(max-width:600px){
+    .stops{padding:58px 0 64px}
+    .stops-list,.stops-close{padding-left:28px}
+    .stop::before{left:-33.75px;width:9px;height:9px;top:30px}
+    .stop:first-child::before{top:10px}
+  }
 
-  .svc{margin-top:44px;display:flex;flex-direction:column;gap:46px}
-  .svc-card{width:56%;border:0.5px solid var(--line);border-radius:18px;padding:30px 34px;background:var(--paper)}
-  .svc-card.right{align-self:flex-end}
-  .svc-card:nth-child(1){width:46%;margin-left:3%}
-  .svc-card:nth-child(2){width:62%;margin-right:2%;margin-top:10px}
-  .svc-card:nth-child(3){width:44%;margin-left:24%;margin-top:-18px}
-  .svc-card:nth-child(4){width:55%;margin-right:11%}
-  .svc-card:nth-child(5){width:50%;margin-left:8%;margin-top:12px}
+  /* SERVICES — one flagship, three supporting */
+  .svc-flag{margin-top:40px;border:0.5px solid var(--line);border-radius:18px;padding:34px 38px 34px;background:var(--paper);scroll-margin-top:96px}
   .svc-num{font-family:var(--serif);font-size:20px;color:var(--blue);margin-bottom:10px}
-  .svc-card h3{font-size:clamp(20px,2.6vw,26px);margin-bottom:9px}
-  .svc-card h3 .flag{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border:0.5px solid var(--blue);border-radius:20px;padding:3px 9px;margin-left:12px;vertical-align:middle}
-  .svc-card p{color:var(--grey);font-size:15px}
+  .svc-flag h3{font-size:clamp(24px,3.2vw,32px);margin-bottom:7px}
+  .svc-flag h3 .flag{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border:0.5px solid var(--blue);border-radius:20px;padding:3px 9px;margin-left:12px;vertical-align:middle;white-space:nowrap}
+  .sub{font-size:11.5px;letter-spacing:.045em;color:var(--grey-soft);line-height:1.6}
+  .svc-flag p.desc{color:var(--grey);font-size:15.5px;line-height:1.62;max-width:660px;margin-top:16px}
+  .spine{font-family:var(--serif);font-style:italic;color:var(--blue);font-size:clamp(20px,2.6vw,26px);line-height:1.2;margin-top:24px}
+  .svc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;align-items:start}
+  .svc-mini{border:0.5px solid var(--line);border-radius:14px;padding:22px 22px 24px;background:var(--paper);scroll-margin-top:96px}
+  .svc-mini .svc-num{font-size:15px;margin-bottom:8px}
+  .svc-mini h3{font-size:19px;line-height:1.18;margin-bottom:7px}
+  .svc-mini p{color:var(--grey);font-size:14px;line-height:1.55;margin-top:10px}
+  .svc-mini .svc-film{margin-top:14px}
+  .svc-mini .svc-film video{border-radius:9px}
 
   .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:0.5px solid var(--line);margin-top:40px;border-radius:14px;overflow:hidden}
   .work-cell{background:var(--paper);padding:32px 30px}
@@ -221,10 +243,19 @@
   .contact{padding:108px 0 96px;text-align:center}
   .contact .lead{color:var(--grey);max-width:520px;margin:0 auto 30px;font-size:17px}
   .contact h2{font-size:clamp(30px,5vw,52px);margin-bottom:30px}
-  .contact .big-talk{display:inline-block;font-family:var(--serif);font-size:clamp(54px,11vw,128px);line-height:.96;margin:54px 0 30px;letter-spacing:-.02em}
+  /* tagline lockup — the drawn line + dots device from the LinkedIn banner */
+  .tagline{display:flex;align-items:center;justify-content:center;gap:18px;margin:52px auto 0;max-width:560px}
+  .tagline .tl{flex:1 1 auto;max-width:118px;height:1.5px;background:var(--blue);position:relative}
+  .tagline .tl::after{content:"";position:absolute;top:-2.6px;width:6.6px;height:6.6px;border-radius:50%;background:var(--blue)}
+  .tagline .tl.l::after{left:0} .tagline .tl.r::after{right:0}
+  .tagline .tt{font-family:var(--serif);font-style:italic;color:var(--blue);font-size:clamp(19px,2.7vw,27px);line-height:1;white-space:nowrap}
+  @media(max-width:480px){ .tagline{gap:12px} .tagline .tl{max-width:52px} }
+  .contact .big-talk{display:inline-block;font-family:var(--serif);font-size:clamp(54px,11vw,128px);line-height:.96;margin:22px 0 30px;letter-spacing:-.02em}
   .contact .big-talk em{font-style:italic}
-  .contact .ways{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .contact .ways{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .contact .ways .btn{min-width:186px;justify-content:center}
   .contact .emails{font-size:14px;color:var(--grey);margin-top:24px;line-height:1.9}
+  .contact .emails .sep{color:var(--line);margin:0 10px}
   .contact .emails a:hover{color:var(--blue)}
 
   footer{border-top:0.5px solid var(--line);padding:26px 0;font-size:12.5px;color:var(--grey-soft)}
@@ -242,12 +273,22 @@
     .svc-item.right .svc-body{order:0;text-align:left}
     .svc-item.right .svc-body p{margin-left:0}
     .nav-links{gap:18px;font-size:12.5px}
-    .hero{padding:74px 0 84px}
+    /* keep the hero to one screen on phones: the film + h1 + lede + proof line need the room */
+    .hero{padding:22px 0 42px}
+    .hero h1{margin-bottom:12px}
+    .hero .proof{margin-top:11px}
+    .hero-ctas{margin-top:18px}
   }
-  @media (max-width:820px){ .svc-card,.svc-card.right,.svc-card[class]{width:100%!important;margin:0!important;align-self:stretch} }
+  @media (max-width:820px){ .svc-row{grid-template-columns:1fr} .svc-flag{padding:26px 22px} }
   @media (max-width:600px){
     .nav-in{flex-wrap:wrap;padding:12px 24px 10px}
-    .nav-right{margin-left:auto}
+    /* the descriptor is unreadable at 10px over three lines on a phone, and it costs the hero
+       most of its first screen — the hero lede states it in full ~100px below. */
+    .brand .bs{display:none}
+    /* display:contents promotes .nav-links and .nav-cta to direct items of the wrapping .nav-in,
+       so the links get their own row instead of overflowing the viewport beside the CTA. */
+    .nav-right{display:contents}
+    .nav-cta{margin-left:auto}
     .nav-links{order:3;width:100%;justify-content:center;gap:22px;font-size:12.5px;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
   }
   @media (max-width:520px){ .stats{grid-template-columns:1fr} }
@@ -266,7 +307,7 @@
         <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
         <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
       </svg>
-      <span><span class="bn">Ale Furtado</span><br><span class="bs">Strategic co-creation for international organizations</span></span>
+      <span><span class="bn">Ale Furtado</span><br><span class="bs">Operationalising strategy in international organizations</span></span>
     </a>
     <div class="nav-right">
       <div class="nav-links">
@@ -274,7 +315,7 @@
         <a href="#services">Services</a>
         <a href="#work">How I work</a>
       </div>
-      <a class="nav-cta" href="#contact">Let's talk</a>
+      <a class="nav-cta" href="#contact">Book 20 minutes</a>
     </div>
   </div>
 </nav>
@@ -295,7 +336,7 @@
       <div class="qs">
         <span class="qline" aria-hidden="true"></span><span class="qpen" aria-hidden="true"></span>
         <div class="qfilm">
-          <video id="qfilmVid" muted loop playsinline preload="auto" poster="assets/hero-film-poster.jpg" aria-label="Three questions: We approved the strategy months ago — why does everything still run the old way? How do we make AI genuinely useful to our teams, beyond the pilot? Our results framework satisfies donors — why doesn't it help us decide anything?">
+          <video id="qfilmVid" muted loop playsinline preload="auto" poster="assets/hero-film-poster.jpg" aria-label="Three questions. We approved the strategy months ago. Why does everything still run the old way? How do we make AI genuinely useful to our teams, beyond the pilot? Our results framework satisfies donors. Why doesn't it help us decide anything?">
             <source src="assets/hero-film.mp4" type="video/mp4">
           </video>
         </div>
@@ -303,9 +344,48 @@
         <p class="q">“How do we make AI genuinely useful to our teams — beyond the pilot?”</p>
         <p class="q">“Our results framework satisfies donors. Why doesn’t it help us decide anything?”</p>
       </div>
-      <h1>How do you <em>design</em> a strategy that survives Monday morning?</h1>
-      <p class="lede">If these questions sound familiar, we should <span class="ctd">connect the dots</span> together. I’m Ale Furtado — I design strategies built to be delivered, and I rescue the ones that weren’t.</p>
-      <div class="hero-ctas"><a class="btn" href="#about">Meet Ale</a><a class="btn ghost" href="#contact">Let’s talk</a></div>
+      <h1>The strategy is approved. What actually changes on <em>Monday</em>?</h1>
+      <p class="lede">I make approved strategy operational inside international organizations: governance, prioritisation, and the delivery decisions that make it real.</p>
+      <p class="proof"><b>60% → 95%</b> project completion. <b>100+</b> projects, <b>20+</b> countries.</p>
+      <div class="hero-ctas"><a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a><a class="btn ghost" href="#about">Meet Ale</a></div>
+    </div>
+  </section>
+
+  <!-- WHERE STRATEGY STOPS — five mechanisms; #6 held back (see comment below) -->
+  <section class="stops" id="stops">
+    <div class="container">
+      <div class="sec-head">
+        <p class="kicker eyebrow">The gap</p>
+        <h2>Where strategy stops.</h2>
+      </div>
+      <div class="stops-list">
+        <div class="stop">
+          <b>The body that approves isn’t the body that delivers.</b>
+          <span>A Board or Council signs off; country offices and technical divisions carry it.</span>
+        </div>
+        <div class="stop">
+          <b>The budget contradicts the strategy.</b>
+          <span>Earmarked funding locks capacity to yesterday’s priorities regardless of what was approved.</span>
+        </div>
+        <div class="stop">
+          <b>Nobody owns the outcome.</b>
+          <span>Matrix structures split accountability across regions, functions and programmes until it belongs to no one.</span>
+        </div>
+        <div class="stop">
+          <b>The results framework reports, it doesn’t decide.</b>
+          <span>Built to satisfy donors, so nobody uses it to steer.</span>
+        </div>
+        <div class="stop">
+          <b>Governance meets to report status, not to decide.</b>
+        </div>
+        <!-- Held for a later wave — markup ready, do not display without her go:
+        <div class="stop">
+          <b>Everything is a project with an end date,</b>
+          <span>so nothing becomes a permanent capability.</span>
+        </div>
+        -->
+      </div>
+      <p class="stops-close">The strategy isn’t the problem. The <em>system it lands in</em> is.</p>
     </div>
   </section>
 
@@ -320,8 +400,8 @@
         <div class="bio">
           <p class="kicker eyebrow">About</p>
           <h2 class="about-h">Hi, I'm Ale.</h2>
-          <p>For over twenty years I've helped international organizations turn big strategies into things teams can actually do on Monday morning. But here's the part I love most: I don't just implement strategy — I love <em>designing</em> strategies that are implementable, too. Give me a tangled problem and a room full of smart people, and I'm right where I want to be.</p>
-          <p>I'm endlessly curious and a forever-student — always learning something new, always asking what we're really trying to solve. I simplify, I connect the dots, and I make change feel like something people are part of, not something happening to them.</p>
+          <p>Strategy doesn't fail on paper. It fails on Monday morning, when teams go back to work and nothing has actually changed for them. I've spent twenty years inside international organizations closing that gap, and I've come to love both halves of the job: building a strategy that can survive a matrix structure and an earmarked budget, and doing the unglamorous work of making one that's already been approved actually move. Give me a tangled problem and a room full of people who disagree about it, and I'm in my element.</p>
+          <p>I'm endlessly curious and a forever-student, always learning something new, always asking what we're really trying to solve. I simplify, I connect the dots, and I make change feel like something people are part of, not something happening to them.</p>
           <p>Off the clock, I'm a mum, a cat person 🐱 (don't worry, I love dogs too), and happiest under water. I'm a certified Divemaster 🤿🐠, and the ocean is where I <span class="ctd">connect my own dots</span>.</p>
           <p class="cred">Brazilian–Portuguese, based in Europe · Portuguese (native), English &amp; Spanish (fluent), French (intermediate) · MA International Development (Distinction), University of Westminster · PRINCE2</p>
         </div>
@@ -332,18 +412,9 @@
           <source src="assets/about-video.mp4" type="video/mp4">
         </video>
         <p class="vcap">Strategy, sailing, and why you <em>never dive alone</em>.</p>
-        <p class="vcredit">Music: &ldquo;Wholesome&rdquo; &mdash; Kevin MacLeod (incompetech.com) &middot; CC BY 4.0</p>
+        <p class="vcredit">Music: &ldquo;Wholesome&rdquo; by Kevin MacLeod (incompetech.com) &middot; CC BY 4.0</p>
         <p class="vcredit">Photo &amp; video: Cristina Lopes</p>
       </div>
-    </div>
-  </section>
-
-  <!-- STATEMENT — philosophy bridge into services -->
-  <section class="statement" id="statement">
-    <div class="container">
-      <p class="answer">Strategy, <em>made real</em>.</p>
-      <p>Strategy becomes real not when it is approved — but when teams understand what changes at their <em>operational level</em>.</p>
-      <p class="small">Most strategies stall in the gap between approval and adoption. I design strategies that close that gap from day one — and I rescue the ones already stuck in it.</p>
     </div>
   </section>
 
@@ -352,39 +423,47 @@
     <div class="container">
       <div class="sec-head">
         <p class="kicker eyebrow">What I do</p>
-        <h2>Five ways I help</h2>
+        <h2>Four ways I help</h2>
       </div>
-      <div class="svc">
-        <div class="svc-card">
-          <div class="svc-num">01</div>
-          <h3>Strategy that delivers<span class="flag">Flagship</span></h3>
-          <p>From strategy design through to delivery — the governance, decisions, results frameworks, and discipline that turn ambition into what changes on Monday morning.</p>
+
+      <div class="svc-flag" id="strategy">
+        <div class="svc-num">01</div>
+        <h3>Strategy that delivers<span class="flag">Flagship</span></h3>
+        <p class="sub">Strategic portfolio management &middot; value-driven prioritisation &middot; value realisation &middot; operationalising strategy</p>
+        <p class="desc">Governance and decision rights that say who decides what, at every level. Prioritisation that names what stops, not only what starts. A portfolio view of the whole, and a results framework built to steer rather than to report. This is the work between an approved strategy and what teams actually do on Monday.</p>
+        <p class="spine">Approval is not adoption.</p>
+        <div class="svc-film">
+          <video controls preload="none" poster="assets/service-strategy-poster.jpg" aria-label="Film: Strategy that delivers. Approval is not adoption.">
+            <source src="assets/service-strategy.mp4" type="video/mp4">
+          </video>
+          <p class="vcredit">Music: &ldquo;Cheery Monday&rdquo; by Kevin MacLeod (incompetech.com) &middot; CC BY 4.0</p>
         </div>
-        <div class="svc-card right" id="digital-ai">
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-mini">
           <div class="svc-num">02</div>
+          <h3>Advising leaders &amp; boards</h3>
+          <p class="sub">Executive and board advisory &middot; governance design</p>
+          <p>A trusted outside head for leaders facing reform or ambiguity: naming the real problem and co-creating the answer.</p>
+        </div>
+        <div class="svc-mini" id="digital-ai">
+          <div class="svc-num">03</div>
           <h3>Digital &amp; AI transformation</h3>
-          <p>Responsible digital and AI that earns its place — governance first, starting with data, so the tools make work easier.</p>
+          <p class="sub">Digital transformation strategy &middot; responsible AI adoption</p>
+          <p>Responsible digital and AI that earns its place: governance first, starting with data, so the tools make work easier.</p>
           <div class="svc-film">
             <video controls preload="none" poster="assets/service-digital-ai-poster.jpg" aria-label="Sixty-second film: Digital and AI transformation, made real">
               <source src="assets/service-digital-ai.mp4" type="video/mp4">
             </video>
-            <p class="vcredit">Music: &ldquo;Deliberate Thought&rdquo; &mdash; Kevin MacLeod (incompetech.com) &middot; CC BY 4.0</p>
+            <p class="vcredit">Music: &ldquo;Deliberate Thought&rdquo; by Kevin MacLeod (incompetech.com) &middot; CC BY 4.0</p>
           </div>
         </div>
-        <div class="svc-card">
-          <div class="svc-num">03</div>
-          <h3>Advising leaders &amp; boards</h3>
-          <p>A trusted outside head for leaders facing reform or ambiguity — naming the real problem and co-creating the answer.</p>
-        </div>
-        <div class="svc-card right">
+        <div class="svc-mini">
           <div class="svc-num">04</div>
           <h3>Resource mobilization &amp; partnerships</h3>
-          <p>Durable funding from both sides of the table — the next cycle is won on the first day of delivering this one.</p>
-        </div>
-        <div class="svc-card">
-          <div class="svc-num">05</div>
-          <h3>Interim leadership</h3>
-          <p>Step-in leadership through a critical gap — stabilizing a function or steering a crisis until the permanent answer is ready.</p>
+          <p class="sub">Resource mobilization &middot; partnership development</p>
+          <p>Durable funding from both sides of the table. The next cycle is won on the first day of delivering this one.</p>
         </div>
       </div>
     </div>
@@ -399,7 +478,7 @@
         <div class="stats">
           <div class="stat"><div class="big">60 <span>→</span> 95%</div><div class="lab">project completion, raised in a single year across 100+ projects in 20+ countries</div></div>
           <div class="stat"><div class="big">£6 <span>→</span> £22M</div><div class="lab">funding pipeline quadrupled in under 12 months</div></div>
-          <div class="stat"><div class="big">90%</div><div class="lab">staff adoption of new AI tools within two months — proposal drafts cut from 2 weeks to 2 days</div></div>
+          <div class="stat"><div class="big">90%</div><div class="lab">staff adoption of new AI tools within two months; proposal drafts cut from 2 weeks to 2 days</div></div>
           <div class="stat"><div class="big">$400M</div><div class="lab">portfolio brought under one results-management system across 13 independent organizations</div></div>
           <div class="stat"><div class="big">90 <span>→</span> 30%</div><div class="lab">high-risk partners reduced in under two years on a $50M, 18-country portfolio</div></div>
           <div class="stat"><div class="big">3 weeks</div><div class="lab">to design and launch a 17-partner digital platform, end to end</div></div>
@@ -419,13 +498,13 @@
           <img src="assets/logos/usaid.svg" alt="USAID" title="USAID">
           <img src="assets/logos/ukaid.svg" alt="UK Aid" title="UK Aid">
           <img src="assets/logos/irishaid.gif" alt="Irish Aid" title="Irish Aid">
-          <img src="assets/logos/norad.svg" alt="Norad" title="Norad — Norwegian Agency for Development Cooperation">
+          <img src="assets/logos/norad.svg" alt="Norad" title="Norad (Norwegian Agency for Development Cooperation)">
           <img src="assets/logos/gcf.svg" alt="Green Climate Fund" title="Green Climate Fund">
           <img src="assets/logos/afdb.svg" alt="African Development Bank" title="African Development Bank">
           <img src="assets/logos/idb.svg" alt="Inter-American Development Bank" title="Inter-American Development Bank">
           <img src="assets/logos/adb.svg" alt="Asian Development Bank" title="Asian Development Bank">
           <img src="assets/logos/gates.svg" alt="Gates Foundation" title="Gates Foundation">
-          <img src="assets/logos/ukri.svg" alt="UKRI" title="UKRI — UK Research and Innovation">
+          <img src="assets/logos/ukri.svg" alt="UKRI" title="UKRI (UK Research and Innovation)">
           <img src="assets/logos/cgiar.svg" alt="CGIAR" title="CGIAR">
           <img src="assets/logos/cip.png" alt="International Potato Center (CIP)" title="International Potato Center (CIP)">
           <img src="assets/logos/tnc.svg" alt="The Nature Conservancy" title="The Nature Conservancy">
@@ -449,10 +528,10 @@
         <h2>Approval is not adoption</h2>
       </div>
       <div class="work-grid">
-        <div class="work-cell"><div class="n">01</div><h3>Connecting the dots</h3><p>I map what change means for the people living it — the gains, the losses, the fears — and find win-win answers.</p></div>
+        <div class="work-cell"><div class="n">01</div><h3>Connecting the dots</h3><p>I map what change means for the people living it: the gains, the losses, the fears. Then I find win-win answers.</p></div>
         <div class="work-cell"><div class="n">02</div><h3>The Monday-morning test</h3><p>Strategy is real when each team knows what changes for them on Monday. I design for adoption, not approval.</p></div>
-        <div class="work-cell"><div class="n">03</div><h3>Trust, before and when conditions shift</h3><p>Trust comes from the clarity of every interaction — especially when conditions change.</p></div>
-        <div class="work-cell"><div class="n">04</div><h3>Co-creation, not handover</h3><p>Solutions are built with your teams — which is why they keep working long after I've gone.</p></div>
+        <div class="work-cell"><div class="n">03</div><h3>Trust, before and when conditions shift</h3><p>Trust comes from the clarity of every interaction, especially when conditions change.</p></div>
+        <div class="work-cell"><div class="n">04</div><h3>Co-creation, not handover</h3><p>Solutions are built with your teams, which is why they keep working long after I've gone.</p></div>
       </div>
     </div>
   </section>
@@ -461,13 +540,14 @@
   <section class="contact" id="contact">
     <div class="container">
       <p class="kicker eyebrow" style="text-align:center">Get in touch</p>
-      <p class="lead">Tell me what you're navigating — a strategy that won't land, a reform that's stalled, a digital investment that needs to earn its place. And if you're not yet sure where the real problem sits, that's often the first thing we'll figure out together.</p>
+      <p class="lead">Tell me what you're navigating: a strategy that won't land, a reform that's stalled, a digital investment that needs to earn its place. And if you're not yet sure where the real problem sits, that's often the first thing we'll figure out together.</p>
+      <p class="tagline"><span class="tl l" aria-hidden="true"></span><span class="tt">Strategy, made real.</span><span class="tl r" aria-hidden="true"></span></p>
       <div class="big-talk">Let's <em>talk</em>.</div>
       <div class="ways">
-        <a class="btn" href="mailto:letstalk@alefurtado.org?subject=Enquiry%20via%20website">Email me →</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/alessandra-gfurtado" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a>
+        <a class="btn ghost" href="mailto:letstalk@alefurtado.org?subject=Enquiry%20via%20website">Or email me</a>
       </div>
-      <p class="emails"><a href="mailto:letstalk@alefurtado.org">letstalk@alefurtado.org</a></p>
+      <p class="emails"><a href="mailto:letstalk@alefurtado.org">letstalk@alefurtado.org</a><span class="sep">·</span><a href="https://www.linkedin.com/in/alessandra-gfurtado" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </section>
 </div>
@@ -590,24 +670,20 @@
     var crX=cRr.right-pgR.left-parseFloat(ccs.paddingRight);
     var Lx=clX-16, Rx=crX+16;
 
-    var k=R(q('.hero h1')), l=R(q('.hero p.lede'));
-    var he=conn([[Lx,k.t+6],[Lx,l.b+44],[clX+330,l.b+44]], q('#hero'));
+    // hero: land the foot in the gap between the last line of copy and the buttons, so it can
+    // never strike through the proof line (which sits where the old lede foot used to clear).
+    var k=R(q('.hero h1')), l=R(q('.hero .proof')||q('.hero p.lede')), hc=q('.hero-ctas');
+    var footY=hc?(l.b+R(hc).t)/2:l.b+38;
+    var he=conn([[Lx,k.t+6],[Lx,footY],[clX+330,footY]], q('#hero'));
     he.d[1].setAttribute('r','7');
 
-    var sp=document.querySelectorAll('#statement p');
-    var sp0=R(sp[0]), spL=R(sp[sp.length-1]);
-    conn([[Rx,sp0.t+4],[Rx,spL.b+36],[crX-300,spL.b+36]], q('#statement'));
-
-    var cards=[].slice.call(document.querySelectorAll('.svc-card'));
-    var c1=R(cards[0]),c2=R(cards[1]),c3=R(cards[2]),c4=R(cards[3]),c5=R(cards[4]);
-    var s1=[c1.l+c1.w*0.30, c1.b+10], e1=[c2.l-10, c2.t+c2.h*0.35];
-    conn([s1,[s1[0],e1[1]],e1], cards[1]);
-    var s2=[c2.l-10, c2.t+c2.h*0.68], e2=[c3.l-10, c3.t+c3.h*0.40];
-    conn([s2,[Lx,s2[1]],[Lx,e2[1]],e2], cards[2]);
-    var s3=[c3.l+c3.w*0.55, c3.b+10], e3=[c4.l+c4.w*0.75, c4.t-10], my3=(c3.b+c4.t)/2;
-    conn([s3,[s3[0],my3],[e3[0],my3],e3], cards[3]);
-    var s4=[c4.r+10, c4.t+c4.h*0.5], e4=[c5.l+c5.w*0.40, c5.t-10], my4=(c4.b+c5.t)/2;
-    conn([s4,[Rx,s4[1]],[Rx,my4],[e4[0],my4],e4], cards[4]);
+    // services: one thread — down the right of the flagship, then in to the supporting row
+    var sh=q('#services .sec-head'), fl=q('.svc-flag'), row=q('.svc-row');
+    if(sh&&fl&&row){
+      var shR=R(sh), flR=R(fl), rowR=R(row);
+      var sy=(shR.b+flR.t)/2, ry=rowR.t-14;
+      conn([[crX-140,sy],[Rx,sy],[Rx,ry],[rowR.l+rowR.w*0.5,ry]], q('#services'));
+    }
 
     var impb=R(q('.impact'));
     conn([[crX-130,impb.t-26],[Rx,impb.t-26],[Rx,impb.b-14]], q('#impactsec'));
