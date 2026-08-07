@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Delivery Readiness Review · Ale Furtado</title>
+<meta name="description" content="A three to four week diagnostic of an approved strategy, using the Delivery Readiness Map. Due diligence on a decision already taken, not an evaluation.">
+<meta property="og:title" content="The Delivery Readiness Review · Ale Furtado">
+<meta property="og:description" content="A three to four week diagnostic of an approved strategy, using the Delivery Readiness Map. Due diligence on a decision already taken, not an evaluation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alefurtado.org/method">
+<meta property="og:image" content="https://alefurtado.org/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Data/accent colours are the brand palette validated 6 Aug 2026 with the dataviz
+     validator against this page's own surface (#F8F5EC): blue #2747E0 and orange
+     #d95926 pass lightness, chroma, CVD separation and 3:1 contrast. Do not
+     substitute by eye. Blue carries the structural half, orange the belief half. */
+  :root{
+    --paper:#F8F5EC; --ink:#17181B; --grey:#57534A; --grey-soft:#938C7D;
+    --line:#E9E3D5; --blue:#2747E0; --blue-deep:#16235C; --amber:#d95926;
+    --wash-blue:rgba(39,71,224,.055); --wash-amber:rgba(217,89,38,.06);
+    --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 56px;position:relative}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.05}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-soft)}
+  em{font-style:italic;color:var(--blue)}
+
+  nav{position:sticky;top:0;z-index:40;background:rgba(247,246,242,.85);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:15px 56px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand .bn{font-size:16px;font-weight:500;letter-spacing:.06em;line-height:1}
+  .brand .bs{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft);margin-top:3px}
+  .nav-right{display:flex;align-items:center;gap:28px}
+  .nav-links{display:flex;gap:26px;font-size:13px;color:var(--grey)}
+  .nav-links a{transition:color .2s;white-space:nowrap} .nav-links a:hover{color:var(--blue)}
+  .nav-links a.here{color:var(--blue)}
+  .afmark{display:block}
+  .nav-cta{font-size:13px;border:0.5px solid var(--ink);border-radius:30px;padding:8px 16px;transition:all .2s;white-space:nowrap}
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:34px;background:var(--ink);color:var(--paper);transition:transform .2s,background .2s;border:none;font-family:inherit;cursor:pointer}
+  .btn:hover{transform:translateY(-2px);background:var(--blue)}
+  .btn.ghost{background:transparent;color:var(--ink);border:0.5px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+  .sec{padding:78px 0}
+  /* Standalone copy blocks are centred; anything inside a card stays left-aligned
+     so it can be read as a column rather than as a banner. */
+  .sec-head{max-width:660px;margin:0 auto;text-align:center}
+  .sec-head h2{font-size:clamp(28px,4.2vw,44px);margin-top:10px}
+  .rule{border-top:0.5px solid var(--line)}
+  .lead-note{margin:20px auto 0;font-size:15.5px;color:var(--grey);line-height:1.65;max-width:700px;text-align:center}
+  /* the closing note needs air between it and the map it is summarising */
+  .lead-note.after-map{margin-top:56px}
+
+  /* ---------- masthead ---------- */
+  .mast{padding:66px 0 10px;position:relative;overflow:hidden;text-align:center}
+  .mast h1{font-size:clamp(38px,6.6vw,68px);margin:16px auto 22px;max-width:15ch}
+  .mast .meta{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-soft)}
+  .mast .meta b{color:var(--blue);font-weight:400}
+  /* "Step 01" only means something against the ladder on the home page, and a visitor
+     who arrives here directly has never seen it. Underlined rather than blue, because
+     "fixed fee" already carries the blue on this line. */
+  .mast .meta a{border-bottom:0.5px solid var(--grey-soft);transition:color .2s,border-color .2s}
+  .mast .meta a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+  .mast .lede{font-size:clamp(16px,2.1vw,19px);color:var(--grey);max-width:640px;line-height:1.6;margin-left:auto;margin-right:auto}
+  .mast .lede + .lede{margin-top:14px}
+  /* Deliberately not a card and not clickable: it is the visual headline for the
+     instrument. An earlier bordered, washed box read as a button and invited a click
+     that goes nowhere. */
+  .instrument-lockup{margin:52px auto 0;padding-top:38px;border-top:0.5px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+  .instrument-lockup .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft)}
+  .instrument-lockup .nm{font-family:var(--serif);font-size:clamp(24px,3.6vw,34px);color:var(--blue);line-height:1.12}
+
+  /* ---------- phases ---------- */
+  .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:34px;background:var(--line);border:0.5px solid var(--line);border-radius:14px;overflow:hidden}
+  .phase{background:var(--paper);padding:22px 20px 24px;position:relative}
+  .phase .pn{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .phase h3{font-size:18px;margin:9px 0 8px}
+  .phase p{font-size:13.5px;color:var(--grey);line-height:1.5}
+  /* Everything is visible by default. The .anim class is added by the head gate only
+     when JS runs AND motion is allowed, so a failed script leaves a readable page
+     rather than a blank one. Same contract as index.html's qsjs gate. */
+  .phase .bar{position:absolute;left:0;top:0;height:3px;width:100%;background:var(--blue);transition:width .7s cubic-bezier(.6,.02,.2,1)}
+  .anim:not(.shown) .reveal:not(.lit) .phase .bar{width:0}
+  .phase:nth-child(2) .bar{transition-delay:.12s} .phase:nth-child(3) .bar{transition-delay:.24s} .phase:nth-child(4) .bar{transition-delay:.36s}
+
+  /* ---------- the map ---------- */
+  .mapwrap{position:relative;margin-top:34px}
+  #wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0}
+  #wires path{fill:none;stroke-width:2;stroke-linecap:round;transition:stroke-dashoffset .85s cubic-bezier(.6,.02,.2,1)}
+  /* Each cluster owns its own wires, so cluster B draws when the reader reaches it
+     rather than while cluster A is still on screen. The .on class is added by JS. */
+  #wires .wdot{opacity:1;transition:opacity .3s ease .55s}
+  .anim:not(.shown) #wires .wdot:not(.on){opacity:0}
+
+  .cluster{position:relative;z-index:1}
+  .cluster + .cluster{margin-top:34px}
+  .cluster-q{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+  /* Both clusters carry the same blue. The deep blue #16235C measured lightness 0.284
+     in the palette validation, below the band for a data mark, and using it for cluster B
+     made that half of the map read as the lesser one. The tags and the two questions
+     already say which cluster is which, so the colour has no work to do. */
+  .cluster-q .tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px;white-space:nowrap}
+  .cluster-q .q{font-family:var(--serif);font-size:clamp(18px,2.5vw,25px);line-height:1.2}
+  .cl{display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;gap:14px}
+  .mstack{display:grid;gap:14px}
+  /* Blue outline from the start. These cards are not clickable, so they carry no
+     hover state: an earlier hover lift promised an interaction that does not exist. */
+  .mech{border:1px solid rgba(39,71,224,.42);border-radius:14px;padding:18px 20px;background:var(--paper);transition:opacity .5s ease,transform .5s ease}
+  .anim:not(.shown) .reveal:not(.lit) .mech{opacity:0;transform:translateY(9px)}
+  .reveal.lit .mech:nth-child(2){transition-delay:.1s}
+  .mech .mid{font-family:var(--serif);font-size:13px;color:var(--blue);display:block;margin-bottom:4px}
+  .mech b{font-size:17px;font-weight:500;display:block;margin-bottom:5px}
+  .mech .mfull{font-size:13.5px;color:var(--grey);line-height:1.5;display:block}
+  .mech.pivot{border-color:var(--blue);border-width:1.5px;background:var(--wash-blue);box-shadow:0 8px 28px rgba(39,71,224,.10)}
+  .pivot-note{display:block;margin-top:12px;padding-top:11px;border-top:0.5px solid rgba(39,71,224,.22);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--blue)}
+  .spacer{min-height:1px}
+  .cl-explain{margin:20px 0 0;font-size:14px;color:var(--grey);line-height:1.62;padding-left:16px;border-left:2px solid var(--blue);max-width:760px;text-align:left}
+  .cl-explain b{color:var(--ink);font-weight:500}
+
+  /* ---------- what it produces ---------- */
+  .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  .out{border:0.5px solid var(--line);border-radius:15px;padding:24px 24px 26px;background:var(--paper)}
+  .out svg{display:block;margin-bottom:16px}
+  .out h3{font-size:19px;margin-bottom:9px}
+  .out p{font-size:13.5px;color:var(--grey);line-height:1.55}
+  .out.amber{border-color:rgba(217,89,38,.4);background:var(--wash-amber)}
+
+  /* ---------- case studies ---------- */
+  .casegrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+  /* A div rather than a button: the card holds a heading and paragraphs, which are not
+     legal inside a <button>. The "Read the case" control is the real button, so keyboard
+     users get one focus stop and the whole card stays clickable for a mouse. */
+  .casecard{position:relative;text-align:left;border:0.5px solid var(--line);border-radius:18px;padding:28px 28px 26px;background:var(--paper);cursor:pointer;transition:transform .22s cubic-bezier(.6,.02,.2,1),box-shadow .22s,border-color .22s;display:flex;flex-direction:column}
+  .casecard:hover,.casecard:focus-within{transform:translateY(-4px);box-shadow:0 14px 34px rgba(23,24,27,.09);border-color:var(--blue)}
+  .casecard.amber:hover,.casecard.amber:focus-within{border-color:var(--amber)}
+  .casecard .badge{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px;align-self:flex-start}
+  .casecard.amber .badge{background:var(--amber)}
+  .casecard h3{font-size:clamp(21px,2.7vw,27px);margin:16px 0 10px}
+  .casecard .hook{font-size:14.5px;color:var(--grey);line-height:1.6;flex:1}
+  .casecard .thumb{margin:20px 0 4px}
+  .casecard .shows{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-soft);padding-top:16px;border-top:0.5px solid var(--line);margin-top:16px}
+  .casecard .open{margin-top:14px;font-size:13.5px;color:var(--blue);display:inline-flex;align-items:center;gap:8px;align-self:flex-start;border:none;background:none;padding:0;font-family:inherit;cursor:pointer}
+  .casecard .open:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
+  .casecard.amber .open{color:var(--amber)}
+  .casecard.amber .open:focus-visible{outline-color:var(--amber)}
+  .casecard .open .arw{transition:transform .22s}
+  .casecard:hover .open .arw{transform:translateX(4px)}
+
+  dialog.casedlg{border:none;padding:0;background:transparent;max-width:min(760px,94vw);width:100%;color:var(--ink)}
+  dialog.casedlg::backdrop{background:rgba(23,24,27,.52);backdrop-filter:blur(3px)}
+  .dlg-in{background:var(--paper);border-radius:20px;padding:38px 44px 44px;max-height:88vh;overflow-y:auto;border:0.5px solid var(--line);box-shadow:0 30px 80px rgba(23,24,27,.28)}
+  .dlg-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+  .dlg-badge{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px}
+  .dlg-badge.amber{background:var(--amber)}
+  .dlg-close{border:0.5px solid var(--line);background:transparent;border-radius:50%;width:36px;height:36px;font-size:19px;line-height:1;cursor:pointer;color:var(--grey);flex:none;transition:all .2s;font-family:inherit}
+  .dlg-close:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .dlg-in h3{font-size:clamp(26px,4vw,36px);margin:16px 0 6px}
+  .dlg-in .shows{font-size:13.5px;color:var(--grey-soft);line-height:1.5;padding-bottom:20px;border-bottom:0.5px solid var(--line)}
+  .dlg-in h4{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-soft);margin-top:26px}
+  .dlg-in p{color:var(--grey);font-size:15.5px;line-height:1.68;margin-top:13px}
+  .dlg-in p.close-line{color:var(--ink);font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.4;margin-top:22px;padding-top:20px;border-top:0.5px solid var(--line)}
+
+  .cta-band{padding:66px 0 88px;text-align:center;border-top:0.5px solid var(--line)}
+  .cta-band .tagline{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);margin-bottom:24px}
+  .ways{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .backlink{margin-top:30px;font-size:13.5px;color:var(--grey-soft)}
+  .backlink a{color:var(--blue)}
+
+  @media (max-width:880px){
+    .container,.nav-in{padding-left:28px;padding-right:28px}
+    .phases{grid-template-columns:repeat(2,1fr)}
+    .outs{grid-template-columns:1fr}
+    .casegrid{grid-template-columns:1fr}
+    .cl{grid-template-columns:1fr;gap:12px}
+    .spacer{display:none}
+    #wires{display:none}
+    .mech{opacity:1;transform:none}
+  }
+  @media (max-width:600px){
+    .nav-in{flex-wrap:wrap;padding:12px 24px 10px}
+    .brand .bs{display:none}
+    .nav-right{display:contents}
+    .nav-cta{margin-left:auto}
+    .nav-links{order:3;width:100%;justify-content:center;gap:20px;font-size:12.5px;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
+    .sec{padding:56px 0}
+    .mast{padding:42px 0 4px}
+    .phases{grid-template-columns:1fr}
+    .dlg-in{padding:28px 24px 34px;max-height:92vh}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .mech,.phase .bar,#wires path,#wires .wdot{transition:none!important}
+    .mech{opacity:1!important;transform:none!important}
+    #wires path{stroke-dashoffset:0!important}
+    #wires .wdot{opacity:1!important}
+    .phase .bar{width:100%!important}
+    .casecard{transition:none}
+  }
+  /* Both case studies print with the page. A closed <dialog> is display:none in the UA
+     sheet, so without this a printed copy would lose the two strongest pieces on the page. */
+  @media print{
+    nav,.cta-band,.casecard .open,.casecard .thumb,.dlg-close{display:none}
+    body{background:#fff}
+    dialog.casedlg{display:block;position:static;max-width:none;width:auto;margin-top:30px;page-break-before:always}
+    dialog.casedlg .dlg-in{max-height:none;overflow:visible;box-shadow:none;border:none;padding:0;background:transparent}
+  }
+</style>
+<script>
+/* Animation gate. Adds .anim only when JS runs, IntersectionObserver exists and the
+   viewer has not asked for reduced motion. The 6s failsafe force-shows everything if
+   an observer never fires, so the map can never be left invisible. */
+try{
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: no-preference)').matches
+      && 'IntersectionObserver' in window) {
+    document.documentElement.className += ' anim';
+    setTimeout(function(){ document.documentElement.className += ' shown'; }, 6000);
+  }
+}catch(e){}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Ale Furtado home">
+      <svg class="afmark" width="58" height="38" viewBox="0 0 62 40" fill="none" aria-hidden="true">
+        <line x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
+        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">A</text>
+        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
+        <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
+      </svg>
+      <span><span class="bn">Ale Furtado</span><br><span class="bs">Operationalising strategy in international organisations</span></span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a class="here" href="method.html">The method</a>
+        <a href="index.html#work">How I work</a>
+      </div>
+      <a class="nav-cta" href="#talk">Book 20 minutes</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="mast">
+  <div class="container">
+    <p class="meta"><a href="index.html#start">Step 01</a> &middot; 3 to 4 weeks &middot; <b>fixed fee</b></p>
+    <h1>The Delivery Readiness Review</h1>
+    <p class="lede">A strategy has been approved, and what has not been established is whether the organisation can deliver it. The review traces five mechanisms through the organisation's own documents and the people who have to carry the work.</p>
+    <p class="lede">This is due diligence on a decision that has already been taken, so it is neither an evaluation nor an audit. The work is to establish what already works and where the gaps are, so that delivery rests on something tested rather than assumed.</p>
+
+    <div class="instrument-lockup">
+      <span class="lbl">The instrument</span>
+      <svg width="46" height="46" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="8" cy="11" r="3.4" fill="#2747E0"/><circle cx="8" cy="29" r="3.4" fill="#2747E0"/>
+        <circle cx="32" cy="20" r="6.4" fill="#2747E0" opacity=".16"/><circle cx="32" cy="20" r="3.6" fill="#2747E0"/>
+        <path d="M11.4 12.4 L28.6 18.6 M11.4 27.6 L28.6 21.4" stroke="#2747E0" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="nm">The Delivery Readiness Map</span>
+    </div>
+  </div>
+</header>
+
+<!-- HOW IT RUNS -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">How it runs</p>
+      <h2>Four phases, three to four weeks.</h2>
+    </div>
+    <div class="phases reveal">
+      <div class="phase"><span class="bar"></span><p class="pn">Phase 01</p><h3>The strategy sets the map</h3><p>Your strategy decides who I need to speak to, so there is no standard list. The map is drawn by the role someone holds in the strategy, never by where they sit on the org chart.</p></div>
+      <div class="phase"><span class="bar"></span><p class="pn">Phase 02</p><h3>The ask is the test</h3><p>Evidence is requested mechanism by mechanism, and how hard each item is to produce gets recorded next to what it shows, because that difficulty is telling you something on its own.</p></div>
+      <div class="phase"><span class="bar"></span><p class="pn">Phase 03</p><h3>The same question, every layer</h3><p>Everyone I speak to answers one identical opening question, and a short exercise draws out what each layer believes is holding the work back. Where the answers separate is where I look.</p></div>
+      <div class="phase"><span class="bar"></span><p class="pn">Phase 04</p><h3>What holds, and in what order</h3><p>The report opens with the mechanisms that are working, then sets out what would stall delivery and the order the repairs need to run in.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MAP -->
+<section class="sec rule">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">The instrument</p>
+      <h2>Five mechanisms, two clusters.</h2>
+    </div>
+    <p class="lead-note">The five are not a sequence, and reading them as one line tends to send a repair to the wrong place. They sit in two clusters that answer different questions, and neither cluster depends on the other.</p>
+
+    <div class="mapwrap" id="mapwrap">
+      <svg id="wires" aria-hidden="true"></svg>
+
+      <div class="cluster cA reveal">
+        <div class="cluster-q"><span class="tag">Cluster A</span><span class="q">Can the strategy command the work?</span></div>
+        <div class="cl">
+          <div class="mstack">
+            <div class="mech" data-w="a1"><span class="mid">M1</span><b>Authorship</b><span class="mfull">The body that approves isn't the body that delivers.</span></div>
+            <div class="mech" data-w="a2"><span class="mid">M2</span><b>Budget</b><span class="mfull">The budget contradicts the strategy.</span></div>
+          </div>
+          <div class="spacer"></div>
+          <div class="mech pivot" data-w="a3"><span class="mid">M3</span><b>Ownership</b><span class="mfull">Nobody owns the outcome.</span><span class="pivot-note">Where the two meet</span></div>
+        </div>
+        <p class="cl-explain"><b>Why they converge here.</b> A name against an outcome only means something if that person helped shape the work and can pay for it. Authorship gives them the first, the budget gives them the second, and ownership is where the two arrive together. Take either one away and the name on the plan is all that is left, which is why repairing ownership on its own so rarely holds.</p>
+      </div>
+
+      <div class="cluster cB reveal">
+        <div class="cluster-q"><span class="tag">Cluster B</span><span class="q">Can the organisation see it moving and steer it?</span></div>
+        <div class="cl">
+          <div class="mech" data-w="b1"><span class="mid">M4</span><b>Reporting</b><span class="mfull">The results framework reports outputs, not what they mean for the outcome.</span></div>
+          <div class="spacer"></div>
+          <div class="mech" data-w="b2"><span class="mid">M5</span><b>Deciding</b><span class="mfull">Governance meets to report status, not to decide.</span></div>
+        </div>
+        <p class="cl-explain"><b>This one is a hand-off, not a convergence.</b> A body given reporting-grade information cannot make decision-grade choices, so what matters is the quality of what passes between the two rather than either one on its own.</p>
+      </div>
+    </div>
+
+    <p class="lead-note after-map">Nothing joins the two clusters, so an organisation can be sound on one and stuck on the other, and the two repairs can run at the same time.</p>
+  </div>
+</section>
+
+<!-- WHAT IT PRODUCES -->
+<section class="sec rule">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">What it produces</p>
+      <h2>A position, not a score.</h2>
+    </div>
+    <div class="outs">
+      <div class="out">
+        <svg width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true">
+          <rect x="1" y="9" width="13" height="12" rx="3" stroke="#2747E0" stroke-width="1.6"/>
+          <rect x="19" y="9" width="13" height="12" rx="3" stroke="#2747E0" stroke-width="1.6"/>
+          <rect x="37" y="9" width="13" height="12" rx="3" stroke="#938C7D" stroke-width="1.6" stroke-dasharray="3 3"/>
+          <path d="M15 15h3M33 15h3" stroke="#2747E0" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <h3>The repair order</h3>
+        <p>Where several mechanisms break, the deliverable is the order they need to be worked in, because a repair made out of sequence tends not to hold.</p>
+      </div>
+      <div class="out">
+        <svg width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true">
+          <path d="M3 22 L14 22 M20 22 L31 22 M37 22 L49 22" stroke="#938C7D" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="4" y="14" width="9" height="6" rx="1.6" fill="#2747E0" opacity=".85"/>
+          <rect x="21" y="9" width="9" height="11" rx="1.6" fill="#2747E0" opacity=".55"/>
+          <rect x="38" y="3" width="9" height="17" rx="1.6" fill="#2747E0" opacity=".28"/>
+        </svg>
+        <h3>Retrieval difficulty</h3>
+        <p>How hard each piece of evidence was to obtain is recorded next to what it showed. Something that took three weeks and a working group to produce is not <b>YET</b> a system.</p>
+      </div>
+      <div class="out amber">
+        <svg width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true">
+          <path d="M12 15 L40 15" stroke="#938C7D" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="12" cy="15" r="5" fill="#d95926"/>
+          <circle cx="40" cy="15" r="5" fill="#2747E0"/>
+        </svg>
+        <h3>Belief against evidence</h3>
+        <p>What the delivering layer believes is blocking the work, set against what the documents show. The distance between the two is a signal in its own right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="sec rule" id="cases">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">Case studies</p>
+      <h2>Two readings, one instrument.</h2>
+    </div>
+    <p class="lead-note">The same review lands in two very different places, depending on what is actually holding the work back. Open either case to read it in full.</p>
+
+    <div class="casegrid">
+
+      <div class="casecard" data-dlg="dlg1">
+        <span class="badge">Case study 01</span>
+        <h3>Where the strategy stopped</h3>
+        <p class="hook">Everyone held a workplan full of activities, and at the end of the year it was not clear who was accountable for which result. The cause sat further upstream than the workplans did.</p>
+        <span class="thumb" aria-hidden="true">
+          <svg width="150" height="46" viewBox="0 0 150 46" fill="none">
+            <rect x="1" y="1" width="44" height="18" rx="4" fill="#2747E0" opacity=".16" stroke="#2747E0" stroke-width="1.2"/>
+            <rect x="1" y="26" width="44" height="18" rx="4" fill="#2747E0" opacity=".16" stroke="#2747E0" stroke-width="1.2"/>
+            <rect x="95" y="13" width="52" height="20" rx="4" fill="#2747E0" opacity=".3" stroke="#2747E0" stroke-width="1.6"/>
+            <path d="M47 10 C70 10, 74 21, 93 21 M47 35 C70 35, 74 26, 93 26" stroke="#2747E0" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <p class="shows">The structural reading &middot; Cluster A</p>
+        <button class="open" type="button" aria-haspopup="dialog">Read the case <span class="arw" aria-hidden="true">&#8594;</span></button>
+      </div>
+
+      <div class="casecard amber" data-dlg="dlg2">
+        <span class="badge">Case study 02</span>
+        <h3>Where the team stopped short</h3>
+        <p class="hook">The team believed it was too small and too tightly funded to deliver the strategy. The evidence said the money and the people were already there, and had been for a while.</p>
+        <span class="thumb" aria-hidden="true">
+          <svg width="150" height="46" viewBox="0 0 150 46" fill="none">
+            <path d="M22 13 L124 13 M22 33 L74 33" stroke="#938C7D" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="22" cy="13" r="6" fill="#d95926"/><circle cx="124" cy="13" r="6" fill="#2747E0"/>
+            <circle cx="22" cy="33" r="6" fill="#d95926"/><circle cx="74" cy="33" r="6" fill="#2747E0"/>
+          </svg>
+        </span>
+        <p class="shows">Belief against evidence &middot; the lens</p>
+        <button class="open" type="button" aria-haspopup="dialog">Read the case <span class="arw" aria-hidden="true">&#8594;</span></button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASE 1 DIALOG -->
+<dialog class="casedlg" id="dlg1" aria-labelledby="dlg1h">
+  <div class="dlg-in">
+    <div class="dlg-top">
+      <span class="dlg-badge">Case study 01</span>
+      <button class="dlg-close" type="button" aria-label="Close case study">&times;</button>
+    </div>
+    <h3 id="dlg1h">Where the strategy stopped</h3>
+    <p class="shows">The structural reading. Authorship, budget and ownership, traced backwards from the outcomes the strategy promised.</p>
+
+    <h4>The situation</h4>
+    <p>An international organisation had approved a new institutional strategy, and the document itself was sound. So the open question was whether the organisation could actually deliver what it had signed off.</p>
+    <p>Like many organisations of its kind, its planning system had been built for donors rather than for delivery, which meant that annual workplans recorded activities and results frameworks reported upward.</p>
+    <p>Both did exactly what they had been designed to do, but they could not fix the gap senior management identified: everyone held a workplan full of activities, but at the end of the year it was not clear who was accountable or responsible for which specific result.</p>
+
+    <h4>What was really going on</h4>
+    <p>The first process I reviewed was the performance appraisal system, because that is what tells you what staff are actually rewarded for, and people will prioritise whatever their career depends on.</p>
+    <p>From there I started with the outcomes the strategy had promised to the stakeholders it serves, and worked backwards through the medium-term outcomes and the outputs that would have to exist to produce them. Once I mapped all of that against the workplans of key staff, they did not fully meet. The activities people had committed to on paper would not produce the outputs the strategy needed.</p>
+    <p>There were three reasons for it, none of them anybody's failing: job descriptions were not revised after the strategy was approved, workplans were built from current projects rather than from the new direction, and where the two happened to overlap that was coincidence rather than design.</p>
+    <p>Underneath all of this sat a common funding structure: staff charged their time to projects and the strategy had no charge code of its own, meaning when it came to prioritising, projects won every time.</p>
+    <p>The same pattern showed up in ownership, where each strategic pillar had a named leader but nobody one layer down was accountable for the components, and the teams themselves had no clear view of what they were supposed to produce.</p>
+    <p>None of these three would have stopped the strategy on its own, but together they left the delivering teams without an incentive to act on it or a clear idea of what acting on it actually meant.</p>
+
+    <h4>What changed</h4>
+    <p>Planning was then connected across all layers. Corporate priorities drove unit plans and unit plans drove individual objectives, with each level carrying what the level above it actually needed.</p>
+
+    <h4>The result</h4>
+    <p>Every member of staff covered by the appraisal system ended up with objectives tied to a strategic outcome, and for the first time the organisation held a set of corporate priorities with KPIs that were measured and cascaded down to units and to individuals.</p>
+    <p>The test came sooner than expected, when the sector's funding environment changed sharply and a corporate target was missed, and what mattered then was that the organisation could see the miss and name its cause, and could tell an external shock apart from a failure of its own delivery.</p>
+    <p class="close-line">In a nutshell, more often than not, the strategy isn't the problem. The system it lands in is.</p>
+  </div>
+</dialog>
+
+<!-- CASE 2 DIALOG -->
+<dialog class="casedlg" id="dlg2" aria-labelledby="dlg2h">
+  <div class="dlg-in">
+    <div class="dlg-top">
+      <span class="dlg-badge amber">Case study 02</span>
+      <button class="dlg-close" type="button" aria-label="Close case study">&times;</button>
+    </div>
+    <h3 id="dlg2h">Where the team stopped short</h3>
+    <p class="shows">Belief against evidence. What the delivering layer believed was blocking it, set against what the evidence showed.</p>
+
+    <h4>The situation</h4>
+    <p>A digital transformation strategy had been approved, and the open question was whether we held the capabilities to deliver it. I commissioned the review myself, in a period when AI is changing how digital work gets delivered, and my own expectation going in was that we did not. The point was not to prove a gap but to establish whether gaps existed and where they sat. That would let us reskill where it mattered and bring in what was missing, while getting assurance on the parts that were already secure.</p>
+
+    <h4>What was really going on</h4>
+    <p>The capability was largely there, and what the review found instead was something I was not expecting.</p>
+    <p>We ran a sailboat exercise: the wind that drives you forward, the anchor that holds you back, the rocks that catch you off guard, the island you are trying to reach. Answers were collected from people individually and only then brought together in small groups, which is why the divergence between them survived long enough to be read.</p>
+    <p>The constraint people named was resources, and the team believed it was too small and too tightly restricted to deliver what the strategy was asking of it. Several of the other constraints named alongside that were real, but real for other parts of the organisation rather than for this team. The organisation's anchors had become the team's anchors, borrowed rather than earned, which meant the team was carrying weight that was not its own to carry.</p>
+    <p>The evidence said otherwise. The funding available to the team had increased significantly, and it was available for investing in the strategy rather than for keeping day-to-day operations running. The team had grown over the same period and had acquired capabilities it did not hold before, but the belief had not moved with any of it.</p>
+    <p>A short hackathon run during the work made the point better than the figures did. Members of the team solved problems that had been assumed unsolvable, using tools that had been available to them for a long time, and without drawing on any of the new money. Those items had stayed pending because people expected them to cost effort, time and money that they did not in fact require.</p>
+    <p>What corrected it was showing people the facts and then letting them prove the rest to themselves. A team told it has more room than it thinks will argue, and a team that has just used that room will not.</p>
+
+    <h4>What the review produced</h4>
+    <p>The issue was not that the team lacked capability, it was that the team had misread its own constraints and was underusing what it already had. That is a cheaper problem than the one I had expected to find, and a faster one to correct. What had to change was not the budget or the headcount but what the team believed it was free to attempt.</p>
+    <p>By the end the team had watched its own constraint be tested and give way, and it went back to the strategy holding a different view of what it could take on. The right capabilities matter, but what a team believes is holding it back decides how much of them it will use.</p>
+    <p class="close-line">An obstacle borrowed from another part of the organisation is the hardest kind to put down, because nobody in the room can remember picking it up.</p>
+  </div>
+</dialog>
+
+<!-- CTA -->
+<section class="cta-band" id="talk">
+  <div class="container">
+    <p class="kicker">Get in touch</p>
+    <p class="tagline">Strategy, made <em>real</em>.</p>
+    <div class="ways">
+      <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a>
+      <a class="btn ghost" href="mailto:letstalk@alefurtado.org?subject=Delivery%20Readiness%20Review">Or email me</a>
+    </div>
+    <p class="backlink"><a href="index.html">Back to alefurtado.org</a></p>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* ---- reveal on scroll ---- */
+  var targets = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function(t){ t.classList.add('lit'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('lit'); releaseWires(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.22 });
+    targets.forEach(function(t){ io.observe(t); });
+  }
+
+  /* ---- draw the wires between mechanism cards ----
+     Positions are measured from the live DOM rather than hard-coded, so the same
+     code serves any layout. Below 880px the wires are hidden by CSS and the cards
+     stack, which is why we bail out at that width instead of drawing verticals. */
+  var wrap = document.getElementById('mapwrap');
+  var svg  = document.getElementById('wires');
+  var NS   = 'http://www.w3.org/2000/svg';
+
+  function el(n, a){ var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+
+  function draw(){
+    if (!wrap || !svg) return;
+    svg.innerHTML = '';
+    if (window.innerWidth <= 880) return;
+    var W = wrap.getBoundingClientRect();
+    svg.setAttribute('viewBox', '0 0 ' + W.width + ' ' + W.height);
+
+    function box(sel){
+      var n = wrap.querySelector('[data-w="' + sel + '"]');
+      if (!n) return null;
+      var r = n.getBoundingClientRect();
+      return { l: r.left - W.left, r: r.right - W.left, t: r.top - W.top, b: r.bottom - W.top,
+               cy: r.top - W.top + r.height / 2 };
+    }
+    // The 4th entry is the cluster the wire belongs to, so each wire waits for its
+    // own cluster to come into view instead of firing with the section.
+    var pairs = [
+      ['a1','a3','#2747E0','A'], ['a2','a3','#2747E0','A'], ['b1','b2','#2747E0','B']
+    ];
+    pairs.forEach(function(p){
+      var s = box(p[0]), t = box(p[1]);
+      if (!s || !t) return;
+      var key = p[3];
+      var host = wrap.querySelector('.c' + key);
+      var litAlready = !!(host && host.classList.contains('lit'));
+      var x1 = s.r + 6, y1 = s.cy, x2 = t.l - 8, y2 = t.cy;
+      var mx = (x1 + x2) / 2;
+      var d = 'M ' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2;
+      var path = el('path', { d: d, stroke: p[2], 'data-cl': key });
+      svg.appendChild(path);
+      // Only hide the wire when we are actually animating. Without the gate a
+      // scripting or observer failure would leave the arrows permanently invisible.
+      var animating = document.documentElement.classList.contains('anim')
+                   && !document.documentElement.classList.contains('shown');
+      if (animating && !litAlready) {
+        // dasharray must equal the real path length for the draw-on transition to work
+        var len = path.getTotalLength();
+        path.style.strokeDasharray = len; path.style.strokeDashoffset = len;
+        void path.getBoundingClientRect(); // reflow, so the transition runs from the set offset
+      }
+      var dot = el('circle', { cx: x2 + 2, cy: y2, r: 3.2, fill: p[2], class: 'wdot', 'data-cl': key });
+      if (!animating || litAlready) dot.classList.add('on');
+      svg.appendChild(dot);
+    });
+  }
+
+  var raf;
+  function redraw(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); }
+  window.addEventListener('resize', redraw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(redraw);
+  window.addEventListener('load', redraw);
+  draw();
+
+  // Release only the wires belonging to the cluster that just came into view.
+  function releaseWires(node){
+    if (!node || !node.classList || !svg) return;
+    var key = node.classList.contains('cA') ? 'A' : node.classList.contains('cB') ? 'B' : null;
+    if (!key) return;
+    svg.querySelectorAll('[data-cl="' + key + '"]').forEach(function(n){
+      if (n.tagName === 'path') n.style.strokeDashoffset = 0; else n.classList.add('on');
+    });
+  }
+
+  // Failsafe partner to the head gate: if an observer never fires, show every wire.
+  setTimeout(function(){
+    if (!svg || !document.documentElement.classList.contains('shown')) return;
+    svg.querySelectorAll('path').forEach(function(p){ p.style.strokeDashoffset = 0; });
+    svg.querySelectorAll('.wdot').forEach(function(c){ c.classList.add('on'); });
+  }, 6100);
+
+  /* ---- case study dialogs ----
+     Each case carries a hash so a single case can be sent as a URL and opens on arrival:
+     /method#case-1 and /method#case-2. history.replaceState is used rather than
+     location.hash so opening a case does not add a step to the back button. */
+  var HASH = { dlg1: '#case-1', dlg2: '#case-2' };
+
+  function openDlg(id){
+    var d = document.getElementById(id);
+    if (!d) return;
+    if (typeof d.showModal === 'function') { d.showModal(); } else { d.setAttribute('open', ''); }
+    document.body.style.overflow = 'hidden';
+    if (HASH[id] && history.replaceState) history.replaceState(null, '', HASH[id]);
+  }
+
+  document.querySelectorAll('.casecard').forEach(function(card){
+    card.addEventListener('click', function(){ openDlg(card.dataset.dlg); });
+  });
+
+  document.querySelectorAll('dialog.casedlg').forEach(function(d){
+    function shut(){
+      if (typeof d.close === 'function') d.close(); else d.removeAttribute('open');
+      document.body.style.overflow = '';
+      if (history.replaceState && location.hash === HASH[d.id]) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    }
+    d.querySelector('.dlg-close').addEventListener('click', shut);
+    d.addEventListener('close', shut);
+    // click outside the panel closes it
+    d.addEventListener('click', function(ev){
+      if (!d.querySelector('.dlg-in').contains(ev.target)) shut();
+    });
+  });
+
+  // Arriving on /method#case-1 opens that case straight away.
+  for (var id in HASH) { if (location.hash === HASH[id]) { openDlg(id); break; } }
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "115e2a4e764a4d7481e288ddfbd255ad"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
