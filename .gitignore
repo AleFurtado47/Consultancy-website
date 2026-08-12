@@ -6,7 +6,6 @@
 # ...except the product sheet, which is a published download on the site.
 # *.pdf above would otherwise silently keep it out of the repo and 404 the link.
 !assets/delivery-readiness-review.pdf
-!deploy/assets/delivery-readiness-review.pdf
 
 # Local workspace
 .claude/

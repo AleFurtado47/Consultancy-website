@@ -1,0 +1,27 @@
+# Publish configuration, pinned in the repo on purpose.
+#
+# This site publishes the REPOSITORY ROOT. It always did, but the setting lived
+# only in the Netlify UI, so the repo carried a `deploy/` folder that several
+# handovers described as "what Netlify publishes". It was not. Nothing in
+# `deploy/` was ever served as the site, and `deploy/_redirects` was never read.
+#
+# That went unnoticed for months because the two copies were kept identical and
+# because Netlify resolves `.html` automatically: `/method` and `/card` worked
+# with no rule behind them, exactly as `/index` still does. The first URL that
+# genuinely needed a redirect rule was `/product-sheet`, and it 404'd in
+# production on 13 August 2026.
+#
+# Pinning `publish` here makes the real answer live in the repo, where anyone
+# reading the code can see it, and stops the UI setting drifting silently.
+
+[build]
+  publish = "."
+  # No build step. The site is hand-written HTML served as-is.
+  command = ""
+
+# Redirects live in `_redirects` at the repo root, NOT here, and NOT in a
+# subfolder. Netlify reads only the copy in the publish directory.
+#
+# Do not add a [[redirects]] block below: rules in netlify.toml take precedence
+# over `_redirects`, and splitting them across two files is how the next silent
+# 404 gets introduced.
