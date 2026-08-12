@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Delivery Readiness Review · Ale Furtado</title>
-<meta name="description" content="A three to four week diagnostic of an approved strategy, using the Delivery Readiness Map. Due diligence on a decision already taken, not an evaluation.">
+<meta name="description" content="A three-week diagnostic of an approved strategy, using the Delivery Readiness Map. Due diligence on a decision already taken, not an evaluation.">
 <meta property="og:title" content="The Delivery Readiness Review · Ale Furtado">
-<meta property="og:description" content="A three to four week diagnostic of an approved strategy, using the Delivery Readiness Map. Due diligence on a decision already taken, not an evaluation.">
+<meta property="og:description" content="A three-week diagnostic of an approved strategy, using the Delivery Readiness Map. Due diligence on a decision already taken, not an evaluation.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alefurtado.org/method">
 <meta property="og:image" content="https://alefurtado.org/assets/og-image.jpg" />
@@ -41,7 +41,8 @@
   .nav-in{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:15px 56px}
   .brand{display:flex;align-items:center;gap:11px}
   .brand .bn{font-size:16px;font-weight:500;letter-spacing:.06em;line-height:1}
-  .brand .bs{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft);margin-top:3px}
+  /* nowrap so the two forced lines stay two lines; see index.html for the measured note. */
+  .brand .bs{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft);margin-top:3px;white-space:nowrap}
   .nav-right{display:flex;align-items:center;gap:28px}
   .nav-links{display:flex;gap:26px;font-size:13px;color:var(--grey)}
   .nav-links a{transition:color .2s;white-space:nowrap} .nav-links a:hover{color:var(--blue)}
@@ -80,6 +81,12 @@
   /* Deliberately not a card and not clickable: it is the visual headline for the
      instrument. An earlier bordered, washed box read as a button and invited a click
      that goes nowhere. */
+  /* the sheet is the first-conversation document, so it sits where a reader who has
+     got this far can take it away */
+  .mast .dl{margin-top:30px;font-size:14px}
+  .mast .dl a{border-bottom:0.5px solid var(--blue);color:var(--blue);transition:color .2s,border-color .2s}
+  .mast .dl a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  .mast .dl span{color:var(--grey-soft);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;margin-left:10px}
   .instrument-lockup{margin:52px auto 0;padding-top:38px;border-top:0.5px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
   .instrument-lockup .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft)}
   .instrument-lockup .nm{font-family:var(--serif);font-size:clamp(24px,3.6vw,34px);color:var(--blue);line-height:1.12}
@@ -180,8 +187,17 @@
   .backlink{margin-top:30px;font-size:13.5px;color:var(--grey-soft)}
   .backlink a{color:var(--blue)}
 
+  /* the two-line descriptor needs a 917px viewport to sit beside the links and the CTA in one
+     row; below that it is hidden rather than squeezed. See index.html for the measured note. */
+  @media (max-width:940px){ .brand .bs{display:none} }
   @media (max-width:880px){
-    .container,.nav-in{padding-left:28px;padding-right:28px}
+    .container{padding-left:28px;padding-right:28px}
+    /* index.html shrinks the links below its breakpoint and this page never did, so between 601
+       and 880 the four links plus the CTA ran 37px past the viewport and scrolled the page
+       sideways. Pre-existing; the descriptor sitting there too made it worse. The nav takes
+       index's 24px gutter rather than the body's 28 to buy back the last 4px. */
+    .nav-in{padding-left:24px;padding-right:24px}
+    .nav-links{gap:18px;font-size:12.5px}
     .phases{grid-template-columns:repeat(2,1fr)}
     .outs{grid-template-columns:1fr}
     .casegrid{grid-template-columns:1fr}
@@ -192,7 +208,7 @@
   }
   @media (max-width:600px){
     .nav-in{flex-wrap:wrap;padding:12px 24px 10px}
-    .brand .bs{display:none}
+    /* .brand .bs is already hidden from 880 down. */
     .nav-right{display:contents}
     .nav-cta{margin-left:auto}
     .nav-links{order:3;width:100%;justify-content:center;gap:20px;font-size:12.5px;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
@@ -243,7 +259,7 @@ try{
         <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
         <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
       </svg>
-      <span><span class="bn">Ale Furtado</span><br><span class="bs">Operationalising strategy in international organisations</span></span>
+      <span><span class="bn">Ale Furtado</span><br><span class="bs">Making Strategy Operational<br>in International Organisations</span></span>
     </a>
     <div class="nav-right">
       <div class="nav-links">
@@ -260,10 +276,12 @@ try{
 <!-- MASTHEAD -->
 <header class="mast">
   <div class="container">
-    <p class="meta"><a href="index.html#start">Step 01</a> &middot; 3 to 4 weeks &middot; <b>fixed fee</b></p>
+    <p class="meta"><a href="index.html#start">Step 01</a> &middot; 3 weeks &middot; <b>fixed fee</b></p>
     <h1>The Delivery Readiness Review</h1>
     <p class="lede">A strategy has been approved, and what has not been established is whether the organisation can deliver it. The review traces five mechanisms through the organisation's own documents and the people who have to carry the work.</p>
     <p class="lede">This is due diligence on a decision that has already been taken, so it is neither an evaluation nor an audit. The work is to establish what already works and where the gaps are, so that delivery rests on something tested rather than assumed.</p>
+
+    <p class="dl"><a href="/product-sheet" download="Delivery Readiness Review - Ale Furtado.pdf">Download the product sheet</a><span>PDF &middot; 2 pages</span></p>
 
     <div class="instrument-lockup">
       <span class="lbl">The instrument</span>
@@ -282,13 +300,13 @@ try{
   <div class="container">
     <div class="sec-head">
       <p class="kicker">How it runs</p>
-      <h2>Four phases, three to four weeks.</h2>
+      <h2>Four phases, three weeks.</h2>
     </div>
     <div class="phases reveal">
       <div class="phase"><span class="bar"></span><p class="pn">Phase 01</p><h3>The strategy sets the map</h3><p>Your strategy decides who I need to speak to, so there is no standard list. The map is drawn by the role someone holds in the strategy, never by where they sit on the org chart.</p></div>
       <div class="phase"><span class="bar"></span><p class="pn">Phase 02</p><h3>The ask is the test</h3><p>Evidence is requested mechanism by mechanism, and how hard each item is to produce gets recorded next to what it shows, because that difficulty is telling you something on its own.</p></div>
       <div class="phase"><span class="bar"></span><p class="pn">Phase 03</p><h3>The same question, every layer</h3><p>Everyone I speak to answers one identical opening question, and a short exercise draws out what each layer believes is holding the work back. Where the answers separate is where I look.</p></div>
-      <div class="phase"><span class="bar"></span><p class="pn">Phase 04</p><h3>What holds, and in what order</h3><p>The report opens with the mechanisms that are working, then sets out what would stall delivery and the order the repairs need to run in.</p></div>
+      <div class="phase"><span class="bar"></span><p class="pn">Phase 04</p><h3>What supports, what constrains, and in what order</h3><p>The report opens with the mechanisms that support delivery, then sets out what would stall delivery and the order the repairs need to run in.</p></div>
     </div>
   </div>
 </section>
@@ -300,7 +318,7 @@ try{
       <p class="kicker">The instrument</p>
       <h2>Five mechanisms, two clusters.</h2>
     </div>
-    <p class="lead-note">The five are not a sequence, and reading them as one line tends to send a repair to the wrong place. They sit in two clusters that answer different questions, and neither cluster depends on the other.</p>
+    <p class="lead-note">The five are not a sequence, and reading them as one line tends to send a repair to the wrong place. They sit in two clusters that answer different questions.</p>
 
     <div class="mapwrap" id="mapwrap">
       <svg id="wires" aria-hidden="true"></svg>
@@ -309,13 +327,13 @@ try{
         <div class="cluster-q"><span class="tag">Cluster A</span><span class="q">Can the strategy command the work?</span></div>
         <div class="cl">
           <div class="mstack">
-            <div class="mech" data-w="a1"><span class="mid">M1</span><b>Authorship</b><span class="mfull">The body that approves isn't the body that delivers.</span></div>
+            <div class="mech" data-w="a1"><span class="mid">M1</span><b>Authorship</b><span class="mfull">The body that approves is not the body that delivers.</span></div>
             <div class="mech" data-w="a2"><span class="mid">M2</span><b>Budget</b><span class="mfull">The budget contradicts the strategy.</span></div>
           </div>
           <div class="spacer"></div>
           <div class="mech pivot" data-w="a3"><span class="mid">M3</span><b>Ownership</b><span class="mfull">Nobody owns the outcome.</span><span class="pivot-note">Where the two meet</span></div>
         </div>
-        <p class="cl-explain"><b>Why they converge here.</b> A name against an outcome only means something if that person helped shape the work and can pay for it. Authorship gives them the first, the budget gives them the second, and ownership is where the two arrive together. Take either one away and the name on the plan is all that is left, which is why repairing ownership on its own so rarely holds.</p>
+        <p class="cl-explain"><b>Why they converge here.</b> A name against an outcome only means something if that person helped shape the work and can pay for it. Authorship gives them the first, the budget gives them the second, and ownership is where the two arrive together. Take either one away and the name on the plan is all that is left, which is why repairing ownership on its own rarely produces the result anyone wanted.</p>
       </div>
 
       <div class="cluster cB reveal">
@@ -329,7 +347,7 @@ try{
       </div>
     </div>
 
-    <p class="lead-note after-map">Nothing joins the two clusters, so an organisation can be sound on one and stuck on the other, and the two repairs can run at the same time.</p>
+    <p class="lead-note after-map">Neither cluster depends on the other, so an organisation can be sound on one and stuck on the other, and the two repairs can run at the same time.</p>
   </div>
 </section>
 
@@ -349,7 +367,7 @@ try{
           <path d="M15 15h3M33 15h3" stroke="#2747E0" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
         <h3>The repair order</h3>
-        <p>Where several mechanisms break, the deliverable is the order they need to be worked in, because a repair made out of sequence tends not to hold.</p>
+        <p>Where several mechanisms constrain delivery, the deliverable is the order they need to be worked in, because a repair made out of sequence tends not to work.</p>
       </div>
       <div class="out">
         <svg width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true">
@@ -359,7 +377,7 @@ try{
           <rect x="38" y="3" width="9" height="17" rx="1.6" fill="#2747E0" opacity=".28"/>
         </svg>
         <h3>Retrieval difficulty</h3>
-        <p>How hard each piece of evidence was to obtain is recorded next to what it showed. Something that took three weeks and a working group to produce is not <b>YET</b> a system.</p>
+        <p>How hard each piece of evidence was to obtain is recorded next to what it showed. Something that took two weeks and a working group to evidence is not <b>YET</b> a system.</p>
       </div>
       <div class="out amber">
         <svg width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true">
@@ -368,7 +386,7 @@ try{
           <circle cx="40" cy="15" r="5" fill="#2747E0"/>
         </svg>
         <h3>Belief against evidence</h3>
-        <p>What the delivering layer believes is blocking the work, set against what the documents show. The distance between the two is a signal in its own right.</p>
+        <p>What people believe is blocking the work, set against what the documents show. The distance between the two is a signal in its own right.</p>
       </div>
     </div>
   </div>
@@ -461,7 +479,7 @@ try{
       <button class="dlg-close" type="button" aria-label="Close case study">&times;</button>
     </div>
     <h3 id="dlg2h">Where the team stopped short</h3>
-    <p class="shows">Belief against evidence. What the delivering layer believed was blocking it, set against what the evidence showed.</p>
+    <p class="shows">Belief against evidence. What people believed was blocking it, set against what the evidence showed.</p>
 
     <h4>The situation</h4>
     <p>A digital transformation strategy had been approved, and the open question was whether we held the capabilities to deliver it. I commissioned the review myself, in a period when AI is changing how digital work gets delivered, and my own expectation going in was that we did not. The point was not to prove a gap but to establish whether gaps existed and where they sat. That would let us reskill where it mattered and bring in what was missing, while getting assurance on the parts that were already secure.</p>
