@@ -11,8 +11,9 @@
                        method page is what carries the booking CTA, and a PDF that
                        outranks it would route people around the conversion path.
                        Add it here if that trade stops being worth it.
-    Strategic_Impact_Consulting.html   an orphaned first-commit scaffold, off-brand
-                       and unlinked. It should be deleted rather than listed.
+
+  Keep <lastmod> honest: bump it when the page's copy actually changes, not on
+  every deploy. Use the date of the commit that changed it.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
