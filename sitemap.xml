@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Every page on this site answers to two or three URLs, because Netlify resolves
+  .html automatically: /method and /method.html both return 200, as do /card and
+  /card.html, and / alongside /index.html and /index. This file declares which one
+  of each set is the real address. Only the extensionless form is listed.
+
+  Deliberately not listed:
+    /print-card.html   a print artefact, not a page anyone should land on
+    /product-sheet     the PDF. It is a free download and stays fetchable, but the
+                       method page is what carries the booking CTA, and a PDF that
+                       outranks it would route people around the conversion path.
+                       Add it here if that trade stops being worth it.
+    Strategic_Impact_Consulting.html   an orphaned first-commit scaffold, off-brand
+                       and unlinked. It should be deleted rather than listed.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://alefurtado.org/</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://alefurtado.org/method</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://alefurtado.org/card</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
