@@ -10,7 +10,7 @@ Pinned in [`netlify.toml`](netlify.toml) so the setting lives in the repo rather
 
 ## The rule that has already cost one production 404
 
-Anything Netlify has to read as configuration goes at the **repo root**, in the publish directory. That means `_redirects`, and it would mean `_headers` or `robots.txt` if they are ever added.
+Anything Netlify or a crawler has to read as configuration goes at the **repo root**, in the publish directory. That means `_redirects`, `robots.txt` and `sitemap.xml` today, and it would mean `_headers` if one is ever added.
 
 There used to be a `deploy/` folder that several handovers described as "what Netlify publishes". It never was. Nothing in it was ever served as the site, and `deploy/_redirects` was never read. Two things hid this for months:
 
@@ -31,6 +31,10 @@ The first URL that genuinely required a redirect was `/product-sheet`, and it 40
 | `assets/` | video, posters, portrait, partner logos, the product sheet PDF |
 | `_redirects` | Netlify rules. Root only. |
 | `netlify.toml` | pins the publish directory |
+| `robots.txt` | allows everything, points at the sitemap |
+| `sitemap.xml` | declares one canonical URL per page |
+
+Netlify resolves `.html` automatically, so every page answers to two or three URLs: `/method` and `/method.html`, `/card` and `/card.html`, and `/` alongside `/index.html` and `/index`. `sitemap.xml` lists only the extensionless form. If a page is ever added, add it there too, and use the extensionless URL.
 
 ## Local preview
 
