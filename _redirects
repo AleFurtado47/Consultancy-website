@@ -1,3 +1,21 @@
+# ale-furtado.netlify.app served a complete, crawlable copy of this site. Confirmed
+# 21 August 2026, AFTER alefurtado.org was already set as the primary domain in the
+# Netlify UI: the subdomain still returned 200 with no Location header. **Setting the
+# primary domain does NOT redirect Netlify's own subdomain**, whatever earlier notes
+# and the audit assumed. This rule is the only thing that does it.
+#
+# The `from` is an absolute URL, so it matches ONE host. Branch previews live on
+# <branch>--ale-furtado.netlify.app and cannot match it, which is what makes this safe
+# where a looser pattern would have taken the v2 preview down. alefurtado.org cannot
+# match it either, so there is no redirect loop.
+#
+# The `!` is required. Without the force flag Netlify serves the matching file first and
+# the rule never fires, which is exactly why the subdomain was returning 200.
+#
+# Must stay at the TOP: Netlify takes the first matching rule.
+http://ale-furtado.netlify.app/*   https://alefurtado.org/:splat  301!
+https://ale-furtado.netlify.app/*  https://alefurtado.org/:splat  301!
+
 /card      /card.html      200
 /method    /method.html    200
 /services  /services.html  200
