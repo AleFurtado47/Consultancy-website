@@ -1,7 +1,12 @@
 # alefurtado.org
-# Lives at the repository root, which is the publish directory. See README.md.
+# Lives at the repository root, which is the publish directory.
 
 User-agent: *
 Allow: /
+
+# The repo's own documentation is served at the root along with the site, because the
+# root IS the publish directory. It is not part of the site and should not turn up in
+# a search for her name.
+Disallow: /README.md
 
 Sitemap: https://alefurtado.org/sitemap.xml

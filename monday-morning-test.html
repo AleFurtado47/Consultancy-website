@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Monday-Morning Test &middot; Ale Furtado</title>
+<meta name="description" content="Five questions about your approved strategy, and a reading of where it stops. The same test I run inside an organisation, against what you already know. Runs in your browser.">
+<meta property="og:title" content="The Monday-Morning Test &middot; Ale Furtado">
+<meta property="og:description" content="Five questions about your approved strategy, and a reading of where it stops. The same test I run inside an organisation, against what you already know.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alefurtado.org/monday-morning-test">
+<!-- Canonical. ale-furtado.netlify.app serves a byte-identical copy of this site and
+     branch previews serve more, none of which should compete with the real domain in
+     search. This names the real one wherever the page is served from. -->
+<link rel="canonical" href="https://alefurtado.org/monday-morning-test">
+<meta property="og:image" content="https://alefurtado.org/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Data colours are the brand palette validated 6 Aug 2026 against this page's own
+     surface (#F8F5EC): blue #2747E0 supports delivery, orange #d95926 constrains it.
+     The deep blue #16235C is an ink colour and never a data mark. Every state carries
+     a glyph AND a written label as well as its colour, which is a hard requirement,
+     not a style choice. Do not substitute values by eye. */
+  :root{
+    --paper:#F8F5EC; --ink:#17181B; --grey:#57534A; --grey-soft:#938C7D;
+    --line:#E9E3D5; --blue:#2747E0; --amber:#d95926;
+    --wash-blue:rgba(39,71,224,.055); --wash-amber:rgba(217,89,38,.06);
+    --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 56px;position:relative}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.05}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-soft)}
+  em{font-style:italic;color:var(--blue)}
+
+  nav{position:sticky;top:0;z-index:40;background:rgba(247,246,242,.85);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:15px 56px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand .bn{font-size:16px;font-weight:500;letter-spacing:.06em;line-height:1}
+  .brand .bs{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft);margin-top:3px;white-space:nowrap}
+  .nav-right{display:flex;align-items:center;gap:28px}
+  .nav-links{display:flex;gap:26px;font-size:13px;color:var(--grey)}
+  .nav-links a{transition:color .2s;white-space:nowrap} .nav-links a:hover{color:var(--blue)}
+  .nav-links a.here{color:var(--blue)}
+  .afmark{display:block}
+  .nav-cta{font-size:13px;border:0.5px solid var(--ink);border-radius:30px;padding:8px 16px;transition:all .2s;white-space:nowrap}
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:34px;background:var(--ink);color:var(--paper);transition:transform .2s,background .2s;border:none;font-family:inherit;cursor:pointer}
+  .btn:hover{transform:translateY(-2px);background:var(--blue)}
+  .btn.ghost{background:transparent;color:var(--ink);border:0.5px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn:focus-visible,.opt:focus-visible,.jump:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+  .sec{padding:70px 0}
+  .sec-head{max-width:680px;margin:0 auto;text-align:center}
+  .sec-head h2{font-size:clamp(26px,4vw,40px);margin-top:10px}
+  .rule{border-top:0.5px solid var(--line)}
+  .lead-note{margin:20px auto 0;font-size:15.5px;color:var(--grey);line-height:1.65;max-width:700px;text-align:center}
+  /* The short form of the limits, before the questions. Set smaller than the lead note so it
+     frames rather than instructs, and it repeats nothing the result panel needs to say again. */
+  .framing{margin:14px auto 0;font-size:13px;color:var(--grey-soft);line-height:1.6;max-width:640px;text-align:center}
+
+  /* ---------- masthead ---------- */
+  .mast{padding:60px 0 8px;text-align:center}
+  .mast h1{font-size:clamp(36px,6.4vw,64px);margin:14px auto 20px;max-width:16ch}
+  .mast .lede{font-size:clamp(16px,2.1vw,19px);color:var(--grey);max-width:660px;line-height:1.6;margin:0 auto}
+  .mast .lede + .lede{margin-top:14px}
+  .mast .privacy{margin-top:26px;font-size:12.5px;color:var(--grey-soft)}
+  .mast .startrow{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- the runs ---------- */
+  .runs{margin-top:10px}
+  .run{margin-top:44px}
+  .run-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .run-head .tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px;white-space:nowrap}
+  .run-head .q{font-family:var(--serif);font-size:clamp(18px,2.5vw,25px);line-height:1.2}
+  .run-note{font-size:13.5px;color:var(--grey);margin-bottom:20px;max-width:760px}
+
+  /* The thread. Drawn with CSS boxes rather than SVG so it reflows with the cards at any
+     width, which is what makes the vertical mobile form the same object as the desktop one.
+     Each segment is either pending (hairline), arrived (solid blue) or stalled (orange). */
+  .lane{position:relative;display:grid;gap:16px}
+  /* Cluster A is placed explicitly rather than flowed, so each fork segment sits on the same
+     row as the card it leaves, and ownership spans both rows as the convergence. */
+  .lane.forked{grid-template-columns:118px 1fr 132px 1fr 110px;grid-template-rows:auto auto;align-items:center}
+  .lane.forked > .endcap{grid-column:1;grid-row:1/3}
+  .lane.forked > .g-m1{grid-column:2;grid-row:1}
+  .lane.forked > .g-m2{grid-column:2;grid-row:2}
+  .lane.forked > .f1{grid-column:3;grid-row:1}
+  .lane.forked > .f2{grid-column:3;grid-row:2}
+  .lane.forked > .g-m3{grid-column:4;grid-row:1/3}
+  .lane.forked > .endcap.right{grid-column:5;grid-row:1/3}
+  .lane.forked > .junction{display:none}
+  .lane.linear{grid-template-columns:118px 1fr 74px 1fr 110px;align-items:center}
+  .endcap{display:flex;flex-direction:column;gap:7px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-soft);line-height:1.25}
+  .endcap.right{text-align:right}
+  .endcap .dot{width:10px;height:10px;border-radius:50%;background:var(--blue)}
+  .endcap.right .dot{align-self:flex-end;background:transparent;border:1.5px solid var(--grey-soft)}
+  .endcap.right.arrived .dot{background:var(--blue);border-color:var(--blue)}
+
+  .stack{display:grid;gap:16px}
+  .seg{position:relative;height:2px;background:var(--line);border-radius:2px;transition:background .5s ease}
+  .seg::after{content:"";position:absolute;inset:0;border-radius:2px;background:var(--blue);transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.6,.02,.2,1)}
+  .seg.arrived::after{transform:scaleX(1)}
+  .seg.stalled::after{background:var(--amber);transform:scaleX(.45)}
+  .seg.stalled{background:repeating-linear-gradient(90deg,var(--line) 0 3px,transparent 3px 9px)}
+  /* the stall mark sits at the head of a stalled segment and is never colour alone */
+  .seg .xm{position:absolute;top:50%;left:52%;transform:translateY(-50%);font-size:13px;color:var(--amber);opacity:0;transition:opacity .3s ease .25s;line-height:1}
+  .seg.stalled .xm{opacity:1}
+
+  .gate{border:1px solid rgba(39,71,224,.42);border-radius:14px;padding:16px 18px 17px;background:var(--paper);transition:border-color .35s ease,background .35s ease,box-shadow .35s ease}
+  .gate.pivot{border-color:var(--blue);border-width:1.5px;background:var(--wash-blue)}
+  .gate.supports{border-color:var(--blue)}
+  .gate.constrains{border-color:var(--amber);border-width:1.5px;background:var(--wash-amber)}
+  .gate .mid{font-family:var(--serif);font-size:12.5px;color:var(--blue);display:block;margin-bottom:3px}
+  .gate.constrains .mid{color:var(--amber)}
+  .gate b{font-size:17px;font-weight:500;display:block;margin-bottom:4px}
+  .gate .mfull{font-size:13px;color:var(--grey);line-height:1.45;display:block}
+  .gate .state{display:none;margin-top:11px;padding-top:10px;border-top:0.5px solid rgba(23,24,27,.09);font-size:12.5px;font-weight:500;line-height:1.45}
+  .gate.answered .state{display:block}
+  .gate.supports .state{color:var(--blue)}
+  .gate.constrains .state{color:var(--amber)}
+  .gate .state .lbl{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:3px}
+  .gate .state .rd{color:var(--grey);font-weight:400}
+  .gate .pn{display:block;margin-top:10px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--blue)}
+
+  .jump{margin-top:12px;font-size:12.5px;color:var(--blue);background:none;border:none;padding:0;font-family:inherit;cursor:pointer;border-bottom:0.5px solid var(--blue)}
+  .gate.answered .jump{color:var(--grey-soft);border-bottom-color:var(--grey-soft)}
+
+  /* ---------- questions ---------- */
+  /* Start the test lands here, so the section clears the sticky nav the same way a
+     question card does. Without this the kicker sits behind the bar. */
+  #questions{scroll-margin-top:112px}
+  .qcard{border:0.5px solid var(--line);border-radius:18px;padding:30px 32px 32px;background:var(--paper);max-width:760px;margin:0 auto;scroll-margin-top:110px}
+  .qcard + .qcard{margin-top:18px}
+  .qcard .qn{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-soft)}
+  .qcard h3{font-size:clamp(20px,2.6vw,26px);margin:10px 0 4px;line-height:1.2}
+  .qcard .mech{font-size:12.5px;color:var(--grey-soft);margin-bottom:20px}
+  .opts{display:grid;gap:10px}
+  .opt{text-align:left;font-family:inherit;font-size:15px;line-height:1.45;color:var(--ink);background:var(--paper);border:0.5px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+  .opt:hover{border-color:var(--blue);transform:translateY(-1px)}
+  .opt[aria-pressed="true"]{border-color:var(--blue);border-width:1.5px;background:var(--wash-blue);padding:14.5px 17.5px}
+  .opt[aria-pressed="true"].c{border-color:var(--amber);background:var(--wash-amber)}
+  .qcard.done{opacity:.72;transition:opacity .3s}
+  .qcard.done:hover,.qcard.done:focus-within{opacity:1}
+
+  .progress{margin:0 auto 6px;max-width:760px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-soft);text-align:center}
+
+  /* ---------- result ---------- */
+  #result{display:none}
+  #result.on{display:block}
+  .verdict{max-width:760px;margin:0 auto;border:0.5px solid var(--line);border-radius:18px;padding:34px 36px 36px;background:var(--paper)}
+  .verdict h2{font-size:clamp(25px,3.6vw,36px);margin:8px 0 14px}
+  .verdict .rl{font-size:15.5px;color:var(--grey);line-height:1.66}
+  .verdict .rl + .rl{margin-top:11px}
+  .runlines{margin-top:20px;display:grid;gap:11px}
+  .runline{font-size:14.5px;color:var(--grey);line-height:1.55;padding-left:15px;border-left:2px solid var(--blue)}
+  .runline.stall{border-left-color:var(--amber)}
+  /* The label carries the state in the same colour, glyph and words as the mechanism cards,
+     so the two halves of the page read as one instrument. */
+  .runline b{color:var(--blue);font-weight:500;display:block;font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:3px}
+  .runline.stall b{color:var(--amber)}
+  .indep{margin-top:18px;font-size:13.5px;color:var(--grey);padding:12px 16px;border:1px dashed var(--grey-soft);border-radius:9px}
+
+  /* The limit block. Set as three short points rather than a paragraph, because it has to
+     be read rather than skimmed past, and it is the hinge between the free reading and
+     what the Review actually produces. */
+  .limits{margin-top:26px;padding:20px 22px;border:0.5px solid var(--line);border-radius:12px;background:var(--wash-blue)}
+  .limits h3{font-size:18px;margin-bottom:12px}
+  .lim p{font-size:13.5px;color:var(--grey);line-height:1.55}
+  .lim p + p{margin-top:9px}
+  .lim b{color:var(--ink);font-weight:500}
+  .lim a{color:var(--blue);border-bottom:0.5px solid var(--blue)}
+
+  .moves{margin-top:26px;padding-top:24px;border-top:0.5px solid var(--line)}
+  .moves h3{font-size:20px;margin-bottom:6px}
+  .moves .ord{font-size:13.5px;color:var(--grey);line-height:1.6}
+  /* Two columns: what you can do now, and what the Review would establish before you back
+     it. The pairing is the argument, so they sit side by side rather than stacked. */
+  .move{margin-top:18px;padding-left:16px;border-left:2px solid var(--amber);display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;align-items:start}
+  .move .mh{grid-column:1/-1;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+  .move .mv{font-size:14.5px;line-height:1.5}
+  .move .rev{font-size:13px;color:var(--grey);line-height:1.5;padding-left:20px;border-left:0.5px solid var(--line)}
+  .move .rev b{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-soft);font-weight:500;margin-bottom:4px}
+
+  /* Benchmark slot: built and empty by design. It stays hidden until real poll data
+     exists, and nothing here ever prints an invented percentage. */
+  #bench{display:none;margin-top:22px;padding:14px 16px;border:0.5px solid var(--line);border-radius:9px;font-size:13.5px;color:var(--grey)}
+
+  .selfreport{margin-top:24px;padding-top:22px;border-top:0.5px solid var(--line);font-size:14.5px;color:var(--grey);line-height:1.62}
+  .resways{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+  /* The sheet is the document a reader carries into their own meeting, so it sits with
+     the reading rather than in the masthead. Set as a text link, not a fourth button:
+     the row above already has three. Same treatment as method.html's masthead link. */
+  .verdict .dl{margin-top:20px;font-size:14px}
+  .verdict .dl a{border-bottom:0.5px solid var(--blue);color:var(--blue);transition:color .2s,border-color .2s}
+  .verdict .dl a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  .verdict .dl span{color:var(--grey-soft);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;margin-left:10px}
+  .privline{margin-top:18px;font-size:12.5px;color:var(--grey-soft)}
+  .restart{margin-top:14px;font-size:13px;color:var(--grey-soft);background:none;border:none;padding:0;font-family:inherit;cursor:pointer;border-bottom:0.5px solid var(--grey-soft)}
+
+  .cta-band{padding:60px 0 82px;text-align:center;border-top:0.5px solid var(--line)}
+  .cta-band .tagline{font-family:var(--serif);font-size:clamp(23px,3.2vw,32px);margin-bottom:22px}
+  .ways{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .backlink{margin-top:28px;font-size:13.5px;color:var(--grey-soft)}
+  .backlink a{color:var(--blue)}
+
+  .noscript-note{max-width:760px;margin:0 auto;padding:14px 18px;border:1px dashed var(--grey-soft);border-radius:9px;font-size:14px;color:var(--grey)}
+
+  @media (max-width:940px){ .brand .bs{display:none} }
+  @media (max-width:880px){
+    .container{padding-left:28px;padding-right:28px}
+    .nav-in{padding-left:24px;padding-right:24px}
+    .nav-links{gap:18px;font-size:12.5px}
+    /* The runs become one vertical spine. Same object, reflowed: the endcaps sit at the
+       head and foot, the segments run vertically between the cards, and a stall still
+       shows as the thread stopping under its card.
+       Cluster A's two fork segments are replaced by one junction below the pair, because a
+       vertical segment sitting between Authorship and Budget would read as a chain from
+       one to the other, which is the false line decision 37 removed. The pair stays a
+       pair, the junction carries whether both arrive, and each card still names its own
+       state in words and colour. */
+    .lane.forked,.lane.linear{grid-template-columns:1fr;grid-template-rows:none;gap:0}
+    .lane.forked > *{grid-column:auto!important;grid-row:auto!important}
+    .lane.forked > .f1,.lane.forked > .f2{display:none}
+    .lane.forked > .junction{display:block}
+    .endcap,.endcap.right{flex-direction:row;align-items:center;gap:10px;text-align:left;padding:2px 0}
+    .endcap.right .dot{align-self:auto}
+    .stack{gap:0}
+    .seg{height:26px;width:2px;margin:0 0 0 22px;background:var(--line)}
+    .seg::after{transform:scaleY(0);transform-origin:top center}
+    .seg.arrived::after{transform:scaleY(1)}
+    .seg.stalled::after{transform:scaleY(.45)}
+    .seg.stalled{background:repeating-linear-gradient(180deg,var(--line) 0 3px,transparent 3px 9px)}
+    .seg .xm{left:auto;right:-7px;top:52%}
+    .gate{margin:6px 0}
+    .qcard{padding:24px 22px 26px}
+    .verdict{padding:26px 22px 30px}
+    .move{grid-template-columns:1fr;gap:8px}
+    .move .rev{padding-left:0;border-left:none;padding-top:8px;border-top:0.5px solid var(--line)}
+  }
+  @media (max-width:600px){
+    .nav-in{flex-wrap:wrap;padding:12px 24px 10px}
+    .nav-right{display:contents}
+    .nav-cta{margin-left:auto}
+    .nav-links{order:3;width:100%;justify-content:center;gap:20px;font-size:12.5px;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
+    .sec{padding:50px 0}
+    .mast{padding:38px 0 4px}
+  }
+  /* No travelling thread for anyone who has asked for less motion: states are drawn
+     straight to their final position with no transition. */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .seg::after,.seg,.gate,.opt,.qcard,.btn{transition:none!important}
+    .seg .xm{transition:none!important}
+  }
+  /* The printed sheet is the thing a reader carries into their own meeting, so it keeps
+     the map, the reading and the moves, drops everything interactive, and closes with the
+     address a forwarded copy needs to get back here. */
+  .printfoot{display:none}
+  @media print{
+    nav,.cta-band,.opt,.jump,.restart,.resways,.verdict .dl,#questions,.mast .startrow,.progress,
+    .mast .privacy,.mast .lede + .lede{display:none}
+    body{background:#fff}
+    .sec{padding:14px 0}
+    .mast{padding:6px 0 0}
+    .rule{border-top:none}
+    /* The cluster headings carry Cluster A and Cluster B with their own questions, so the section head
+       is repetition on paper. The key below the map stays: a printed sheet has to carry the
+       written labels as well as the colours, which is the redundancy rule. */
+    #questions .sec-head,.sec:nth-of-type(1) > .container > .sec-head{display:none}
+    .mast h1{font-size:34px;margin-bottom:12px}
+    .mast .lede{font-size:14px}
+    .sec-head h2{font-size:24px}
+    .verdict{border:none;padding:0;max-width:none}
+    .qcard{display:none}
+    /* .on only: printing before answering would otherwise put an empty verdict card on
+       the page, headings and all. */
+    #result.on{display:block!important}
+    /* Only elements that genuinely fit inside one page get break-inside:avoid. The verdict
+       card is taller than A4, so asking it not to break produced blank pages rather than a
+       tidy sheet. */
+    .run,.move,.runline,.qcard{break-inside:avoid}
+    .run{margin-top:24px}
+    .gate{padding:12px 14px}
+    .gate .mfull{font-size:12px}
+    .gate .state{margin-top:8px;padding-top:8px}
+    .run-note,.lead-note{font-size:12.5px}
+    .printfoot{display:block;margin-top:24px;padding-top:12px;border-top:0.5px solid var(--line);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-soft)}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Ale Furtado home">
+      <svg class="afmark" width="58" height="38" viewBox="0 0 62 40" fill="none" aria-hidden="true">
+        <line x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
+        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">A</text>
+        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
+        <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
+      </svg>
+      <span><span class="bn">Ale Furtado</span><br><span class="bs">Making Strategy Operational<br>in International Organisations</span></span>
+    </a>
+    <div class="nav-right">
+      <!-- Same four items as every other page. The test WAS deliberately absent from the
+           nav under decision 104, whose clause was scoped to that wave: the instrument
+           lockup on method.html was to be the only entry point while the page was in
+           review. It goes live with routes instead, because a free self-serve instrument
+           reachable from one link on one page is a funnel with no entrance. -->
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="method.html">The method</a>
+        <a class="here" href="monday-morning-test.html">The test</a>
+      </div>
+      <a class="nav-cta" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="mast">
+  <div class="container">
+    <p class="kicker">The instrument</p>
+    <h1>The Monday-Morning Test</h1>
+    <!-- "where yours is", her edit: the reading is positional, and "stops" presumed the
+         answer before the visitor had given one. -->
+    <p class="lede">Five mechanisms decide whether an approved strategy changes anything on Monday. Five questions here, and a first reading of where yours is.</p>
+    <p class="privacy">Runs in your browser. Nothing stored, nothing sent, no email wall.</p>
+    <div class="startrow">
+      <a class="btn" href="#questions">Start the test</a>
+      <a class="btn ghost" href="method.html">How the Review works</a>
+    </div>
+  </div>
+</header>
+
+<!-- THE CLUSTERS -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">From approved to Monday morning</p>
+      <h2>Five mechanisms, two clusters.</h2>
+    </div>
+    <p class="lead-note">The five are not a sequence, and neither cluster depends on the other, so an organisation can be sound on one and stuck on the other.</p>
+
+    <div class="runs">
+
+      <div class="run" id="runA">
+        <div class="run-head"><span class="tag">Cluster A</span><span class="q">Can the strategy command the work?</span></div>
+        <p class="run-note">Authorship and the budget both feed ownership: someone can only own an outcome if they shaped the work and can pay for it.</p>
+        <div class="lane forked">
+          <div class="endcap"><span class="dot"></span><span>Approved</span></div>
+          <div class="gate g-m1" id="gM1" data-m="M1">
+            <span class="mid">M1</span><b>Authorship</b>
+            <span class="mfull">The body that approves is not the body that delivers.</span>
+            <span class="state"><span class="lbl"></span><span class="rd"></span></span>
+            <button class="jump" type="button" data-q="q1">Answer question 1</button>
+          </div>
+          <div class="seg f1" id="sA1"><span class="xm" aria-hidden="true">&#10005;</span></div>
+          <div class="gate g-m2" id="gM2" data-m="M2">
+            <span class="mid">M2</span><b>Budget</b>
+            <span class="mfull">The budget contradicts the strategy.</span>
+            <span class="state"><span class="lbl"></span><span class="rd"></span></span>
+            <button class="jump" type="button" data-q="q2">Answer question 2</button>
+          </div>
+          <div class="seg f2" id="sA2"><span class="xm" aria-hidden="true">&#10005;</span></div>
+          <div class="seg junction" id="sAj"><span class="xm" aria-hidden="true">&#10005;</span></div>
+          <div class="gate pivot g-m3" id="gM3" data-m="M3">
+            <span class="mid">M3</span><b>Ownership</b>
+            <span class="mfull">Nobody owns the outcome.</span>
+            <span class="state"><span class="lbl"></span><span class="rd"></span></span>
+            <button class="jump" type="button" data-q="q3">Answer question 3</button>
+          </div>
+          <div class="endcap right" id="endA"><span class="dot"></span><span>Monday morning</span></div>
+        </div>
+      </div>
+
+      <div class="run" id="runB">
+        <div class="run-head"><span class="tag">Cluster B</span><span class="q">Can the organisation see it moving and steer it?</span></div>
+        <p class="run-note">Reporting hands off to deciding, so what matters is whether what arrives is good enough to decide on.</p>
+        <div class="lane linear">
+          <div class="endcap"><span class="dot"></span><span>Approved</span></div>
+          <div class="gate" id="gM4" data-m="M4">
+            <span class="mid">M4</span><b>Reporting</b>
+            <span class="mfull">The results framework reports outputs, not what they mean for the outcome.</span>
+            <span class="state"><span class="lbl"></span><span class="rd"></span></span>
+            <button class="jump" type="button" data-q="q4">Answer question 4</button>
+          </div>
+          <div class="seg" id="sB1"><span class="xm" aria-hidden="true">&#10005;</span></div>
+          <div class="gate" id="gM5" data-m="M5">
+            <span class="mid">M5</span><b>Deciding</b>
+            <span class="mfull">Governance meets to report status, not to decide.</span>
+            <span class="state"><span class="lbl"></span><span class="rd"></span></span>
+            <button class="jump" type="button" data-q="q5">Answer question 5</button>
+          </div>
+          <div class="endcap right" id="endB"><span class="dot"></span><span>Monday morning</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- The key. Her edit cut the sentence explaining the thread and the note about states
+         being written as well as drawn: the drawing says it, and each card carries its own
+         glyph and written label, so the redundancy rule is satisfied without the commentary. -->
+    <p class="lead-note" style="margin-top:34px;font-size:13.5px">
+      <span style="color:var(--blue)">&#9679;</span> Supports delivery &nbsp;&middot;&nbsp;
+      <span style="color:var(--amber)">&#10005;</span> Constrains delivery
+    </p>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="sec rule" id="questions">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">Five questions</p>
+      <h2>About your organisation.</h2>
+    </div>
+    <p class="lead-note">Answer for how things actually work, not how they were designed to. Nothing here is scored.</p>
+    <!-- Her ruling, 20 August: the short form of "what five answers cannot see" sits here as
+         well as with the result, so a visitor knows what they are getting before they start
+         rather than only once they have finished. -->
+    <p class="framing">Five answers from one person make a first reading rather than a diagnosis. The Review asks the same five questions of the organisation's records and of the people who have to deliver the work.</p>
+
+    <noscript>
+      <p class="noscript-note" style="margin-top:26px">The five questions below are the test. Working out the reading needs JavaScript, which is switched off, so the questions read as they are and the reading is the part that will not appear.</p>
+    </noscript>
+
+    <p class="progress" id="prog" style="margin-top:30px"></p>
+
+    <div id="qlist">
+
+      <div class="qcard" id="q1" data-m="M1">
+        <p class="qn">Question 1 of 5</p>
+        <h3>The first full draft of the strategy was written by&hellip;</h3>
+        <p class="mech">M1 &middot; Authorship</p>
+        <div class="opts">
+          <button class="opt" type="button" aria-pressed="false" data-s="s">the teams who will have to deliver it</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="c">a smaller group, with the delivery teams consulted along the way</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="c">an external adviser, or senior management</button>
+        </div>
+      </div>
+
+      <div class="qcard" id="q2" data-m="M2">
+        <p class="qn">Question 2 of 5</p>
+        <h3>A member of staff spends Monday working on the strategy. That time gets charged to&hellip;</h3>
+        <p class="mech">M2 &middot; Budget</p>
+        <div class="opts">
+          <button class="opt" type="button" aria-pressed="false" data-s="s">a budget line the strategy carries itself</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="c">whichever project they are booked to</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="c">nobody could say without convening a meeting</button>
+        </div>
+      </div>
+
+      <div class="qcard" id="q3" data-m="M3">
+        <p class="qn">Question 3 of 5</p>
+        <h3>One level down from the outcome owners, each component of the work belongs to:</h3>
+        <p class="mech">M3 &middot; Ownership</p>
+        <div class="opts">
+          <button class="opt" type="button" aria-pressed="false" data-s="s">a named person, with a line in their own objectives</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="c">the outcome owners themselves, with support from their teams</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="a">nobody yet, the organisation has not worked that out</button>
+        </div>
+      </div>
+
+      <div class="qcard" id="q4" data-m="M4">
+        <p class="qn">Question 4 of 5</p>
+        <h3>Your results framework mostly tells the people reading it&hellip;</h3>
+        <p class="mech">M4 &middot; Reporting</p>
+        <div class="opts">
+          <button class="opt" type="button" aria-pressed="false" data-s="s">what the outputs mean for the outcome, and when something needs a decision</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="c">which outputs were delivered, and how much was spent</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="a">little that management uses, so it mostly serves reporting obligations</button>
+        </div>
+      </div>
+
+      <div class="qcard" id="q5" data-m="M5">
+        <p class="qn">Question 5 of 5</p>
+        <h3>In your organisation, governance meetings mostly&hellip;</h3>
+        <p class="mech">M5 &middot; Deciding</p>
+        <!-- Her edit, 20 August. "Both, honestly" was one answer carrying two very different
+             organisations, and it made the most human answer on the page a constraint by
+             default. Splitting it by where the decision actually lands is the grid's own
+             test: accountability leaves the room once decisions settle after the meeting. -->
+        <div class="opts">
+          <button class="opt" type="button" aria-pressed="false" data-s="s">take decisions</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="c">report status</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="c">both, but decisions are normally made after the meeting</button>
+          <button class="opt" type="button" aria-pressed="false" data-s="s">both, but decisions are made during the meeting</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="sec rule" id="result">
+  <div class="container">
+    <div class="sec-head">
+      <p class="kicker">Your reading</p>
+    </div>
+    <div class="verdict">
+      <h2 id="vHead"></h2>
+      <p class="rl" id="vBody"></p>
+      <div class="runlines" id="vRuns"></div>
+      <p class="indep" id="vIndep" style="display:none">Neither cluster depends on the other, so the two repairs are independent and can run at the same time.</p>
+
+      <!-- The honest frame sits before the moves, so the moves are read as a place to
+           start rather than as the answer. Each point is something the page structurally
+           cannot do, not a caveat about how well it was answered. -->
+      <div class="limits">
+        <h3>What five answers cannot see</h3>
+        <div class="lim">
+          <p><b>One person answered.</b> The Review puts the same questions to around fifteen people across every layer, and to the records the organisation already holds.</p>
+          <p><b>How hard the evidence is to get.</b> That is a reading in its own right, and this page cannot produce it. A mechanism that looks sound but takes two weeks and a working group to evidence is not yet a system.</p>
+          <p><b>Where people disagree.</b> You have put one mark on what is believed. The Review sets a whole layer's marks against what the documents show, and that distance is usually where the value sits. <a href="method.html#case-2">Case study 02</a> is what it looks like when the two come apart.</p>
+        </div>
+      </div>
+
+      <div class="moves" id="vMoves" style="display:none">
+        <h3>Where to start</h3>
+        <p class="ord">One first move per constraint, in the order the mechanisms appear above. Which order they actually need to run in is one of the things the Review establishes.</p>
+        <div id="vMoveList"></div>
+      </div>
+
+      <div id="bench"></div>
+
+      <div class="resways">
+        <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a>
+        <button class="btn ghost" type="button" id="printBtn">Print your reading</button>
+        <a class="btn ghost" href="method.html" id="methodLink">How the Review works</a>
+      </div>
+      <p class="dl" id="sheetLink"><a href="/product-sheet" download="Delivery Readiness Review - Ale Furtado.pdf">Download the product sheet</a><span>PDF &middot; 2 pages</span></p>
+      <p class="privline">Nothing on this page was stored or sent. Printing or closing the tab is the end of it.</p>
+      <button class="restart" type="button" id="restartBtn">Start again</button>
+      <p class="printfoot">The Monday-Morning Test &middot; alefurtado.org/monday-morning-test &middot; Ale Furtado</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="talk">
+  <div class="container">
+    <p class="kicker">Get in touch</p>
+    <p class="tagline">Strategy, made <em>real</em>.</p>
+    <div class="ways">
+      <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a>
+      <a class="btn ghost" href="mailto:letstalk@alefurtado.org?subject=The%20Monday-Morning%20Test">Or email me</a>
+    </div>
+    <p class="backlink"><a href="index.html">Back to alefurtado.org</a></p>
+  </div>
+</section>
+
+<script>
+(function(){
+  'use strict';
+  /* Nothing here leaves the page: no storage, no network, no beacon of its own.
+     The answers live in one object for the life of the tab and go when the tab goes. */
+
+  var REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var STATE = { M1:null, M2:null, M3:null, M4:null, M5:null };
+
+  var READ = {
+    M1: { s:'The people who have to deliver this strategy also wrote it.',
+          c:'The strategy was drafted a layer above the people who have to deliver it.' },
+    M2: { s:'The strategy carries a charge of its own, so time spent on it is funded time.',
+          c:'Time spent on the strategy competes with time that is already funded.' },
+    M3: { s:'Below the outcome owners, named people carry the components.',
+          c:'Ownership stops at the outcome owners and thins out below them.',
+          a:'Ownership below the outcome owners has not been worked out yet.' },
+    M4: { s:'The framework shows what the outputs mean and when to act.',
+          c:'The framework reports outputs rather than what they mean for the outcome.',
+          a:'The framework mostly serves reporting obligations rather than management.' },
+    M5: { s:'Decisions get taken in the room they belong to.',
+          c:'Meetings fill with status, and decisions tend to settle elsewhere.' }
+  };
+
+  /* First moves, calibrated per decision 101. M2 carries the identifiable charge and not
+     the portfolio admission rule; M5 carries route-by-impact and not the three-owner
+     voting design. Each move carries its reason, never a bare imperative. */
+  /* Each move carries what the Review establishes beside it. The move is usable on its own;
+     the second column names the QUESTION the Review answers and never how it is answered.
+     Her instruction, 20 August: the reason lines are cut, and these lines say what a client
+     ends up knowing rather than which documents or probes produce it. Nothing here may name
+     an evidence item, a source, a probe, or a count. */
+  var MOVES = {
+    M1: { m:'Put the next draft in the hands of the people who will own and deliver the work.',
+          r:'Who shaped the draft rather than who was consulted about it.' },
+    M2: { m:'Give the strategy an identifiable charge, so time spent on it can be traced to a named result.',
+          r:'Whether the money behind each outcome actually reaches the work, and whether it lasts as long as the outcome needs.' },
+    M3: { m:'Walk the outcomes backwards to the outputs that have to exist, then set those against the workplans of key staff.',
+          r:'How far ownership extends below the outcome owners, and where it thins out.' },
+    M4: { m:'Establish action thresholds for your indicators, and name who is accountable for acting on them.',
+          r:'Whether management steers by the framework, or whether it mostly serves reporting obligations.' },
+    M5: { m:'Route decisions by the impact they carry rather than by seniority, and name who arbitrates when one stalls.',
+          r:'Where decisions are actually settled, and whether accountability stays in the room.' }
+  };
+
+  var NAMES = { M1:'Authorship', M2:'Budget', M3:'Ownership', M4:'Reporting', M5:'Deciding' };
+  var ORDER = ['M1','M2','M3','M4','M5'];
+
+  function isConstraint(v){ return v === 'c' || v === 'a'; }
+  function answered(){ return ORDER.filter(function(k){ return STATE[k]; }).length; }
+
+  /* ---- gate cards ---- */
+  function paintGate(m){
+    var g = document.getElementById('g' + m), v = STATE[m];
+    if (!g) return;
+    g.classList.remove('supports','constrains','answered');
+    var lbl = g.querySelector('.state .lbl'), rd = g.querySelector('.state .rd');
+    if (!v) { lbl.textContent = ''; rd.textContent = ''; return; }
+    g.classList.add('answered', isConstraint(v) ? 'constrains' : 'supports');
+    lbl.textContent = isConstraint(v) ? '✕  Constrains delivery' : '●  Supports delivery';
+    rd.textContent = READ[m][v];
+    var j = g.querySelector('.jump');
+    if (j) j.textContent = 'Change this answer';
+  }
+
+  /* ---- the threads ----
+     Cluster A: M1 and M2 each own a segment into ownership, and its thread arrives only
+     when M1, M2 and M3 all support delivery. Cluster B: one segment, arriving only when
+     M4 and M5 both support. A stalled segment never hides a later question. */
+  function paintThreads(){
+    function seg(id, from){
+      var s = document.getElementById(id);
+      if (!s) return;
+      s.classList.remove('arrived','stalled');
+      var v = STATE[from];
+      if (!v) return;
+      s.classList.add(isConstraint(v) ? 'stalled' : 'arrived');
+    }
+    seg('sA1','M1'); seg('sA2','M2'); seg('sB1','M4');
+
+    /* The mobile junction stands in for both fork segments. It arrives only when
+       authorship and the budget both arrive, and stalls as soon as either one does not. */
+    var j = document.getElementById('sAj');
+    if (j) {
+      j.classList.remove('arrived','stalled');
+      var m1 = STATE.M1, m2 = STATE.M2;
+      if (isConstraint(m1) || isConstraint(m2)) j.classList.add('stalled');
+      else if (m1 && m2) j.classList.add('arrived');
+    }
+
+    var aDone = STATE.M1 && STATE.M2 && STATE.M3;
+    var aOK = aDone && !isConstraint(STATE.M1) && !isConstraint(STATE.M2) && !isConstraint(STATE.M3);
+    document.getElementById('endA').classList.toggle('arrived', !!aOK);
+
+    var bDone = STATE.M4 && STATE.M5;
+    var bOK = bDone && !isConstraint(STATE.M4) && !isConstraint(STATE.M5);
+    document.getElementById('endB').classList.toggle('arrived', !!bOK);
+  }
+
+  /* ---- questions ---- */
+  document.querySelectorAll('.qcard').forEach(function(card){
+    var m = card.dataset.m;
+    card.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        card.querySelectorAll('.opt').forEach(function(b){
+          b.setAttribute('aria-pressed','false'); b.classList.remove('c');
+        });
+        btn.setAttribute('aria-pressed','true');
+        if (isConstraint(btn.dataset.s)) btn.classList.add('c');
+        STATE[m] = btn.dataset.s;
+        card.classList.add('done');
+        paintGate(m); paintThreads(); paintProgress(); maybeResult();
+      });
+    });
+  });
+
+  document.querySelectorAll('.jump').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t = document.getElementById(b.dataset.q);
+      if (t) t.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block:'center' });
+    });
+  });
+
+  function paintProgress(){
+    var n = answered();
+    var p = document.getElementById('prog');
+    p.textContent = n === 0 ? 'Five questions, none answered yet'
+                  : n === 5 ? 'All five answered. Your reading is below.'
+                  : n + ' of 5 answered';
+  }
+
+  /* ---- the reading ----
+     Headlines and routes per decision 103. The absence route fires only where M3 and M4
+     both came back as absence, because machinery working against a strategy is not the
+     same as machinery that has not been built. */
+  function maybeResult(){
+    if (answered() < 5) return;
+
+    var res = document.getElementById('result');
+    var constraints = ORDER.filter(function(k){ return isConstraint(STATE[k]); });
+    var absence = STATE.M3 === 'a' && STATE.M4 === 'a';
+
+    var aStalls = ['M1','M2','M3'].filter(function(k){ return isConstraint(STATE[k]); });
+    var bStalls = ['M4','M5'].filter(function(k){ return isConstraint(STATE[k]); });
+
+    var head = document.getElementById('vHead'), body = document.getElementById('vBody');
+    var runs = document.getElementById('vRuns');
+
+    if (!constraints.length) {
+      head.textContent = 'Nothing here constrains delivery.';
+      body.textContent = 'On these answers all five mechanisms point the same way, which is worth knowing on its own, because an organisation repairing something that already works gets nothing back for the time and the money it spends.';
+    } else if (absence) {
+      head.textContent = 'Strategy without an operating model.';
+      body.textContent = 'On these answers the question is not whether the machinery works against the strategy, it is that some of it has not been built yet. Ownership below the outcome owners, and a framework management can steer by, are both things an organisation puts in place deliberately, and neither one arrives with an approved strategy.';
+    } else {
+      head.textContent = 'Approved strategy, delivery exposed.';
+      body.textContent = 'The machinery is there, and on these answers some of it works against the strategy rather than for it. That is the common case, and it is the reason approval and adoption are different events.';
+    }
+
+    /* per-run lines, carrying the bands' substance in public language */
+    var out = [];
+    /* Order matters. A constraint at authorship or the budget is the upstream reading
+       whatever ownership says, because that is what makes an ownership repair fail later.
+       Ownership as an absence is read next, and ownership constraining on its own last. */
+    if (!aStalls.length) {
+      out.push(['Cluster A', false, 'Authorship, the budget and ownership all point the same way, so the strategy can command the work it needs.']);
+    } else if (isConstraint(STATE.M1) || isConstraint(STATE.M2)) {
+      out.push(['Cluster A', true, 'Ownership depends on two things: the people who deliver having shaped the work, and the money being there to pay for it. One of them is missing, so repairing ownership on its own would not last.']);
+    } else if (STATE.M3 === 'a') {
+      out.push(['Cluster A', true, 'Ownership below the outcome owners has not been set yet, so authorship and the budget have nothing to attach to.']);
+    } else {
+      out.push(['Cluster A', true, 'The strategy can command resources, and below the outcome owners nobody is carrying the components, which can be repaired where it sits.']);
+    }
+    if (!bStalls.length) {
+      out.push(['Cluster B', false, 'The organisation can see the strategy moving and steer it.']);
+    } else {
+      out.push(['Cluster B', true, 'What reaches the table says what was delivered rather than what now needs deciding, so the meeting has nothing to steer with.']);
+    }
+    /* The cluster label carries the state in the instrument's own two words, her ruling of
+       20 August. Her follow-up, 21 August: drop those words when both labels would carry the
+       same state, because two identical phrases stacked say nothing the second time. Where
+       the clusters differ the words stay, since the contrast is the reading.
+       The glyph and the colour always remain, and every mechanism card above still carries
+       its own written state, so no state anywhere rests on colour by itself. */
+    var sameState = (out[0][1] === out[1][1]);
+    runs.innerHTML = out.map(function(r){
+      var lbl = (r[1] ? '✕ ' : '● ') + r[0]
+              + (sameState ? '' : (r[1] ? ' constrains delivery' : ' supports delivery'));
+      return '<p class="runline' + (r[1] ? ' stall' : '') + '"><b>' + lbl + '</b>' + r[2] + '</p>';
+    }).join('');
+
+    document.getElementById('vIndep').style.display = (aStalls.length && bStalls.length) ? 'block' : 'none';
+
+    /* first moves, in map order, never repair order */
+    var mv = document.getElementById('vMoves'), list = document.getElementById('vMoveList');
+    if (constraints.length) {
+      list.innerHTML = constraints.map(function(k){
+        return '<div class="move"><span class="mh">' + k + ' &middot; ' + NAMES[k] + '</span>' +
+               '<p class="mv">' + MOVES[k].m + '</p>' +
+               '<p class="rev"><b>What the Review establishes</b>' + MOVES[k].r + '</p></div>';
+      }).join('');
+      mv.style.display = 'block';
+    } else {
+      list.innerHTML = '';
+      mv.style.display = 'none';
+    }
+
+    /* the absence route asks for a conversation and makes no Review pitch */
+    document.getElementById('methodLink').style.display = absence ? 'none' : '';
+    document.getElementById('sheetLink').style.display = absence ? 'none' : '';
+
+    res.classList.add('on');
+    res.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block:'start' });
+  }
+
+  document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+
+  document.getElementById('restartBtn').addEventListener('click', function(){
+    ORDER.forEach(function(k){ STATE[k] = null; paintGate(k); });
+    document.querySelectorAll('.opt').forEach(function(b){
+      b.setAttribute('aria-pressed','false'); b.classList.remove('c');
+    });
+    document.querySelectorAll('.qcard').forEach(function(c){ c.classList.remove('done'); });
+    document.getElementById('result').classList.remove('on');
+    paintThreads(); paintProgress();
+    document.getElementById('q1').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block:'center' });
+  });
+
+  paintProgress();
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "115e2a4e764a4d7481e288ddfbd255ad"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

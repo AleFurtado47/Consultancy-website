@@ -11,6 +11,10 @@
 .claude/
 .netlify/
 
+# Session briefing for Claude Code. Deliberately NOT committed: Netlify serves the
+# repo root, so a committed CLAUDE.md would be public at alefurtado.org/CLAUDE.md.
+CLAUDE.md
+
 # Personal working files — not for the public repo
 linkedin/
 video/
@@ -19,6 +23,11 @@ Videos/
 # Strategy working docs — Drive only, never in the repo
 Website handovers/
 Website direction plan.html
+
+# Analytics exports. Ignored by name, not by extension: the folder held only a PDF,
+# so `*.pdf` above happened to cover it, and a CSV or PNG dropped in there would have
+# been published at the repo root on the next `git add -A`.
+Cloudfare reports/
 
 # LinkedIn-only images — parked here, never published with the site
 assets/AF LInkedin banner for website link.jpg

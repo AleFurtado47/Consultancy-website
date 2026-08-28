@@ -25,3 +25,20 @@
 # Do not add a [[redirects]] block below: rules in netlify.toml take precedence
 # over `_redirects`, and splitting them across two files is how the next silent
 # 404 gets introduced.
+
+# Headers are NOT set here, and the reason is worth keeping.
+#
+# Branch previews are served on a public subdomain
+# (`<branch>--ale-furtado.netlify.app`) and Netlify adds no noindex header of
+# its own. Verified 21 August 2026: the v2 subdomain had been serving a
+# complete, crawlable copy of the site since July, a duplicate of every page on
+# alefurtado.org competing with the real one.
+#
+# The obvious fix looks like a `[[context.branch-deploy.headers]]` block here.
+# It does not work: header and redirect rules in netlify.toml are not
+# context-aware, so such a block is accepted and then silently ignored. It was
+# tried on this site and the deployed preview carried no header at all.
+#
+# What works is a `_headers` file at the repo root, which is why one exists on
+# the preview branch only. **It must never reach main**, because it would
+# noindex the live site. See `_headers` itself for the removal note.

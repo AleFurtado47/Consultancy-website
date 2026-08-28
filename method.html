@@ -9,6 +9,10 @@
 <meta property="og:description" content="A three-week diagnostic of an approved strategy, using the Monday-Morning Test. Due diligence on a decision already taken, not an evaluation.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alefurtado.org/method">
+<!-- Canonical. ale-furtado.netlify.app serves a byte-identical copy of this site and
+     branch previews serve more, none of which should compete with the real domain in
+     search. This names the real one wherever the page is served from. -->
+<link rel="canonical" href="https://alefurtado.org/method">
 <meta property="og:image" content="https://alefurtado.org/assets/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -90,6 +94,13 @@
   .instrument-lockup{margin:52px auto 0;padding-top:38px;border-top:0.5px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
   .instrument-lockup .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft)}
   .instrument-lockup .nm{font-family:var(--serif);font-size:clamp(24px,3.6vw,34px);color:var(--blue);line-height:1.12}
+  /* It became a link under decision 104, so it now earns the hover state that decision 64
+     denied the mechanism cards: this one does go somewhere. */
+  .instrument-lockup .run{font-size:13px;color:var(--grey);transition:color .2s}
+  .instrument-lockup .run .arw{display:inline-block;transition:transform .22s}
+  .instrument-lockup:hover .run,.instrument-lockup:focus-visible .run{color:var(--blue)}
+  .instrument-lockup:hover .run .arw{transform:translateX(4px)}
+  .instrument-lockup:focus-visible{outline:2px solid var(--blue);outline-offset:6px;border-radius:6px}
 
   /* ---------- phases ---------- */
   .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:34px;background:var(--line);border:0.5px solid var(--line);border-radius:14px;overflow:hidden}
@@ -264,11 +275,11 @@ try{
     <div class="nav-right">
       <div class="nav-links">
         <a href="index.html#about">About</a>
-        <a href="index.html#services">Services</a>
+        <a href="services.html">Services</a>
         <a class="here" href="method.html">The method</a>
-        <a href="index.html#work">How I work</a>
+        <a href="monday-morning-test.html">The test</a>
       </div>
-      <a class="nav-cta" href="#talk">Book 20 minutes</a>
+      <a class="nav-cta" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a>
     </div>
   </div>
 </nav>
@@ -276,14 +287,19 @@ try{
 <!-- MASTHEAD -->
 <header class="mast">
   <div class="container">
-    <p class="meta"><a href="index.html#start">Step 01</a> &middot; 3 weeks &middot; <b>fixed fee</b></p>
+    <p class="meta"><a href="services.html#start">Step 01</a> &middot; 3 weeks &middot; <b>fixed fee</b></p>
     <h1>The Delivery Readiness Review</h1>
     <p class="lede">A strategy has been approved, and what has not been established is whether the organisation can deliver it. The review traces five mechanisms through the organisation's own documents and the people who have to carry the work.</p>
     <p class="lede">This is due diligence on a decision that has already been taken, so it is neither an evaluation nor an audit. The work is to establish what already works and where the gaps are, so that delivery rests on something tested rather than assumed.</p>
 
     <p class="dl"><a href="/product-sheet" download="Delivery Readiness Review - Ale Furtado.pdf">Download the product sheet</a><span>PDF &middot; 2 pages</span></p>
 
-    <div class="instrument-lockup">
+    <!-- Decision 67's slot, and from decision 104 it is genuinely clickable: the lockup
+         is the only entry point to the self-administered test. -->
+    <!-- .html in source, matching every other internal link on the site. Netlify's Pretty
+         URLs rewrite it to /monday-morning-test on publish, and the extensionless form does
+         not resolve on the local preview server, so a clean-URL source would 404 in review. -->
+    <a class="instrument-lockup" href="monday-morning-test.html">
       <span class="lbl">The instrument</span>
       <svg width="46" height="46" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <circle cx="8" cy="11" r="3.4" fill="#2747E0"/><circle cx="8" cy="29" r="3.4" fill="#2747E0"/>
@@ -291,7 +307,8 @@ try{
         <path d="M11.4 12.4 L28.6 18.6 M11.4 27.6 L28.6 21.4" stroke="#2747E0" stroke-width="1.4" stroke-linecap="round"/>
       </svg>
       <span class="nm">The Monday-Morning Test</span>
-    </div>
+      <span class="run">Run it on what you know <span class="arw" aria-hidden="true">&#8594;</span></span>
+    </a>
   </div>
 </header>
 
@@ -377,7 +394,7 @@ try{
           <rect x="38" y="3" width="9" height="17" rx="1.6" fill="#2747E0" opacity=".28"/>
         </svg>
         <h3>Retrieval difficulty</h3>
-        <p>How hard each piece of evidence was to obtain is recorded next to what it showed. Something that took two weeks and a working group to evidence is not <b>YET</b> a system.</p>
+        <p>How hard each piece of evidence was to obtain is recorded next to what it showed. Something that took two weeks and a working group to evidence is not yet a system.</p>
       </div>
       <div class="out amber">
         <svg width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true">
@@ -459,7 +476,7 @@ try{
     <p>There were three reasons for it, none of them anybody's failing: job descriptions were not revised after the strategy was approved, workplans were built from current projects rather than from the new direction, and where the two happened to overlap that was coincidence rather than design.</p>
     <p>Underneath all of this sat a common funding structure: staff charged their time to projects and the strategy had no charge code of its own, meaning when it came to prioritising, projects won every time.</p>
     <p>The same pattern showed up in ownership, where each strategic pillar had a named leader but nobody one layer down was accountable for the components, and the teams themselves had no clear view of what they were supposed to produce.</p>
-    <p>None of these three would have stopped the strategy on its own, but together they left the delivering teams without an incentive to act on it or a clear idea of what acting on it actually meant.</p>
+    <p>None of these three would have stopped the strategy on its own, but together they left the delivery teams without an incentive to act on it or a clear idea of what acting on it actually meant.</p>
 
     <h4>What changed</h4>
     <p>Planning was then connected across all layers. Corporate priorities drove unit plans and unit plans drove individual objectives, with each level carrying what the level above it actually needed.</p>

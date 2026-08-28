@@ -1,3 +1,9 @@
 /card      /card.html      200
 /method    /method.html    200
+/services  /services.html  200
 /product-sheet    /assets/delivery-readiness-review.pdf    200
+# The canonical page. Netlify would resolve this on its own, and the rule is here for the
+# same reason /card and /method carry one: the behaviour is implicit and this makes it not.
+/monday-morning-test    /monday-morning-test.html    200
+# The short spoken alias. A 301 rather than a 200, so the analytics stay on one URL.
+/monday    /monday-morning-test    301
