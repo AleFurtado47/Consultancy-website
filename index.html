@@ -20,6 +20,64 @@
 <meta property="og:image:alt" content="Ale Furtado. Strategy, made real. Making strategy operational in international organisations." />
 <meta name="twitter:image" content="https://alefurtado.org/assets/og-brand.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
+<!-- Structured data. This is the ONE thing on the site that tells Google the domain and the
+     person are the same entity. "Alessandra Furtado" is what ranks today, through LinkedIn, and
+     alternateName plus sameAs is what lets that reputation attach to alefurtado.org. Keep sameAs
+     pointing at the LIVE LinkedIn vanity URL: if it ever changes, this goes stale silently and
+     nothing visible on the site will look wrong. Validate at search.google.com/test/rich-results. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://alefurtado.org/#person",
+      "name": "Ale Furtado",
+      "alternateName": [
+        "Alessandra Furtado",
+        "Alessandra Garcia Furtado"
+      ],
+      "url": "https://alefurtado.org/",
+      "email": "letstalk@alefurtado.org",
+      "image": "https://alefurtado.org/assets/og-brand.jpg",
+      "jobTitle": "Independent consultant",
+      "description": "I make approved strategy operational inside international organisations: governance, prioritisation, and the delivery decisions that make it real.",
+      "knowsAbout": [
+        "Operationalising strategy",
+        "Strategic portfolio management",
+        "Value-driven prioritisation",
+        "Governance design",
+        "Executive and board advisory",
+        "Operational and annual planning",
+        "Results frameworks",
+        "Digital transformation strategy",
+        "Responsible AI adoption",
+        "International organisations"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Westminster"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/alessandra-gfurtado"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://alefurtado.org/#website",
+      "url": "https://alefurtado.org/",
+      "name": "Ale Furtado",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@id": "https://alefurtado.org/#person"
+      },
+      "about": {
+        "@id": "https://alefurtado.org/#person"
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -466,7 +524,7 @@
           <p>Strategy doesn't fail on paper. It fails on Monday morning, when teams go back to work and nothing has actually changed for them. I've spent twenty years inside international organisations closing that gap, and I've come to love both halves of the job: building a strategy that can survive a matrix structure and an earmarked budget, and doing the unglamorous work of making one that's already been approved actually move. Give me a tangled problem and a room full of people who disagree about it, and I'm in my element.</p>
           <p>I'm endlessly curious and a forever-student, always learning something new, always asking what we're really trying to solve. I simplify, I connect the dots, and I make change feel like something people are part of, not something happening to them.</p>
           <p>Off the clock, I'm a mum, a cat person 🐱 (don't worry, I love dogs too), and happiest under water. I'm a certified Divemaster 🤿🐠, and the ocean is where I <span class="ctd">connect my own dots</span>.</p>
-          <p class="cred">Brazilian–Portuguese, based in Europe · Portuguese (native), English &amp; Spanish (fluent), French (intermediate) · MA International Development (Distinction), University of Westminster · PRINCE2</p>
+          <p class="cred">Alessandra (Ale) Furtado · Brazilian–Portuguese, based in Europe · Portuguese (native), English &amp; Spanish (fluent), French (intermediate) · MA International Development (Distinction), University of Westminster · PRINCE2</p>
         </div>
       </div>
       <div class="about-film" id="film">
