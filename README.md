@@ -26,7 +26,10 @@ The first URL that genuinely required a redirect was `/product-sheet`, and it 40
 | Path | What |
 |---|---|
 | `index.html` | home page |
+| `services.html` | the three engagement scopes, the wider practice and how engagements run |
+| `monday-morning-test.html` | the self-administered test, its reading and the two-page print |
 | `method.html` | the Delivery Readiness Review method page |
+| `assets/og-brand-v2.jpg`, `assets/og-instrument-v2.jpg` | link previews. **Versioned, never overwritten:** LinkedIn and WhatsApp cache by URL, so a new card needs a new filename or already-shared links keep the old image |
 | `card.html`, `print-card.html` | digital and printable contact cards |
 | `assets/` | video, posters, portrait, partner logos, the product sheet PDF |
 | `_redirects` | Netlify rules. Root only. |
@@ -44,7 +47,7 @@ Serve it over HTTP instead, using the `site` configuration in `.claude/launch.js
 
 ## Before pushing
 
-- `git add --dry-run -A` and confirm `assets/delivery-readiness-review.pdf` is listed. `.gitignore` excludes `*.pdf` to keep private documents out of the repo, and a single negation lets that one file through. `git status` alone will not warn you if it is being excluded.
-- Check the page still draws six connectors: `document.querySelectorAll('#thread path').length === 6`. The connector script throws if a selector it reads has moved, and a `Promise.all` swallows the exception, so every connector on the page disappears at once rather than just the one that broke.
+- `git add --dry-run -A` and confirm all three engagement sheets are listed: `assets/delivery-readiness-review.pdf`, `assets/assessment-and-workable-response.pdf` and `assets/assessment-through-implementation.pdf`. `.gitignore` excludes `*.pdf` to keep private documents out of the repo, and one negation per file lets those three through. `git status` alone will not warn you if one is being excluded.
+- **There is no connector check any more.** The JS system that drew long blue paths through five sections was removed on 23 September; the motif now lives in the logo, the five-dot mark on the test invitation and a CSS rail beside `How I help`, none of which can fail at runtime. Recover the old script from git history if a future layout wants it.
 - Measure horizontal overflow at 320, 390, 768 and 1280. This check has caught three real defects that looking at the page did not.
 - After deploying, fetch the changed URLs rather than trusting the build log.

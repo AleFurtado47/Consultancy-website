@@ -2,10 +2,19 @@
 *.docx
 *.pdf
 *.odt
+*.xlsx
+*.xls
+*.pptx
+# Office lock files, which are created beside any open document
+~$*
 
-# ...except the product sheet, which is a published download on the site.
-# *.pdf above would otherwise silently keep it out of the repo and 404 the link.
+# ...except the three engagement sheets, which are published downloads on the site.
+# *.pdf above would otherwise silently keep them out of the repo and 404 the links.
+# One negation per file: a pattern like !assets/*.pdf would publish anything dropped
+# into assets/, which is how a private document reaches a public repo by accident.
 !assets/delivery-readiness-review.pdf
+!assets/assessment-and-workable-response.pdf
+!assets/assessment-through-implementation.pdf
 
 # Local workspace
 .claude/

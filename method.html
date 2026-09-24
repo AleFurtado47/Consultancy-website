@@ -13,12 +13,12 @@
      branch previews serve more, none of which should compete with the real domain in
      search. This names the real one wherever the page is served from. -->
 <link rel="canonical" href="https://alefurtado.org/method">
-<meta property="og:image" content="https://alefurtado.org/assets/og-brand.jpg" />
+<meta property="og:image" content="https://alefurtado.org/assets/og-brand-v2.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="og:image:alt" content="Ale Furtado. Strategy, made real. Making strategy operational in international organisations." />
-<meta name="twitter:image" content="https://alefurtado.org/assets/og-brand.jpg" />
+<meta property="og:image:alt" content="Ale Furtado. Priorities, made real. Turning priorities into progress." />
+<meta name="twitter:image" content="https://alefurtado.org/assets/og-brand-v2.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -28,17 +28,38 @@
      #d95926 pass lightness, chroma, CVD separation and 3:1 contrast. Do not
      substitute by eye. Blue carries the structural half, orange the belief half. */
   :root{
-    --paper:#F8F5EC; --ink:#17181B; --grey:#57534A; --grey-soft:#938C7D;
+    --paper:#F8F5EC; --ink:#242639; --grey:#57534A; --grey-soft:#767064;
     --line:#E9E3D5; --blue:#2747E0; --blue-deep:#16235C; --amber:#d95926;
+    /* Handover 2: the aubergine panel colour, and the dark rust for small text on
+       cream where #D95926 does not carry enough contrast. */
+    --aubergine:#2D304B; --rust:#D95926; --rust-dark:#9C431F; --onpanel:#FFFFFF;
     --wash-blue:rgba(39,71,224,.055); --wash-amber:rgba(217,89,38,.06);
     --serif:'Playfair Display',Georgia,'Times New Roman',serif;
     --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     --maxw:1040px;
   }
+  /* ── The approved line pattern ──────────────────────────────────────────────
+     Three overlapping families of fine curved lines entering from the top and
+     flowing around the top-right corner, anchored to both edges. Generated from
+     the same 33 path definitions as `website-pattern-reference.html`, inlined as
+     a data URI so the page still makes no network request of its own.
+     Decorative only: pointer-events off, behind content, and it never carries
+     meaning. Blue and orange keep their support/constraint job on the test. */
+  .afpat{position:absolute;pointer-events:none;top:0;right:0;width:450px;height:390px;
+    background-size:100% 100%;background-repeat:no-repeat;opacity:.9;z-index:0}
+  .afpat.light{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22350%200%20245%20290%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23B9B4A9%22%20stroke-width%3D%220.48%22%3E%3Cpath%20d%3D%22M%20370%20-25%20C%20445%2040%20455%2088%20635%20105%22%2F%3E%3Cpath%20d%3D%22M%20383%20-25%20C%20452%2040%20462%2088%20635%20111%22%2F%3E%3Cpath%20d%3D%22M%20396%20-25%20C%20459%2040%20469%2088%20635%20117%22%2F%3E%3Cpath%20d%3D%22M%20409%20-25%20C%20466%2040%20476%2088%20635%20123%22%2F%3E%3Cpath%20d%3D%22M%20422%20-25%20C%20473%2040%20483%2088%20635%20129%22%2F%3E%3Cpath%20d%3D%22M%20435%20-25%20C%20480%2040%20490%2088%20635%20135%22%2F%3E%3Cpath%20d%3D%22M%20448%20-25%20C%20487%2040%20497%2088%20635%20141%22%2F%3E%3Cpath%20d%3D%22M%20461%20-25%20C%20494%2040%20504%2088%20635%20147%22%2F%3E%3Cpath%20d%3D%22M%20474%20-25%20C%20501%2040%20511%2088%20635%20153%22%2F%3E%3Cpath%20d%3D%22M%20487%20-25%20C%20508%2040%20518%2088%20635%20159%22%2F%3E%3Cpath%20d%3D%22M%20500%20-25%20C%20515%2040%20525%2088%20635%20165%22%2F%3E%3Cpath%20d%3D%22M%20505%20-30%20C%20455%2065%20473%20136%20635%20215%22%2F%3E%3Cpath%20d%3D%22M%20516%20-30%20C%20462%2065%20480%20136%20635%20220%22%2F%3E%3Cpath%20d%3D%22M%20527%20-30%20C%20469%2065%20487%20136%20635%20225%22%2F%3E%3Cpath%20d%3D%22M%20538%20-30%20C%20476%2065%20494%20136%20635%20230%22%2F%3E%3Cpath%20d%3D%22M%20549%20-30%20C%20483%2065%20501%20136%20635%20235%22%2F%3E%3Cpath%20d%3D%22M%20560%20-30%20C%20490%2065%20508%20136%20635%20240%22%2F%3E%3Cpath%20d%3D%22M%20571%20-30%20C%20497%2065%20515%20136%20635%20245%22%2F%3E%3Cpath%20d%3D%22M%20582%20-30%20C%20504%2065%20522%20136%20635%20250%22%2F%3E%3Cpath%20d%3D%22M%20593%20-30%20C%20511%2065%20529%20136%20635%20255%22%2F%3E%3Cpath%20d%3D%22M%20604%20-30%20C%20518%2065%20536%20136%20635%20260%22%2F%3E%3Cpath%20d%3D%22M%20615%20-30%20C%20525%2065%20543%20136%20635%20265%22%2F%3E%3Cpath%20d%3D%22M%20600%20-30%20C%20482%2035%20494%2094%20635%20161%22%2F%3E%3Cpath%20d%3D%22M%20609%20-30%20C%20489%2035%20501%2094%20635%20166%22%2F%3E%3Cpath%20d%3D%22M%20618%20-30%20C%20496%2035%20508%2094%20635%20171%22%2F%3E%3Cpath%20d%3D%22M%20627%20-30%20C%20503%2035%20515%2094%20635%20176%22%2F%3E%3Cpath%20d%3D%22M%20636%20-30%20C%20510%2035%20522%2094%20635%20181%22%2F%3E%3Cpath%20d%3D%22M%20645%20-30%20C%20517%2035%20529%2094%20635%20186%22%2F%3E%3Cpath%20d%3D%22M%20654%20-30%20C%20524%2035%20536%2094%20635%20191%22%2F%3E%3Cpath%20d%3D%22M%20663%20-30%20C%20531%2035%20543%2094%20635%20196%22%2F%3E%3Cpath%20d%3D%22M%20672%20-30%20C%20538%2035%20550%2094%20635%20201%22%2F%3E%3Cpath%20d%3D%22M%20681%20-30%20C%20545%2035%20557%2094%20635%20206%22%2F%3E%3Cpath%20d%3D%22M%20690%20-30%20C%20552%2035%20564%2094%20635%20211%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")}
+  .afpat.white{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22350%200%20245%20290%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%220.48%22%3E%3Cpath%20d%3D%22M%20370%20-25%20C%20445%2040%20455%2088%20635%20105%22%2F%3E%3Cpath%20d%3D%22M%20383%20-25%20C%20452%2040%20462%2088%20635%20111%22%2F%3E%3Cpath%20d%3D%22M%20396%20-25%20C%20459%2040%20469%2088%20635%20117%22%2F%3E%3Cpath%20d%3D%22M%20409%20-25%20C%20466%2040%20476%2088%20635%20123%22%2F%3E%3Cpath%20d%3D%22M%20422%20-25%20C%20473%2040%20483%2088%20635%20129%22%2F%3E%3Cpath%20d%3D%22M%20435%20-25%20C%20480%2040%20490%2088%20635%20135%22%2F%3E%3Cpath%20d%3D%22M%20448%20-25%20C%20487%2040%20497%2088%20635%20141%22%2F%3E%3Cpath%20d%3D%22M%20461%20-25%20C%20494%2040%20504%2088%20635%20147%22%2F%3E%3Cpath%20d%3D%22M%20474%20-25%20C%20501%2040%20511%2088%20635%20153%22%2F%3E%3Cpath%20d%3D%22M%20487%20-25%20C%20508%2040%20518%2088%20635%20159%22%2F%3E%3Cpath%20d%3D%22M%20500%20-25%20C%20515%2040%20525%2088%20635%20165%22%2F%3E%3Cpath%20d%3D%22M%20505%20-30%20C%20455%2065%20473%20136%20635%20215%22%2F%3E%3Cpath%20d%3D%22M%20516%20-30%20C%20462%2065%20480%20136%20635%20220%22%2F%3E%3Cpath%20d%3D%22M%20527%20-30%20C%20469%2065%20487%20136%20635%20225%22%2F%3E%3Cpath%20d%3D%22M%20538%20-30%20C%20476%2065%20494%20136%20635%20230%22%2F%3E%3Cpath%20d%3D%22M%20549%20-30%20C%20483%2065%20501%20136%20635%20235%22%2F%3E%3Cpath%20d%3D%22M%20560%20-30%20C%20490%2065%20508%20136%20635%20240%22%2F%3E%3Cpath%20d%3D%22M%20571%20-30%20C%20497%2065%20515%20136%20635%20245%22%2F%3E%3Cpath%20d%3D%22M%20582%20-30%20C%20504%2065%20522%20136%20635%20250%22%2F%3E%3Cpath%20d%3D%22M%20593%20-30%20C%20511%2065%20529%20136%20635%20255%22%2F%3E%3Cpath%20d%3D%22M%20604%20-30%20C%20518%2065%20536%20136%20635%20260%22%2F%3E%3Cpath%20d%3D%22M%20615%20-30%20C%20525%2065%20543%20136%20635%20265%22%2F%3E%3Cpath%20d%3D%22M%20600%20-30%20C%20482%2035%20494%2094%20635%20161%22%2F%3E%3Cpath%20d%3D%22M%20609%20-30%20C%20489%2035%20501%2094%20635%20166%22%2F%3E%3Cpath%20d%3D%22M%20618%20-30%20C%20496%2035%20508%2094%20635%20171%22%2F%3E%3Cpath%20d%3D%22M%20627%20-30%20C%20503%2035%20515%2094%20635%20176%22%2F%3E%3Cpath%20d%3D%22M%20636%20-30%20C%20510%2035%20522%2094%20635%20181%22%2F%3E%3Cpath%20d%3D%22M%20645%20-30%20C%20517%2035%20529%2094%20635%20186%22%2F%3E%3Cpath%20d%3D%22M%20654%20-30%20C%20524%2035%20536%2094%20635%20191%22%2F%3E%3Cpath%20d%3D%22M%20663%20-30%20C%20531%2035%20543%2094%20635%20196%22%2F%3E%3Cpath%20d%3D%22M%20672%20-30%20C%20538%2035%20550%2094%20635%20201%22%2F%3E%3Cpath%20d%3D%22M%20681%20-30%20C%20545%2035%20557%2094%20635%20206%22%2F%3E%3Cpath%20d%3D%22M%20690%20-30%20C%20552%2035%20564%2094%20635%20211%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");opacity:.6}
+  @media (max-width:600px){.afpat{width:300px;height:260px;opacity:.5}.afpat.white{right:-110px;opacity:.35}}
+  @media print{.afpat{display:none}}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
+  /* One readable focus ring everywhere, on brand. Nothing in this file sets
+     outline:none, so this replaces the browser default rather than restoring a
+     ring that had been removed. On the aubergine panels it switches to white. */
+  :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+  .cta-band :focus-visible,.impact :focus-visible{outline-color:var(--onpanel)}
   .container{max-width:var(--maxw);margin:0 auto;padding:0 56px;position:relative}
   h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.05}
   .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-soft)}
@@ -49,19 +70,28 @@
   .brand{display:flex;align-items:center;gap:11px}
   .brand .bn{font-size:16px;font-weight:500;letter-spacing:.06em;line-height:1}
   /* nowrap so the two forced lines stay two lines; see index.html for the measured note. */
-  .brand .bs{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft);margin-top:3px;white-space:nowrap}
+  /* The signature, replacing the two-line descriptor retired on 23 September. It is a
+     brand line rather than a job description, so it is set in the serif at reading
+     size. "made real" is bound by a non-breaking space in the markup: if the lockup
+     ever wraps, the two words stay together. */
+  .brand .bs{font-family:var(--serif);font-size:13.5px;letter-spacing:.01em;color:var(--grey);margin-top:2px;white-space:nowrap}
   .nav-right{display:flex;align-items:center;gap:28px}
   .nav-links{display:flex;gap:26px;font-size:13px;color:var(--grey)}
   .nav-links a{transition:color .2s;white-space:nowrap} .nav-links a:hover{color:var(--blue)}
   .nav-links a.here{color:var(--blue)}
   .afmark{display:block}
-  .nav-cta{font-size:13px;border:0.5px solid var(--ink);border-radius:30px;padding:8px 16px;transition:all .2s;white-space:nowrap}
-  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+  .nav-cta{font-size:13px;border:1px solid var(--aubergine);color:var(--aubergine);border-radius:30px;padding:8px 16px;transition:all .2s;white-space:nowrap}
+  .nav-cta:hover,.nav-cta:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
 
-  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:34px;background:var(--ink);color:var(--paper);transition:transform .2s,background .2s;border:none;font-family:inherit;cursor:pointer}
-  .btn:hover{transform:translateY(-2px);background:var(--blue)}
-  .btn.ghost{background:transparent;color:var(--ink);border:0.5px solid var(--ink)}
-  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  /* Buttons, handover 3. Primary: aubergine fill, white label, blue on hover AND on
+     keyboard focus. Secondary on cream: aubergine outline and text, filling blue with a
+     white label on the same two states. The aubergine-panel variants live with the panels. */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:34px;
+    background:var(--aubergine);color:var(--onpanel);border:1px solid var(--aubergine);font-family:inherit;cursor:pointer;
+    transition:transform .2s,background .2s,border-color .2s,color .2s}
+  .btn:hover,.btn:focus-visible{transform:translateY(-2px);background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
+  .btn.ghost{background:transparent;color:var(--aubergine);border:1px solid var(--aubergine)}
+  .btn.ghost:hover,.btn.ghost:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
 
   .sec{padding:78px 0}
   /* Standalone copy blocks are centred; anything inside a card stays left-aligned
@@ -78,9 +108,9 @@
   .mast h1{font-size:clamp(38px,6.6vw,68px);margin:16px auto 22px;max-width:15ch}
   .mast .meta{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-soft)}
   .mast .meta b{color:var(--blue);font-weight:400}
-  /* "Step 01" only means something against the ladder on the home page, and a visitor
-     who arrives here directly has never seen it. Underlined rather than blue, because
-     "fixed fee" already carries the blue on this line. */
+  /* The masthead meta links to the assessment engagement on /services. It was "Step 01"
+     until 23 September; there is no ladder to be step one of any more. Underlined rather
+     than blue, because "fixed fee" already carries the blue on this line. */
   .mast .meta a{border-bottom:0.5px solid var(--grey-soft);transition:color .2s,border-color .2s}
   .mast .meta a:hover{color:var(--blue);border-bottom-color:var(--blue)}
   .mast .lede{font-size:clamp(16px,2.1vw,19px);color:var(--grey);max-width:640px;line-height:1.6;margin-left:auto;margin-right:auto}
@@ -94,6 +124,8 @@
   .mast .dl a{border-bottom:0.5px solid var(--blue);color:var(--blue);transition:color .2s,border-color .2s}
   .mast .dl a:hover{color:var(--ink);border-bottom-color:var(--ink)}
   .mast .dl span{color:var(--grey-soft);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;margin-left:10px}
+  .othersheets{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35)}
+  .othersheets:hover{border-bottom-color:var(--blue)}
   .instrument-lockup{margin:52px auto 0;padding-top:38px;border-top:0.5px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
   .instrument-lockup .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft)}
   .instrument-lockup .nm{font-family:var(--serif);font-size:clamp(24px,3.6vw,34px);color:var(--blue);line-height:1.12}
@@ -169,14 +201,16 @@
   .casecard:hover,.casecard:focus-within{transform:translateY(-4px);box-shadow:0 14px 34px rgba(23,24,27,.09);border-color:var(--blue)}
   .casecard.amber:hover,.casecard.amber:focus-within{border-color:var(--amber)}
   .casecard .badge{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px;align-self:flex-start}
-  .casecard.amber .badge{background:var(--amber)}
+  /* White on #d95926 measures 3.88:1 and fails AA at 10px. #9C431F is the darker
+     companion the brief names for exactly this case, and it keeps the hue family. */
+  .casecard.amber .badge{background:var(--rust-dark)}
   .casecard h3{font-size:clamp(21px,2.7vw,27px);margin:16px 0 10px}
   .casecard .hook{font-size:14.5px;color:var(--grey);line-height:1.6;flex:1}
   .casecard .thumb{margin:20px 0 4px}
   .casecard .shows{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-soft);padding-top:16px;border-top:0.5px solid var(--line);margin-top:16px}
   .casecard .open{margin-top:14px;font-size:13.5px;color:var(--blue);display:inline-flex;align-items:center;gap:8px;align-self:flex-start;border:none;background:none;padding:0;font-family:inherit;cursor:pointer}
   .casecard .open:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
-  .casecard.amber .open{color:var(--amber)}
+  .casecard.amber .open{color:var(--rust-dark)}
   .casecard.amber .open:focus-visible{outline-color:var(--amber)}
   .casecard .open .arw{transition:transform .22s}
   .casecard:hover .open .arw{transform:translateX(4px)}
@@ -186,7 +220,7 @@
   .dlg-in{background:var(--paper);border-radius:20px;padding:38px 44px 44px;max-height:88vh;overflow-y:auto;border:0.5px solid var(--line);box-shadow:0 30px 80px rgba(23,24,27,.28)}
   .dlg-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
   .dlg-badge{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px}
-  .dlg-badge.amber{background:var(--amber)}
+  .dlg-badge.amber{background:var(--rust-dark)}
   .dlg-close{border:0.5px solid var(--line);background:transparent;border-radius:50%;width:36px;height:36px;font-size:19px;line-height:1;cursor:pointer;color:var(--grey);flex:none;transition:all .2s;font-family:inherit}
   .dlg-close:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   .dlg-in h3{font-size:clamp(26px,4vw,36px);margin:16px 0 6px}
@@ -200,10 +234,37 @@
   .ways{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   .backlink{margin-top:30px;font-size:13.5px;color:var(--grey-soft)}
   .backlink a{color:var(--blue)}
+  /* ── The quiet aubergine contact band (handover 2) ────────────────────────────
+     One hard rule: EVERY text element in here is #FFFFFF. Headings, body, kicker,
+     links, button labels, hover and focus states. No blue, grey or rust text.
+     The reference's white button with dark text was a prototype inconsistency, so
+     both buttons are transparent with a white outline and a white label instead. */
+  .cta-band{background:var(--aubergine);color:var(--onpanel);border-top:none;position:relative;overflow:hidden;isolation:isolate}
+  .cta-band>*:not(.afpat){position:relative;z-index:1}
+  .cta-band .afpat{z-index:0}
+  .cta-band .kicker,.cta-band .tagline,.cta-band .tagline em,.cta-band .backlink,.cta-band .ctanote{color:var(--onpanel)}
+  .cta-band .backlink a{color:var(--onpanel);border-bottom:0.5px solid rgba(255,255,255,.45)}
+  .cta-band .backlink a:hover{color:var(--onpanel);border-bottom-color:var(--onpanel)}
+  .cta-band .btn,.cta-band .btn.ghost{background:transparent;color:var(--onpanel);border:1px solid var(--onpanel)}
+  .cta-band .btn{border-width:1.5px}
+  /* Handover 3: on an aubergine panel a button fills BLUE on hover and on keyboard
+     focus, with the label staying white. The earlier 14% white wash is superseded. */
+  .cta-band .btn:hover,.cta-band .btn.ghost:hover,
+  .cta-band .btn:focus-visible,.cta-band .btn.ghost:focus-visible{
+    background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
+  .cta-band .btn:focus-visible{outline:2px solid var(--onpanel);outline-offset:3px}
+  .cta-band .ctanote{margin-top:16px;font-size:13px}
+  #mechanisms{scroll-margin-top:96px}
+
 
   /* the two-line descriptor needs a 917px viewport to sit beside the links and the CTA in one
      row; below that it is hidden rather than squeezed. See index.html for the measured note. */
-  @media (max-width:940px){ .brand .bs{display:none} }
+  /* The signature stays visible at every width. This rule used to hide it below 940px
+     because the old two-line descriptor could not fit beside the links and the CTA.
+     "Priorities, made real." is one short line and it is the brand, so hiding it on
+     phones would drop the signature exactly where most launch traffic lands. */
+  @media (max-width:940px){ .brand .bs{font-size:12.5px} }
+  @media (max-width:420px){ .brand .bs{font-size:11.5px} }
   @media (max-width:880px){
     .container{padding-left:28px;padding-right:28px}
     /* index.html shrinks the links below its breakpoint and this page never did, so between 601
@@ -269,11 +330,11 @@ try{
     <a class="brand" href="index.html" aria-label="Ale Furtado home">
       <svg class="afmark" width="58" height="38" viewBox="0 0 62 40" fill="none" aria-hidden="true">
         <line x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
-        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">A</text>
-        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#17181B" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
+        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#242639" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">A</text>
+        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#242639" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
         <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
       </svg>
-      <span><span class="bn">Ale Furtado</span><br><span class="bs">Making Strategy Operational<br>in International Organisations</span></span>
+      <span><span class="bn">Ale Furtado</span><br><span class="bs">Priorities, made&nbsp;real.</span></span>
     </a>
     <div class="nav-right">
       <div class="nav-links">
@@ -282,7 +343,7 @@ try{
         <a class="here" href="method.html">The method</a>
         <a href="monday-morning-test.html">The test</a>
       </div>
-      <a class="nav-cta" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a>
+      <a class="nav-cta" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a>
     </div>
   </div>
 </nav>
@@ -290,12 +351,18 @@ try{
 <!-- MASTHEAD -->
 <header class="mast">
   <div class="container">
-    <p class="meta"><a href="services.html#start">Step 01</a> &middot; 3 weeks &middot; <b>fixed fee</b></p>
+    <p class="meta"><a href="services.html#readiness-review">The assessment engagement</a> &middot; three weeks of work &middot; <b>fixed fee</b></p>
     <h1>The Delivery Readiness Review</h1>
     <p class="lede">A strategy has been approved, and what has not been established is whether the organisation can deliver it. The review traces five mechanisms through the organisation's own documents and the people who have to carry the work.</p>
     <p class="lede">This is due diligence on a decision that has already been taken, so it is neither an evaluation nor an audit. The work is to establish what already works and where the gaps are, so that delivery rests on something tested rather than assumed.</p>
+    <!-- Handover 2, the scope boundary. The Review starts from the agreed priority and looks
+         at the work as well as the conditions for delivering it. Where the evidence shows the
+         planned activities or their sequence cannot reach the intended result, that is said.
+         What is NOT assumed is that the plan is wrong, and reopening the institutional
+         strategy itself is a separate scope agreement rather than a step inside this one. -->
+    <p class="lede">The work starts from the priority you have agreed and looks at the activities as well as the conditions for delivering them. Where the evidence shows that the planned work cannot reach the result it promised, the report says so, and reopening the strategy itself is a separate agreement rather than a stage inside this one.</p>
 
-    <p class="dl"><a href="/product-sheet" download="Delivery Readiness Review - Ale Furtado.pdf">Download the product sheet</a><span>PDF &middot; 2 pages</span></p>
+    <p class="dl"><a href="/product-sheet" download="Delivery Readiness Review - Ale Furtado.pdf">Download the Review sheet</a><span>PDF</span> &middot; <a class="othersheets" href="services.html#workable-response">the other two engagements</a></p>
 
     <!-- Decision 67's slot, and from decision 104 it is genuinely clickable: the lockup
          is the only entry point to the self-administered test. -->
@@ -320,7 +387,7 @@ try{
   <div class="container">
     <div class="sec-head">
       <p class="kicker">How it runs</p>
-      <h2>Four phases, three weeks.</h2>
+      <h2>Four phases, three weeks of work.</h2>
     </div>
     <div class="phases reveal">
       <div class="phase"><span class="bar"></span><p class="pn">Phase 01</p><h3>The strategy sets the map</h3><p>Your strategy decides who I need to speak to, so there is no standard list. The map is drawn by the role someone holds in the strategy, never by where they sit on the org chart.</p></div>
@@ -331,8 +398,10 @@ try{
   </div>
 </section>
 
-<!-- THE MAP -->
-<section class="sec rule">
+<!-- THE MAP. #mechanisms is the stable anchor for the five, added 23 September when the
+     home page stopped carrying the long exposition. Anything that used to point at
+     index.html#stops for an explanation points here instead. -->
+<section class="sec rule" id="mechanisms">
   <div class="container">
     <div class="sec-head">
       <p class="kicker">The instrument</p>
@@ -521,13 +590,15 @@ try{
 
 <!-- CTA -->
 <section class="cta-band" id="talk">
+  <div class="afpat white" aria-hidden="true"></div>
   <div class="container">
     <p class="kicker">Get in touch</p>
-    <p class="tagline">Strategy, made <em>real</em>.</p>
+    <p class="tagline">Priorities, made <em>real</em>.</p>
     <div class="ways">
-      <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book 20 minutes</a>
+      <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a>
       <a class="btn ghost" href="mailto:letstalk@alefurtado.org?subject=Delivery%20Readiness%20Review">Or email me</a>
     </div>
+      <p class="ctanote">A 20-minute conversation about what is happening in your organisation.</p>
     <p class="backlink"><a href="index.html">Back to alefurtado.org</a></p>
   </div>
 </section>
