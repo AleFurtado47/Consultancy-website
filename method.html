@@ -13,25 +13,30 @@
      branch previews serve more, none of which should compete with the real domain in
      search. This names the real one wherever the page is served from. -->
 <link rel="canonical" href="https://alefurtado.org/method">
-<meta property="og:image" content="https://alefurtado.org/assets/og-brand-v2.jpg" />
+<meta property="og:image" content="https://alefurtado.org/assets/og-brand-v3.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="og:image:alt" content="Ale Furtado. Priorities, made real. Turning priorities into progress." />
-<meta name="twitter:image" content="https://alefurtado.org/assets/og-brand-v2.jpg" />
+<meta property="og:image:alt" content="Ale Furtado. Turning priorities into results." />
+<meta name="twitter:image" content="https://alefurtado.org/assets/og-brand-v3.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display&display=swap" rel="stylesheet">
 <style>
+  /* The page's own structural styles. They sit in a cascade layer so the shared design
+     system in assets/site.css and assets/pages.css always wins over them, whatever the
+     selector weight. They still carry the print layout, which the screen sheets do not. */
+@layer page{
+
   /* Data/accent colours are the brand palette validated 6 Aug 2026 with the dataviz
-     validator against this page's own surface (#F8F5EC): blue #2747E0 and orange
+     validator against this page's own surface (#ffffff): blue #2747E0 and orange
      #d95926 pass lightness, chroma, CVD separation and 3:1 contrast. Do not
      substitute by eye. Blue carries the structural half, orange the belief half. */
   :root{
-    --paper:#F8F5EC; --ink:#242639; --grey:#57534A; --grey-soft:#767064;
-    --line:#E9E3D5; --blue:#2747E0; --blue-deep:#16235C; --amber:#d95926;
-    /* Handover 2: the aubergine panel colour, and the dark rust for small text on
-       cream where #D95926 does not carry enough contrast. */
+    --paper:#ffffff; --ink:#242639; --grey:#57534A; --grey-soft:#767064;
+    --line:#dce2ee; --blue:#2747E0; --blue-deep:#16235C; --amber:#d95926;
+    /* The aubergine panel colour, and the dark rust for small text where #D95926 does
+       not carry enough contrast. */
     --aubergine:#2D304B; --rust:#D95926; --rust-dark:#9C431F; --onpanel:#FFFFFF;
     --wash-blue:rgba(39,71,224,.055); --wash-amber:rgba(217,89,38,.06);
     --serif:'Playfair Display',Georgia,'Times New Roman',serif;
@@ -45,15 +50,9 @@
      a data URI so the page still makes no network request of its own.
      Decorative only: pointer-events off, behind content, and it never carries
      meaning. Blue and orange keep their support/constraint job on the test. */
-  .afpat{position:absolute;pointer-events:none;top:0;right:0;width:450px;height:390px;
-    background-size:100% 100%;background-repeat:no-repeat;opacity:.9;z-index:0}
-  .afpat.light{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22350%200%20245%20290%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23B9B4A9%22%20stroke-width%3D%220.48%22%3E%3Cpath%20d%3D%22M%20370%20-25%20C%20445%2040%20455%2088%20635%20105%22%2F%3E%3Cpath%20d%3D%22M%20383%20-25%20C%20452%2040%20462%2088%20635%20111%22%2F%3E%3Cpath%20d%3D%22M%20396%20-25%20C%20459%2040%20469%2088%20635%20117%22%2F%3E%3Cpath%20d%3D%22M%20409%20-25%20C%20466%2040%20476%2088%20635%20123%22%2F%3E%3Cpath%20d%3D%22M%20422%20-25%20C%20473%2040%20483%2088%20635%20129%22%2F%3E%3Cpath%20d%3D%22M%20435%20-25%20C%20480%2040%20490%2088%20635%20135%22%2F%3E%3Cpath%20d%3D%22M%20448%20-25%20C%20487%2040%20497%2088%20635%20141%22%2F%3E%3Cpath%20d%3D%22M%20461%20-25%20C%20494%2040%20504%2088%20635%20147%22%2F%3E%3Cpath%20d%3D%22M%20474%20-25%20C%20501%2040%20511%2088%20635%20153%22%2F%3E%3Cpath%20d%3D%22M%20487%20-25%20C%20508%2040%20518%2088%20635%20159%22%2F%3E%3Cpath%20d%3D%22M%20500%20-25%20C%20515%2040%20525%2088%20635%20165%22%2F%3E%3Cpath%20d%3D%22M%20505%20-30%20C%20455%2065%20473%20136%20635%20215%22%2F%3E%3Cpath%20d%3D%22M%20516%20-30%20C%20462%2065%20480%20136%20635%20220%22%2F%3E%3Cpath%20d%3D%22M%20527%20-30%20C%20469%2065%20487%20136%20635%20225%22%2F%3E%3Cpath%20d%3D%22M%20538%20-30%20C%20476%2065%20494%20136%20635%20230%22%2F%3E%3Cpath%20d%3D%22M%20549%20-30%20C%20483%2065%20501%20136%20635%20235%22%2F%3E%3Cpath%20d%3D%22M%20560%20-30%20C%20490%2065%20508%20136%20635%20240%22%2F%3E%3Cpath%20d%3D%22M%20571%20-30%20C%20497%2065%20515%20136%20635%20245%22%2F%3E%3Cpath%20d%3D%22M%20582%20-30%20C%20504%2065%20522%20136%20635%20250%22%2F%3E%3Cpath%20d%3D%22M%20593%20-30%20C%20511%2065%20529%20136%20635%20255%22%2F%3E%3Cpath%20d%3D%22M%20604%20-30%20C%20518%2065%20536%20136%20635%20260%22%2F%3E%3Cpath%20d%3D%22M%20615%20-30%20C%20525%2065%20543%20136%20635%20265%22%2F%3E%3Cpath%20d%3D%22M%20600%20-30%20C%20482%2035%20494%2094%20635%20161%22%2F%3E%3Cpath%20d%3D%22M%20609%20-30%20C%20489%2035%20501%2094%20635%20166%22%2F%3E%3Cpath%20d%3D%22M%20618%20-30%20C%20496%2035%20508%2094%20635%20171%22%2F%3E%3Cpath%20d%3D%22M%20627%20-30%20C%20503%2035%20515%2094%20635%20176%22%2F%3E%3Cpath%20d%3D%22M%20636%20-30%20C%20510%2035%20522%2094%20635%20181%22%2F%3E%3Cpath%20d%3D%22M%20645%20-30%20C%20517%2035%20529%2094%20635%20186%22%2F%3E%3Cpath%20d%3D%22M%20654%20-30%20C%20524%2035%20536%2094%20635%20191%22%2F%3E%3Cpath%20d%3D%22M%20663%20-30%20C%20531%2035%20543%2094%20635%20196%22%2F%3E%3Cpath%20d%3D%22M%20672%20-30%20C%20538%2035%20550%2094%20635%20201%22%2F%3E%3Cpath%20d%3D%22M%20681%20-30%20C%20545%2035%20557%2094%20635%20206%22%2F%3E%3Cpath%20d%3D%22M%20690%20-30%20C%20552%2035%20564%2094%20635%20211%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")}
-  .afpat.white{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22350%200%20245%20290%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%220.48%22%3E%3Cpath%20d%3D%22M%20370%20-25%20C%20445%2040%20455%2088%20635%20105%22%2F%3E%3Cpath%20d%3D%22M%20383%20-25%20C%20452%2040%20462%2088%20635%20111%22%2F%3E%3Cpath%20d%3D%22M%20396%20-25%20C%20459%2040%20469%2088%20635%20117%22%2F%3E%3Cpath%20d%3D%22M%20409%20-25%20C%20466%2040%20476%2088%20635%20123%22%2F%3E%3Cpath%20d%3D%22M%20422%20-25%20C%20473%2040%20483%2088%20635%20129%22%2F%3E%3Cpath%20d%3D%22M%20435%20-25%20C%20480%2040%20490%2088%20635%20135%22%2F%3E%3Cpath%20d%3D%22M%20448%20-25%20C%20487%2040%20497%2088%20635%20141%22%2F%3E%3Cpath%20d%3D%22M%20461%20-25%20C%20494%2040%20504%2088%20635%20147%22%2F%3E%3Cpath%20d%3D%22M%20474%20-25%20C%20501%2040%20511%2088%20635%20153%22%2F%3E%3Cpath%20d%3D%22M%20487%20-25%20C%20508%2040%20518%2088%20635%20159%22%2F%3E%3Cpath%20d%3D%22M%20500%20-25%20C%20515%2040%20525%2088%20635%20165%22%2F%3E%3Cpath%20d%3D%22M%20505%20-30%20C%20455%2065%20473%20136%20635%20215%22%2F%3E%3Cpath%20d%3D%22M%20516%20-30%20C%20462%2065%20480%20136%20635%20220%22%2F%3E%3Cpath%20d%3D%22M%20527%20-30%20C%20469%2065%20487%20136%20635%20225%22%2F%3E%3Cpath%20d%3D%22M%20538%20-30%20C%20476%2065%20494%20136%20635%20230%22%2F%3E%3Cpath%20d%3D%22M%20549%20-30%20C%20483%2065%20501%20136%20635%20235%22%2F%3E%3Cpath%20d%3D%22M%20560%20-30%20C%20490%2065%20508%20136%20635%20240%22%2F%3E%3Cpath%20d%3D%22M%20571%20-30%20C%20497%2065%20515%20136%20635%20245%22%2F%3E%3Cpath%20d%3D%22M%20582%20-30%20C%20504%2065%20522%20136%20635%20250%22%2F%3E%3Cpath%20d%3D%22M%20593%20-30%20C%20511%2065%20529%20136%20635%20255%22%2F%3E%3Cpath%20d%3D%22M%20604%20-30%20C%20518%2065%20536%20136%20635%20260%22%2F%3E%3Cpath%20d%3D%22M%20615%20-30%20C%20525%2065%20543%20136%20635%20265%22%2F%3E%3Cpath%20d%3D%22M%20600%20-30%20C%20482%2035%20494%2094%20635%20161%22%2F%3E%3Cpath%20d%3D%22M%20609%20-30%20C%20489%2035%20501%2094%20635%20166%22%2F%3E%3Cpath%20d%3D%22M%20618%20-30%20C%20496%2035%20508%2094%20635%20171%22%2F%3E%3Cpath%20d%3D%22M%20627%20-30%20C%20503%2035%20515%2094%20635%20176%22%2F%3E%3Cpath%20d%3D%22M%20636%20-30%20C%20510%2035%20522%2094%20635%20181%22%2F%3E%3Cpath%20d%3D%22M%20645%20-30%20C%20517%2035%20529%2094%20635%20186%22%2F%3E%3Cpath%20d%3D%22M%20654%20-30%20C%20524%2035%20536%2094%20635%20191%22%2F%3E%3Cpath%20d%3D%22M%20663%20-30%20C%20531%2035%20543%2094%20635%20196%22%2F%3E%3Cpath%20d%3D%22M%20672%20-30%20C%20538%2035%20550%2094%20635%20201%22%2F%3E%3Cpath%20d%3D%22M%20681%20-30%20C%20545%2035%20557%2094%20635%20206%22%2F%3E%3Cpath%20d%3D%22M%20690%20-30%20C%20552%2035%20564%2094%20635%20211%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");opacity:.6}
-  @media (max-width:600px){.afpat{width:300px;height:260px;opacity:.5}.afpat.white{right:-110px;opacity:.35}}
-  @media print{.afpat{display:none}}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   /* One readable focus ring everywhere, on brand. Nothing in this file sets
      outline:none, so this replaces the browser default rather than restoring a
@@ -65,32 +64,24 @@
   .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-soft)}
   em{font-style:italic;color:var(--blue)}
 
-  nav{position:sticky;top:0;z-index:40;background:rgba(247,246,242,.85);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
+  nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
   .nav-in{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:15px 56px}
   .brand{display:flex;align-items:center;gap:11px}
-  .brand .bn{font-size:16px;font-weight:500;letter-spacing:.06em;line-height:1}
-  /* nowrap so the two forced lines stay two lines; see index.html for the measured note. */
-  /* The signature, replacing the two-line descriptor retired on 23 September. It is a
-     brand line rather than a job description, so it is set in the serif at reading
-     size. "made real" is bound by a non-breaking space in the markup: if the lockup
-     ever wraps, the two words stay together. */
+  .brand .bn{font-weight:500;letter-spacing:.06em;line-height:1}
+  /* The signature line. On screen its type and colour come from assets/site.css. */
   .brand .bs{font-family:var(--serif);font-size:13.5px;letter-spacing:.01em;color:var(--grey);margin-top:2px;white-space:nowrap}
   .nav-right{display:flex;align-items:center;gap:28px}
-  .nav-links{display:flex;gap:26px;font-size:13px;color:var(--grey)}
-  .nav-links a{transition:color .2s;white-space:nowrap} .nav-links a:hover{color:var(--blue)}
-  .nav-links a.here{color:var(--blue)}
-  .afmark{display:block}
-  .nav-cta{font-size:13px;border:1px solid var(--aubergine);color:var(--aubergine);border-radius:30px;padding:8px 16px;transition:all .2s;white-space:nowrap}
+  .nav-links{display:flex;font-size:13px;color:var(--grey)}
+  .nav-links a{white-space:nowrap} .nav-links a:hover{color:var(--blue)}
+  .nav-cta{font-size:13px;border:1px solid var(--aubergine);color:var(--aubergine);border-radius:2px;padding:8px 16px;white-space:nowrap}
   .nav-cta:hover,.nav-cta:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
 
-  /* Buttons, handover 3. Primary: aubergine fill, white label, blue on hover AND on
-     keyboard focus. Secondary on cream: aubergine outline and text, filling blue with a
-     white label on the same two states. The aubergine-panel variants live with the panels. */
-  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:34px;
-    background:var(--aubergine);color:var(--onpanel);border:1px solid var(--aubergine);font-family:inherit;cursor:pointer;
-    transition:transform .2s,background .2s,border-color .2s,color .2s}
+  /* Buttons. Primary: aubergine fill, white label, blue on hover and on keyboard focus.
+     Secondary: aubergine outline and text, filling blue on the same two states. */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:2px;
+    
+    }
   .btn:hover,.btn:focus-visible{transform:translateY(-2px);background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
-  .btn.ghost{background:transparent;color:var(--aubergine);border:1px solid var(--aubergine)}
   .btn.ghost:hover,.btn.ghost:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
 
   .sec{padding:78px 0}
@@ -108,37 +99,33 @@
   .mast h1{font-size:clamp(38px,6.6vw,68px);margin:16px auto 22px;max-width:15ch}
   .mast .meta{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-soft)}
   .mast .meta b{color:var(--blue);font-weight:400}
-  /* The masthead meta links to the assessment engagement on /services. It was "Step 01"
-     until 23 September; there is no ladder to be step one of any more. Underlined rather
+  /* The masthead meta links to the assessment engagement on /services. Underlined rather
      than blue, because "fixed fee" already carries the blue on this line. */
-  .mast .meta a{border-bottom:0.5px solid var(--grey-soft);transition:color .2s,border-color .2s}
+  .mast .meta a{border-bottom:0.5px solid var(--grey-soft);}
   .mast .meta a:hover{color:var(--blue);border-bottom-color:var(--blue)}
-  .mast .lede{font-size:clamp(16px,2.1vw,19px);color:var(--grey);max-width:640px;line-height:1.6;margin-left:auto;margin-right:auto}
+  .mast .lede{color:var(--grey);max-width:640px;margin-left:auto;margin-right:auto}
   .mast .lede + .lede{margin-top:14px}
-  /* Deliberately not a card and not clickable: it is the visual headline for the
-     instrument. An earlier bordered, washed box read as a button and invited a click
-     that goes nowhere. */
   /* the sheet is the first-conversation document, so it sits where a reader who has
      got this far can take it away */
   .mast .dl{margin-top:30px;font-size:14px}
-  .mast .dl a{border-bottom:0.5px solid var(--blue);color:var(--blue);transition:color .2s,border-color .2s}
+  .mast .dl a{border-bottom:0.5px solid var(--blue);color:var(--blue);}
   .mast .dl a:hover{color:var(--ink);border-bottom-color:var(--ink)}
   .mast .dl span{color:var(--grey-soft);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;margin-left:10px}
-  .othersheets{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35)}
+  .othersheets{border-bottom:0.5px solid rgba(39,71,224,.35)}
   .othersheets:hover{border-bottom-color:var(--blue)}
-  .instrument-lockup{margin:52px auto 0;padding-top:38px;border-top:0.5px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+  .instrument-lockup{margin:52px auto 0;padding-top:38px;border-top:0.5px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:10px;}
   .instrument-lockup .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-soft)}
   .instrument-lockup .nm{font-family:var(--serif);font-size:clamp(24px,3.6vw,34px);color:var(--blue);line-height:1.12}
   /* It became a link under decision 104, so it now earns the hover state that decision 64
      denied the mechanism cards: this one does go somewhere. */
-  .instrument-lockup .run{font-size:13px;color:var(--grey);transition:color .2s}
-  .instrument-lockup .run .arw{display:inline-block;transition:transform .22s}
+  .instrument-lockup .run{font-size:13px;color:var(--grey);}
+  .instrument-lockup .run .arw{display:inline-block;}
   .instrument-lockup:hover .run,.instrument-lockup:focus-visible .run{color:var(--blue)}
   .instrument-lockup:hover .run .arw{transform:translateX(4px)}
   .instrument-lockup:focus-visible{outline:2px solid var(--blue);outline-offset:6px;border-radius:6px}
 
   /* ---------- phases ---------- */
-  .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:34px;background:var(--line);border:0.5px solid var(--line);border-radius:14px;overflow:hidden}
+  .phases{display:grid;gap:2px;margin-top:34px;background:var(--line);border:0.5px solid var(--line);border-radius:14px;overflow:hidden}
   .phase{background:var(--paper);padding:22px 20px 24px;position:relative}
   .phase .pn{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
   .phase h3{font-size:18px;margin:9px 0 8px}
@@ -146,17 +133,15 @@
   /* Everything is visible by default. The .anim class is added by the head gate only
      when JS runs AND motion is allowed, so a failed script leaves a readable page
      rather than a blank one. Same contract as index.html's qsjs gate. */
-  .phase .bar{position:absolute;left:0;top:0;height:3px;width:100%;background:var(--blue);transition:width .7s cubic-bezier(.6,.02,.2,1)}
+  .phase .bar{position:absolute;left:0;top:0;height:3px;background:var(--blue);}
   .anim:not(.shown) .reveal:not(.lit) .phase .bar{width:0}
-  .phase:nth-child(2) .bar{transition-delay:.12s} .phase:nth-child(3) .bar{transition-delay:.24s} .phase:nth-child(4) .bar{transition-delay:.36s}
 
   /* ---------- the map ---------- */
   .mapwrap{position:relative;margin-top:34px}
   #wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0}
-  #wires path{fill:none;stroke-width:2;stroke-linecap:round;transition:stroke-dashoffset .85s cubic-bezier(.6,.02,.2,1)}
+  #wires path{fill:none;stroke-width:2;stroke-linecap:round;}
   /* Each cluster owns its own wires, so cluster B draws when the reader reaches it
      rather than while cluster A is still on screen. The .on class is added by JS. */
-  #wires .wdot{opacity:1;transition:opacity .3s ease .55s}
   .anim:not(.shown) #wires .wdot:not(.on){opacity:0}
 
   .cluster{position:relative;z-index:1}
@@ -172,10 +157,10 @@
   .mstack{display:grid;gap:14px}
   /* Blue outline from the start. These cards are not clickable, so they carry no
      hover state: an earlier hover lift promised an interaction that does not exist. */
-  .mech{border:1px solid rgba(39,71,224,.42);border-radius:14px;padding:18px 20px;background:var(--paper);transition:opacity .5s ease,transform .5s ease}
+  .mech{border:1px solid rgba(39,71,224,.42);border-radius:14px;padding:18px 20px;background:var(--paper);}
   .anim:not(.shown) .reveal:not(.lit) .mech{opacity:0;transform:translateY(9px)}
   .reveal.lit .mech:nth-child(2){transition-delay:.1s}
-  .mech .mid{font-family:var(--serif);font-size:13px;color:var(--blue);display:block;margin-bottom:4px}
+  .mech .mid{font-size:13px;color:var(--blue);display:block;margin-bottom:4px}
   .mech b{font-size:17px;font-weight:500;display:block;margin-bottom:5px}
   .mech .mfull{font-size:13.5px;color:var(--grey);line-height:1.5;display:block}
   .mech.pivot{border-color:var(--blue);border-width:1.5px;background:var(--wash-blue);box-shadow:0 8px 28px rgba(39,71,224,.10)}
@@ -197,7 +182,7 @@
   /* A div rather than a button: the card holds a heading and paragraphs, which are not
      legal inside a <button>. The "Read the case" control is the real button, so keyboard
      users get one focus stop and the whole card stays clickable for a mouse. */
-  .casecard{position:relative;text-align:left;border:0.5px solid var(--line);border-radius:18px;padding:28px 28px 26px;background:var(--paper);cursor:pointer;transition:transform .22s cubic-bezier(.6,.02,.2,1),box-shadow .22s,border-color .22s;display:flex;flex-direction:column}
+  .casecard{position:relative;text-align:left;border:0.5px solid var(--line);border-radius:18px;padding:28px 28px 26px;background:var(--paper);cursor:pointer;display:flex;flex-direction:column}
   .casecard:hover,.casecard:focus-within{transform:translateY(-4px);box-shadow:0 14px 34px rgba(23,24,27,.09);border-color:var(--blue)}
   .casecard.amber:hover,.casecard.amber:focus-within{border-color:var(--amber)}
   .casecard .badge{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px;align-self:flex-start}
@@ -208,11 +193,10 @@
   .casecard .hook{font-size:14.5px;color:var(--grey);line-height:1.6;flex:1}
   .casecard .thumb{margin:20px 0 4px}
   .casecard .shows{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-soft);padding-top:16px;border-top:0.5px solid var(--line);margin-top:16px}
-  .casecard .open{margin-top:14px;font-size:13.5px;color:var(--blue);display:inline-flex;align-items:center;gap:8px;align-self:flex-start;border:none;background:none;padding:0;font-family:inherit;cursor:pointer}
+  .casecard .open{margin-top:14px;font-size:13.5px;color:var(--blue);display:inline-flex;align-items:center;gap:8px;align-self:flex-start;border:none;background:none;font-family:inherit;cursor:pointer}
   .casecard .open:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
   .casecard.amber .open{color:var(--rust-dark)}
   .casecard.amber .open:focus-visible{outline-color:var(--amber)}
-  .casecard .open .arw{transition:transform .22s}
   .casecard:hover .open .arw{transform:translateX(4px)}
 
   dialog.casedlg{border:none;padding:0;background:transparent;max-width:min(760px,94vw);width:100%;color:var(--ink)}
@@ -221,19 +205,18 @@
   .dlg-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
   .dlg-badge{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px}
   .dlg-badge.amber{background:var(--rust-dark)}
-  .dlg-close{border:0.5px solid var(--line);background:transparent;border-radius:50%;width:36px;height:36px;font-size:19px;line-height:1;cursor:pointer;color:var(--grey);flex:none;transition:all .2s;font-family:inherit}
+  .dlg-close{border:0.5px solid var(--line);background:transparent;border-radius:50%;width:36px;height:36px;font-size:19px;line-height:1;cursor:pointer;color:var(--grey);flex:none;font-family:inherit}
   .dlg-close:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   .dlg-in h3{font-size:clamp(26px,4vw,36px);margin:16px 0 6px}
   .dlg-in .shows{font-size:13.5px;color:var(--grey-soft);line-height:1.5;padding-bottom:20px;border-bottom:0.5px solid var(--line)}
-  .dlg-in h4{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-soft);margin-top:26px}
+  .dlg-in h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-soft);margin-top:26px}
   .dlg-in p{color:var(--grey);font-size:15.5px;line-height:1.68;margin-top:13px}
-  .dlg-in p.close-line{color:var(--ink);font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.4;margin-top:22px;padding-top:20px;border-top:0.5px solid var(--line)}
+  .dlg-in p.close-line{color:var(--ink);font-style:italic;font-size:19px;line-height:1.4;margin-top:22px;padding-top:20px;border-top:0.5px solid var(--line)}
 
-  .cta-band{padding:66px 0 88px;text-align:center;border-top:0.5px solid var(--line)}
-  .cta-band .tagline{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);margin-bottom:24px}
+  .cta-band{padding:66px 0 88px;text-align:center;}
+  .cta-band .tagline{font-size:clamp(24px,3.4vw,34px);margin-bottom:24px}
   .ways{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .backlink{margin-top:30px;font-size:13.5px;color:var(--grey-soft)}
-  .backlink a{color:var(--blue)}
+  .backlink{margin-top:30px;font-size:13.5px;}
   /* ── The quiet aubergine contact band (handover 2) ────────────────────────────
      One hard rule: EVERY text element in here is #FFFFFF. Headings, body, kicker,
      links, button labels, hover and focus states. No blue, grey or rust text.
@@ -241,7 +224,6 @@
      both buttons are transparent with a white outline and a white label instead. */
   .cta-band{background:var(--aubergine);color:var(--onpanel);border-top:none;position:relative;overflow:hidden;isolation:isolate}
   .cta-band>*:not(.afpat){position:relative;z-index:1}
-  .cta-band .afpat{z-index:0}
   .cta-band .kicker,.cta-band .tagline,.cta-band .tagline em,.cta-band .backlink,.cta-band .ctanote{color:var(--onpanel)}
   .cta-band .backlink a{color:var(--onpanel);border-bottom:0.5px solid rgba(255,255,255,.45)}
   .cta-band .backlink a:hover{color:var(--onpanel);border-bottom-color:var(--onpanel)}
@@ -257,12 +239,7 @@
   #mechanisms{scroll-margin-top:96px}
 
 
-  /* the two-line descriptor needs a 917px viewport to sit beside the links and the CTA in one
-     row; below that it is hidden rather than squeezed. See index.html for the measured note. */
-  /* The signature stays visible at every width. This rule used to hide it below 940px
-     because the old two-line descriptor could not fit beside the links and the CTA.
-     "Priorities, made real." is one short line and it is the brand, so hiding it on
-     phones would drop the signature exactly where most launch traffic lands. */
+  /* The signature stays visible at every width and steps down in size on narrow screens. */
   @media (max-width:940px){ .brand .bs{font-size:12.5px} }
   @media (max-width:420px){ .brand .bs{font-size:11.5px} }
   @media (max-width:880px){
@@ -279,17 +256,12 @@
     .cl{grid-template-columns:1fr;gap:12px}
     .spacer{display:none}
     #wires{display:none}
-    .mech{opacity:1;transform:none}
   }
   @media (max-width:600px){
     .nav-in{flex-wrap:wrap;padding:12px 24px 10px}
     /* .brand .bs is already hidden from 880 down. */
-    .nav-right{display:contents}
-    .nav-cta{margin-left:auto}
-    .nav-links{order:3;width:100%;justify-content:center;gap:20px;font-size:12.5px;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
+    .nav-links{order:3;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
     .sec{padding:56px 0}
-    .mast{padding:42px 0 4px}
-    .phases{grid-template-columns:1fr}
     .dlg-in{padding:28px 24px 34px;max-height:92vh}
   }
   @media (prefers-reduced-motion:reduce){
@@ -305,10 +277,11 @@
      sheet, so without this a printed copy would lose the two strongest pieces on the page. */
   @media print{
     nav,.cta-band,.casecard .open,.casecard .thumb,.dlg-close{display:none}
-    body{background:#fff}
     dialog.casedlg{display:block;position:static;max-width:none;width:auto;margin-top:30px;page-break-before:always}
     dialog.casedlg .dlg-in{max-height:none;overflow:visible;box-shadow:none;border:none;padding:0;background:transparent}
   }
+
+}
 </style>
 <script>
 /* Animation gate. Adds .anim only when JS runs, IntersectionObserver exists and the
@@ -322,25 +295,27 @@ try{
   }
 }catch(e){}
 </script>
+<link rel="stylesheet" href="assets/site.css" media="screen"><link rel="stylesheet" href="assets/pages.css" media="screen"><link rel="stylesheet" href="assets/print.css" media="print">
 </head>
-<body>
+<body class="site paper page-method">
 
-<nav>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main navigation">
   <div class="nav-in">
     <a class="brand" href="index.html" aria-label="Ale Furtado home">
       <svg class="afmark" width="58" height="38" viewBox="0 0 62 40" fill="none" aria-hidden="true">
-        <line x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
-        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#242639" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">A</text>
-        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#242639" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
+        <line class="afline" pathLength="1" x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
+        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#fff" stroke="#2747E0" stroke-width="5" paint-order="stroke fill">A</text>
+        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#fff" stroke="#2747E0" stroke-width="5" paint-order="stroke fill">F</text>
         <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
       </svg>
-      <span><span class="bn">Ale Furtado</span><br><span class="bs">Priorities, made&nbsp;real.</span></span>
+      <span><span class="bn">Ale Furtado</span><br><span class="bs">Turning priorities into results.</span></span>
     </a>
     <div class="nav-right">
       <div class="nav-links">
         <a href="index.html#about">About</a>
         <a href="services.html">Services</a>
-        <a class="here" href="method.html">The method</a>
+        <a href="method.html" aria-current="page">The method</a>
         <a href="monday-morning-test.html">The test</a>
       </div>
       <a class="nav-cta" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a>
@@ -348,9 +323,10 @@ try{
   </div>
 </nav>
 
+<main id="main">
 <!-- MASTHEAD -->
-<header class="mast">
-  <div class="container">
+<header class="mast flow-section">
+  <div class="texture" aria-hidden="true"></div><div class="texture texture-left" aria-hidden="true"></div><div class="container">
     <p class="meta"><a href="services.html#readiness-review">The assessment engagement</a> &middot; three weeks of work &middot; <b>fixed fee</b></p>
     <h1>The Delivery Readiness Review</h1>
     <p class="lede">A strategy has been approved, and what has not been established is whether the organisation can deliver it. The review traces five mechanisms through the organisation's own documents and the people who have to carry the work.</p>
@@ -589,11 +565,10 @@ try{
 </dialog>
 
 <!-- CTA -->
-<section class="cta-band" id="talk">
-  <div class="afpat white" aria-hidden="true"></div>
-  <div class="container">
+<section class="cta-band flow-section" id="talk">
+  <div class="texture" aria-hidden="true"></div><div class="texture texture-left" aria-hidden="true"></div><div class="container">
     <p class="kicker">Get in touch</p>
-    <p class="tagline">Priorities, made <em>real</em>.</p>
+    <p class="tagline">Turning priorities into results.</p>
     <div class="ways">
       <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a>
       <a class="btn ghost" href="mailto:letstalk@alefurtado.org?subject=Delivery%20Readiness%20Review">Or email me</a>
@@ -602,6 +577,14 @@ try{
     <p class="backlink"><a href="index.html">Back to alefurtado.org</a></p>
   </div>
 </section>
+</main>
+<footer>
+  <div class="foot-in">
+    <span>&copy; 2026 Ale Furtado</span>
+    <span>Turning priorities into results.</span>
+  </div>
+</footer>
+
 
 <script>
 (function(){

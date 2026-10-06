@@ -13,42 +13,34 @@
      branch previews serve more, none of which should compete with the real domain in
      search. This names the real one wherever the page is served from. -->
 <link rel="canonical" href="https://alefurtado.org/services">
-<meta property="og:image" content="https://alefurtado.org/assets/og-brand-v2.jpg" />
+<meta property="og:image" content="https://alefurtado.org/assets/og-brand-v3.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="og:image:alt" content="Ale Furtado. Priorities, made real. Turning priorities into progress." />
-<meta name="twitter:image" content="https://alefurtado.org/assets/og-brand-v2.jpg" />
+<meta property="og:image:alt" content="Ale Furtado. Turning priorities into results." />
+<meta name="twitter:image" content="https://alefurtado.org/assets/og-brand-v3.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display&display=swap" rel="stylesheet">
 <style>
+  /* The page's own structural styles. They sit in a cascade layer so the shared design
+     system in assets/site.css and assets/pages.css always wins over them, whatever the
+     selector weight. They still carry the print layout, which the screen sheets do not. */
+@layer page{
+
   :root{
-    --paper:#F8F5EC; --ink:#242639; --grey:#57534A; --grey-soft:#767064;
-    --line:#E9E3D5; --blue:#2747E0; --blue-deep:#16235C;
-    /* Handover 2: the aubergine panel colour, and the dark rust for small text on
-       cream where #D95926 does not carry enough contrast. */
+    --paper:#ffffff; --ink:#242639; --grey:#57534A; --grey-soft:#767064;
+    --line:#dce2ee; --blue:#2747E0; --blue-deep:#16235C;
+    /* The aubergine panel colour, and the dark rust for small text where #D95926 does
+       not carry enough contrast. */
     --aubergine:#2D304B; --rust:#D95926; --rust-dark:#9C431F; --onpanel:#FFFFFF;
     --serif:'Playfair Display',Georgia,'Times New Roman',serif;
     --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     --maxw:1040px;
   }
-  /* ── The approved line pattern ──────────────────────────────────────────────
-     Three overlapping families of fine curved lines entering from the top and
-     flowing around the top-right corner, anchored to both edges. Generated from
-     the same 33 path definitions as `website-pattern-reference.html`, inlined as
-     a data URI so the page still makes no network request of its own.
-     Decorative only: pointer-events off, behind content, and it never carries
-     meaning. Blue and orange keep their support/constraint job on the test. */
-  .afpat{position:absolute;pointer-events:none;top:0;right:0;width:450px;height:390px;
-    background-size:100% 100%;background-repeat:no-repeat;opacity:.9;z-index:0}
-  .afpat.light{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22350%200%20245%20290%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23B9B4A9%22%20stroke-width%3D%220.48%22%3E%3Cpath%20d%3D%22M%20370%20-25%20C%20445%2040%20455%2088%20635%20105%22%2F%3E%3Cpath%20d%3D%22M%20383%20-25%20C%20452%2040%20462%2088%20635%20111%22%2F%3E%3Cpath%20d%3D%22M%20396%20-25%20C%20459%2040%20469%2088%20635%20117%22%2F%3E%3Cpath%20d%3D%22M%20409%20-25%20C%20466%2040%20476%2088%20635%20123%22%2F%3E%3Cpath%20d%3D%22M%20422%20-25%20C%20473%2040%20483%2088%20635%20129%22%2F%3E%3Cpath%20d%3D%22M%20435%20-25%20C%20480%2040%20490%2088%20635%20135%22%2F%3E%3Cpath%20d%3D%22M%20448%20-25%20C%20487%2040%20497%2088%20635%20141%22%2F%3E%3Cpath%20d%3D%22M%20461%20-25%20C%20494%2040%20504%2088%20635%20147%22%2F%3E%3Cpath%20d%3D%22M%20474%20-25%20C%20501%2040%20511%2088%20635%20153%22%2F%3E%3Cpath%20d%3D%22M%20487%20-25%20C%20508%2040%20518%2088%20635%20159%22%2F%3E%3Cpath%20d%3D%22M%20500%20-25%20C%20515%2040%20525%2088%20635%20165%22%2F%3E%3Cpath%20d%3D%22M%20505%20-30%20C%20455%2065%20473%20136%20635%20215%22%2F%3E%3Cpath%20d%3D%22M%20516%20-30%20C%20462%2065%20480%20136%20635%20220%22%2F%3E%3Cpath%20d%3D%22M%20527%20-30%20C%20469%2065%20487%20136%20635%20225%22%2F%3E%3Cpath%20d%3D%22M%20538%20-30%20C%20476%2065%20494%20136%20635%20230%22%2F%3E%3Cpath%20d%3D%22M%20549%20-30%20C%20483%2065%20501%20136%20635%20235%22%2F%3E%3Cpath%20d%3D%22M%20560%20-30%20C%20490%2065%20508%20136%20635%20240%22%2F%3E%3Cpath%20d%3D%22M%20571%20-30%20C%20497%2065%20515%20136%20635%20245%22%2F%3E%3Cpath%20d%3D%22M%20582%20-30%20C%20504%2065%20522%20136%20635%20250%22%2F%3E%3Cpath%20d%3D%22M%20593%20-30%20C%20511%2065%20529%20136%20635%20255%22%2F%3E%3Cpath%20d%3D%22M%20604%20-30%20C%20518%2065%20536%20136%20635%20260%22%2F%3E%3Cpath%20d%3D%22M%20615%20-30%20C%20525%2065%20543%20136%20635%20265%22%2F%3E%3Cpath%20d%3D%22M%20600%20-30%20C%20482%2035%20494%2094%20635%20161%22%2F%3E%3Cpath%20d%3D%22M%20609%20-30%20C%20489%2035%20501%2094%20635%20166%22%2F%3E%3Cpath%20d%3D%22M%20618%20-30%20C%20496%2035%20508%2094%20635%20171%22%2F%3E%3Cpath%20d%3D%22M%20627%20-30%20C%20503%2035%20515%2094%20635%20176%22%2F%3E%3Cpath%20d%3D%22M%20636%20-30%20C%20510%2035%20522%2094%20635%20181%22%2F%3E%3Cpath%20d%3D%22M%20645%20-30%20C%20517%2035%20529%2094%20635%20186%22%2F%3E%3Cpath%20d%3D%22M%20654%20-30%20C%20524%2035%20536%2094%20635%20191%22%2F%3E%3Cpath%20d%3D%22M%20663%20-30%20C%20531%2035%20543%2094%20635%20196%22%2F%3E%3Cpath%20d%3D%22M%20672%20-30%20C%20538%2035%20550%2094%20635%20201%22%2F%3E%3Cpath%20d%3D%22M%20681%20-30%20C%20545%2035%20557%2094%20635%20206%22%2F%3E%3Cpath%20d%3D%22M%20690%20-30%20C%20552%2035%20564%2094%20635%20211%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")}
-  .afpat.white{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22350%200%20245%20290%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%220.48%22%3E%3Cpath%20d%3D%22M%20370%20-25%20C%20445%2040%20455%2088%20635%20105%22%2F%3E%3Cpath%20d%3D%22M%20383%20-25%20C%20452%2040%20462%2088%20635%20111%22%2F%3E%3Cpath%20d%3D%22M%20396%20-25%20C%20459%2040%20469%2088%20635%20117%22%2F%3E%3Cpath%20d%3D%22M%20409%20-25%20C%20466%2040%20476%2088%20635%20123%22%2F%3E%3Cpath%20d%3D%22M%20422%20-25%20C%20473%2040%20483%2088%20635%20129%22%2F%3E%3Cpath%20d%3D%22M%20435%20-25%20C%20480%2040%20490%2088%20635%20135%22%2F%3E%3Cpath%20d%3D%22M%20448%20-25%20C%20487%2040%20497%2088%20635%20141%22%2F%3E%3Cpath%20d%3D%22M%20461%20-25%20C%20494%2040%20504%2088%20635%20147%22%2F%3E%3Cpath%20d%3D%22M%20474%20-25%20C%20501%2040%20511%2088%20635%20153%22%2F%3E%3Cpath%20d%3D%22M%20487%20-25%20C%20508%2040%20518%2088%20635%20159%22%2F%3E%3Cpath%20d%3D%22M%20500%20-25%20C%20515%2040%20525%2088%20635%20165%22%2F%3E%3Cpath%20d%3D%22M%20505%20-30%20C%20455%2065%20473%20136%20635%20215%22%2F%3E%3Cpath%20d%3D%22M%20516%20-30%20C%20462%2065%20480%20136%20635%20220%22%2F%3E%3Cpath%20d%3D%22M%20527%20-30%20C%20469%2065%20487%20136%20635%20225%22%2F%3E%3Cpath%20d%3D%22M%20538%20-30%20C%20476%2065%20494%20136%20635%20230%22%2F%3E%3Cpath%20d%3D%22M%20549%20-30%20C%20483%2065%20501%20136%20635%20235%22%2F%3E%3Cpath%20d%3D%22M%20560%20-30%20C%20490%2065%20508%20136%20635%20240%22%2F%3E%3Cpath%20d%3D%22M%20571%20-30%20C%20497%2065%20515%20136%20635%20245%22%2F%3E%3Cpath%20d%3D%22M%20582%20-30%20C%20504%2065%20522%20136%20635%20250%22%2F%3E%3Cpath%20d%3D%22M%20593%20-30%20C%20511%2065%20529%20136%20635%20255%22%2F%3E%3Cpath%20d%3D%22M%20604%20-30%20C%20518%2065%20536%20136%20635%20260%22%2F%3E%3Cpath%20d%3D%22M%20615%20-30%20C%20525%2065%20543%20136%20635%20265%22%2F%3E%3Cpath%20d%3D%22M%20600%20-30%20C%20482%2035%20494%2094%20635%20161%22%2F%3E%3Cpath%20d%3D%22M%20609%20-30%20C%20489%2035%20501%2094%20635%20166%22%2F%3E%3Cpath%20d%3D%22M%20618%20-30%20C%20496%2035%20508%2094%20635%20171%22%2F%3E%3Cpath%20d%3D%22M%20627%20-30%20C%20503%2035%20515%2094%20635%20176%22%2F%3E%3Cpath%20d%3D%22M%20636%20-30%20C%20510%2035%20522%2094%20635%20181%22%2F%3E%3Cpath%20d%3D%22M%20645%20-30%20C%20517%2035%20529%2094%20635%20186%22%2F%3E%3Cpath%20d%3D%22M%20654%20-30%20C%20524%2035%20536%2094%20635%20191%22%2F%3E%3Cpath%20d%3D%22M%20663%20-30%20C%20531%2035%20543%2094%20635%20196%22%2F%3E%3Cpath%20d%3D%22M%20672%20-30%20C%20538%2035%20550%2094%20635%20201%22%2F%3E%3Cpath%20d%3D%22M%20681%20-30%20C%20545%2035%20557%2094%20635%20206%22%2F%3E%3Cpath%20d%3D%22M%20690%20-30%20C%20552%2035%20564%2094%20635%20211%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");opacity:.6}
-  @media (max-width:600px){.afpat{width:300px;height:260px;opacity:.5}.afpat.white{right:-110px;opacity:.35}}
-  @media print{.afpat{display:none}}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   /* One readable focus ring everywhere, on brand. Nothing in this file sets
      outline:none, so this replaces the browser default rather than restoring a
@@ -60,66 +52,40 @@
   .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-soft)}
   em{font-style:italic;color:var(--blue)}
 
-  nav{position:sticky;top:0;z-index:40;background:rgba(247,246,242,.85);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
+  nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
   .nav-in{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:15px 56px}
   .brand{display:flex;align-items:center;gap:11px}
   .brand .bn{font-size:16px;font-weight:500;letter-spacing:.06em;line-height:1}
-  /* nowrap so the two forced lines stay two lines; see index.html for the measured note. */
-  /* The signature, replacing the two-line descriptor retired on 23 September. It is a
-     brand line rather than a job description, so it is set in the serif at reading
-     size. "made real" is bound by a non-breaking space in the markup: if the lockup
-     ever wraps, the two words stay together. */
+  /* The signature line. On screen its type and colour come from assets/site.css. */
   .brand .bs{font-family:var(--serif);font-size:13.5px;letter-spacing:.01em;color:var(--grey);margin-top:2px;white-space:nowrap}
   .nav-right{display:flex;align-items:center;gap:28px}
   .nav-links{display:flex;gap:26px;font-size:13px;color:var(--grey)}
-  .nav-links a{transition:color .2s;white-space:nowrap} .nav-links a:hover{color:var(--blue)}
-  .nav-links a.here{color:var(--blue)}
-  .afmark{display:block}
-  .nav-cta{font-size:13px;border:1px solid var(--aubergine);color:var(--aubergine);border-radius:30px;padding:8px 16px;transition:all .2s;white-space:nowrap}
+  .nav-links a{white-space:nowrap} .nav-links a:hover{color:var(--blue)}
+  .nav-cta{font-size:13px;border:1px solid var(--aubergine);color:var(--aubergine);border-radius:2px;padding:8px 16px;white-space:nowrap}
   .nav-cta:hover,.nav-cta:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
 
-  /* Buttons, handover 3. Primary: aubergine fill, white label, blue on hover AND on
-     keyboard focus. Secondary on cream: aubergine outline and text, filling blue with a
-     white label on the same two states. The aubergine-panel variants live with the panels. */
-  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:34px;
-    background:var(--aubergine);color:var(--onpanel);border:1px solid var(--aubergine);font-family:inherit;cursor:pointer;
-    transition:transform .2s,background .2s,border-color .2s,color .2s}
-  .btn:hover,.btn:focus-visible{transform:translateY(-2px);background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
-  .btn.ghost{background:transparent;color:var(--aubergine);border:1px solid var(--aubergine)}
-  .btn.ghost:hover,.btn.ghost:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
 
   .sec{padding:78px 0}
   /* Left-aligned, matching the way these blocks read on the home page they came from.
-     method.html centres its section heads; this page does not, because the cards and the
-     ladder below them are left-aligned columns and a centred head floats above them. */
+     method.html centres its section heads; this page does not, because the engagement
+     boxes below them are left-aligned columns and a centred head floats above them. */
   .sec-head{max-width:600px}
   .sec-head h2{font-size:clamp(28px,4.2vw,44px)}
   .eyebrow{margin-bottom:18px}
   .rule{border-top:0.5px solid var(--line)}
 
-  /* ---------- masthead ---------- */
-  .mast{padding:60px 0 4px;text-align:center}
-  .mast h1{font-size:clamp(36px,6.2vw,62px);margin:14px auto 20px;max-width:14ch}
-  .mast .lede{font-size:clamp(16px,2.1vw,19px);color:var(--grey);max-width:660px;line-height:1.6;margin:0 auto}
 
-  /* ---------- services: one flagship, three supporting ----------
-     Moved from index.html on 21 August 2026 with the copy untouched. Anything changed here
-     has to be changed knowing it was signed off in its old home. */
   /* ── Handover 3 services ─────────────────────────────────────────────────────
      Opening, three equal engagement boxes, specialist support, method, closing. */
   .hbr{display:none}
-  @media(min-width:781px){.hbr{display:inline}}
 
   /* The opening carries the pattern, entering from the top and right edges. It is the
      first section on the page, so the decoration can never start halfway down. */
   .svc-hero{position:relative;overflow:hidden;isolation:isolate;padding:clamp(44px,6vh,72px) 0 clamp(20px,3vh,34px);text-align:center}
   .svc-hero>*:not(.afpat){position:relative;z-index:1}
-  .svc-hero .afpat{z-index:0;opacity:.8;top:0;right:-56px}
-  @media(min-width:1041px){.svc-hero .afpat{right:calc(-56px - (100vw - 1040px) / 2)}}
-  @media(max-width:700px){.svc-hero .afpat{right:-24px;width:280px;height:242px}}
-  .svc-hero-in{max-width:660px;margin:0 auto}
-  .svc-hero h1{font-size:clamp(32px,4.4vw,50px);line-height:1.18;margin:12px 0 22px}
-  .svc-hero .lede{font-size:16px;line-height:1.66;color:var(--grey);margin-bottom:12px}
+  .svc-hero-in{max-width:660px;}
+  .svc-hero h1{line-height:1.18;margin:12px 0 22px}
+  .svc-hero .lede{line-height:1.66;color:var(--grey);margin-bottom:12px}
   .context-link{margin-top:24px;font-size:13.5px;color:var(--grey-soft)}
 
   /* Three engagements of equal weight. Same 3px blue border on all three: nothing here is
@@ -137,14 +103,14 @@
     border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line);font-size:12.5px}
   .scope span{position:relative;padding-left:16px;color:var(--grey-soft)}
   .scope span:before{content:"";position:absolute;left:0;top:5px;width:9px;height:9px;border-radius:50%;
-    border:1px solid var(--grey-soft);background:transparent}
+    border:1px solid var(--grey-soft);}
   .scope span.on{color:var(--ink)}
   .scope span.on:before{background:var(--blue);border-color:var(--blue)}
   .offer dl{margin-top:4px}
   .offer dt{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--rust-dark);margin-top:16px}
   .offer dd{font-size:14.5px;line-height:1.6;color:var(--grey);margin-top:6px}
   .offer .dl{margin-top:20px;padding-top:16px;border-top:0.5px solid var(--line);font-size:14px}
-  .offer .dl a{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35);transition:border-color .2s}
+  .offer .dl a{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35);}
   .offer .dl a:hover{border-bottom-color:var(--blue)}
   @media(max-width:600px){.offer{padding:24px 20px 22px}}
 
@@ -154,10 +120,10 @@
   .spec-lede{font-size:15.5px;line-height:1.66;color:var(--grey);max-width:62ch}
   .spec{border-top:0.5px solid var(--line);padding:0;margin-top:22px;scroll-margin-top:96px}
   .spec:last-of-type{border-bottom:0.5px solid var(--line)}
-  .spec summary{cursor:pointer;list-style:none;padding:18px 0;font-family:var(--serif);font-size:19px;
-    line-height:1.3;color:var(--ink);display:flex;align-items:baseline;gap:12px;transition:color .2s}
+  .spec summary{cursor:pointer;list-style:none;padding:18px 0;font-size:19px;
+    line-height:1.3;display:flex;align-items:baseline;gap:12px;}
   .spec summary::-webkit-details-marker{display:none}
-  .spec summary:before{content:"+";font-family:var(--sans);font-size:15px;color:var(--rust-dark);width:14px;flex:0 0 14px}
+  .spec summary:before{content:"+";font-size:15px;color:var(--rust-dark);flex:0 0 14px}
   .spec[open] summary:before{content:"\2212"}
   .spec summary:hover{color:var(--blue)}
   .spec-body{padding:0 0 20px 26px}
@@ -165,107 +131,17 @@
   .spec-body p:last-child{margin-bottom:0}
 
   .help-more{margin-top:22px;font-size:14.5px}
-  .help-more a{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35);transition:border-color .2s}
+  .help-more a{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35);}
   .help-more a:hover{border-bottom-color:var(--blue)}
-  .help-more .arw{display:inline-block;transition:transform .22s}
+  .help-more .arw{display:inline-block;}
   .help-more a:hover .arw{transform:translateX(4px)}
-  .svc-flag{margin-top:40px;border:0.5px solid var(--line);border-radius:18px;padding:34px 38px 34px;background:var(--paper);scroll-margin-top:96px}
-  .svc-num{font-family:var(--serif);font-size:20px;color:var(--blue);margin-bottom:10px}
-  .svc-flag h3{font-size:clamp(24px,3.2vw,32px);margin-bottom:7px}
-  .svc-flag h3 .flag{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border:0.5px solid var(--blue);border-radius:20px;padding:3px 9px;margin-left:12px;vertical-align:middle;white-space:nowrap}
-  .sub{font-size:11.5px;letter-spacing:.045em;color:var(--grey-soft);line-height:1.6}
-  .svc-flag p.desc{color:var(--grey);font-size:15.5px;line-height:1.62;max-width:660px;margin-top:16px}
-  .spine{font-family:var(--serif);font-style:italic;color:var(--blue);font-size:clamp(20px,2.6vw,26px);line-height:1.2;margin-top:24px}
-  .svc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;align-items:start}
-  .svc-mini{border:0.5px solid var(--line);border-radius:14px;padding:22px 22px 24px;background:var(--paper);scroll-margin-top:96px}
-  .svc-mini .svc-num{font-size:15px;margin-bottom:8px}
-  .svc-mini h3{font-size:19px;line-height:1.18;margin-bottom:7px}
-  .svc-mini p{color:var(--grey);font-size:14px;line-height:1.55;margin-top:10px}
-  .svc-mini .svc-film{margin-top:14px}
-  .svc-mini .svc-film video{border-radius:9px}
-  /* .avail was card 04's "this is also ladder step 03" line. Card 04 and the ladder are both
-     gone as of 23 September; the class is kept because the capability block reuses it for the
-     same job, saying where the work can be bought rather than what it is. */
-  .svc-mini .avail{margin-top:14px;padding-top:12px;border-top:0.5px solid var(--line);font-size:13px;line-height:1.5;color:var(--grey-soft)}
-  .svc-mini .avail a{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35);transition:border-color .2s}
-  .svc-mini .avail a:hover{border-bottom-color:var(--blue)}
-  .row-lead{margin-top:58px}
 
-  .ladder-block{margin-top:58px;scroll-margin-top:124px}
-  .ladder-block .sec-head h2{font-size:clamp(26px,3.4vw,36px)}
-  .ladder-intro{color:var(--grey);font-size:15.5px;line-height:1.62;max-width:640px;margin-top:20px}
-  .ladder{margin-top:30px;display:grid;gap:14px}
-  .step{border:0.5px solid var(--line);border-radius:14px;padding:26px 28px 24px;background:var(--paper);scroll-margin-top:96px;min-width:0}
-  .step-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-  .step .n{font-family:var(--serif);font-size:15px;color:var(--blue);white-space:nowrap}
-  .step h3{font-size:clamp(19px,2.3vw,23px);line-height:1.18}
-  .step .meta{font-size:11.5px;letter-spacing:.045em;text-transform:uppercase;color:var(--grey-soft);white-space:nowrap}
-  .step p{color:var(--grey);font-size:14.5px;line-height:1.58;margin-top:12px;max-width:720px}
-  .step p a{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35);transition:border-color .2s}
-  .step p a:hover{border-bottom-color:var(--blue)}
-  .step .instrument{margin-top:14px;font-size:11.5px;letter-spacing:.045em;text-transform:uppercase;color:var(--grey-soft)}
-  .step .instrument b{font-family:var(--serif);font-size:15px;letter-spacing:0;text-transform:none;color:var(--blue);font-weight:400}
-  /* The instrument line names the test AND now reaches it, which it did not before
-     21 August 2026. The underline is the same one the other in-card links carry. */
-  .step .instrument a{border-bottom:0.5px solid rgba(39,71,224,.35);transition:border-color .2s}
-  .step .instrument a:hover{border-bottom-color:var(--blue)}
-  .step .out{margin-top:12px;padding-top:12px;border-top:0.5px solid var(--line);color:var(--ink);font-size:14.5px}
-  .step .out a{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35);white-space:nowrap}
-  .flag-link{margin-top:18px;font-size:14px}
-  .flag-link a{color:var(--blue);border-bottom:0.5px solid rgba(39,71,224,.35);transition:border-color .2s}
-  .flag-link a:hover{border-bottom-color:var(--blue)}
-  .ladder-cta{margin-top:26px}
-  /* ── Handover 2: the three engagement scopes ─────────────────────────────── */
-  /* The pattern frames this section from the page edge, not from the 1040px reading
-     column. Anchored inside .container it floated in the middle of the page as an
-     isolated object, which is precisely what the brief rules out. The calc pushes it
-     back out to the viewport edge; body already carries overflow-x:hidden, so nothing
-     it overhangs can produce a horizontal scrollbar. */
-  /* The pattern bleeds past the reading column on purpose. Clipping happens on the
-     full-width section rather than on the block, so it reaches the page edge and
-     stops there instead of producing a horizontal scrollbar at some widths.
-     overflow-x:clip, not hidden: it creates no scroll container. */
-  #services{overflow-x:clip}
-  .ladder-block{position:relative;isolation:isolate}
-  .ladder-block>*:not(.afpat){position:relative;z-index:1}
-  .ladder-block .afpat{z-index:0;opacity:.75;top:-26px;right:-56px}
-  /* Past 1040px the reading column stops growing, so the gutter has to be added back or
-     the pattern detaches from the page edge and reads as a floating object. */
-  @media(min-width:1041px){.ladder-block .afpat{right:calc(-56px - (100vw - 1040px) / 2)}}
-  @media(max-width:700px){.ladder-block .afpat{right:-24px;top:-16px;width:280px;height:242px}}
-  .step .n{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust-dark);font-family:var(--sans)}
-  .step .strap{font-family:var(--serif);font-size:clamp(17px,2vw,20px);line-height:1.3;color:var(--ink);margin-top:10px;max-width:640px}
   /* The scope row is the product sheets' own device. The written Included / Available
      separately label is what carries the meaning; the dot only repeats it, so the row
      still reads correctly in greyscale and to a screen reader. */
   .scope{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;padding:16px 0;
     border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line)}
-  .sc{display:flex;flex-direction:column;gap:4px;position:relative;padding-left:18px}
-  .sc .sd{position:absolute;left:0;top:5px;width:9px;height:9px;border-radius:50%;border:1px solid var(--grey-soft);background:transparent}
-  .sc.in .sd{background:var(--blue);border-color:var(--blue)}
-  .sc b{font-weight:500;font-size:13.5px;color:var(--ink)}
-  .sc span:not(.sd){font-size:12px;color:var(--grey-soft);line-height:1.4}
-  .sc.in span:not(.sd){color:var(--grey)}
-  .deliv{list-style:none;margin-top:16px;display:grid;gap:10px;max-width:760px}
-  .deliv li{position:relative;padding-left:16px;font-size:14.5px;line-height:1.58;color:var(--grey)}
-  .deliv li:before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--rust)}
-  .deliv li b{color:var(--ink);font-weight:500}
-  .step .terms{margin-top:16px;padding-top:14px;border-top:0.5px solid var(--line);font-size:13.5px;line-height:1.6;color:var(--grey-soft);max-width:760px}
-  .step .terms b{color:var(--ink);font-weight:500}
-  .capability{margin-top:26px;border:0.5px solid var(--line);border-radius:14px;padding:26px 28px 24px;background:var(--paper);scroll-margin-top:96px}
-  .capability h3{font-size:clamp(19px,2.3vw,23px);line-height:1.18;margin-top:8px}
-  .capability .sub{font-size:12.5px;letter-spacing:.03em;color:var(--grey-soft);margin-top:7px}
-  .capability p:not(.sub):not(.avail):not(.kicker){color:var(--grey);font-size:14.5px;line-height:1.58;margin-top:12px;max-width:760px}
-  .capability .avail{margin-top:14px;padding-top:12px;border-top:0.5px solid var(--line);font-size:13.5px;line-height:1.55;color:var(--grey-soft)}
   @media(max-width:700px){.scope{grid-template-columns:1fr;gap:12px}}
-  .svc-film{margin-top:16px}
-  /* The flagship film is capped rather than run to the card width. At full width it is
-     16:9 across ~850px, so roughly 480px tall, which put the ladder below the fold and
-     made the film the first thing the page argued with. The three cards keep their own
-     width because a card column is already narrow. */
-  .svc-flag .svc-film{max-width:520px}
-  .svc-film video{width:100%;aspect-ratio:16/9;display:block;border-radius:12px;border:0.5px solid var(--line);background:#0E0F12;box-shadow:0 14px 40px -26px rgba(23,24,27,.35)}
-  .svc-film .vcredit{color:var(--grey-soft);font-size:10.5px;letter-spacing:.06em;margin-top:6px;opacity:.75}
 
   /* ---------- how engagements run ----------
      The five principles from her 2026 consultant profile, which say what she is like to
@@ -274,15 +150,13 @@
   .hiw{margin-top:34px;max-width:840px}
   .hiw .row{display:grid;grid-template-columns:46px 1fr;gap:18px;padding:20px 0;border-bottom:0.5px solid var(--line);align-items:start}
   .hiw .row:last-child{border-bottom:0;padding-bottom:0}
-  .hiw .n{font-family:var(--serif);font-size:14px;color:var(--blue);border:0.5px solid var(--line);border-radius:8px;padding:7px 0;text-align:center;line-height:1}
+  .hiw .n{font-size:14px;color:var(--blue);border:0.5px solid var(--line);border-radius:8px;padding:7px 0;text-align:center;line-height:1}
   .hiw h3{font-size:19px;line-height:1.2;margin-bottom:6px}
   .hiw p{color:var(--grey);font-size:14.5px;line-height:1.55;max-width:700px}
 
-  .cta-band{padding:66px 0 88px;text-align:center;border-top:0.5px solid var(--line)}
-  .cta-band .tagline{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);margin-bottom:24px}
+  .cta-band{padding:66px 0 88px;text-align:center;}
   .ways{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .backlink{margin-top:30px;font-size:13.5px;color:var(--grey-soft)}
-  .backlink a{color:var(--blue)}
+  .backlink{margin-top:30px;font-size:13.5px;}
   /* ── The quiet aubergine contact band (handover 2) ────────────────────────────
      One hard rule: EVERY text element in here is #FFFFFF. Headings, body, kicker,
      links, button labels, hover and focus states. No blue, grey or rust text.
@@ -290,30 +164,16 @@
      both buttons are transparent with a white outline and a white label instead. */
   .cta-band{background:var(--aubergine);color:var(--onpanel);border-top:none;position:relative;overflow:hidden;isolation:isolate}
   .cta-band>*:not(.afpat){position:relative;z-index:1}
-  .cta-band .afpat{z-index:0}
   .cta-band .kicker,.cta-band .tagline,.cta-band .tagline em,.cta-band .backlink,.cta-band .ctanote{color:var(--onpanel)}
   .cta-band .backlink a{color:var(--onpanel);border-bottom:0.5px solid rgba(255,255,255,.45)}
   .cta-band .backlink a:hover{color:var(--onpanel);border-bottom-color:var(--onpanel)}
-  .cta-band .btn,.cta-band .btn.ghost{background:transparent;color:var(--onpanel);border:1px solid var(--onpanel)}
-  .cta-band .btn{border-width:1.5px}
-  /* Handover 3: on an aubergine panel a button fills BLUE on hover and on keyboard
-     focus, with the label staying white. The earlier 14% white wash is superseded. */
-  .cta-band .btn:hover,.cta-band .btn.ghost:hover,
-  .cta-band .btn:focus-visible,.cta-band .btn.ghost:focus-visible{
-    background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
-  .cta-band .btn:focus-visible{outline:2px solid var(--onpanel);outline-offset:3px}
   .cta-band .ctanote{margin-top:16px;font-size:13px}
   .cta-band .bigq{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,44px);line-height:1.18;
-    margin:10px auto 16px;max-width:17ch;color:var(--onpanel)}
-  .cta-band .lead{max-width:540px;margin:0 auto;font-size:16px;line-height:1.66;color:var(--onpanel)}
+    margin:10px auto 16px;max-width:17ch;}
+  .cta-band .lead{max-width:540px;margin:0 auto;line-height:1.66;}
 
 
-  /* the two-line descriptor needs a 917px viewport to sit beside the links and the CTA in one
-     row; below that it is hidden rather than squeezed. See index.html for the measured note. */
-  /* The signature stays visible at every width. This rule used to hide it below 940px
-     because the old two-line descriptor could not fit beside the links and the CTA.
-     "Priorities, made real." is one short line and it is the brand, so hiding it on
-     phones would drop the signature exactly where most launch traffic lands. */
+  /* The signature stays visible at every width and steps down in size on narrow screens. */
   @media (max-width:940px){ .brand .bs{font-size:12.5px} }
   @media (max-width:420px){ .brand .bs{font-size:11.5px} }
   @media (max-width:880px){
@@ -321,39 +181,36 @@
     .nav-in{padding-left:24px;padding-right:24px}
     .nav-links{gap:18px;font-size:12.5px}
   }
-  @media (max-width:820px){ .svc-row{grid-template-columns:1fr} .svc-flag{padding:26px 22px} }
   @media (max-width:600px){
     .nav-in{flex-wrap:wrap;padding:12px 24px 10px}
-    /* .brand .bs is already hidden from 940 down. */
     .nav-right{display:contents}
     .nav-cta{margin-left:auto}
     .nav-links{order:3;width:100%;justify-content:center;gap:20px;font-size:12.5px;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
     .sec{padding:56px 0}
-    .mast{padding:40px 0 2px}
-    .hiw .row{grid-template-columns:40px 1fr;gap:14px}
   }
-  /* "See the method and two case studies" is 257px unbroken and the step's content box is 216px
-     at 320. See index.html for the measured note. */
-  @media (max-width:400px){ .step .out a{white-space:normal} }
-</style>
-</head>
-<body>
 
-<nav>
+}
+</style>
+<link rel="stylesheet" href="assets/site.css" media="screen"><link rel="stylesheet" href="assets/pages.css" media="screen"><link rel="stylesheet" href="assets/print.css" media="print">
+</head>
+<body class="site paper page-services">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main navigation">
   <div class="nav-in">
     <a class="brand" href="index.html" aria-label="Ale Furtado home">
       <svg class="afmark" width="58" height="38" viewBox="0 0 62 40" fill="none" aria-hidden="true">
-        <line x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
-        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#242639" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">A</text>
-        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#242639" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
+        <line class="afline" pathLength="1" x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
+        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#fff" stroke="#2747E0" stroke-width="5" paint-order="stroke fill">A</text>
+        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#fff" stroke="#2747E0" stroke-width="5" paint-order="stroke fill">F</text>
         <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
       </svg>
-      <span><span class="bn">Ale Furtado</span><br><span class="bs">Priorities, made&nbsp;real.</span></span>
+      <span><span class="bn">Ale Furtado</span><br><span class="bs">Turning priorities into results.</span></span>
     </a>
     <div class="nav-right">
       <div class="nav-links">
         <a href="index.html#about">About</a>
-        <a class="here" href="services.html">Services</a>
+        <a href="services.html" aria-current="page">Services</a>
         <a href="method.html">The method</a>
         <a href="monday-morning-test.html">The test</a>
       </div>
@@ -362,20 +219,20 @@
   </div>
 </nav>
 
+<main id="main">
 <!-- MASTHEAD -->
 <!-- OPENING. The pattern enters from the top and right edges of this section, which is the
      first thing on the page, so it can never begin halfway down. #strategy is kept here as a
      compatibility anchor: it used to open the flagship film panel, and it now lands on the
      three ways to commission the work rather than on an empty former film position. -->
-<header class="svc-hero" id="strategy">
-  <div class="afpat light" aria-hidden="true"></div>
-  <div class="container">
+<header class="svc-hero flow-section" id="strategy">
+  <div class="texture" aria-hidden="true"></div><div class="texture texture-left" aria-hidden="true"></div><div class="container">
     <div class="svc-hero-in">
       <p class="kicker eyebrow">Services</p>
       <h1>How we can <br class="hbr"><em>work together</em>.</h1>
       <p class="lede">I work with your team to understand what is holding delivery back and agree what needs to change.</p>
       <p class="lede">Our work can end with an assessment, a practical response your team takes forward, or support through implementation.</p>
-      <p class="context-link">Taken the Monday-Morning Test? Bring your reading to our conversation.</p>
+      <p class="context-link">Taken the <a href="monday-morning-test.html">Monday-Morning Test</a>? Bring your reading to our conversation.</p>
     </div>
   </div>
 </header>
@@ -534,8 +391,8 @@
 </section>
 
 <!-- THE METHOD, compact. The full page and both case studies are unchanged behind it. -->
-<section class="sec rule" id="methodlink">
-  <div class="container">
+<section class="sec rule flow-section" id="methodlink">
+  <div class="texture" aria-hidden="true"></div><div class="texture texture-left" aria-hidden="true"></div><div class="container">
     <div class="spec-in">
       <p class="kicker eyebrow">The method behind the work</p>
       <h2>Look closely. <br class="hbr">Decide what to <em>change</em>.</h2>
@@ -548,20 +405,27 @@
 
 
 <!-- CTA -->
-<section class="cta-band" id="talk">
-  <div class="afpat white" aria-hidden="true"></div>
-  <div class="container">
+<section class="cta-band flow-section" id="talk">
+  <div class="texture" aria-hidden="true"></div><div class="texture texture-left" aria-hidden="true"></div><div class="container">
     <p class="kicker">Let&rsquo;s talk</p>
     <h2 class="bigq">Let&rsquo;s discuss where <br class="hbr">support could help.</h2>
     <p class="lead">Bring your test reading, or tell me about the priority you are working to deliver. We can work out together what support would be useful.</p>
     <div class="ways">
-      <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a>
-      <a class="btn ghost" href="mailto:letstalk@alefurtado.org?subject=Enquiry%20via%20website">letstalk@alefurtado.org</a>
+      <a class="af-action" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a>
+      <a class="af-action ghost" href="mailto:letstalk@alefurtado.org?subject=Enquiry%20via%20website">letstalk@alefurtado.org</a>
     </div>
     <p class="ctanote">A 20-minute conversation, and you are welcome to bring your test reading.</p>
     <p class="backlink"><a href="index.html">Back to alefurtado.org</a></p>
   </div>
 </section>
+</main>
+<footer>
+  <div class="foot-in">
+    <span>&copy; 2026 Ale Furtado</span>
+    <span>Turning priorities into results.</span>
+  </div>
+</footer>
+
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "115e2a4e764a4d7481e288ddfbd255ad"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

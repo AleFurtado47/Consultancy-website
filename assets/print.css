@@ -1,0 +1,11 @@
+/* Print. The screen sheets are not loaded on paper; this and each page's own @media print rules are. */
+:root{--paper:#fff;--serif:Inter,Arial,sans-serif;--sans:Inter,Arial,sans-serif;--grey:#575b68;--grey-soft:#626778;--line:#dce2ee}
+.texture,footer,.skip-link{display:none!important}
+html,body{background:white!important}
+/* The card page centres its content with flexbox on screen; on paper everything stacks. */
+body{display:block!important;min-height:0!important}
+.ph-tag{font-family:Inter,Arial,sans-serif!important;font-style:normal!important}
+.p2head{font-weight:500}
+h1,h2,h3,h4{font-family:Inter,Arial,sans-serif!important;font-style:normal}
+.pstatus,.prow,.printfoot,.limits,.moves{border-color:#dce2ee!important}
+/* No fixed height or page limit. Preserve every branch of the full reading. */

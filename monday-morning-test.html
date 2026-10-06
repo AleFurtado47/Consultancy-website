@@ -15,26 +15,31 @@
 <link rel="canonical" href="https://alefurtado.org/monday-morning-test">
 <!-- This page carries its own card: it is the link she circulates on its own, and a
      preview showing her name and descriptor said nothing about what the page does. -->
-<meta property="og:image" content="https://alefurtado.org/assets/og-instrument-v2.jpg" />
+<meta property="og:image" content="https://alefurtado.org/assets/og-instrument-v3.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="og:image:alt" content="The Monday-Morning Test. Five questions about an approved strategy, and a first reading of where yours is." />
-<meta name="twitter:image" content="https://alefurtado.org/assets/og-instrument-v2.jpg" />
+<meta property="og:image:alt" content="The Monday-Morning Test. Five questions about how work happens in your organisation, and a first reading of what may be holding delivery back." />
+<meta name="twitter:image" content="https://alefurtado.org/assets/og-instrument-v3.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display&display=swap" rel="stylesheet">
 <style>
+  /* The page's own structural styles. They sit in a cascade layer so the shared design
+     system in assets/site.css and assets/pages.css always wins over them, whatever the
+     selector weight. They still carry the print layout, which the screen sheets do not. */
+@layer page{
+
   /* Data colours are the brand palette validated 6 Aug 2026 against this page's own
-     surface (#F8F5EC): blue #2747E0 supports delivery, orange #d95926 constrains it.
+     surface (#ffffff): blue #2747E0 supports delivery, orange #d95926 constrains it.
      The deep blue #16235C is an ink colour and never a data mark. Every state carries
      a glyph AND a written label as well as its colour, which is a hard requirement,
      not a style choice. Do not substitute values by eye. */
   :root{
-    --paper:#F8F5EC; --ink:#242639; --grey:#57534A; --grey-soft:#767064;
-    --line:#E9E3D5; --blue:#2747E0; --amber:#d95926;
-    /* Handover 2: the aubergine panel colour, and the dark rust for small text on
-       cream where #D95926 does not carry enough contrast. */
+    --paper:#ffffff; --ink:#242639; --grey:#57534A; --grey-soft:#767064;
+    --line:#dce2ee; --blue:#2747E0; --amber:#d95926;
+    /* The aubergine panel colour, and the dark rust for small text where #D95926 does
+       not carry enough contrast. */
     --aubergine:#2D304B; --rust:#D95926; --rust-dark:#9C431F; --onpanel:#FFFFFF;
     --wash-blue:rgba(39,71,224,.055); --wash-amber:rgba(217,89,38,.06);
     --serif:'Playfair Display',Georgia,'Times New Roman',serif;
@@ -48,15 +53,9 @@
      a data URI so the page still makes no network request of its own.
      Decorative only: pointer-events off, behind content, and it never carries
      meaning. Blue and orange keep their support/constraint job on the test. */
-  .afpat{position:absolute;pointer-events:none;top:0;right:0;width:450px;height:390px;
-    background-size:100% 100%;background-repeat:no-repeat;opacity:.9;z-index:0}
-  .afpat.light{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22350%200%20245%20290%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23B9B4A9%22%20stroke-width%3D%220.48%22%3E%3Cpath%20d%3D%22M%20370%20-25%20C%20445%2040%20455%2088%20635%20105%22%2F%3E%3Cpath%20d%3D%22M%20383%20-25%20C%20452%2040%20462%2088%20635%20111%22%2F%3E%3Cpath%20d%3D%22M%20396%20-25%20C%20459%2040%20469%2088%20635%20117%22%2F%3E%3Cpath%20d%3D%22M%20409%20-25%20C%20466%2040%20476%2088%20635%20123%22%2F%3E%3Cpath%20d%3D%22M%20422%20-25%20C%20473%2040%20483%2088%20635%20129%22%2F%3E%3Cpath%20d%3D%22M%20435%20-25%20C%20480%2040%20490%2088%20635%20135%22%2F%3E%3Cpath%20d%3D%22M%20448%20-25%20C%20487%2040%20497%2088%20635%20141%22%2F%3E%3Cpath%20d%3D%22M%20461%20-25%20C%20494%2040%20504%2088%20635%20147%22%2F%3E%3Cpath%20d%3D%22M%20474%20-25%20C%20501%2040%20511%2088%20635%20153%22%2F%3E%3Cpath%20d%3D%22M%20487%20-25%20C%20508%2040%20518%2088%20635%20159%22%2F%3E%3Cpath%20d%3D%22M%20500%20-25%20C%20515%2040%20525%2088%20635%20165%22%2F%3E%3Cpath%20d%3D%22M%20505%20-30%20C%20455%2065%20473%20136%20635%20215%22%2F%3E%3Cpath%20d%3D%22M%20516%20-30%20C%20462%2065%20480%20136%20635%20220%22%2F%3E%3Cpath%20d%3D%22M%20527%20-30%20C%20469%2065%20487%20136%20635%20225%22%2F%3E%3Cpath%20d%3D%22M%20538%20-30%20C%20476%2065%20494%20136%20635%20230%22%2F%3E%3Cpath%20d%3D%22M%20549%20-30%20C%20483%2065%20501%20136%20635%20235%22%2F%3E%3Cpath%20d%3D%22M%20560%20-30%20C%20490%2065%20508%20136%20635%20240%22%2F%3E%3Cpath%20d%3D%22M%20571%20-30%20C%20497%2065%20515%20136%20635%20245%22%2F%3E%3Cpath%20d%3D%22M%20582%20-30%20C%20504%2065%20522%20136%20635%20250%22%2F%3E%3Cpath%20d%3D%22M%20593%20-30%20C%20511%2065%20529%20136%20635%20255%22%2F%3E%3Cpath%20d%3D%22M%20604%20-30%20C%20518%2065%20536%20136%20635%20260%22%2F%3E%3Cpath%20d%3D%22M%20615%20-30%20C%20525%2065%20543%20136%20635%20265%22%2F%3E%3Cpath%20d%3D%22M%20600%20-30%20C%20482%2035%20494%2094%20635%20161%22%2F%3E%3Cpath%20d%3D%22M%20609%20-30%20C%20489%2035%20501%2094%20635%20166%22%2F%3E%3Cpath%20d%3D%22M%20618%20-30%20C%20496%2035%20508%2094%20635%20171%22%2F%3E%3Cpath%20d%3D%22M%20627%20-30%20C%20503%2035%20515%2094%20635%20176%22%2F%3E%3Cpath%20d%3D%22M%20636%20-30%20C%20510%2035%20522%2094%20635%20181%22%2F%3E%3Cpath%20d%3D%22M%20645%20-30%20C%20517%2035%20529%2094%20635%20186%22%2F%3E%3Cpath%20d%3D%22M%20654%20-30%20C%20524%2035%20536%2094%20635%20191%22%2F%3E%3Cpath%20d%3D%22M%20663%20-30%20C%20531%2035%20543%2094%20635%20196%22%2F%3E%3Cpath%20d%3D%22M%20672%20-30%20C%20538%2035%20550%2094%20635%20201%22%2F%3E%3Cpath%20d%3D%22M%20681%20-30%20C%20545%2035%20557%2094%20635%20206%22%2F%3E%3Cpath%20d%3D%22M%20690%20-30%20C%20552%2035%20564%2094%20635%20211%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")}
-  .afpat.white{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22350%200%20245%20290%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%220.48%22%3E%3Cpath%20d%3D%22M%20370%20-25%20C%20445%2040%20455%2088%20635%20105%22%2F%3E%3Cpath%20d%3D%22M%20383%20-25%20C%20452%2040%20462%2088%20635%20111%22%2F%3E%3Cpath%20d%3D%22M%20396%20-25%20C%20459%2040%20469%2088%20635%20117%22%2F%3E%3Cpath%20d%3D%22M%20409%20-25%20C%20466%2040%20476%2088%20635%20123%22%2F%3E%3Cpath%20d%3D%22M%20422%20-25%20C%20473%2040%20483%2088%20635%20129%22%2F%3E%3Cpath%20d%3D%22M%20435%20-25%20C%20480%2040%20490%2088%20635%20135%22%2F%3E%3Cpath%20d%3D%22M%20448%20-25%20C%20487%2040%20497%2088%20635%20141%22%2F%3E%3Cpath%20d%3D%22M%20461%20-25%20C%20494%2040%20504%2088%20635%20147%22%2F%3E%3Cpath%20d%3D%22M%20474%20-25%20C%20501%2040%20511%2088%20635%20153%22%2F%3E%3Cpath%20d%3D%22M%20487%20-25%20C%20508%2040%20518%2088%20635%20159%22%2F%3E%3Cpath%20d%3D%22M%20500%20-25%20C%20515%2040%20525%2088%20635%20165%22%2F%3E%3Cpath%20d%3D%22M%20505%20-30%20C%20455%2065%20473%20136%20635%20215%22%2F%3E%3Cpath%20d%3D%22M%20516%20-30%20C%20462%2065%20480%20136%20635%20220%22%2F%3E%3Cpath%20d%3D%22M%20527%20-30%20C%20469%2065%20487%20136%20635%20225%22%2F%3E%3Cpath%20d%3D%22M%20538%20-30%20C%20476%2065%20494%20136%20635%20230%22%2F%3E%3Cpath%20d%3D%22M%20549%20-30%20C%20483%2065%20501%20136%20635%20235%22%2F%3E%3Cpath%20d%3D%22M%20560%20-30%20C%20490%2065%20508%20136%20635%20240%22%2F%3E%3Cpath%20d%3D%22M%20571%20-30%20C%20497%2065%20515%20136%20635%20245%22%2F%3E%3Cpath%20d%3D%22M%20582%20-30%20C%20504%2065%20522%20136%20635%20250%22%2F%3E%3Cpath%20d%3D%22M%20593%20-30%20C%20511%2065%20529%20136%20635%20255%22%2F%3E%3Cpath%20d%3D%22M%20604%20-30%20C%20518%2065%20536%20136%20635%20260%22%2F%3E%3Cpath%20d%3D%22M%20615%20-30%20C%20525%2065%20543%20136%20635%20265%22%2F%3E%3Cpath%20d%3D%22M%20600%20-30%20C%20482%2035%20494%2094%20635%20161%22%2F%3E%3Cpath%20d%3D%22M%20609%20-30%20C%20489%2035%20501%2094%20635%20166%22%2F%3E%3Cpath%20d%3D%22M%20618%20-30%20C%20496%2035%20508%2094%20635%20171%22%2F%3E%3Cpath%20d%3D%22M%20627%20-30%20C%20503%2035%20515%2094%20635%20176%22%2F%3E%3Cpath%20d%3D%22M%20636%20-30%20C%20510%2035%20522%2094%20635%20181%22%2F%3E%3Cpath%20d%3D%22M%20645%20-30%20C%20517%2035%20529%2094%20635%20186%22%2F%3E%3Cpath%20d%3D%22M%20654%20-30%20C%20524%2035%20536%2094%20635%20191%22%2F%3E%3Cpath%20d%3D%22M%20663%20-30%20C%20531%2035%20543%2094%20635%20196%22%2F%3E%3Cpath%20d%3D%22M%20672%20-30%20C%20538%2035%20550%2094%20635%20201%22%2F%3E%3Cpath%20d%3D%22M%20681%20-30%20C%20545%2035%20557%2094%20635%20206%22%2F%3E%3Cpath%20d%3D%22M%20690%20-30%20C%20552%2035%20564%2094%20635%20211%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");opacity:.6}
-  @media (max-width:600px){.afpat{width:300px;height:260px;opacity:.5}.afpat.white{right:-110px;opacity:.35}}
-  @media print{.afpat{display:none}}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   /* One readable focus ring everywhere, on brand. Nothing in this file sets
      outline:none, so this replaces the browser default rather than restoring a
@@ -68,41 +67,36 @@
   .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-soft)}
   em{font-style:italic;color:var(--blue)}
 
-  nav{position:sticky;top:0;z-index:40;background:rgba(247,246,242,.85);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
+  nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--line)}
   .nav-in{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:15px 56px}
   .brand{display:flex;align-items:center;gap:11px}
   .brand .bn{font-size:16px;font-weight:500;letter-spacing:.06em;line-height:1}
-  /* The signature, replacing the two-line descriptor retired on 23 September. It is a
-     brand line rather than a job description, so it is set in the serif at reading
-     size. "made real" is bound by a non-breaking space in the markup: if the lockup
-     ever wraps, the two words stay together. */
+  /* The signature line. On screen its type and colour come from assets/site.css. */
   .brand .bs{font-family:var(--serif);font-size:13.5px;letter-spacing:.01em;color:var(--grey);margin-top:2px;white-space:nowrap}
   .nav-right{display:flex;align-items:center;gap:28px}
-  .nav-links{display:flex;gap:26px;font-size:13px;color:var(--grey)}
-  .nav-links a{transition:color .2s;white-space:nowrap} .nav-links a:hover{color:var(--blue)}
+  .nav-links{display:flex;font-size:13px;color:var(--grey)}
+  .nav-links a{white-space:nowrap} .nav-links a:hover{color:var(--blue)}
   .nav-links a.here{color:var(--blue)}
-  .afmark{display:block}
-  .nav-cta{font-size:13px;border:1px solid var(--aubergine);color:var(--aubergine);border-radius:30px;padding:8px 16px;transition:all .2s;white-space:nowrap}
+  .nav-cta{font-size:13px;border:1px solid var(--aubergine);color:var(--aubergine);border-radius:2px;padding:8px 16px;white-space:nowrap}
   .nav-cta:hover,.nav-cta:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
 
-  /* Buttons, handover 3. Primary: aubergine fill, white label, blue on hover AND on
-     keyboard focus. Secondary on cream: aubergine outline and text, filling blue with a
-     white label on the same two states. The aubergine-panel variants live with the panels. */
-  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:34px;
+  /* Buttons. Primary: aubergine fill, white label, blue on hover and on keyboard focus.
+     Secondary: aubergine outline and text, filling blue on the same two states. */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;padding:14px 26px;border-radius:2px;
     background:var(--aubergine);color:var(--onpanel);border:1px solid var(--aubergine);font-family:inherit;cursor:pointer;
-    transition:transform .2s,background .2s,border-color .2s,color .2s}
+    }
   .btn:hover,.btn:focus-visible{transform:translateY(-2px);background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
-  .btn.ghost{background:transparent;color:var(--aubergine);border:1px solid var(--aubergine)}
+  .btn.ghost{background:transparent;color:var(--aubergine);}
   .btn.ghost:hover,.btn.ghost:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--onpanel)}
   .btn:focus-visible,.opt:focus-visible,.jump:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
   .sec{padding:70px 0}
-  .sec-head{max-width:680px;margin:0 auto;text-align:center}
+  .sec-head{margin:0 auto;}
   .sec-head h2{font-size:clamp(26px,4vw,40px);margin-top:10px}
   .rule{border-top:0.5px solid var(--line)}
   /* Optional detail, handover 2: the framework explanation is available and no longer
      stands between the visitor and the questions. */
-  .explain{margin-top:26px;border:0.5px solid var(--line);border-radius:10px;background:transparent}
+  .explain{margin-top:26px;border:0.5px solid var(--line);border-radius:10px;}
   .explain summary{cursor:pointer;padding:14px 18px;font-size:13.5px;color:var(--blue);list-style:none}
   .explain summary::-webkit-details-marker{display:none}
   .explain summary:before{content:"+";display:inline-block;width:14px;color:var(--rust-dark)}
@@ -111,14 +105,12 @@
   .explain-in{padding:0 18px 18px}
   .explain-in p{font-size:14px;line-height:1.62;color:var(--grey);margin-bottom:10px}
   .explain-in p:last-child{margin-bottom:0}
-  @media print{.explain{display:none}}
   .lead-note{margin:20px auto 0;font-size:15.5px;color:var(--grey);line-height:1.65;max-width:700px;text-align:center}
   /* The short form of the limits, before the questions. Set smaller than the lead note so it
      frames rather than instructs, and it repeats nothing the result panel needs to say again. */
   .framing{margin:14px auto 0;font-size:13px;color:var(--grey-soft);line-height:1.6;max-width:640px;text-align:center}
 
   /* ---------- masthead ---------- */
-  .mast{padding:60px 0 8px;text-align:center}
   .mast h1{font-size:clamp(36px,6.4vw,64px);margin:14px auto 20px;max-width:16ch}
   .mast .lede{font-size:clamp(16px,2.1vw,19px);color:var(--grey);max-width:660px;line-height:1.6;margin:0 auto}
   .mast .lede + .lede{margin-top:14px}
@@ -130,7 +122,7 @@
   .run{margin-top:44px}
   .run-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
   .run-head .tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px;white-space:nowrap}
-  .run-head .q{font-family:var(--serif);font-size:clamp(18px,2.5vw,25px);line-height:1.2}
+  .run-head .q{font-size:clamp(18px,2.5vw,25px);line-height:1.2}
   .run-note{font-size:13.5px;color:var(--grey);margin-bottom:20px;max-width:760px}
 
   /* The thread. Drawn with CSS boxes rather than SVG so it reflows with the cards at any
@@ -142,7 +134,7 @@
   /* The left "Approved" endcap was removed on 24 September: it carried the retired
      strategy-is-approved language. Column 1 went with it, and a new column 4 holds the
      final segment into Monday morning, which the lane never had. */
-  .lane.forked{grid-template-columns:1fr 132px 1fr 72px 112px;grid-template-rows:auto auto;align-items:center}
+  .lane.forked{grid-template-columns:1fr 132px 1fr 72px 112px;align-items:center}
   .lane.forked > .g-m1{grid-column:1;grid-row:1}
   .lane.forked > .g-m2{grid-column:1;grid-row:2}
   .lane.forked > .f1{grid-column:2;grid-row:1}
@@ -154,13 +146,12 @@
   .lane.linear{grid-template-columns:1fr 74px 1fr 72px 112px;align-items:center}
   .endcap{display:flex;flex-direction:column;gap:7px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-soft);line-height:1.25}
   .endcap.right{text-align:right}
-  .endcap .dot{width:10px;height:10px;border-radius:50%;background:var(--blue)}
+  .endcap .dot{width:10px;height:10px;border-radius:50%;}
   .endcap.right .dot{align-self:flex-end;background:transparent;border:1.5px solid var(--grey-soft)}
   .endcap.right.arrived .dot{background:var(--blue);border-color:var(--blue)}
 
-  .stack{display:grid;gap:16px}
-  .seg{position:relative;height:2px;background:var(--line);border-radius:2px;transition:background .5s ease}
-  .seg::after{content:"";position:absolute;inset:0;border-radius:2px;background:var(--blue);transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.6,.02,.2,1)}
+  .seg{position:relative;height:2px;background:var(--line);border-radius:2px;}
+  .seg::after{content:"";position:absolute;inset:0;border-radius:2px;background:var(--blue);transform:scaleX(0);transform-origin:left center;}
   .seg.arrived::after{transform:scaleX(1)}
   .seg.stalled::after{background:var(--amber);transform:scaleX(.45)}
   /* The final segment is short, so the stalled fill is proportionally shorter still
@@ -169,10 +160,10 @@
   .seg.final .xm{left:46%}
   .seg.stalled{background:repeating-linear-gradient(90deg,var(--line) 0 3px,transparent 3px 9px)}
   /* the stall mark sits at the head of a stalled segment and is never colour alone */
-  .seg .xm{position:absolute;top:50%;left:52%;transform:translateY(-50%);font-size:13px;color:var(--amber);opacity:0;transition:opacity .3s ease .25s;line-height:1}
+  .seg .xm{position:absolute;top:50%;left:52%;transform:translateY(-50%);font-size:13px;color:var(--amber);opacity:0;line-height:1}
   .seg.stalled .xm{opacity:1}
 
-  .gate{border:1px solid rgba(39,71,224,.42);border-radius:14px;padding:16px 18px 17px;background:var(--paper);transition:border-color .35s ease,background .35s ease,box-shadow .35s ease}
+  .gate{border:1px solid rgba(39,71,224,.42);border-radius:14px;padding:16px 18px 17px;background:var(--paper);}
   .gate.pivot{border-color:var(--blue);border-width:1.5px;background:var(--wash-blue)}
   .gate.supports{border-color:var(--blue)}
   .gate.constrains{border-color:var(--amber);border-width:1.5px;background:var(--wash-amber)}
@@ -182,44 +173,42 @@
      constraint at ownership is its own finding whatever sits upstream. */
   .gate.pivot.muted{border-color:var(--grey-soft);border-width:1px;background:var(--paper)}
   .gate.pivot.muted .mid,.gate.pivot.muted .state{color:var(--grey)}
-  .gate .mid{font-family:var(--serif);font-size:12.5px;color:var(--blue);display:block;margin-bottom:3px}
-  /* Amber TEXT on cream measures 3.56:1 and fails AA. #9C431F is the darker companion
-     the brief names for small text on cream. The rails, borders, washes and the ✕ glyph
-     keep #D95926, so nothing about how a constraint READS has changed. */
+  .gate .mid{font-size:12.5px;color:var(--blue);display:block;margin-bottom:3px}
+  /* Amber TEXT measures 3.56:1 on a light surface and fails AA. #9C431F is the darker
+     companion for small text. The rails, borders, washes and the ✕ glyph keep #D95926,
+     so nothing about how a constraint READS has changed. */
   .gate.constrains .mid{color:var(--rust-dark)}
   .gate b{font-size:17px;font-weight:500;display:block;margin-bottom:4px}
   .gate .mfull{font-size:13px;color:var(--grey);line-height:1.45;display:block}
-  .gate .state{display:none;margin-top:11px;padding-top:10px;border-top:0.5px solid rgba(23,24,27,.09);font-size:12.5px;font-weight:500;line-height:1.45}
+  .gate .state{margin-top:11px;padding-top:10px;border-top:0.5px solid rgba(23,24,27,.09);font-size:12.5px;font-weight:500;line-height:1.45}
   /* The state row was shown only once a mechanism had been answered, which is why the
      "not answered yet" line never appeared: it was set on a hidden element. An
      unanswered gate now shows the row too, so an incomplete map says it is incomplete. */
   .gate.answered .state,.gate.unanswered .state{display:block}
   .gate.supports .state{color:var(--blue)}
   .gate.constrains .state{color:var(--rust-dark)}
-  .gate.unanswered .state{color:var(--grey-soft);font-style:normal}
+  .gate.unanswered .state{color:var(--grey-soft);}
   .gate.unanswered .state .lbl{letter-spacing:.045em}
   .gate .state .lbl{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:3px}
   .gate .state .rd{color:var(--grey);font-weight:400}
-  .gate .pn{display:block;margin-top:10px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--blue)}
 
-  .jump{margin-top:12px;font-size:12.5px;color:var(--blue);background:none;border:none;padding:0;font-family:inherit;cursor:pointer;border-bottom:0.5px solid var(--blue)}
+  .jump{margin-top:12px;font-size:12.5px;color:var(--blue);background:none;border:none;font-family:inherit;cursor:pointer;border-bottom:0.5px solid var(--blue)}
   .gate.answered .jump{color:var(--grey);border-bottom-color:var(--grey)}
 
-  /* ---------- questions ---------- */
   /* Start the test lands here, so the section clears the sticky nav the same way a
      question card does. Without this the kicker sits behind the bar. */
   #questions{scroll-margin-top:112px}
-  .qcard{border:0.5px solid var(--line);border-radius:18px;padding:30px 32px 32px;background:var(--paper);max-width:760px;margin:0 auto;scroll-margin-top:110px}
+  .qcard{border:0.5px solid var(--line);border-radius:18px;background:var(--paper);max-width:760px;margin:0 auto;scroll-margin-top:110px}
   .qcard + .qcard{margin-top:18px}
   .qcard .qn{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-soft)}
   .qcard h3{font-size:clamp(20px,2.6vw,26px);margin:10px 0 4px;line-height:1.2}
   .qcard .mech{font-size:12.5px;color:var(--grey-soft);margin-bottom:20px}
   .opts{display:grid;gap:10px}
-  .opt{text-align:left;font-family:inherit;font-size:15px;line-height:1.45;color:var(--ink);background:var(--paper);border:0.5px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+  .opt{text-align:left;font-family:inherit;font-size:15px;line-height:1.45;color:var(--ink);background:var(--paper);border:0.5px solid var(--line);border-radius:12px;padding:15px 18px;cursor:pointer;}
   .opt:hover{border-color:var(--blue);transform:translateY(-1px)}
   .opt[aria-pressed="true"]{border-color:var(--blue);border-width:1.5px;background:var(--wash-blue);padding:14.5px 17.5px}
   .opt[aria-pressed="true"].c{border-color:var(--amber);background:var(--wash-amber)}
-  .qcard.done{opacity:.72;transition:opacity .3s}
+  .qcard.done{opacity:.72;}
   .qcard.done:hover,.qcard.done:focus-within{opacity:1}
 
   .progress{margin:0 auto 6px;max-width:760px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-soft);text-align:center}
@@ -238,31 +227,29 @@
      so the two halves of the page read as one instrument. */
   .runline b{color:var(--blue);font-weight:500;display:block;font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:3px}
   .runline.stall b{color:var(--rust-dark)}
-  .indep{margin-top:18px;font-size:13.5px;color:var(--grey);padding:12px 16px;border:1px dashed var(--grey-soft);border-radius:9px}
+  .indep{font-size:13.5px;color:var(--grey);padding:12px 16px;border:1px dashed var(--grey-soft);border-radius:9px}
 
   /* The limit block. Set as three short points rather than a paragraph, because it has to
      be read rather than skimmed past, and it is the hinge between the free reading and
      what the Review actually produces. */
-  .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
   /* The reading heading takes focus when the result renders, so assistive technology
      lands on it instead of being left at the last answered question. A mouse user who
      has never touched the keyboard should not see a ring for that, and a keyboard user
      should: :focus-visible draws exactly that line, so both are served. */
   #vHead:focus{outline:none}
   #vHead:focus-visible{outline:2px solid var(--blue);outline-offset:6px;border-radius:3px}
-  .limitline{margin-top:26px;padding-top:18px;border-top:0.5px solid var(--line);font-size:13.5px;line-height:1.62;color:var(--grey-soft);max-width:760px}
+  .limitline{padding-top:18px;border-top:0.5px solid var(--line);font-size:13.5px;line-height:1.62;color:var(--grey-soft);max-width:760px}
   .invite{margin-top:32px;padding-top:24px;border-top:0.5px solid var(--line)}
-  .invite h3{font-family:var(--serif);font-weight:400;font-size:clamp(22px,3vw,30px);line-height:1.15;margin-bottom:12px}
+  .invite h3{font-size:clamp(22px,3vw,30px);line-height:1.15;margin-bottom:12px}
   .invite p{font-size:15.5px;line-height:1.66;color:var(--grey);max-width:680px}
   .limits{margin-top:26px;padding:20px 22px;border:0.5px solid var(--line);border-radius:12px;background:var(--wash-blue)}
-  .limits h3{font-size:18px;margin-bottom:12px}
   .lim p{font-size:13.5px;color:var(--grey);line-height:1.55}
   .lim p + p{margin-top:9px}
   .lim b{color:var(--ink);font-weight:500}
   .lim a{color:var(--blue);border-bottom:0.5px solid var(--blue)}
 
   .moves{margin-top:26px;padding-top:24px;border-top:0.5px solid var(--line)}
-  .moves h3{font-size:20px;margin-bottom:6px}
   .moves .ord{font-size:13.5px;color:var(--grey);line-height:1.6}
   /* Two columns: what you can do now, and what the Review would establish before you back
      it. The pairing is the argument, so they sit side by side rather than stacked. */
@@ -276,23 +263,21 @@
      exists, and nothing here ever prints an invented percentage. */
   #bench{display:none;margin-top:22px;padding:14px 16px;border:0.5px solid var(--line);border-radius:9px;font-size:13.5px;color:var(--grey)}
 
-  .selfreport{margin-top:24px;padding-top:22px;border-top:0.5px solid var(--line);font-size:14.5px;color:var(--grey);line-height:1.62}
   .resways{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
   /* The sheet is the document a reader carries into their own meeting, so it sits with
      the reading rather than in the masthead. Set as a text link, not a fourth button:
      the row above already has three. Same treatment as method.html's masthead link. */
   .verdict .dl{margin-top:20px;font-size:14px}
-  .verdict .dl a{border-bottom:0.5px solid var(--blue);color:var(--blue);transition:color .2s,border-color .2s}
+  .verdict .dl a{border-bottom:0.5px solid var(--blue);color:var(--blue);}
   .verdict .dl a:hover{color:var(--ink);border-bottom-color:var(--ink)}
   .verdict .dl span{color:var(--grey-soft);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;margin-left:10px}
   .privline{margin-top:18px;font-size:12.5px;color:var(--grey-soft)}
-  .restart{margin-top:14px;font-size:13px;color:var(--grey-soft);background:none;border:none;padding:0;font-family:inherit;cursor:pointer;border-bottom:0.5px solid var(--grey-soft)}
+  .restart{margin-top:14px;font-size:13px;color:var(--grey-soft);background:none;border:none;font-family:inherit;cursor:pointer;border-bottom:0.5px solid var(--grey-soft)}
 
-  .cta-band{padding:60px 0 82px;text-align:center;border-top:0.5px solid var(--line)}
-  .cta-band .tagline{font-family:var(--serif);font-size:clamp(23px,3.2vw,32px);margin-bottom:22px}
+  .cta-band{padding:60px 0 82px;text-align:center;}
+  .cta-band .tagline{font-size:clamp(23px,3.2vw,32px);margin-bottom:22px}
   .ways{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .backlink{margin-top:28px;font-size:13.5px;color:var(--grey-soft)}
-  .backlink a{color:var(--blue)}
+  .backlink{margin-top:28px;font-size:13.5px;}
   /* ── The quiet aubergine contact band (handover 2) ────────────────────────────
      One hard rule: EVERY text element in here is #FFFFFF. Headings, body, kicker,
      links, button labels, hover and focus states. No blue, grey or rust text.
@@ -300,7 +285,6 @@
      both buttons are transparent with a white outline and a white label instead. */
   .cta-band{background:var(--aubergine);color:var(--onpanel);border-top:none;position:relative;overflow:hidden;isolation:isolate}
   .cta-band>*:not(.afpat){position:relative;z-index:1}
-  .cta-band .afpat{z-index:0}
   .cta-band .kicker,.cta-band .tagline,.cta-band .tagline em,.cta-band .backlink,.cta-band .ctanote{color:var(--onpanel)}
   .cta-band .backlink a{color:var(--onpanel);border-bottom:0.5px solid rgba(255,255,255,.45)}
   .cta-band .backlink a:hover{color:var(--onpanel);border-bottom-color:var(--onpanel)}
@@ -317,10 +301,7 @@
 
   .noscript-note{max-width:760px;margin:0 auto;padding:14px 18px;border:1px dashed var(--grey-soft);border-radius:9px;font-size:14px;color:var(--grey)}
 
-  /* The signature stays visible at every width. This rule used to hide it below 940px
-     because the old two-line descriptor could not fit beside the links and the CTA.
-     "Priorities, made real." is one short line and it is the brand, so hiding it on
-     phones would drop the signature exactly where most launch traffic lands. */
+  /* The signature stays visible at every width and steps down in size on narrow screens. */
   @media (max-width:940px){ .brand .bs{font-size:12.5px} }
   @media (max-width:420px){ .brand .bs{font-size:11.5px} }
   @media (max-width:880px){
@@ -341,10 +322,8 @@
     .lane.forked > .junction{display:block}
     .endcap,.endcap.right{flex-direction:row;align-items:center;gap:10px;text-align:left;padding:2px 0}
     .endcap.right .dot{align-self:auto}
-    .stack{gap:0}
-    .seg{height:26px;width:2px;margin:0 0 0 22px;background:var(--line)}
+    .seg{height:26px;width:2px;margin:0 0 0 22px;}
     .seg::after{transform:scaleY(0);transform-origin:top center}
-    .seg.arrived::after{transform:scaleY(1)}
     .seg.stalled::after{transform:scaleY(.45)}
     .seg.stalled{background:repeating-linear-gradient(180deg,var(--line) 0 3px,transparent 3px 9px)}
     .seg .xm{left:auto;right:-7px;top:52%}
@@ -353,7 +332,7 @@
        a vertical bar to nothing, and a left offset would fight the right offset on a
        2px-wide element. */
     .seg.final.stalled::after{transform:scaleY(.45)}
-    .seg.final .xm{left:auto;right:-7px}
+    .seg.final .xm{left:auto;}
     .gate{margin:6px 0}
     .qcard{padding:24px 22px 26px}
     .verdict{padding:26px 22px 30px}
@@ -362,11 +341,8 @@
   }
   @media (max-width:600px){
     .nav-in{flex-wrap:wrap;padding:12px 24px 10px}
-    .nav-right{display:contents}
-    .nav-cta{margin-left:auto}
-    .nav-links{order:3;width:100%;justify-content:center;gap:20px;font-size:12.5px;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
+    .nav-links{order:3;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
     .sec{padding:50px 0}
-    .mast{padding:38px 0 4px}
   }
   /* No travelling thread for anyone who has asked for less motion: states are drawn
      straight to their final position with no transition. */
@@ -392,10 +368,10 @@
      No page size is forced. A4 and US Letter both print correctly, and forcing A4
      would have made a Letter printer scale the page down. */
   @media print{
-    @page{margin:14mm 14mm 13mm}
+    
     nav,.cta-band,.opt,.jump,.restart,.resways,.verdict .dl,#questions,#map,.mast .startrow,.progress,
     .mast .privacy,.mast .lede,.mast .kicker,.explain,.framing,.noscript-note,.privline{display:none}
-    body{background:#fff;color:#242639;font-size:11pt;line-height:1.5}
+    body{font-size:11pt;line-height:1.5}
     .container{padding:0;max-width:none}
     .sec{padding:0;border-top:none}
     .mast{padding:0;text-align:left}
@@ -405,7 +381,7 @@
     /* ── the running brand header ── */
     .printhead{display:flex;align-items:baseline;gap:10px;padding-bottom:7px;margin-bottom:14px;
       border-bottom:1px solid #2D304B}
-    .ph-mark{font-family:var(--serif);font-size:15pt;letter-spacing:3px;color:#2747E0}
+    .ph-mark{font-size:15pt;letter-spacing:3px;color:#2747E0}
     .ph-name{font-size:9pt;letter-spacing:.14em;text-transform:uppercase}
     .ph-tag{font-family:var(--serif);font-style:italic;font-size:9pt;color:#57534A}
     .ph-right{margin-left:auto;font-size:8pt;letter-spacing:.16em;text-transform:uppercase;color:#57534A}
@@ -421,7 +397,7 @@
     .runlines{margin:12px 0 4px;display:grid;gap:7px}
     .runline{break-inside:avoid;padding-left:9px;border-left:1.5pt solid #2747E0;font-size:10pt;line-height:1.48}
     .runline.stall{border-left-color:#D95926}
-    .runline b{display:block;font-size:8pt;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+    .runline b{font-size:8pt;letter-spacing:.1em;margin-bottom:2px}
     .indep{font-size:9.5pt;line-height:1.45;margin-top:8px}
 
     /* ── the five statuses ──
@@ -430,9 +406,9 @@
        the shape the approved print reference uses. Same STATE, same READ text, same
        three states, so screen and paper can never disagree about a reading. Every row
        carries the glyph AND the written label, so nothing rests on colour. */
-    .pstatus{display:block;margin:16px 0 4px;border-top:0.75pt solid #d8d3c6}
+    .pstatus{display:block;margin:16px 0 4px;border-top:0.75pt solid #dce2ee}
     .pstatus .prow{display:grid;grid-template-columns:28mm 1fr;gap:6mm;padding:7px 0;
-      border-bottom:0.75pt solid #e9e3d5;break-inside:avoid}
+      border-bottom:0.75pt solid #dce2ee;break-inside:avoid}
     .pstatus .pm{font-size:10.5pt;font-weight:500}
     .pstatus .pst{font-size:9pt;letter-spacing:.04em}
     .pstatus .pst .g{font-weight:700;margin-right:5px}
@@ -444,7 +420,7 @@
     /* What five answers cannot see. Restored on 23 September: this is the explanation of
        what a commissioned Review can establish that five answers cannot, and it is the
        part of the reading that earns the conversation. */
-    .limits{display:block;break-inside:auto;margin-top:16px;padding-top:12px;border-top:0.75pt solid #d8d3c6}
+    .limits{margin-top:16px;padding-top:12px;border-top:0.75pt solid #dce2ee}
     .limits h3{font-size:11.5pt;margin-bottom:7px}
     .limits .lim{display:grid;gap:7px}
     .limits p{font-size:9.5pt;line-height:1.45;break-inside:avoid}
@@ -452,19 +428,21 @@
 
     /* First moves, each with what the Review establishes beside it. Single column at
        reading size: the two-column squeeze existed only to save a page. */
-    .moves{break-inside:auto;margin-top:16px;padding-top:12px;border-top:0.75pt solid #d8d3c6}
-    .moves h3{font-size:11.5pt;margin-bottom:5px}
+    .moves{margin-top:16px;padding-top:12px;border-top:0.75pt solid #dce2ee}
+    .moves h3{font-size:11.5pt;margin-bottom:5px;break-after:avoid}
+    .moves .ord{break-after:avoid;break-inside:avoid}
     .moves .ord{font-size:9.5pt;line-height:1.45;margin-bottom:10px}
-    #vMoveList{column-count:1}
+    /* No multicol here: inside one, Chrome ignores break-inside:avoid across pages and a
+       move was printing on one page with its "What the Review establishes" line on the next. */
     .move{display:block;break-inside:avoid;margin:0 0 11px;padding-left:10px;border-left:1.5pt solid #D95926}
     .move .mh{display:block;font-size:8pt;letter-spacing:.1em;margin-bottom:2px}
     .move .mv{font-size:10pt;line-height:1.48}
-    .move .rev{display:block;margin-top:4px;padding-left:0;border-left:0;font-size:9pt;line-height:1.42;color:#57534A}
-    .move .rev b{display:block;font-size:7.5pt;letter-spacing:.1em;text-transform:uppercase;color:#7d7869;margin-bottom:1px}
+    .move .rev{margin-top:4px;font-size:9pt;line-height:1.42;color:#57534A}
+    .move .rev b{font-size:7.5pt;color:#7d7869;margin-bottom:1px}
 
     .invite{display:none}
     .p1signpost{display:block;margin-top:16px;font-size:9.5pt;font-style:italic;color:#57534A}
-    .printfoot{display:block;margin-top:12px;padding-top:8px;border-top:0.75pt solid #e9e3d5;
+    .printfoot{display:block;margin-top:12px;padding-top:8px;border-top:0.75pt solid #dce2ee;
       font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;color:#7d7869}
 
     /* ── the internal discussion page ──
@@ -473,12 +451,12 @@
     .pagetwo{display:none}
     #result.on ~ .pagetwo{display:block;break-before:page;padding:0}
     .p2kicker{font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:#9C431F}
-    .p2head{font-family:var(--serif);font-size:20pt;line-height:1.12;margin:6px 0 11px}
+    .p2head{font-size:20pt;line-height:1.12;margin:6px 0 11px}
     .p2lede{font-size:10.5pt;line-height:1.55;max-width:62ch}
     .p2sub{font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:#57534A;margin-top:18px;margin-bottom:9px}
     .p2steps{list-style:none;display:grid;gap:9px}
     .p2steps li{display:grid;grid-template-columns:10mm 1fr;gap:3mm;break-inside:avoid}
-    .p2steps .n{font-family:var(--serif);font-size:11pt;color:#2747E0}
+    .p2steps .n{color:#2747E0}
     .p2steps b{font-weight:500;font-size:10.5pt}
     .p2steps .d{grid-column:2;font-size:9.5pt;line-height:1.45;color:#57534A}
     .p2note{margin-top:11px;font-size:9.5pt;line-height:1.45;color:#57534A;max-width:66ch}
@@ -488,14 +466,14 @@
        off would otherwise get an empty rectangle where the track record should be, and
        white text must never disappear on white paper. On screen the same panel is
        aubergine with white text, which is where that rule applies. */
-    .ppanel{display:block;margin-top:18px;padding:13px 15px;border:1.2pt solid #2D304B;break-inside:avoid}
+    .ppanel{margin-top:18px;padding:13px 15px;border:1.2pt solid #2D304B;break-inside:avoid}
     .pp-lab{font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:#2D304B;margin-bottom:9px}
     .pp-grid{display:grid;grid-template-columns:44mm 1fr;gap:8mm;align-items:start}
-    .pp-fig{font-family:var(--serif);font-size:15pt;line-height:1.2;color:#2D304B}
+    .pp-fig{font-size:15pt;line-height:1.2;color:#2D304B}
     .pp-fig .l{display:block;white-space:nowrap}
     .pp-fig b{font-weight:400}
     .pp-body p{font-size:9.5pt;line-height:1.45}
-    .pp-note{margin-top:6px;font-size:8.5pt;color:#57534A}
+    .pp-note{margin-top:6px;color:#57534A}
 
     .p2prompt{font-size:10pt;margin-top:12px;break-inside:avoid}
     .p2rule{height:0;border-bottom:0.75pt solid #c9c3b4;margin-top:12px}
@@ -509,20 +487,25 @@
     /* A heading must never be the last thing on a sheet. */
     h2,h3,.p2sub,.p2head,.moves h3,.limits h3{break-after:avoid}
   }
-</style>
-</head>
-<body>
 
-<nav>
+}
+  @page{margin:14mm 14mm 13mm}
+</style>
+<link rel="stylesheet" href="assets/site.css" media="screen"><link rel="stylesheet" href="assets/pages.css" media="screen"><link rel="stylesheet" href="assets/print.css" media="print">
+</head>
+<body class="site paper page-monday-morning-test">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main navigation">
   <div class="nav-in">
     <a class="brand" href="index.html" aria-label="Ale Furtado home">
       <svg class="afmark" width="58" height="38" viewBox="0 0 62 40" fill="none" aria-hidden="true">
-        <line x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
-        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#242639" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">A</text>
-        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#242639" stroke="#F8F5EC" stroke-width="5" paint-order="stroke fill">F</text>
+        <line class="afline" pathLength="1" x1="3" y1="19" x2="59" y2="19" stroke="#2747E0" stroke-width="1.5"/>
+        <text x="6" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#fff" stroke="#2747E0" stroke-width="5" paint-order="stroke fill">A</text>
+        <text x="35" y="31" font-family="'Playfair Display',Georgia,serif" font-size="26" fill="#fff" stroke="#2747E0" stroke-width="5" paint-order="stroke fill">F</text>
         <circle cx="3" cy="19" r="2.2" fill="#2747E0"/><circle cx="59" cy="19" r="2.2" fill="#2747E0"/>
       </svg>
-      <span><span class="bn">Ale Furtado</span><br><span class="bs">Priorities, made&nbsp;real.</span></span>
+      <span><span class="bn">Ale Furtado</span><br><span class="bs">Turning priorities into results.</span></span>
     </a>
     <div class="nav-right">
       <!-- Same four items as every other page. The test WAS deliberately absent from the
@@ -534,20 +517,21 @@
         <a href="index.html#about">About</a>
         <a href="services.html">Services</a>
         <a href="method.html">The method</a>
-        <a class="here" href="monday-morning-test.html">The test</a>
+        <a href="monday-morning-test.html" aria-current="page">The test</a>
       </div>
       <a class="nav-cta" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a>
     </div>
   </div>
 </nav>
 
+<main id="main">
 <!-- MASTHEAD -->
-<header class="mast">
-  <div class="container">
+<header class="mast flow-section">
+  <div class="texture" aria-hidden="true"></div><div class="texture texture-left" aria-hidden="true"></div><div class="container">
     <div class="printhead">
       <span class="ph-mark">AF</span>
       <span class="ph-name">Ale Furtado</span>
-      <span class="ph-tag">Priorities, made&nbsp;real.</span>
+      <span class="ph-tag">Turning priorities into results.</span>
       <span class="ph-right">The Monday-Morning Test</span>
     </div>
     <p class="kicker">The instrument</p>
@@ -802,7 +786,7 @@
     <div class="printhead">
       <span class="ph-mark">AF</span>
       <span class="ph-name">Ale Furtado</span>
-      <span class="ph-tag">Priorities, made&nbsp;real.</span>
+      <span class="ph-tag">Turning priorities into results.</span>
       <span class="ph-right">The Monday-Morning Test</span>
     </div>
 
@@ -844,11 +828,10 @@
 </section>
 
 <!-- CTA -->
-<section class="cta-band" id="talk">
-  <div class="afpat white" aria-hidden="true"></div>
-  <div class="container">
+<section class="cta-band flow-section" id="talk">
+  <div class="texture" aria-hidden="true"></div><div class="texture texture-left" aria-hidden="true"></div><div class="container">
     <p class="kicker">Get in touch</p>
-    <p class="tagline">Priorities, made <em>real</em>.</p>
+    <p class="tagline">Turning priorities into results.</p>
     <div class="ways">
       <a class="btn" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a>
       <a class="btn ghost" href="mailto:letstalk@alefurtado.org?subject=The%20Monday-Morning%20Test">Or email me</a>
@@ -857,6 +840,14 @@
     <p class="backlink"><a href="index.html">Back to alefurtado.org</a></p>
   </div>
 </section>
+</main>
+<footer>
+  <div class="foot-in">
+    <span>&copy; 2026 Ale Furtado</span>
+    <span>Turning priorities into results.</span>
+  </div>
+</footer>
+
 
 <script>
 (function(){
@@ -923,6 +914,9 @@
       lbl.textContent = '○  Not answered yet';
       rd.textContent = '';
       g.classList.add('unanswered');
+      /* After "Start again" the button must invite an answer again, not offer to change one. */
+      var j0 = g.querySelector('.jump');
+      if (j0) j0.textContent = 'Answer question ' + j0.getAttribute('data-q').slice(1);
       return;
     }
     g.classList.remove('unanswered');

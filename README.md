@@ -27,10 +27,13 @@ The first URL that genuinely required a redirect was `/product-sheet`, and it 40
 |---|---|
 | `index.html` | home page |
 | `services.html` | the three engagement scopes, the wider practice and how engagements run |
-| `monday-morning-test.html` | the self-administered test, its reading and the two-page print |
+| `monday-morning-test.html` | the self-administered test, its reading and the printed reading (two or three pages, plus the discussion page) |
 | `method.html` | the Delivery Readiness Review method page |
-| `assets/og-brand-v2.jpg`, `assets/og-instrument-v2.jpg` | link previews. **Versioned, never overwritten:** LinkedIn and WhatsApp cache by URL, so a new card needs a new filename or already-shared links keep the old image |
+| `assets/og-brand-v3.jpg`, `assets/og-instrument-v3.jpg` | link previews (the v2 files stay so old shares keep their card). **Versioned, never overwritten:** LinkedIn and WhatsApp cache by URL, so a new card needs a new filename or already-shared links keep the old image |
 | `card.html`, `print-card.html` | digital and printable contact cards |
+| `assets/site.css` | the shared design system, loaded by every page (screen) |
+| `assets/pages.css` | inner-page styles and each page's colour placement; never loaded by the home page |
+| `assets/print.css` | print overrides; pages also carry their own `@media print` rules |
 | `assets/` | video, posters, portrait, partner logos, the product sheet PDF |
 | `_redirects` | Netlify rules. Root only. |
 | `netlify.toml` | pins the publish directory |
@@ -38,6 +41,10 @@ The first URL that genuinely required a redirect was `/product-sheet`, and it 40
 | `sitemap.xml` | declares one canonical URL per page |
 
 Netlify resolves `.html` automatically, so every page answers to two or three URLs: `/method` and `/method.html`, `/card` and `/card.html`, and `/` alongside `/index.html` and `/index`. `sitemap.xml` lists only the extensionless form. If a page is ever added, add it there too, and use the extensionless URL.
+
+## How the styles fit together
+
+Each inner page keeps its own older structural styles inline, wrapped in `@layer page`. Every rule in `site.css` and `pages.css` is unlayered, so it wins over the page layer whatever the selector weight. That is deliberate: the page layer still carries the print layout, which the screen sheets do not. Body classes name the page (`site paper page-services` and so on).
 
 ## Local preview
 

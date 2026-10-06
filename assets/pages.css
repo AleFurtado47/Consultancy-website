@@ -1,0 +1,198 @@
+/* Inner pages: Services, Method, the Monday-Morning Test and the card. Loaded after
+   site.css and never by the home page, whose approved design does not use these rules.
+   Each page's own older styles sit in `@layer page` inside the page, so everything here
+   wins over them. Colour placements per page are at the end (decision 143). */
+:root{--paper:#fff;--ink:#242639;--grey:#575b68;--grey-soft:#626778;--line:#dce2ee;--sans:Inter,Arial,sans-serif;--serif:Inter,Arial,sans-serif;--aubergine:#2D304B}
+body{display:block;padding:0;overflow-x:visible}
+.site nav{position:relative;backdrop-filter:none;padding-block:24px}
+.nav-in{padding-block:0}
+.brand .bs{font-family:Inter,Arial,sans-serif;color:#fff;margin-top:0;letter-spacing:0}
+.nav-cta,.btn,button{border-radius:2px}
+.nav-links a[aria-current=page]{text-decoration:underline}
+.site h1 em,.site h2 em,.site h3 em,.tagline em{color:inherit;font-style:normal}
+.site .mast,.site .svc-hero{background:#f4f6fb;padding:76px 0 68px;text-align:left;border-bottom:1px solid #dce2ee}
+.site .mast h1,.site .svc-hero h1{font-size:58px;max-width:900px;margin:18px 0 28px}
+.site .mast .lede,.site .svc-hero .lede{max-width:780px;margin:0 0 18px;color:#242639;font-size:19px}
+.site .meta{font-size:12px;letter-spacing:.08em;max-width:760px}
+.site .sec-head{text-align:left;max-width:none;margin-inline:0}
+.site .lead-note,.site .framing{max-width:780px;font-size:17px}
+.site .flow-section{position:relative;isolation:isolate;overflow:hidden}
+.site .flow-section>.container{z-index:1}
+.site .flow-section>.texture{opacity:.48!important;mask-image:linear-gradient(90deg,transparent 0%,transparent 30%,#0000000c 65%,#000 100%)!important}
+.site .flow-section>.texture-left{opacity:.22!important;mask-image:linear-gradient(90deg,transparent 0%,transparent 65%,#000 100%)!important}
+.site .cta-band{border-top:6px solid #2747E0}
+.site .cta-band>.texture{background-image:var(--flow-white);opacity:.2!important}
+.site .cta-band .tagline{font:500 42px/1.2 Inter,Arial,sans-serif;letter-spacing:-.04em}
+.site .cta-band :is(a,p,span,em,h2,h3){color:white!important}
+.site .btn{font:500 15px/1.45 Inter,Arial,sans-serif;min-height:48px;padding:14px 22px;background:#2D304B;border:2px solid #2D304B;color:white;display:inline-flex;align-items:center;justify-content:center}
+.site .btn.ghost{background:transparent;color:#2D304B}
+.site .btn:hover,.site .btn:focus-visible{background:#2747E0;border-color:#2747E0;color:white}
+.site .cta-band .btn{background:transparent;border-color:#fff;}
+.site .cta-band .btn:hover{background:#2747E0;border-color:#2747E0}
+.site .sec{padding:72px 0}
+.site .offers{padding-top:48px}
+.site .offer{border:3px solid #2747E0;border-radius:0;}
+.site .offer h2{font-size:27px;min-height:3.5em}
+.site .offers-in{gap:20px}
+.site #specialist{background:#f4f6fb}
+.site .spec-in{max-width:900px;margin:0}
+.site .spec summary{font-size:23px}
+.site .methodlink{background:#e9efff}
+.site .instrument-lockup{margin:32px 0 0;max-width:780px;background:#fff;border:1px solid #bbc9f0;border-left:4px solid #2747E0;padding:22px;flex-wrap:wrap;gap:16px;text-align:left}
+.site .instrument-lockup .nm{font:500 22px Inter,Arial,sans-serif}
+.site .phases{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;background:none;border:none;border-radius:0}
+.site .phase{background:#f4f6fb;border-top:3px solid #2747E0;padding:28px}
+.site .phase .bar{display:none}
+.site .phase h3{font-size:24px}
+.site .phase p{font-size:16px;line-height:1.65}
+.site #mechanisms{background:#f4f6fb}
+.site .cluster{background:#fff;border-radius:0;border:1px solid #dce2ee;padding:28px}
+.site .mech{border-radius:2px}
+.site .cluster-q .q{font:500 24px/1.3 Inter,Arial,sans-serif}
+.site .cl-explain{font-size:16px;line-height:1.65}
+.site .out{border-radius:0;background:#fff;border:1px solid #dce2ee;border-top:3px solid #2747E0;padding:28px 22px}
+.site .out p{font-size:16px}
+.site #cases{background:#f4f6fb}
+.site .casecard{border:2px solid #2747E0;border-radius:0;background:#fff;padding:28px;}
+.site .casecard h3{font-size:28px}
+.site .casecard p{font-size:16px}
+.site .casecard .open{font:500 15px Inter,Arial,sans-serif;background:#2D304B;color:white;padding:14px 20px;min-height:48px}
+.site .casecard .open:hover{background:#2747E0}
+.site dialog.casedlg{max-width:min(900px,96vw)}
+.site .dlg-in{background:#fff;border-radius:0;border-top:6px solid #2747E0;padding:38px 48px;max-height:90vh;overflow:auto}
+.site .dlg-in h3{font-size:36px;max-width:680px}
+.site .dlg-in h4{font:500 19px Inter,Arial,sans-serif;margin:28px 0 12px;color:#2747E0}
+.site .dlg-in p{font-size:17px;line-height:1.7}
+.site .dlg-close{min-width:44px;min-height:44px;background:#fff;border:1px solid #2D304B;color:#242639}
+
+.site .privacy{font-size:13px;}
+.site #questions{background:#fff}
+.site #qlist{max-width:900px;margin:32px auto 0}
+.site .qcard{background:#f4f6fb;border:1px solid #dce2ee;border-top:3px solid #2747E0;border-radius:0;padding:30px;margin-bottom:24px;}
+.site .qcard h3{font-size:25px;max-width:740px;margin-bottom:14px}
+.site .opts{gap:12px}
+.site .opt{border:1px solid #b9c3db;background:white;padding:16px 18px;font:400 16px/1.55 Inter,Arial,sans-serif;min-height:52px}
+.site .opt:hover{border-color:#2747E0;background:#edf2ff}
+.site .opt[aria-pressed=true]{background:#2747E0;border-color:#2747E0;color:#fff}
+.site .qcard.answered{border-color:#2747E0}
+.site #map{background:#f4f6fb}
+.site .run,.site .verdict{border-radius:0;background:#fff}
+.site .verdict{max-width:none;border-top:4px solid #2747E0;padding:36px}
+.site .verdict h2{font-size:40px}
+.site .verdict .rl{max-width:800px;font-size:18px}
+.site .limits,.site .moves{max-width:none}
+.site .invite{background:#2D304B;padding:28px}
+.site .invite *{color:#fff!important}
+.site .invite .btn{border-color:#fff}
+.site .restart{font:500 14px Inter,Arial,sans-serif;min-height:44px;padding:10px 16px;border:1px solid #2D304B;background:white;}
+.site .card-wrap{background:#f4f6fb;min-height:80vh;padding:60px 22px}
+.site .card{position:relative;z-index:1;margin:auto;max-width:460px;background:white;border:1px solid #dce2ee;border-top:5px solid #2747E0;border-radius:0;padding:32px}
+.site .card h1{font-size:34px;margin:0 0 18px}
+.site .card .role{letter-spacing:0;text-transform:none;font-size:16px}
+.site .card .qr-wrap{border-radius:0}
+.site .card .foot{font-size:12px}
+@media(max-width:900px){
+ .site .offers-in{grid-template-columns:1fr}
+ .site .offer h2{min-height:0}
+}
+@media(max-width:600px){
+ .site nav{padding-block:19px}
+ .site .mast,.site .svc-hero{padding:48px 0}
+ .site .mast h1,.site .svc-hero h1{font-size:38px;max-width:100%}
+ .site .mast .lede{font-size:18px}
+ .site .sec{padding:48px 0}
+ .site .flow-section>.texture{width:100%!important;opacity:.65!important;mask-image:linear-gradient(90deg,#00000008,#00000016 80%,#00000065)!important}
+ .site .flow-section>.texture-left{opacity:.3!important}
+ .site .phases,.site .casegrid{grid-template-columns:1fr}
+ .site .phase,.site .cluster,.site .casecard{padding:24px 20px}
+ .site .cluster-q .q{font-size:21px}
+ .site .cl-explain{font-size:15px}
+ .site .instrument-lockup .nm{font-size:20px}
+ .site .cta-band .tagline{font-size:32px}
+ .site .qcard{padding:24px 18px}
+ .site .qcard h3{font-size:23px}
+ .site .opt{font-size:15px;padding:15px 14px}
+ .site .verdict{padding:26px 18px}
+ .site .verdict h2{font-size:30px}
+ .site .dlg-in{padding:26px 22px}
+ .site .dlg-in h3{font-size:30px}
+ .site .dlg-in p{font-size:16px}
+ .site .card{padding:28px 20px}
+ .site .startrow{flex-direction:column;align-items:stretch}
+}
+/* Remove legacy narrow-column constraints from the services layout. */
+.site .svc-hero-in{max-width:none;}
+.site .offers-in{max-width:none;margin:0;align-items:stretch}
+.site .offer{margin:0;overflow-wrap:normal}
+.site .offer .scope{display:block}
+.site .offer .scope span{display:block;padding-left:16px;margin-bottom:8px}
+.site .offer .scope span::before{position:absolute;left:0;top:5px;content:'';border:1px solid #bcc5d8;width:8px;height:8px}
+.site .offer .scope span.on::before{border-color:#2747E0}
+.site .offer .scope span.off::before{background:white}
+.site .offer dt{color:#575b68}
+.site .svc-hero h1{max-width:850px}
+.site .cta-band{text-align:left}
+.site .cta-band .ways{justify-content:flex-start}
+.site .cta-band h2{margin-left:0;margin-right:0}
+.site .instrument-lockup{justify-content:flex-start}
+.site .instrument-lockup .lbl{width:100%;}
+.site .instrument-lockup .run{margin-left:auto}
+.site .mech{opacity:1!important;transform:none!important;}
+.site #wires{z-index:2}
+.site .tag,.site .badge,.site .dlg-badge{border-radius:2px}
+.site .lead-note{text-align:left}
+@media(max-width:600px){.site .instrument-lockup .run{margin-left:0;width:100%}}
+.site dialog.casedlg{margin:auto}
+.site .qcard.done,.site .qcard.done .opts{opacity:1}
+
+/* October review colour rhythm. */
+.site .hiw .n{color:#B64B24;border-color:#B64B24;font-weight:500}
+.site .phase .pn{color:#B64B24;font-weight:500}
+.site .svc-hero .kicker::before,.site.page-method .meta::before{content:'';display:block;width:64px;height:4px;background:#D95926;margin-bottom:22px}
+
+
+.page-monday-morning-test .mast{background:#2D304B;}
+.site.page-monday-morning-test .mast :is(h1,p,a,span){color:white!important}
+.site.page-monday-morning-test .mast .privacy{color:#fff!important}
+.site.page-monday-morning-test .mast .texture{background-image:var(--flow-white);opacity:.24!important}
+.site.page-monday-morning-test .mast .btn{background:white;color:#2D304B!important;border-color:white}
+.site.page-monday-morning-test .mast .btn.ghost{background:transparent;color:white!important}
+.site.page-monday-morning-test .mast .btn:hover{background:#2747E0;color:white!important;border-color:#2747E0}
+.site.page-monday-morning-test .mast a:focus-visible{outline-color:white}
+.site.page-card .card .btn.primary{color:white!important;background:#2D304B}
+.site.page-card .card .btn.primary:hover{background:#2747E0}
+.site.page-card .card .btns{gap:0}
+.site.page-card .card .btn.primary{margin-bottom:14px}
+.site.page-card .card .contact-link{display:block;min-height:44px;padding:12px 0;border:0;border-bottom:1px solid #dce2ee;font-size:15px}
+.site.page-card .card .contact-link:hover{text-decoration:underline}
+
+.site.page-monday-morning-test .startrow{justify-content:flex-start}
+
+/* Approved page variation: white navigation above the coloured opening. */
+.site:is(.page-services,.page-monday-morning-test) nav{background:#fff;border-bottom:1px solid #dce2ee;color:#2747E0}
+.site:is(.page-services,.page-monday-morning-test) nav :is(.brand,.bn,.bs,.nav-links a,.nav-cta){color:#2747E0!important}
+.site:is(.page-services,.page-monday-morning-test) nav .nav-cta{background:#fff;border-color:#2747E0}
+.site:is(.page-services,.page-monday-morning-test) nav .nav-cta:hover{background:#2747E0;color:#fff!important}
+.site:is(.page-services,.page-monday-morning-test) nav .afmark text{fill:#2747E0;stroke:#fff}
+.site:is(.page-services,.page-monday-morning-test) nav .afmark line{stroke:#2747E0}
+.site:is(.page-services,.page-monday-morning-test) nav .afmark circle{fill:#2747E0}
+.site:is(.page-services,.page-monday-morning-test) nav a:focus-visible{outline-color:#2747E0}
+/* Test: rust closes the page, rather than marking the opening. */
+.site.page-monday-morning-test .mast{border-bottom:1px solid #dce2ee}
+.site.page-monday-morning-test .cta-band{background:#9C431F;border-top:0}
+
+/* Corrected Services direction: colour the existing opening, preserve content order. */
+.site.page-services .svc-hero{background:#9C431F;border-bottom:0}
+.site.page-services .svc-hero :is(h1,p,a,span){color:#fff!important}
+.site.page-services .svc-hero .texture{background-image:var(--flow-white);opacity:.2!important}
+.site.page-services .svc-hero .kicker::before{background:#fff}
+.site.page-services .svc-hero .context-link{border-left-color:#fff}
+
+/* Decision 147: the test link in the opening is identifiable without colour. */
+.site.page-services .svc-hero .context-link a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.site.page-services .svc-hero a:focus-visible{outline-color:#fff}
+.site.page-services #methodlink{background:#e9efff;border-top:1px solid #dce2ee}
+.site.page-services #methodlink :is(h2,p,span){color:#242639!important}
+.site.page-services #methodlink a{color:#2747E0!important}
+.site.page-services #methodlink .texture{background-image:var(--flow);opacity:.35!important}
+.site.page-services #methodlink a:focus-visible{outline-color:#2747E0}

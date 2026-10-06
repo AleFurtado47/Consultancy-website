@@ -24,4 +24,7 @@ https://ale-furtado.netlify.app/*  https://alefurtado.org/:splat  301!
 # same reason /card and /method carry one: the behaviour is implicit and this makes it not.
 /monday-morning-test    /monday-morning-test.html    200
 # The short spoken alias. A 301 rather than a 200, so the analytics stay on one URL.
-/monday    /monday-morning-test    301
+# The target is a FULL address on purpose: with a relative one Netlify sends
+# `Location: /monday-morning-test`, and LinkedIn's Post Inspector failed on /monday with
+# a server error (25 September 2026). Locally this now sends you to the live site.
+/monday    https://alefurtado.org/monday-morning-test    301
