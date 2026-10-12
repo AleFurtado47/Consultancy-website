@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Delivery Readiness Review · Ale Furtado</title>
-<meta name="description" content="A three-week diagnostic of an approved strategy, using the Monday-Morning Test. Due diligence on a decision already taken, not an evaluation.">
+<meta name="description" content="A three-week Delivery Readiness Review examining records and people’s experience to understand delivery constraints and recommend practical next steps.">
 <meta property="og:title" content="The Delivery Readiness Review · Ale Furtado">
-<meta property="og:description" content="A three-week diagnostic of an approved strategy, using the Monday-Morning Test. Due diligence on a decision already taken, not an evaluation.">
+<meta property="og:description" content="A three-week Delivery Readiness Review examining records and people’s experience to understand delivery constraints and recommend practical next steps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alefurtado.org/method">
 <!-- Canonical. ale-furtado.netlify.app serves a byte-identical copy of this site and
@@ -92,7 +92,6 @@
   .rule{border-top:0.5px solid var(--line)}
   .lead-note{margin:20px auto 0;font-size:15.5px;color:var(--grey);line-height:1.65;max-width:700px;text-align:center}
   /* the closing note needs air between it and the map it is summarising */
-  .lead-note.after-map{margin-top:56px}
 
   /* ---------- masthead ---------- */
   .mast{padding:66px 0 10px;position:relative;overflow:hidden;text-align:center}
@@ -137,37 +136,14 @@
   .anim:not(.shown) .reveal:not(.lit) .phase .bar{width:0}
 
   /* ---------- the map ---------- */
-  .mapwrap{position:relative;margin-top:34px}
-  #wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0}
-  #wires path{fill:none;stroke-width:2;stroke-linecap:round;}
-  /* Each cluster owns its own wires, so cluster B draws when the reader reaches it
-     rather than while cluster A is still on screen. The .on class is added by JS. */
-  .anim:not(.shown) #wires .wdot:not(.on){opacity:0}
-
-  .cluster{position:relative;z-index:1}
-  .cluster + .cluster{margin-top:34px}
-  .cluster-q{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-  /* Both clusters carry the same blue. The deep blue #16235C measured lightness 0.284
-     in the palette validation, below the band for a data mark, and using it for cluster B
-     made that half of the map read as the lesser one. The tags and the two questions
-     already say which cluster is which, so the colour has no work to do. */
-  .cluster-q .tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--blue);border-radius:20px;padding:4px 11px;white-space:nowrap}
-  .cluster-q .q{font-family:var(--serif);font-size:clamp(18px,2.5vw,25px);line-height:1.2}
-  .cl{display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;gap:14px}
-  .mstack{display:grid;gap:14px}
-  /* Blue outline from the start. These cards are not clickable, so they carry no
-     hover state: an earlier hover lift promised an interaction that does not exist. */
+  /* The five mechanisms, equally weighted (decision 153). */
+  .mechgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:34px}
   .mech{border:1px solid rgba(39,71,224,.42);border-radius:14px;padding:18px 20px;background:var(--paper);}
   .anim:not(.shown) .reveal:not(.lit) .mech{opacity:0;transform:translateY(9px)}
-  .reveal.lit .mech:nth-child(2){transition-delay:.1s}
-  .mech .mid{font-size:13px;color:var(--blue);display:block;margin-bottom:4px}
   .mech b{font-size:17px;font-weight:500;display:block;margin-bottom:5px}
-  .mech .mfull{font-size:13.5px;color:var(--grey);line-height:1.5;display:block}
-  .mech.pivot{border-color:var(--blue);border-width:1.5px;background:var(--wash-blue);box-shadow:0 8px 28px rgba(39,71,224,.10)}
-  .pivot-note{display:block;margin-top:12px;padding-top:11px;border-top:0.5px solid rgba(39,71,224,.22);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--blue)}
-  .spacer{min-height:1px}
-  .cl-explain{margin:20px 0 0;font-size:14px;color:var(--grey);line-height:1.62;padding-left:16px;border-left:2px solid var(--blue);max-width:760px;text-align:left}
-  .cl-explain b{color:var(--ink);font-weight:500}
+  .mech .mfull{font-size:15px;color:var(--grey);line-height:1.5;display:block}
+  .mech-explain{margin-top:36px;max-width:780px}
+  .mech-explain p{font-size:17px;line-height:1.65;margin-bottom:16px}
 
   /* ---------- what it produces ---------- */
   .outs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
@@ -253,11 +229,10 @@
     .phases{grid-template-columns:repeat(2,1fr)}
     .outs{grid-template-columns:1fr}
     .casegrid{grid-template-columns:1fr}
-    .cl{grid-template-columns:1fr;gap:12px}
-    .spacer{display:none}
-    #wires{display:none}
+    .mechgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
   @media (max-width:600px){
+    .mechgrid{grid-template-columns:1fr}
     .nav-in{flex-wrap:wrap;padding:12px 24px 10px}
     /* .brand .bs is already hidden from 880 down. */
     .nav-links{order:3;padding-top:10px;border-top:0.5px solid var(--line);margin-top:10px}
@@ -266,10 +241,8 @@
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .mech,.phase .bar,#wires path,#wires .wdot{transition:none!important}
+    .mech,.phase .bar{transition:none!important}
     .mech{opacity:1!important;transform:none!important}
-    #wires path{stroke-dashoffset:0!important}
-    #wires .wdot{opacity:1!important}
     .phase .bar{width:100%!important}
     .casecard{transition:none}
   }
@@ -367,9 +340,9 @@ try{
     </div>
     <div class="phases reveal">
       <div class="phase"><span class="bar"></span><p class="pn">Phase 01</p><h3>The strategy sets the map</h3><p>Your strategy decides who I need to speak to, so there is no standard list. The map is drawn by the role someone holds in the strategy, never by where they sit on the org chart.</p></div>
-      <div class="phase"><span class="bar"></span><p class="pn">Phase 02</p><h3>How it comes back</h3><p>Evidence is requested mechanism by mechanism, and how hard each item is to produce gets recorded next to what it shows, because that difficulty is telling you something on its own.</p></div>
-      <div class="phase"><span class="bar"></span><p class="pn">Phase 03</p><h3>The same question, every layer</h3><p>Everyone I speak to answers one identical opening question, and a short exercise draws out what each layer believes is holding the work back. Where the answers separate is where I look.</p></div>
-      <div class="phase"><span class="bar"></span><p class="pn">Phase 04</p><h3>What supports, what constrains, and in what order</h3><p>The report opens with the mechanisms that support delivery, then sets out what would stall delivery and the order the repairs need to run in.</p></div>
+      <div class="phase"><span class="bar"></span><p class="pn">Phase 02</p><h3>How it comes back</h3><p>We examine the records relevant to the work. Difficulty finding them is a reason to look more closely at how arrangements are documented and used; it does not, on its own, establish that those arrangements are absent or ineffective.</p></div>
+      <div class="phase"><span class="bar"></span><p class="pn">Phase 03</p><h3>Following the work through the organisation</h3><p>We speak with the people responsible for delivering the work and those whose decisions affect it, drawing on relevant perspectives across organisational levels. The scope follows the work, rather than a fixed interview count or a requirement to cover every layer.</p></div>
+      <div class="phase"><span class="bar"></span><p class="pn">Phase 04</p><h3>Agree what needs attention first</h3><p>We use the findings to agree what needs attention first and recommend next steps, taking account of dependencies between the changes needed.</p></div>
     </div>
   </div>
 </section>
@@ -381,38 +354,25 @@ try{
   <div class="container">
     <div class="sec-head">
       <p class="kicker">The instrument</p>
-      <h2>Five mechanisms, two clusters.</h2>
-    </div>
-    <p class="lead-note">The five are not a sequence, and reading them as one line tends to send a repair to the wrong place. They sit in two clusters that answer different questions.</p>
-
-    <div class="mapwrap" id="mapwrap">
-      <svg id="wires" aria-hidden="true"></svg>
-
-      <div class="cluster cA reveal">
-        <div class="cluster-q"><span class="tag">Cluster A</span><span class="q">Can the strategy command the work?</span></div>
-        <div class="cl">
-          <div class="mstack">
-            <div class="mech" data-w="a1"><span class="mid">M1</span><b>Authorship</b><span class="mfull">The body that approves is not the body that delivers.</span></div>
-            <div class="mech" data-w="a2"><span class="mid">M2</span><b>Budget</b><span class="mfull">The budget contradicts the strategy.</span></div>
-          </div>
-          <div class="spacer"></div>
-          <div class="mech pivot" data-w="a3"><span class="mid">M3</span><b>Ownership</b><span class="mfull">Nobody owns the outcome.</span><span class="pivot-note">Where the two meet</span></div>
-        </div>
-        <p class="cl-explain"><b>Why they converge here.</b> A name against an outcome only means something if that person helped shape the work and can pay for it. Authorship gives them the first, the budget gives them the second, and ownership is where the two arrive together. Take either one away and the name on the plan is all that is left, which is why repairing ownership on its own rarely produces the result anyone wanted.</p>
-      </div>
-
-      <div class="cluster cB reveal">
-        <div class="cluster-q"><span class="tag">Cluster B</span><span class="q">Can the organisation see it moving and steer it?</span></div>
-        <div class="cl">
-          <div class="mech" data-w="b1"><span class="mid">M4</span><b>Reporting</b><span class="mfull">The results framework reports outputs, not what they mean for the outcome.</span></div>
-          <div class="spacer"></div>
-          <div class="mech" data-w="b2"><span class="mid">M5</span><b>Deciding</b><span class="mfull">Governance meets to report status, not to decide.</span></div>
-        </div>
-        <p class="cl-explain"><b>This one is a hand-off, not a convergence.</b> A body given reporting-grade information cannot make decision-grade choices, so what matters is the quality of what passes between the two rather than either one on its own.</p>
-      </div>
+      <h2>How the work is organised</h2>
     </div>
 
-    <p class="lead-note after-map">Neither cluster depends on the other, so an organisation can be sound on one and stuck on the other, and the two repairs can run at the same time.</p>
+    <!-- Decision 153, 12 October 2026: the two clusters and their dependency wires are
+         retired. Five equally weighted cards, in the same order and with the same short
+         descriptions as the test's introduction panel. Their order carries no sequence. -->
+    <div class="mechgrid reveal">
+      <div class="mech"><b>Authorship</b><span class="mfull">Who developed the substance?</span></div>
+      <div class="mech"><b>Budget</b><span class="mfull">Does funded work cover required work?</span></div>
+      <div class="mech"><b>Ownership</b><span class="mfull">Where are formal commitments held?</span></div>
+      <div class="mech"><b>Reporting</b><span class="mfull">What does delivery mean for outcomes?</span></div>
+      <div class="mech"><b>Deciding</b><span class="mfull">Where is authority exercised?</span></div>
+    </div>
+
+    <div class="mech-explain">
+      <p>The Review examines how people develop the substance of the work, how funded commitments cover it, and whether responsibility is explicit in agreed workplans or performance objectives. It also examines what progress information reveals about the intended outcomes and how people exercise authority when decisions are needed.</p>
+      <p>These arrangements can support one another or create pressure elsewhere. A person may formally carry responsibility for work that falls outside funded commitments, while useful reporting may identify issues that repeatedly move upwards for a decision.</p>
+      <p>The Review examines these relationships against the organisation’s records and people’s experience of delivering the work. Recommendations follow the constraints found in that work, including any dependencies that affect what can be changed first.</p>
+    </div>
   </div>
 </section>
 
@@ -431,8 +391,8 @@ try{
           <rect x="37" y="9" width="13" height="12" rx="3" stroke="#938C7D" stroke-width="1.6" stroke-dasharray="3 3"/>
           <path d="M15 15h3M33 15h3" stroke="#2747E0" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
-        <h3>The repair order</h3>
-        <p>Where several mechanisms constrain delivery, the deliverable is the order they need to be worked in, because a repair made out of sequence tends not to work.</p>
+        <h3>Recommended next steps</h3>
+        <p>Recommendations grounded in the constraints found, including what needs attention first and any dependencies that affect the sequence of changes.</p>
       </div>
       <div class="out">
         <svg width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true">
@@ -442,7 +402,7 @@ try{
           <rect x="38" y="3" width="9" height="17" rx="1.6" fill="#2747E0" opacity=".28"/>
         </svg>
         <h3>Retrieval difficulty</h3>
-        <p>How hard each piece of evidence was to obtain is recorded next to what it showed. Something that took two weeks and a working group to evidence is not yet a system.</p>
+        <p>How hard each piece of evidence was to obtain is recorded next to what it showed. Difficulty finding the relevant records is a reason to examine how arrangements are documented and used. It does not, on its own, establish that those arrangements are absent or ineffective.</p>
       </div>
       <div class="out amber">
         <svg width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true">
@@ -480,7 +440,7 @@ try{
             <path d="M47 10 C70 10, 74 21, 93 21 M47 35 C70 35, 74 26, 93 26" stroke="#2747E0" stroke-width="1.4" stroke-linecap="round"/>
           </svg>
         </span>
-        <p class="shows">The structural reading &middot; Cluster A</p>
+        <p class="shows">The structural reading</p>
         <button class="open" type="button" aria-haspopup="dialog">Read the case <span class="arw" aria-hidden="true">&#8594;</span></button>
       </div>
 
@@ -595,91 +555,11 @@ try{
   } else {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('lit'); releaseWires(e.target); io.unobserve(e.target); }
+        if (e.isIntersecting) { e.target.classList.add('lit'); io.unobserve(e.target); }
       });
     }, { threshold: 0.22 });
     targets.forEach(function(t){ io.observe(t); });
   }
-
-  /* ---- draw the wires between mechanism cards ----
-     Positions are measured from the live DOM rather than hard-coded, so the same
-     code serves any layout. Below 880px the wires are hidden by CSS and the cards
-     stack, which is why we bail out at that width instead of drawing verticals. */
-  var wrap = document.getElementById('mapwrap');
-  var svg  = document.getElementById('wires');
-  var NS   = 'http://www.w3.org/2000/svg';
-
-  function el(n, a){ var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
-
-  function draw(){
-    if (!wrap || !svg) return;
-    svg.innerHTML = '';
-    if (window.innerWidth <= 880) return;
-    var W = wrap.getBoundingClientRect();
-    svg.setAttribute('viewBox', '0 0 ' + W.width + ' ' + W.height);
-
-    function box(sel){
-      var n = wrap.querySelector('[data-w="' + sel + '"]');
-      if (!n) return null;
-      var r = n.getBoundingClientRect();
-      return { l: r.left - W.left, r: r.right - W.left, t: r.top - W.top, b: r.bottom - W.top,
-               cy: r.top - W.top + r.height / 2 };
-    }
-    // The 4th entry is the cluster the wire belongs to, so each wire waits for its
-    // own cluster to come into view instead of firing with the section.
-    var pairs = [
-      ['a1','a3','#2747E0','A'], ['a2','a3','#2747E0','A'], ['b1','b2','#2747E0','B']
-    ];
-    pairs.forEach(function(p){
-      var s = box(p[0]), t = box(p[1]);
-      if (!s || !t) return;
-      var key = p[3];
-      var host = wrap.querySelector('.c' + key);
-      var litAlready = !!(host && host.classList.contains('lit'));
-      var x1 = s.r + 6, y1 = s.cy, x2 = t.l - 8, y2 = t.cy;
-      var mx = (x1 + x2) / 2;
-      var d = 'M ' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2;
-      var path = el('path', { d: d, stroke: p[2], 'data-cl': key });
-      svg.appendChild(path);
-      // Only hide the wire when we are actually animating. Without the gate a
-      // scripting or observer failure would leave the arrows permanently invisible.
-      var animating = document.documentElement.classList.contains('anim')
-                   && !document.documentElement.classList.contains('shown');
-      if (animating && !litAlready) {
-        // dasharray must equal the real path length for the draw-on transition to work
-        var len = path.getTotalLength();
-        path.style.strokeDasharray = len; path.style.strokeDashoffset = len;
-        void path.getBoundingClientRect(); // reflow, so the transition runs from the set offset
-      }
-      var dot = el('circle', { cx: x2 + 2, cy: y2, r: 3.2, fill: p[2], class: 'wdot', 'data-cl': key });
-      if (!animating || litAlready) dot.classList.add('on');
-      svg.appendChild(dot);
-    });
-  }
-
-  var raf;
-  function redraw(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); }
-  window.addEventListener('resize', redraw);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(redraw);
-  window.addEventListener('load', redraw);
-  draw();
-
-  // Release only the wires belonging to the cluster that just came into view.
-  function releaseWires(node){
-    if (!node || !node.classList || !svg) return;
-    var key = node.classList.contains('cA') ? 'A' : node.classList.contains('cB') ? 'B' : null;
-    if (!key) return;
-    svg.querySelectorAll('[data-cl="' + key + '"]').forEach(function(n){
-      if (n.tagName === 'path') n.style.strokeDashoffset = 0; else n.classList.add('on');
-    });
-  }
-
-  // Failsafe partner to the head gate: if an observer never fires, show every wire.
-  setTimeout(function(){
-    if (!svg || !document.documentElement.classList.contains('shown')) return;
-    svg.querySelectorAll('path').forEach(function(p){ p.style.strokeDashoffset = 0; });
-    svg.querySelectorAll('.wdot').forEach(function(c){ c.classList.add('on'); });
-  }, 6100);
 
   /* ---- case study dialogs ----
      Each case carries a hash so a single case can be sent as a URL and opens on arrival:

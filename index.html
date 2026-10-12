@@ -118,17 +118,17 @@
   </section>
 
   <section class="filmband" aria-label="Three questions leaders are already asking">
-    <div class="container"><div><video id="qfilmVid" autoplay muted loop playsinline preload="auto" poster="assets/hero-film-poster.jpg" aria-label="Three questions. We approved the strategy months ago. Why does everything still run the old way? How do we make AI genuinely useful to our teams, beyond the pilot? Our results framework satisfies donors. Why doesn't it help us decide anything?"><source src="assets/hero-film.mp4" type="video/mp4"></video><div class="film-controls"><button class="film-toggle" type="button" aria-controls="qfilmVid" hidden>Pause animation</button></div><div class="film-fallback" hidden><p>“We approved the strategy months ago. Why does everything still run the old way?”</p><p>“How do we make AI genuinely useful to our teams, beyond the pilot?”</p><p>“Our results framework satisfies donors. Why doesn’t it help us decide anything?”</p></div></div></div></section>
+    <div class="container"><div><video id="qfilmVid" autoplay muted loop playsinline preload="auto" poster="assets/hero-film-v2-poster.jpg" aria-label="Three questions. We approved the strategy months ago. Why does everything still run the old way? How do we make AI genuinely useful to our teams, beyond the pilot? Our results framework satisfies donors. Why doesn't it help us decide anything?"><source src="assets/hero-film-v2.mp4" type="video/mp4"></video><div class="film-controls"><button class="film-toggle" type="button" aria-controls="qfilmVid" hidden>Pause animation</button></div><div class="film-fallback" hidden><p>“We approved the strategy months ago. Why does everything still run the old way?”</p><p>“How do we make AI genuinely useful to our teams, beyond the pilot?”</p><p>“Our results framework satisfies donors. Why doesn’t it help us decide anything?”</p></div></div></div></section>
 
   <section class="sec rule testinvite" id="stops">
     <div class="texture texture-left" aria-hidden="true"></div><div class="texture" aria-hidden="true"></div><div class="container">
       <div class="ti-in">
         <div class="five-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
         <p class="kicker eyebrow">The Monday-Morning Test</p>
-        <h2>What might be holding <br class="hbr">your work <em>back?</em></h2>
-        <p class="ti-lede">Five questions about how work happens in your organisation. Your reading gives you a starting point for discussing what may be holding delivery back.</p>
-        <p class="ti-small">Use the reading to start a conversation with your team, or bring it to a conversation with me.</p>
-        <p class="ti-cta"><a class="af-action" href="monday-morning-test.html">Take the test</a></p>
+        <h2>What is supporting or holding back <br class="hbr">your <em>delivery?</em></h2>
+        <p class="ti-lede">Choose a strategy or plan and answer five questions about how the work is organised. You will get a reading of the arrangements you report, how they may affect one another and what is worth examining more closely.</p>
+        <p class="ti-small">A first reading from your answers, not a diagnosis. No email required.</p>
+        <p class="ti-cta"><a class="af-action" href="monday-morning-test.html">Run the Monday-Morning Test</a></p>
       </div>
     </div>
   </section>
@@ -189,8 +189,8 @@
         </div>
 
       <div class="about-film" id="film">
-        <p class="kicker eyebrow">Sixty seconds</p>
-        <video controls playsinline preload="none" poster="assets/about-poster.jpg" aria-label="About Ale Furtado"><source src="assets/about-video.mp4" type="video/mp4"></video><p class="vcap">Sailing, diving and how I work with <em>people</em>.</p>
+        <p class="kicker eyebrow">Meet Ale</p>
+        <video controls playsinline preload="none" poster="assets/about-poster-v2.jpg" aria-label="About Ale Furtado"><source src="assets/about-video-v2.mp4" type="video/mp4"></video><p class="vcap">Sailing, diving and how I work with <em>people</em>.</p>
         <p class="vcredit">Music: “Wholesome” by Kevin MacLeod (incompetech.com) · CC BY 4.0</p>
         <p class="vcredit">Photo &amp; video: Cristina Lopes</p>
       </div>
@@ -228,8 +228,8 @@
       fallback=document.querySelector('.film-fallback');
   if(!vid) return;
   if(!matchMedia('(min-width:701px)').matches){
-    vid.poster='assets/hero-film-mobile-poster.jpg';
-    vid.querySelector('source').src='assets/hero-film-mobile.mp4';
+    vid.poster='assets/hero-film-mobile-v2-poster.jpg';
+    vid.querySelector('source').src='assets/hero-film-mobile-v2.mp4';
     vid.load();
   }
   var userPaused=false;

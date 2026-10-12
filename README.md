@@ -27,9 +27,10 @@ The first URL that genuinely required a redirect was `/product-sheet`, and it 40
 |---|---|
 | `index.html` | home page |
 | `services.html` | the three engagement scopes, the wider practice and how engagements run |
-| `monday-morning-test.html` | the self-administered test, its reading and the printed reading (two or three pages, plus the discussion page) |
+| `monday-morning-test.html` | the self-administered test: page shell, introduction, questions and reading. Behaviour in `assets/mmt-app.js`, styles (screen and print) in `assets/mmt.css` |
+| `assets/mmt-model.js` | the test's response model: the one source of truth for questions, answers, statuses, summaries and the connected readings (decision 154). Checked by `.claude/qa/mmt/run.html`: the handoff test, the relationship package's exhaustive audit, and parity with the package's 2,000 reference readings |
 | `method.html` | the Delivery Readiness Review method page |
-| `assets/og-brand-v3.jpg`, `assets/og-instrument-v3.jpg` | link previews (the v2 files stay so old shares keep their card). **Versioned, never overwritten:** LinkedIn and WhatsApp cache by URL, so a new card needs a new filename or already-shared links keep the old image |
+| `assets/og-brand-v3.jpg`, `assets/og-instrument-v4.jpg` | link previews (the older files stay so old shares keep their card). **Versioned, never overwritten:** LinkedIn and WhatsApp cache by URL, so a new card needs a new filename or already-shared links keep the old image |
 | `card.html`, `print-card.html` | digital and printable contact cards |
 | `assets/site.css` | the shared design system, loaded by every page (screen) |
 | `assets/pages.css` | inner-page styles and each page's colour placement; never loaded by the home page |

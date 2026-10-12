@@ -1,0 +1,279 @@
+/* The Monday-Morning Test (launch build, 12 October 2026). Loaded after site.css and
+   pages.css on the test page only, screen and print. The diagram uses its own approved
+   palette (decision 153): blue #193ABF, rust #973811, ink #25263D, grey #626475, on
+   white. Everything else keeps the site palette. Inter throughout. */
+.mmt{--d-blue:#193ABF;--d-rust:#973811;--d-ink:#25263D;--d-sec:#484B60;--d-small:#383B50;--d-grey:#626475;--line:#dce2ee;background:#fff}
+.mmt .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mmt [hidden]{display:none!important}
+.mmt :focus-visible{outline:3px solid #2747E0;outline-offset:3px}
+.mmt h2,.mmt h3,.mmt h4{font-weight:500;letter-spacing:-.025em;text-wrap:balance}
+.mmt h2{font-size:32px;line-height:1.2;margin:0 0 16px}
+.mmt h3{font-size:26px;line-height:1.25;margin:0 0 14px}
+.mmt h4{font-size:20px;line-height:1.3;margin:0 0 10px}
+.mmt h2:focus,.mmt h2:focus-visible{outline:none}
+.mmt .kicker{margin-bottom:12px!important}
+.mmt .linkbtn{font:500 15px/1.4 Inter,Arial,sans-serif;background:none;border:0;padding:10px 0;min-height:44px;color:#2747E0;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.mmt .linkbtn:hover{color:#2D304B}
+.mmt .btn{cursor:pointer}
+.mmt .note{font-size:15px;color:#575b68;border-left:3px solid #626778;padding-left:14px}
+.mmt .field-error{color:#9C431F;font-weight:500;font-size:15px;margin:10px 0 0}
+.mmt .field-error:empty{display:none}
+.mmt .privacy{font-size:14px;color:#575b68}
+.mk{display:inline-block;flex:none;vertical-align:-1px;width:13px;height:13px}
+
+/* ---------- choices (context and answers) ---------- */
+.mmt fieldset{border:0;margin:0;padding:0;min-width:0}
+.mmt .choices{display:grid;gap:10px}
+.mmt .choice{display:flex;gap:14px;align-items:flex-start;border:1px solid #b9c3db;background:#fff;padding:15px 18px;min-height:52px;cursor:pointer;font-size:16px;line-height:1.5}
+.mmt .choice:hover{border-color:#2747E0}
+.mmt .choice:has(input:checked){border-color:#2747E0;background:#edf2ff;box-shadow:inset 0 0 0 1px #2747E0}
+.mmt .choice:focus-within{outline:3px solid #2747E0;outline-offset:2px}
+.mmt .choice input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:#2747E0}
+.mmt .choice input:focus-visible{outline:none}
+.mmt [aria-invalid=true] .choice{border-color:#9C431F}
+
+/* ---------- introduction ---------- */
+.mmt .intro-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:start}
+.mmt #intro-heading{font-size:30px}
+.mmt .field{margin-top:26px}
+.mmt .field label{display:block;font-weight:500;font-size:16px;margin-bottom:8px}
+.mmt .field label span{font-weight:400;color:#575b68;font-size:14px;margin-left:6px}
+.mmt .field input{width:100%;max-width:560px;font:400 16px/1.4 Inter,Arial,sans-serif;padding:12px 14px;border:1px solid #8b92a5;border-radius:2px;color:#242639;background:#fff}
+.mmt .field input:focus-visible{outline:3px solid #2747E0;outline-offset:1px}
+.mmt .field .note{margin-top:10px}
+.mmt .notice{margin:24px 0 0;padding:14px 16px;border:1px solid #9C431F;border-left-width:4px;background:#fff;font-size:15px}
+.mmt .start-row{margin-top:28px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.mmt .intro-panel{background:#2D304B;color:#fff;padding:34px 32px}
+.mmt .intro-panel *{color:#fff!important}
+.mmt .intro-panel .kicker{color:#fff!important}
+.mmt .intro-panel ol{list-style:none;margin:0 0 22px;padding:0;counter-reset:m}
+.mmt .intro-panel li{counter-increment:m;display:grid;grid-template-columns:34px 1fr;padding:13px 0;border-bottom:1px solid #ffffff38}
+.mmt .intro-panel li::before{content:counter(m,decimal-leading-zero);font-size:13px;padding-top:3px}
+.mmt .intro-panel li b{font-size:18px;font-weight:500;display:block}
+.mmt .intro-panel li span{font-size:15px;line-height:1.5}
+.mmt .intro-panel p{font-size:15px;margin:0}
+.mmt .boundary{margin-top:36px;font-size:15px;color:#575b68;max-width:780px}
+
+/* ---------- questions ---------- */
+.mmt .q-top{max-width:900px;display:flex;justify-content:space-between;align-items:center;gap:8px 24px;flex-wrap:wrap;margin-bottom:18px}
+.mmt .q-work{margin:0;font-size:15px;color:#575b68}
+.mmt .q-work b{color:#242639}
+.mmt .steps{max-width:900px}
+.mmt .steps ol{list-style:none;margin:0 0 26px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.mmt .step{width:100%;min-height:64px;text-align:left;background:#fff;border:1px solid #dce2ee;border-bottom:3px solid #dce2ee;padding:9px 12px;cursor:pointer;font:400 14px/1.3 Inter,Arial,sans-serif;color:#242639;display:flex;flex-direction:column;gap:2px}
+.mmt .step:hover{border-color:#2747E0}
+.mmt .step .step-n{font-size:12px;color:#575b68}
+.mmt .step .step-name{font-weight:500}
+.mmt .step .step-state{font-size:12px;color:#575b68}
+.mmt .step.done{border-bottom-color:#8b9bd8}
+.mmt .step.done .step-state{color:#2747E0}
+.mmt .step[aria-current=step]{border-color:#2747E0;border-bottom-color:#2747E0;background:#edf2ff}
+.mmt .q-panel{background:#f4f6fb;border-top:3px solid #2747E0;padding:34px;max-width:900px}
+.mmt #question-title{font-size:27px;max-width:760px;margin-bottom:12px}
+.mmt #question-hint{font-size:15.5px;color:#575b68;max-width:760px;margin-bottom:22px}
+.mmt .q-notice{margin:0 0 20px;padding:12px 16px;background:#fff;border-left:4px solid #2747E0;font-size:15px}
+.mmt .q-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.mmt .q-actions .spacer{flex:1}
+
+/* ---------- the reading ---------- */
+.mmt .r-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.mmt .r-date{font-size:14px;color:#575b68;margin:0}
+.mmt #result-heading{font-size:44px;letter-spacing:-.04em;margin-bottom:10px}
+.mmt .r-work{font-size:18px;font-weight:500;margin-bottom:22px}
+.mmt .r-based{font-size:14px;font-weight:500;color:#575b68;margin:0 0 6px}
+.mmt .r-summary{font-size:19px;line-height:1.6;max-width:820px}
+.mmt .r-tools{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.mmt .r-block{margin-top:60px;padding-top:36px;border-top:1px solid #dfe1e7}
+.mmt .r-block>p{max-width:800px}
+
+/* The diagram. Square, at most 450px, never stretched. */
+.mmt .map-grid{display:grid;grid-template-columns:minmax(0,450px) minmax(0,1fr);gap:40px;align-items:center;margin-top:24px}
+.mmt .map-col{min-width:0}
+.mmt .map{position:relative;width:100%;max-width:450px;aspect-ratio:1/1;margin:0 auto}
+.mmt .map>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.mmt .piece{fill:#fff;stroke-width:5.5;stroke-linejoin:round;cursor:pointer}
+.mmt .piece.support{stroke:var(--d-blue)}
+.mmt .piece.concern,.mmt .piece.gap{stroke:var(--d-rust)}
+.mmt .piece.unknown{stroke:var(--d-grey)}
+.mmt .piece.selected{stroke-width:8}
+.mmt .map-label{position:absolute;transform:translate(-50%,-50%);width:120px;min-height:48px;padding:6px 4px;border:0;border-radius:2px;background:transparent;color:var(--d-ink);font:500 15px/1.25 Inter,Arial,sans-serif;text-align:center;cursor:pointer}
+.mmt .map-label .mk{display:block;margin:0 auto 6px}
+.mmt .map-label small{display:block;font-size:12px;font-weight:400;line-height:1.3;color:var(--d-small);margin-top:3px}
+.mmt .map-label[aria-pressed=true] .nm{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.mmt .map-label:focus-visible{outline:3px solid var(--d-blue);outline-offset:1px}
+.mmt .map-centre{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:29%;text-align:center;color:var(--d-ink);pointer-events:none}
+.mmt .map-centre strong{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:16px;line-height:1.25;font-weight:500;overflow-wrap:anywhere}
+.mmt .map-centre small{display:block;margin-top:6px;font-size:11.5px;color:var(--d-sec)}
+.mmt .legend{list-style:none;padding:0;margin:20px auto 0;max-width:450px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font-size:13px;color:var(--d-sec)}
+.mmt .legend li{display:flex;align-items:center;gap:7px}
+.mmt .map-note{font-size:14px;color:#575b68;text-align:center;max-width:450px;margin:12px auto 0}
+.mmt .map-detail{border-top:3px solid var(--d-ink);padding-top:18px;min-height:120px;color:var(--d-ink)}
+.mmt .detail-empty{color:var(--d-sec);font-size:15px}
+.mmt .detail-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:10px}
+.mmt .detail-head strong{font-size:21px}
+.mmt .status{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--d-small)}
+.mmt .detail-reading{font-size:16px}
+.mmt .prompt b,.mmt .answer b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:#575b68;margin-bottom:3px}
+.mmt .prompt{font-size:16px}
+
+/* Connected readings (decision 154). Every group carries the same neutral weight: no
+   composite colour, grade or status, whatever its answers. */
+.mmt .group-card{background:#f4f6fb;border:1px solid #dce2ee;border-top:3px solid #2D304B;padding:22px 26px 10px}
+.mmt .group-mechs{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:#575b68;margin:0 0 6px}
+.mmt .group-card h4{margin-bottom:10px}
+.mmt .conn-keep{max-width:900px}
+.mmt .conn-keep .group-card{margin-top:22px}
+.mmt #group-cards:not(:empty){margin-top:18px}
+.mmt .cross-block{margin-top:30px;max-width:900px}
+.mmt .cross-block h4{margin-bottom:12px}
+.mmt .cross-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.mmt .cross-item{border-left:3px solid #2D304B;padding:4px 0 4px 16px;font-size:16px}
+.mmt .cross-mechs{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:#575b68;margin-bottom:3px}
+
+.mmt .card-list{display:grid;gap:18px;margin-top:22px;max-width:900px}
+.mmt .signal-card{border:1px solid #dce2ee;border-left:5px solid var(--d-blue);padding:24px 26px 14px;background:#fff}
+.mmt .signal-card.concern,.mmt .signal-card.gap{border-left-color:var(--d-rust)}
+.mmt .signal-card.unknown{border-left-color:var(--d-grey)}
+.mmt .signal-card:focus-visible{outline:3px solid #2747E0;outline-offset:3px}
+.mmt .signal-head{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;flex-wrap:wrap;margin-bottom:14px}
+.mmt .signal-head h4{margin:0}
+.mmt .answer{font-size:15.5px;color:#3d4152;background:#f4f6fb;padding:12px 14px}
+.mmt .observation{font-size:16.5px}
+.mmt .r-limits p{font-size:16px;max-width:800px}
+.mmt .r-end{display:flex;gap:8px 24px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.mmt .r-end p{margin:0}
+
+/* The Review information. Part of every reading and every printout. */
+.mmt .review{margin-top:64px;background:#f4f6fb;border-top:4px solid #2747E0;padding:40px 40px 34px}
+.mmt .review h3{font-size:34px;letter-spacing:-.035em}
+.mmt .review h4{font-size:19px;margin-top:26px}
+.mmt .review p{max-width:780px}
+.mmt .track{margin:28px 0 8px;max-width:780px;background:#fff;border:1.5px solid #2D304B;padding:22px 26px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;align-items:center;break-inside:avoid}
+.mmt .track .tr-lab{grid-column:1/-1;font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:500;color:#2D304B;margin:0 0 6px}
+.mmt .track .tr-fig{margin:0;color:#2D304B;font-size:24px;line-height:1.25;font-weight:500;letter-spacing:-.02em}
+.mmt .track .tr-fig span{display:block;white-space:nowrap}
+.mmt .track .tr-fig .sep{display:none}
+.mmt .track .tr-body{margin:0;font-size:16px;line-height:1.6}
+.mmt .review .contact-line{font-size:16px}
+.mmt .review .ways{margin-top:22px;justify-content:flex-start}
+.mmt .review .sheet-link{font-size:15px;margin-top:18px}
+.mmt .review .sheet-link span{font-size:12px;letter-spacing:.1em;margin-left:10px;color:#575b68}
+.mmt .print-only,.mmt .printhead,.mmt .printfoot{display:none}
+
+@media(max-width:900px){
+ .mmt .intro-grid{grid-template-columns:1fr;gap:36px}
+ .mmt .map-grid{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:600px){
+ .mmt h3{font-size:23px}
+ .mmt #intro-heading{font-size:26px}
+ .mmt .intro-panel{padding:26px 22px}
+ .mmt .steps ol{gap:4px}
+ .mmt .step{padding:8px 6px;min-height:60px;font-size:12px}
+ .mmt .step .step-state,.mmt .step .step-name{display:none}
+ .mmt .step{align-items:center;justify-content:center;min-height:48px;font-size:14px}
+ .mmt .step .step-n{font-size:14px;color:#242639}
+ .mmt .step.done .step-n::after{content:' \2713';color:#2747E0}
+ .mmt .q-panel{padding:24px 18px}
+ .mmt #question-title{font-size:22px}
+ .mmt .choice{padding:14px 14px;font-size:15px}
+ .mmt .q-actions .btn{flex:1 1 100%}
+ .mmt #result-heading{font-size:34px}
+ .mmt .r-summary{font-size:17.5px}
+ .mmt .r-tools .btn{flex:1 1 100%}
+ .mmt .map-label{width:94px;font-size:13px;padding:4px 2px}
+ .mmt .map-label small{font-size:11px}
+ .mmt .map-label .mk{margin-bottom:4px}
+ .mmt .map-centre strong{font-size:13.5px}
+ .mmt .map-centre small{font-size:10.5px}
+ .mmt .signal-card,.mmt .group-card{padding:20px 18px 10px}
+ .mmt .review{padding:28px 20px 24px}
+ .mmt .review h3{font-size:28px}
+ .mmt .track{grid-template-columns:minmax(0,1fr);padding:20px}
+ .mmt .track .tr-fig span{display:inline}
+ .mmt .track .tr-fig .sep{display:inline}
+ .mmt .track .tr-fig{font-size:21px}
+}
+@media(max-width:380px){
+ .mmt .map-label{width:84px;font-size:12px}
+ .mmt .map-label small{font-size:10.5px}
+}
+@media(prefers-reduced-motion:reduce){.mmt *{transition:none!important;animation:none!important}}
+
+/* ---------- PRINT ----------
+   The same computed reading as the screen. Nothing interactive, no questionnaire, no
+   diagram: the five statuses print as a list. The Review information starts on a fresh
+   page and always follows. Every state is carried by text and an SVG marker, so the
+   output holds with background graphics off and in greyscale. */
+@media print{
+ @page{margin:14mm 14mm 13mm}
+ body{font:400 10.5pt/1.5 Inter,Arial,sans-serif;color:#242639}
+ nav,.skip-link,.cta-band,footer,.texture,#intro,#questionnaire,.mmt .r-tools,.mmt .screen-only,.mmt .map-detail,.mmt .r-end,.mmt .linkbtn,.mmt .review .ways,.mmt .review .sheet-link,#mmt-status{display:none!important}
+ body[data-screen=results] .mast{display:none!important}
+ body:not([data-screen=results]) .mmt{display:none!important}
+ .mast{background:none!important;padding:0!important}
+ .mast *{color:#242639!important}
+ .mast .startrow{display:none!important}
+ .container{max-width:none!important;padding:0!important}
+ .mmt.sec{padding:0!important}
+ .mmt a{color:#242639;text-decoration:none}
+ .mmt .printhead{display:flex;align-items:baseline;gap:10px;padding-bottom:6px;margin-bottom:14px;border-bottom:1pt solid #2D304B}
+ .mmt .printhead .ph-mark{font-size:14pt;letter-spacing:3px;color:#2747E0}
+ .mmt .printhead .ph-name{font-size:9pt;letter-spacing:.14em;text-transform:uppercase}
+ .mmt .printhead .ph-tag{font-size:9pt;color:#575b68}
+ .mmt .printhead .ph-right{margin-left:auto;font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:#575b68}
+ .mmt .kicker{font-size:8pt!important;letter-spacing:.14em;margin-bottom:4px!important}
+ .mmt .r-date{font-size:9pt}
+ .mmt #result-heading{font-size:20pt;margin:0 0 4px}
+ .mmt .r-work{font-size:11.5pt;margin-bottom:10px}
+ .mmt .r-based{font-size:8.5pt;margin:0}
+ .mmt .r-summary{font-size:11pt;line-height:1.5;max-width:none}
+ .mmt .note{font-size:9.5pt}
+ .mmt h3{font-size:13pt;margin:0 0 6px;break-after:avoid}
+ .mmt h4{font-size:11pt;margin:0 0 4px;break-after:avoid}
+ .mmt p{margin:0 0 6pt}
+ /* The circular illustration, neutral: no selection, hover or focus treatment. Kept at its
+    full 450px (about 119mm) and never split from its labels, legend and note. */
+ .mmt .map-section{break-inside:avoid;page-break-inside:avoid}
+ .mmt .map-grid{display:block;margin-top:6pt}
+ .mmt .map-col{break-inside:avoid}
+ .mmt .map{width:450px;max-width:100%}
+ .mmt .piece{stroke-width:5.5!important}
+ .mmt .map-label{outline:none!important}
+ .mmt .map-label .nm{text-decoration:none!important}
+ .mmt .legend{margin-top:8pt;font-size:9pt}
+ .mmt .map-note{font-size:8.5pt;margin-top:4pt}
+ .mmt .r-block{margin-top:16pt;padding-top:0;border-top:0}
+ .mmt .r-block>p{font-size:9.5pt;max-width:none}
+ .mmt .card-list{gap:8pt;margin-top:6pt;max-width:none}
+ .mmt .signal-card,.mmt .group-card{padding:8pt 10pt 4pt;break-inside:avoid;background:#fff;border:.75pt solid #c8cfdc;border-left:3pt solid #193ABF}
+ .mmt .signal-card.concern,.mmt .signal-card.gap{border-left-color:#973811}
+ .mmt .signal-card.unknown{border-left-color:#626475}
+ .mmt .group-card{border-left:.75pt solid #c8cfdc;border-top:2pt solid #2D304B}
+ .mmt .group-mechs,.mmt .cross-mechs{font-size:7.5pt}
+ .mmt .cross-block{margin-top:10pt;max-width:none}
+ .mmt .conn-keep{break-inside:avoid;page-break-inside:avoid;max-width:none}
+ .mmt .conn-keep .group-card{margin-top:6pt}
+ .mmt #group-cards:not(:empty){margin-top:8pt}
+ .mmt .cross-block{break-inside:avoid}
+ .mmt .cross-list{gap:6pt}
+ .mmt .cross-item{font-size:10pt;padding:2pt 0 2pt 8pt;border-left:2pt solid #2D304B;break-inside:avoid}
+ .mmt .signal-head{margin-bottom:4pt}
+ .mmt .status{font-size:9pt}
+ .mmt .answer{background:none;padding:0;font-size:9.5pt}
+ .mmt .observation,.mmt .prompt{font-size:10pt}
+ .mmt .prompt b,.mmt .answer b{font-size:7.5pt;margin-bottom:1pt}
+ .mmt .r-limits p{font-size:9.5pt}
+ .mmt .review{break-before:page;margin:0;padding:0;background:none;border-top:0}
+ .mmt .review .printhead{display:flex}
+ .mmt .review h3{font-size:18pt;margin-bottom:8pt}
+ .mmt .review h4{font-size:11.5pt;margin-top:12pt}
+ .mmt .review p{font-size:10.5pt;max-width:none}
+ .mmt .review .contact-line{font-size:10.5pt;font-weight:500}
+ .mmt .track{margin:14pt 0 6pt;max-width:none;padding:10pt 12pt;border:1.2pt solid #2D304B;grid-template-columns:40mm 1fr;gap:4pt 8mm}
+ .mmt .track .tr-lab{font-size:7.5pt}
+ .mmt .track .tr-fig{font-size:14pt}
+ .mmt .track .tr-body{font-size:10pt}
+ .mmt .print-only{display:block;font-size:9.5pt}
+ .mmt .printfoot{display:block;margin-top:14pt;padding-top:6pt;border-top:.75pt solid #c8cfdc;font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;color:#575b68}
+}
