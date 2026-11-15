@@ -254,3 +254,73 @@ html{scroll-behavior:smooth} body{margin:0} .skip-link{position:fixed;top:-100px
 .site .hero .hero-rule{display:block;width:64px;height:4px;background:#D95926;margin-bottom:34px}
 .site .help-section>.container>.help-in>.kicker{color:#B64B24}
 .site .contact>.container>.kicker{border-left:4px solid #D95926;padding-left:12px}
+
+/* ---------- Home hero and Review introduction, 15 November 2026 (decision 171) ----------
+   Two columns (about 60/40) from 1100px; below that one column, copy only. The cards keep the hero film's line language: 2px ink frames with
+   rounded corners and the film's small line figures inside each card. */
+.site .hero-grid{display:block}
+.site.paper .hero .hero-copy h1{max-width:none}
+.site.paper .hero .hero-copy .lede{max-width:680px}
+.site .hero .hero-eyebrow{margin-bottom:18px!important;color:#484b5c}
+.site .hero .hero-copy h1{font-size:54px;line-height:1.1;letter-spacing:-.05em;max-width:none;margin-bottom:26px}
+.site .hero .h1-q{display:block}
+.site .hero .hero-copy .lede{font-size:19px;line-height:1.65;max-width:680px;margin:0 0 16px}
+.site .hero .hero-ctas{margin-top:30px;align-items:flex-start}
+/* Decision 172: one line under the test button keeps the test's purpose in view. */
+.site .hero .cta-sub{display:flex;flex-direction:column;width:min-content}
+.site .hero .cta-sub .af-action{white-space:nowrap}
+.site .hero .cta-note{margin:9px 0 0;font-size:14px;line-height:1.45;color:#575b68}
+@media (max-width:600px){.site .hero .hero-ctas{align-items:stretch}.site .hero .cta-sub{width:auto}.site .hero .cta-sub .af-action{white-space:normal}.site .hero .cta-note{font-size:13.5px}}
+/* The question cards. Hidden below 1100px (her direction: no cards in the hero on mobile).
+   Default, and with reduced motion: the five cards together, still, in two columns. With
+   the rolling script (.qnet-roll): each card pops up in one of three spots and fades. */
+.site .qnet{display:none}
+.site .qcards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.site .qcard{background:#fff;border:2px solid #2D304B;border-radius:7px;padding:12px 15px 14px;font:500 14px/1.45 Inter,Arial,sans-serif;color:#242639;letter-spacing:-.005em;box-shadow:0 2px 0 #dce1ed}
+.site .qcard span{display:block}
+.site .qfig{display:block;width:100%;max-width:120px;height:auto;margin:0 0 8px}
+.site .qnet-roll .qcards{display:block;position:relative;height:600px}
+.site .qnet-roll .qcard{position:absolute;width:min(262px,64%);font-size:15px;opacity:0;transform:translateY(12px) scale(.92);pointer-events:none}
+.site .qnet-roll.qnet-live .qcard{transition:opacity .45s ease-out,transform .6s cubic-bezier(.34,1.3,.64,1)}
+.site .qnet-roll .qfig{max-width:136px}
+.site .qnet-roll .qcard.s0{left:0;top:0}
+.site .qnet-roll .qcard.s1{right:0;top:200px}
+.site .qnet-roll .qcard.s2{left:9%;top:400px}
+.site .qnet-roll .qcard.in{opacity:1;transform:none}
+.site .qnet-roll .qcard.out{opacity:0;transform:scale(.98)}
+.site .qnet-roll.qnet-live .qcard.out{transition:opacity .7s ease-in,transform .7s ease-in}
+.site .qnet-controls{display:flex;justify-content:flex-end;margin-top:8px}
+.site .qnet-toggle{min-height:40px;padding:8px 14px;font-size:13px}
+/* Narrow screens, only when the hero carries .qnet-m (decision 173: she ruled them off): one
+   card at a time under the buttons, the figure beside the question. The script sets the
+   stage to the tallest card's height so nothing below moves. */
+@media (max-width:1099px){
+ .site .qnet.qnet-m{display:block;margin-top:30px;max-width:520px}
+ .site .qnet-m.qnet-roll .qcard,.site .qnet-m.qnet-roll .qcard.s0{left:0;right:auto;top:0;width:100%;font-size:14.5px}
+ .site .qnet-m .qcard{display:flex;align-items:center;gap:14px}
+ .site .qnet-m .qfig,.site .qnet-m.qnet-roll .qfig{width:96px;max-width:96px;flex:none;margin:0}
+ .site .qnet-m .qnet-controls{justify-content:flex-start}
+ .site .qnet-m.qnet-still{display:none}
+}
+@media (min-width:1100px){
+ .site .hero-grid{display:grid;grid-template-columns:minmax(0,60fr) minmax(0,40fr);gap:56px;align-items:center}
+ .site .qnet{display:block}
+ /* Quieter background lines behind the cards, so the two do not compete. */
+ .site.page-home .hero>.texture{opacity:.3!important}
+}
+@media (max-width:600px){
+ .site .hero .hero-copy h1{font-size:36px;line-height:1.13;letter-spacing:-.045em}
+ .site .hero .hero-copy .lede{font-size:17px}
+ .site.page-home .hero>.texture{opacity:.35!important}
+}
+.site .review-intro{background:#fff;padding:68px 0 70px}
+.site .ri-in{max-width:820px}
+.site .review-intro h2{font-size:38px;line-height:1.18;margin-bottom:20px}
+.site .ri-body{font-size:19px;line-height:1.65;max-width:760px;margin:0}
+.site .ri-close{margin:30px 0 0;padding-left:18px;border-left:3px solid #2747E0;font-size:21px;line-height:1.45;font-weight:500;color:#2D304B;letter-spacing:-.015em;max-width:720px}
+@media (max-width:600px){
+ .site .review-intro{padding:46px 0 50px}
+ .site .review-intro h2{font-size:28px}
+ .site .ri-body{font-size:17px}
+ .site .ri-close{font-size:18px;margin-top:24px}
+}

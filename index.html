@@ -109,16 +109,106 @@
 
 <main id="main"><section class="hero" id="hero">
     <div class="texture texture-left" aria-hidden="true"></div><div class="texture" aria-hidden="true"></div><div class="container">
-      <span class="hero-rule" aria-hidden="true"></span>
-      <h1>The priorities are agreed. <br class="hbr">What actually changes on <em>Monday?</em></h1>
-      <p class="lede">When agreed priorities are not translating into progress, I work with your team to understand what is holding delivery back. Together, we develop a workable response and put it into practice, adjusting as we learn what helps delivery move forward.</p>
-      <div class="hero-ctas"><a class="af-action" href="monday-morning-test.html">Take the Monday-Morning Test</a><a class="af-action ghost" href="https://calendar.app.google/NnwEPpDpSPLVTyY3A" target="_blank" rel="noopener">Book a conversation</a></div>
-      <p class="aud">For organisations working in international development and humanitarian sectors, across organisational priorities, programmes and teams.</p>
+      <!-- Hero, 15 November 2026 (decision 171): copy from her homepage brief with her two
+           amendments of the same day. Two columns from 1100px: the copy, then five rolling
+           question cards with line figures from the hero film. Below 1100px, copy only. The film section that sat below the hero is retired here;
+           its files stay in assets/. -->
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="hero-rule" aria-hidden="true"></span>
+          <p class="kicker eyebrow hero-eyebrow">For international development &amp; humanitarian organisations</p>
+          <h1>You’re under pressure to deliver. <span class="h1-q">What if the obvious answer isn’t the best one?</span></h1>
+          <p class="lede">The priorities are clear, but budgets are being cut and progress is harder than expected. Decisions keep escalating, teams are stretched, and difficult choices lie ahead: what to protect, what to change and where to focus limited resources.</p>
+          <p class="lede">When resources are stretched, every decision matters. I work with leaders and teams to question the obvious response, explore alternatives and turn better decisions into changes that make a difference.</p>
+          <div class="hero-ctas"><a class="af-action" href="services.html#readiness-review">Explore the Delivery Readiness Review</a><div class="cta-sub"><a class="af-action ghost" href="monday-morning-test.html">Take the Monday-Morning Test</a><p class="cta-note">Five questions about how priorities translate into everyday work.</p></div></div>
+        </div>
+        <!-- Five question cards, each with a small line figure in the hero film's style, drawn
+             already. They pop up one at a time in one of three spots, stay a few seconds and
+             fade, and keep rolling (her direction, 15 November). The cards are a list, so a
+             screen reader hears the five questions once; the figures are hidden from it. With
+             reduced motion the five show together, still. Hidden below 1100px. -->
+        <div class="qnet" id="qnet">
+          <ul class="qcards" aria-label="Questions worth asking before deciding how to respond">
+            <li class="qcard q5"><svg class="qfig" viewBox="0 0 160 80" aria-hidden="true" focusable="false"><g fill="none" stroke="#242639" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 74V38h12v36M26 74V50h12v24M44 74V62h12v12M4 74h56"/><circle cx="78" cy="30" r="7"/><path d="M78 37v37M78 48c12-3 30-8 45-10"/><path d="M96 26c8-17 46-17 54 0c-6-4-12-4-18 0c-6-4-12-4-18 0c-6-4-12-4-18 0M123 13V9M123 26v12"/></g><path d="M108 68l10-11 11 5 13-15" fill="none" stroke="#2747E0" stroke-width="1.6" stroke-linejoin="round"/><g fill="#2747E0"><circle cx="108" cy="68" r="2.8"/><circle cx="118" cy="57" r="2.8"/><circle cx="129" cy="62" r="2.8"/><circle cx="142" cy="47" r="2.8"/></g></svg><span>Which results must we protect as funding shrinks?</span></li>
+            <li class="qcard q1"><svg class="qfig" viewBox="0 0 160 80" aria-hidden="true" focusable="false"><g fill="none" stroke="#242639" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 58H150M22 58l-5 18M138 58l5 18"/><circle cx="50" cy="24" r="8"/><path d="M48 32c-5 9-5 17-3 26M47 43c7 2 11 8 14 13"/><circle cx="98" cy="24" r="8"/><path d="M85 58c0-13 6-21 13-21s13 8 13 21M90 50c5 3 11 3 16 0"/><rect x="66" y="54" width="18" height="4" rx="1"/><circle cx="136" cy="20" r="10"/><path d="M136 14v6l4 3"/></g><circle cx="136" cy="10" r="2.6" fill="#2747E0"/></svg><span>We approved the strategy months ago. Why does everything still run the old way?</span></li>
+            <li class="qcard q2"><svg class="qfig" viewBox="0 0 160 80" aria-hidden="true" focusable="false"><g fill="none" stroke="#242639" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="96" height="62" rx="5"/><rect x="47" y="31" width="18" height="14" rx="3"/><path d="M56 31v-5"/><circle cx="134" cy="27" r="7"/><path d="M134 34v40M134 48c-5 2-5 9 0 11M146 8c3-3 8-1 7 3s-4 3-4 6"/></g><g fill="#242639"><circle cx="52.5" cy="37" r="1.3"/><circle cx="59.5" cy="37" r="1.3"/><circle cx="149" cy="21" r="1.2"/></g><g fill="none" stroke="#2747E0" stroke-width="1.5" stroke-linecap="round"><path d="M20 18l27 18"/><path d="M65 36l25-12M65 41l23 19M47 43L28 60" stroke-dasharray="3 4"/></g><g fill="#2747E0"><circle cx="20" cy="18" r="2.8"/><circle cx="90" cy="24" r="2.8"/><circle cx="88" cy="60" r="2.8"/><circle cx="28" cy="60" r="2.8"/><circle cx="56" cy="25" r="1.8"/></g></svg><span>How do we make AI genuinely useful to our teams, beyond the pilot?</span></li>
+            <li class="qcard q4"><svg class="qfig" viewBox="0 0 160 80" aria-hidden="true" focusable="false"><g fill="none" stroke="#242639" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="26" cy="52" rx="15" ry="4.5"/><path d="M11 52v14c0 3 7 5 15 5s15-2 15-5V52M11 59c0 3 7 5 15 5s15-2 15-5"/><circle cx="68" cy="24" r="7"/><path d="M68 31v43M68 43c8 0 13-3 18-7"/></g><g fill="none" stroke="#2747E0" stroke-width="1.6" stroke-linecap="round"><path d="M90 36c22 0 28-22 54-22"/><path d="M90 36h56" stroke-dasharray="3 4"/><path d="M90 36c22 0 28 24 54 24"/></g><g fill="#2747E0"><circle cx="90" cy="36" r="2.8"/><circle cx="144" cy="14" r="2.8"/><circle cx="146" cy="36" r="2.8"/><circle cx="144" cy="60" r="2.8"/></g></svg><span>What could we change besides the budget?</span></li>
+            <li class="qcard q3"><svg class="qfig" viewBox="0 0 160 80" aria-hidden="true" focusable="false"><g fill="none" stroke="#242639" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="24" r="7"/><path d="M16 31v43M5 45c3 6 8 7 11 1c3 6 8 5 11-1"/><circle cx="44" cy="22" r="7"/><path d="M44 29v45M44 41c7-1 12-6 16-11"/><rect x="66" y="6" width="86" height="52" rx="4"/><path d="M80 58l-6 18M138 58l6 18"/></g><path d="M80 46l17-19 14 12 17-20 13 10" fill="none" stroke="#2747E0" stroke-width="1.6" stroke-linejoin="round"/><g fill="#2747E0"><circle cx="80" cy="46" r="2.8"/><circle cx="97" cy="27" r="2.8"/><circle cx="111" cy="39" r="2.8"/><circle cx="128" cy="19" r="2.8"/><circle cx="141" cy="29" r="2.8"/></g></svg><span>Our results framework satisfies donors. Why doesn’t it help us decide anything?</span></li>
+          </ul>
+          <div class="qnet-controls"><button class="film-toggle qnet-toggle" type="button" aria-controls="qnet" hidden>Pause animation</button></div>
+        </div>
+        <script>
+        /* The rolling question cards, in her order (umbrella, strategy, AI, budget, results
+           framework). Desktop: every 2.6s the next card pops up in the next of three spots,
+           stays about 6.4s and fades, so two visible cards never share a spot. Narrow screens,
+           only when the hero carries .qnet-m (off: her ruling, decision 173): one spot under
+           the buttons, one card at a time, each leaving before the next arrives. Pause stops
+           the sequence where it is. Nothing runs while the cards are hidden or with reduced
+           motion. */
+        (function(){
+          var net=document.getElementById('qnet'); if(!net) return;
+          var cards=[].slice.call(net.querySelectorAll('.qcard')), btn=net.querySelector('.qnet-toggle'), ul=net.querySelector('.qcards');
+          if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ net.classList.add('qnet-still'); return; }
+          net.classList.add('qnet-roll');
+          var narrow=window.matchMedia?matchMedia('(max-width:1099px)'):{matches:false};
+          var EVERY=2600, n=0, paused=false, timer=null;
+          function one(){ return narrow.matches; }
+          // Desktop: a card leaves 1.4s before the next card needs its spot. Narrow: one card every
+          // 5s, on screen about 4.2s, gone before the next arrives.
+          function life(){ return one()?4200:3*EVERY-1400; }
+          function every(){ return one()?5000:EVERY; }
+          function visible(){ return net.offsetParent!==null; }
+          // Narrow screens: the stage takes the height of the tallest card, so nothing below it moves.
+          function fit(){
+            if(!one()||!visible()){ ul.style.height=''; return; }
+            ul.style.height=Math.max.apply(null,cards.map(function(c){ return c.offsetHeight; }))+'px';
+          }
+          function leave(c,ms){ c._out=setTimeout(function(){ c.classList.remove('in'); c.classList.add('out'); c._out=null; }, ms); }
+          function step(){
+            timer=null;
+            if(paused) return;
+            if(visible()){
+              var c=cards[n%cards.length], spot=one()?0:n%3; n++;
+              c.classList.remove('s0','s1','s2','out'); c.classList.add('s'+spot); c._seq=n;
+              void c.offsetWidth; c.classList.add('in');
+              leave(c,life());
+            }
+            timer=setTimeout(step, every());
+          }
+          btn.hidden=false;
+          btn.addEventListener('click',function(){
+            paused=!paused; btn.textContent=paused?'Play animation':'Pause animation';
+            net.classList.toggle('qnet-paused',paused);
+            if(paused){ clearTimeout(timer); timer=null; cards.forEach(function(c){ clearTimeout(c._out); c._out=null; }); }
+            else {
+              // Resume in order: the oldest card leaves first, and the next card takes its spot once it has gone.
+              cards.filter(function(c){ return c.classList.contains('in'); }).sort(function(a,b){ return a._seq-b._seq; })
+                .forEach(function(c,i){ leave(c,i*every()); });
+              timer=setTimeout(step,800);
+            }
+          });
+          fit();
+          if(window.ResizeObserver) new ResizeObserver(fit).observe(net); else addEventListener('resize',fit);
+          if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+          // Transitions switch on only after the first frame, so the cards never animate out on load.
+          requestAnimationFrame(function(){ requestAnimationFrame(function(){ net.classList.add('qnet-live'); setTimeout(step,150); }); });
+        })();
+        </script>
+      </div>
     </div>
   </section>
 
-  <section class="filmband" aria-label="Three questions leaders are already asking">
-    <div class="container"><div><video id="qfilmVid" autoplay muted loop playsinline preload="auto" poster="assets/hero-film-v2-poster.jpg" aria-label="Three questions. We approved the strategy months ago. Why does everything still run the old way? How do we make AI genuinely useful to our teams, beyond the pilot? Our results framework satisfies donors. Why doesn't it help us decide anything?"><source src="assets/hero-film-v2.mp4" type="video/mp4"></video><div class="film-controls"><button class="film-toggle" type="button" aria-controls="qfilmVid" hidden>Pause animation</button></div><div class="film-fallback" hidden><p>“We approved the strategy months ago. Why does everything still run the old way?”</p><p>“How do we make AI genuinely useful to our teams, beyond the pilot?”</p><p>“Our results framework satisfies donors. Why doesn’t it help us decide anything?”</p></div></div></div></section>
+  <!-- The Delivery Readiness Review introduced, 15 November 2026 (decision 171). Approved copy
+       only; the closing line is her amendment, kept to what Services says the Review delivers. -->
+  <section class="review-intro" id="review-intro" aria-labelledby="ri-h">
+    <div class="container">
+      <div class="ri-in">
+        <h2 id="ri-h">Before deciding what to change, look beyond the obvious answer.</h2>
+        <p class="ri-body">The Delivery Readiness Review is a focused three-week engagement that challenges assumptions, tests them against evidence and works with your team to identify what will make the greatest difference to delivery.</p>
+        <p class="ri-close">Three weeks. A clearer understanding of your options. Practical recommendations for what to change first.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="sec rule testinvite" id="stops">
     <div class="texture texture-left" aria-hidden="true"></div><div class="texture" aria-hidden="true"></div><div class="container">
@@ -218,39 +308,6 @@
 </footer>
 
 
-<script>
-/* Hero film. The landscape cut plays on desktop and the portrait cut on phones, muted, inline
-   and looping, with an explicit pause control. Autoplay is asked for persistently, because a
-   single play() before the file has buffered is rejected and never retried. A visitor who
-   pauses it keeps it paused: none of the retries may override that choice. */
-(function(){
-  var vid=document.getElementById('qfilmVid'), btn=document.querySelector('.film-toggle'),
-      fallback=document.querySelector('.film-fallback');
-  if(!vid) return;
-  if(!matchMedia('(min-width:701px)').matches){
-    vid.poster='assets/hero-film-mobile-v2-poster.jpg';
-    vid.querySelector('source').src='assets/hero-film-mobile-v2.mp4';
-    vid.load();
-  }
-  var userPaused=false;
-  function sync(){ btn.textContent=vid.paused?'Play animation':'Pause animation'; }
-  function tryPlay(){
-    if(userPaused||!vid.paused) return;
-    var p=vid.play(); if(p&&p.catch) p.catch(function(){ sync(); });
-  }
-  btn.hidden=false;
-  btn.addEventListener('click',function(){
-    if(vid.paused){ userPaused=false; tryPlay(); } else { userPaused=true; vid.pause(); }
-  });
-  vid.addEventListener('play',sync); vid.addEventListener('pause',sync);
-  ['loadeddata','canplay','canplaythrough'].forEach(function(ev){ vid.addEventListener(ev,tryPlay); });
-  document.addEventListener('visibilitychange',function(){ if(!document.hidden) tryPlay(); });
-  vid.querySelector('source').addEventListener('error',function(){
-    vid.hidden=true; btn.hidden=true; fallback.hidden=false;
-  });
-  sync(); tryPlay();
-})();
-</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "115e2a4e764a4d7481e288ddfbd255ad"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

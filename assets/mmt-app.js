@@ -19,9 +19,10 @@
   var GAP_FULL = { authorship: 'Participation gap reported', budget: 'Resource mismatch reported', ownership: 'Assignment gap reported', reporting: 'Information gap reported' };
   var GAP_SHORT = { authorship: 'Participation gap', budget: 'Resource mismatch', ownership: 'Assignment gap', reporting: 'Information gap' };
   var SHORT = { support: 'Supporting arrangement', concern: 'Worth examining', unknown: 'Information to clarify' };
+  var TIMING_ERROR = 'Choose whether its budget has changed.';
   var COLOUR = { support: '#193ABF', concern: '#973811', gap: '#973811', unknown: '#626475' };
 
-  function fresh() { return { context: null, name: '', other: '', answers: {}, index: 0, committed: null, selected: null, restarted: false }; }
+  function fresh() { return { context: null, timing: null, name: '', other: '', answers: {}, index: 0, committed: null, selected: null, restarted: false }; }
   var state = fresh();
 
   /* ---------- small helpers ---------- */
@@ -36,8 +37,12 @@
     Object.keys(attrs).forEach(function (k) { e.setAttribute(k, attrs[k]); });
     return e;
   }
-  function fullLabel(m) { return m.status === 'gap' ? (GAP_FULL[m.id] || M.statusLabels.gap) : M.statusLabels[m.status]; }
-  function shortLabel(m) { return m.status === 'gap' ? (GAP_SHORT[m.id] || 'Reported gap') : SHORT[m.status]; }
+  /* After the cuts, "commitments not revised" is a gap but not a participation gap, so it
+     takes the plain "Gap reported" label (decision 168). */
+  function gapKey(m) { return m.answer && m.answer.id === 'notrevised' ? null : m.id; }
+  function fullLabel(m) { return m.status === 'gap' ? (GAP_FULL[gapKey(m)] || M.statusLabels.gap) : M.statusLabels[m.status]; }
+  function shortLabel(m) { return m.status === 'gap' ? (GAP_SHORT[gapKey(m)] || 'Reported gap') : SHORT[m.status]; }
+  function mechs() { return M.mechanismsFor(state.timing); }
 
   /* The status marker. Drawn in SVG rather than as a CSS background so it survives
      printing with background graphics switched off. Solid circle, solid square, or a
@@ -66,7 +71,11 @@
   /* The name with the context label alongside it, so the same work stays in view. */
   function workLine() {
     var t = workTitle();
-    return t === contextLabel() ? t : t + ' · ' + contextLabel();
+    var line = t === contextLabel() ? t : t + ' · ' + contextLabel();
+    // The timing travels with the context wherever it appears (decision 167). The steady
+    // reading carries no caption, so its screens stay as they were at launch.
+    var cap = M.timing(state.timing).caption;
+    return cap ? line + ', ' + cap : line;
   }
   /* The centre of the diagram holds a bounded label; the full title sits above the reading. */
   function centreLabel() {
@@ -93,17 +102,18 @@
   function readFields() {
     var picked = document.querySelector('input[name="context"]:checked');
     var ctx = picked ? picked.value : null;
-    return { context: ctx, name: $('work-name').value.trim(), other: ctx === 'other' ? $('other-name').value.trim() : '' };
+    var timed = document.querySelector('input[name="timing"]:checked');
+    return { context: ctx, timing: timed ? timed.value : null, name: $('work-name').value.trim(), other: ctx === 'other' ? $('other-name').value.trim() : '' };
   }
   function started() { return Object.keys(state.answers).length > 0; }
   function changedWork() {
     var c = state.committed, f = readFields();
-    return !!c && (f.context !== c.context || f.name !== c.name || f.other !== c.other);
+    return !!c && (f.context !== c.context || f.timing !== c.timing || f.name !== c.name || f.other !== c.other);
   }
   function refreshStart() {
     var notice = $('restart-notice');
     if (started() && changedWork()) {
-      notice.textContent = 'You have started answering for ' + workTitle(state.committed) + '. Applying this change will clear your answers, so that the questions refer to the newly selected work.';
+      notice.textContent = 'You have started answering for ' + workTitle(state.committed) + '. Applying this change will clear your answers, so that the questions refer to your new choices.';
       notice.hidden = false;
       $('start').textContent = 'Clear answers and start again';
     } else {
@@ -133,8 +143,25 @@
       box.append(label);
     });
   }
+  function buildTimings() {
+    var box = $('timing-options');
+    box.replaceChildren();
+    M.timings.forEach(function (t) {
+      var label = el('label', 'choice');
+      var input = el('input');
+      input.type = 'radio'; input.name = 'timing'; input.value = t.id;
+      input.addEventListener('change', function () {
+        $('timing-error').textContent = '';
+        $('timings').removeAttribute('aria-invalid');
+        refreshStart();
+      });
+      label.append(input, el('span', '', t.label));
+      box.append(label);
+    });
+  }
   function fillFields(c) {
     document.querySelectorAll('input[name="context"]').forEach(function (i) { i.checked = !!c && i.value === c.context; });
+    document.querySelectorAll('input[name="timing"]').forEach(function (i) { i.checked = !!c && i.value === c.timing; });
     $('work-name').value = c ? c.name : '';
     $('other-name').value = c ? c.other : '';
     setContextUI(c ? c.context : null);
@@ -147,10 +174,18 @@
   }
   function start() {
     var f = readFields();
+    // Both choices are required and neither is preselected (decision 167). Each missing
+    // choice shows its own error; focus goes to the first one missing.
     if (!f.context) {
       $('context-error').textContent = 'Choose what you would like to examine.';
       $('contexts').setAttribute('aria-invalid', 'true');
-      document.querySelector('input[name="context"]').focus();
+    }
+    if (!f.timing) {
+      $('timing-error').textContent = TIMING_ERROR;
+      $('timings').setAttribute('aria-invalid', 'true');
+    }
+    if (!f.context || !f.timing) {
+      document.querySelector('input[name="' + (f.context ? 'timing' : 'context') + '"]').focus();
       return;
     }
     if (started() && changedWork()) {
@@ -159,8 +194,8 @@
       state.restarted = true;
       clearReading();
     } else if (!started()) state.index = 0;
-    state.context = f.context; state.name = f.name; state.other = f.other;
-    state.committed = { context: f.context, name: f.name, other: f.other };
+    state.context = f.context; state.timing = f.timing; state.name = f.name; state.other = f.other;
+    state.committed = { context: f.context, timing: f.timing, name: f.name, other: f.other };
     question();
   }
 
@@ -168,7 +203,7 @@
   function renderSteps() {
     var list = $('step-list');
     list.replaceChildren();
-    M.mechanisms.forEach(function (m, i) {
+    mechs().forEach(function (m, i) {
       var li = el('li');
       var b = el('button', 'step' + (state.answers[m.id] ? ' done' : ''));
       b.type = 'button';
@@ -182,19 +217,27 @@
     });
   }
   function question(focus) {
-    var m = M.mechanisms[state.index];
+    var m = mechs()[state.index];
     show('questionnaire');
     renderSteps();
     $('context-caption').textContent = workLine();
+    // Before the cuts the questions match the steady test, so a note says what the reading adds (decision 170).
+    var tnote = M.timing(state.timing).questionNote || '';
+    $('timing-note').textContent = tnote;
+    $('timing-note').hidden = !tnote;
     var note = $('q-notice');
     if (state.restarted) {
-      note.textContent = 'Your previous answers were cleared. The questions now refer to ' + workTitle() + '.';
+      // The timing caption joins the title, so a timing-only change is named (no caption when steady).
+      var cap = M.timing(state.timing).caption;
+      note.textContent = 'Your previous answers were cleared. The questions now refer to ' + workTitle() + (cap ? ', ' + cap : '') + '.';
       note.hidden = false;
       state.restarted = false;
     } else { note.hidden = true; note.textContent = ''; }
     $('question-meta').textContent = 'Question ' + (state.index + 1) + ' of 5 · ' + m.name;
     $('question-title').textContent = m.question(state.context);
-    $('question-hint').textContent = m.note + (state.context === 'programme' && m.id === 'authorship' ? ' ' + PROGRAMME_NOTE : '');
+    // The programme note speaks of how the substance was developed, which is the steady and
+    // before question; the after-cuts Authorship question asks who revised the commitments.
+    $('question-hint').textContent = m.note + (state.context === 'programme' && m.id === 'authorship' && state.timing !== 'after' ? ' ' + PROGRAMME_NOTE : '');
     $('answer-error').textContent = '';
     $('answers').removeAttribute('aria-invalid');
     var box = $('answer-options');
@@ -209,14 +252,14 @@
         $('answer-error').textContent = '';
         $('answers').removeAttribute('aria-invalid');
         renderSteps();
-        $('to-results').hidden = !M.derive(state.answers).complete || state.index === 4;
+        $('to-results').hidden = !M.derive(state.answers, state.timing).complete || state.index === 4;
       });
-      label.append(input, el('span', '', M.optionText(m.id, o.id, state.context)));
+      label.append(input, el('span', '', M.optionText(m.id, o.id, state.context, state.timing)));
       box.append(label);
     });
     $('back').hidden = state.index === 0;
     $('next').textContent = state.index === 4 ? 'See your reading' : 'Continue';
-    $('to-results').hidden = !M.derive(state.answers).complete || state.index === 4;
+    $('to-results').hidden = !M.derive(state.answers, state.timing).complete || state.index === 4;
     if (focus !== false) $('question-title').focus({ preventScroll: true });
   }
   function missing(text) {
@@ -224,7 +267,7 @@
     $('answers').setAttribute('aria-invalid', 'true');
   }
   function next() {
-    var m = M.mechanisms[state.index];
+    var m = mechs()[state.index];
     if (!state.answers[m.id]) {
       missing('Choose the closest answer, or select “I do not know”.');
       $('answer-options').querySelector('input').focus();
@@ -250,7 +293,7 @@
     state.selected = null;
   }
   function results() {
-    var model = M.derive(state.answers);
+    var model = M.derive(state.answers, state.timing);
     if (!model.complete) {
       state.index = model.mechanisms.findIndex(function (m) { return !m.answered; });
       question();
@@ -305,7 +348,7 @@
     });
   }
   function select(id) {
-    var model = M.derive(state.answers);
+    var model = M.derive(state.answers, state.timing);
     var m = model.mechanisms.find(function (x) { return x.id === id; });
     state.selected = id;
     $('map-svg').querySelectorAll('.piece').forEach(function (p) { p.classList.toggle('selected', p.getAttribute('data-mech') === id); });
@@ -328,7 +371,15 @@
       goTo(card);
       card.focus({ preventScroll: true });
     });
-    box.append(head, el('p', 'detail-reading', m.reading), go);
+    box.append(head, el('p', 'detail-reading', m.reading));
+    if (m.expected) box.append(expectedLine(m));
+    box.append(go);
+  }
+  /* Before the cuts, each answer's reading gains one line under a small label. */
+  function expectedLine(m) {
+    var p = el('p', 'prompt if-expected');
+    p.append(el('b', '', M.ifExpectedLabel), document.createTextNode(m.expected));
+    return p;
   }
   function mechName(id) { return M.mechanisms.find(function (m) { return m.id === id; }).name; }
   /* The connected readings and cross-group questions, exactly as the model returns them for
@@ -367,12 +418,14 @@
       badge.append(marker(m.status), document.createTextNode(fullLabel(m)));
       head.append(h, badge);
       var answer = el('p', 'answer');
-      answer.append(el('b', '', 'Your answer'), document.createTextNode(M.optionText(m.id, m.answer.id, state.context)));
+      answer.append(el('b', '', 'Your answer'), document.createTextNode(M.optionText(m.id, m.answer.id, state.context, state.timing)));
       var edit = el('button', 'linkbtn card-edit', 'Change this answer');
       edit.type = 'button';
       edit.setAttribute('aria-label', 'Change your ' + m.name + ' answer');
       edit.addEventListener('click', function () { state.index = i; question(); });
-      card.append(head, answer, el('p', 'observation', m.reading), edit);
+      card.append(head, answer, el('p', 'observation', m.reading));
+      if (m.expected) card.append(expectedLine(m));
+      card.append(edit);
       box.append(card);
     });
   }
@@ -383,6 +436,8 @@
     fillFields(null);
     $('context-error').textContent = '';
     $('contexts').removeAttribute('aria-invalid');
+    $('timing-error').textContent = '';
+    $('timings').removeAttribute('aria-invalid');
     $('answer-error').textContent = '';
     $('answer-options').replaceChildren();
     $('step-list').replaceChildren();
@@ -395,6 +450,7 @@
 
   /* ---------- wiring ---------- */
   buildContexts();
+  buildTimings();
   ['work-name', 'other-name'].forEach(function (id) { $(id).addEventListener('input', refreshStart); });
   $('start').addEventListener('click', start);
   $('next').addEventListener('click', next);

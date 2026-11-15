@@ -205,6 +205,13 @@
             <div class="choices" id="context-options"></div>
           </fieldset>
           <p class="field-error" id="context-error" role="alert"></p>
+          <!-- Decision 167: the budget timing is a second required choice, none preselected.
+               It sets which questions and readings the test presents (steady, before, after). -->
+          <fieldset id="timings" aria-describedby="timing-error">
+            <legend><h2 id="timing-heading">Has its budget changed?</h2></legend>
+            <div class="choices" id="timing-options"></div>
+          </fieldset>
+          <p class="field-error" id="timing-error" role="alert"></p>
           <div class="field">
             <label for="work-name">Give it a short name <span>Optional</span></label>
             <input id="work-name" type="text" maxlength="100" autocomplete="off" spellcheck="false" placeholder="For example: organisational strategy 2026–2030">
@@ -239,7 +246,11 @@
     <div id="questionnaire" class="mmt-screen" hidden>
       <div class="q-top">
         <button class="linkbtn" id="change-context" type="button">Change what you are examining</button>
-        <p class="q-work">Examining: <b id="context-caption"></b></p>
+        <div class="q-context">
+          <p class="q-work">Examining: <b id="context-caption"></b></p>
+          <!-- Decision 170: shown on every question screen of the reading before budget cuts. -->
+          <p class="q-timing-note" id="timing-note" hidden></p>
+        </div>
       </div>
       <div class="steps" role="navigation" aria-label="Test questions"><ol id="step-list"></ol></div>
       <div class="q-panel">

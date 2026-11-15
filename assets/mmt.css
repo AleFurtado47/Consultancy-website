@@ -34,7 +34,8 @@
 
 /* ---------- introduction ---------- */
 .mmt .intro-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:start}
-.mmt #intro-heading{font-size:30px}
+.mmt #intro-heading,.mmt #timing-heading{font-size:30px}
+.mmt #timings{margin-top:34px}
 .mmt .field{margin-top:26px}
 .mmt .field label{display:block;font-weight:500;font-size:16px;margin-bottom:8px}
 .mmt .field label span{font-weight:400;color:#575b68;font-size:14px;margin-left:6px}
@@ -58,6 +59,7 @@
 .mmt .q-top{max-width:900px;display:flex;justify-content:space-between;align-items:center;gap:8px 24px;flex-wrap:wrap;margin-bottom:18px}
 .mmt .q-work{margin:0;font-size:15px;color:#575b68}
 .mmt .q-work b{color:#242639}
+.mmt .q-timing-note{margin:4px 0 0;font-size:14px;color:#575b68;max-width:560px}
 .mmt .steps{max-width:900px}
 .mmt .steps ol{list-style:none;margin:0 0 26px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .mmt .step{width:100%;min-height:64px;text-align:left;background:#fff;border:1px solid #dce2ee;border-bottom:3px solid #dce2ee;padding:9px 12px;cursor:pointer;font:400 14px/1.3 Inter,Arial,sans-serif;color:#242639;display:flex;flex-direction:column;gap:2px}
@@ -115,6 +117,8 @@
 .mmt .detail-reading{font-size:16px}
 .mmt .prompt b,.mmt .answer b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:#575b68;margin-bottom:3px}
 .mmt .prompt{font-size:16px}
+/* Before budget cuts: the added line under each reading, set like a prompt. */
+.mmt .if-expected{margin-top:-4px}
 
 /* Connected readings (decision 154). Every group carries the same neutral weight: no
    composite colour, grade or status, whatever its answers. */
@@ -166,7 +170,7 @@
 }
 @media(max-width:600px){
  .mmt h3{font-size:23px}
- .mmt #intro-heading{font-size:26px}
+ .mmt #intro-heading,.mmt #timing-heading{font-size:26px}
  .mmt .intro-panel{padding:26px 22px}
  .mmt .steps ol{gap:4px}
  .mmt .step{padding:8px 6px;min-height:60px;font-size:12px}
